@@ -46,11 +46,21 @@ const layers = {
         "type": "circle",
         "source": "accessscore",
         "paint": {
-        'circle-radius': [
-            'case',
-            ['boolean', ['feature-state', 'hover'], false],
-            7,4
-        ],
+        'circle-radius': 
+        ['step', ['zoom'],
+        ['case',['boolean', ['feature-state', 'hover'], false],6,3],
+        10,
+        ['case',['boolean', ['feature-state', 'hover'], false],7,4],
+        13,
+        ['case',['boolean', ['feature-state', 'hover'], false],8,5]],
+
+// ['step', ['zoom'],
+// ['case', ['all', ['!', ['feature-state', 'hidden']], ['get', 'red'], 1, 0],
+// 10,
+// ['case', ['all', ['!', ['feature-state', 'hidden']], ['any', ['get', 'red'], ['get', 'green']], 1, 0],
+// 15,
+// ['case', [['!', ['feature-state', 'hidden']], 1, 0]],
+
         'circle-stroke-color': '#e5e5e5',
         'circle-stroke-width': .5,
         'circle-color': [
