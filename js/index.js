@@ -9,6 +9,23 @@ const modal = document.getElementById('modal')
 const modalToggle = document.getElementById('modal-toggle')
 const closeModal = document.getElementById('close-modal')
 // get additional elements here (forms, etc)
+
+document.querySelectorAll(".infoSelection").forEach(el => {
+  el.onclick = event => {
+    const id = event.target.dataset.imageToShow
+    document.querySelectorAll(".info").forEach(img => { img.style.display = "none" })
+    document.getElementById(id).style.display = "block"
+  }
+})
+
+document.querySelectorAll(".scoreSelection").forEach(el => {
+  el.onclick = event => {
+    const id = event.target.dataset.imageToShow
+    document.querySelectorAll(".score").forEach(img => { img.style.display = "none" })
+    document.getElementById(id).style.display = "block"
+  }
+})
+
 const searchForm = document.getElementById('search')
 var retailSearch = {};
 var stations;
@@ -31,107 +48,160 @@ map.on('load', () => {
         });
 
     map.on('click','stations', (e) => {
-            var props = e.features[0].properties;
+      var props = e.features[0].properties;
+      var coordinates = e.features[0].geometry.coordinates;
+      handleStation(props,coordinates,map)    
+    });
+
+  
+    const handleStation = function (props,coordinates,map) {
+         //   var props = e.features[0].properties;
            // console.log(props.STATION);
-            var score1 = [
-            props.WLKSCORE,
-            props.TVVSCORE,
-            props.OBFSCORE,
-            props.CONSCORE 
-            ];
-            updatebarChart(score1);
 
-            function EXTODdraw(value) {
-                alert("modal goes here");
-            //    $('#EXTODModal').one('shown.bs.modal', function() {
-            //    $('#EXTODTabs a[data-target="#' + value + '"]').tab('show'); }).modal('show');
-            //    $('#FTODPModal').modal('close');
-            }
+    var info =
+    "<div id='stationName'><h3 style='margin-top:0;'>" +
+    props.station +
+    "<small> - "+
+    props.line+
+    "</span><span><img id='operatorLogo' src='./img/" +
+    props.operator +
+    ".png'/></span><br>"+
+    props.county +
+    "<span></span> County, <span>" +
+    props.state +
+    "</span></small></h3></div>"+
+    "</div>" 
+    ;
+    document.getElementById("stationName").innerHTML = info;
+    var content = "<div class='data-row'><span class='data-info'>Civic and Cultural Attractors </span><span class='data-value'> " +
+      props.civic_cnt +
+      "</span></div>" +
+      "<br><div class='data-row'><span class='data-info'>Parks and Open Space </span><span class='data-value'> " +
+      props.park_score +
+      "</span></div>" +
+      "<br><div class='data-row'><span class='data-info'>Walkable Retail and Centers </span><span class='data-value'> " +
+      props.retail_sco +
+      "</span></div>" +
+      "<br><div class='data-row'><span class='data-info'>Essential Services (ETA) </span><span class='data-value'> " +
+      props.eta_cnt +
+      "</span></div>" +
+      "<br><div class='data-row'><span class='data-info'>Employees (Nets 2015) within 1-mile of the station  </span><span class='data-value'> " +
+      numeral(props.emp_sum).format("(0,0)") +
+      "</span></div>" 
+      ;
+    document.getElementById("dataMeasurements").innerHTML = content;
+           
+    map.flyTo({
+    // created a parameter that pulls the lat/long values from the geojson
+    center: coordinates,
+    pitch: 20,
+    speed: 0.7,
+    zoom: 13,
+    });
 
-            function updatebarChart(Values) {
-                var options = {
-                    chart: {
-                        renderTo: 'chart1',
-                        type:'bar',
-                        plotBackgroundColor: null,
-                        plotBorderWidth: 0,//null,
-                        plotShadow: false,
-                        height:200,
-                        spacingLeft: 25,
-                        spacingRight: 60,
-                        backgroundColor: '#EFEFEF'
-                    },
-                     colors: ['#77c9ed']
-                   ,
-                    credits: {
-                        enabled: false
-                    },
-                    title: {
-                      //  text: 'Bicycle Volume by Month',
-                      text:null,
-                        x: -20 //center
-                    },
-                    xAxis: {
-                        categories: [ 'Transit Vehicle Volumes','Connectivity Score','Circuit Proximity','Population','Car Ownership','Non-Car Commuters','Walk Score®'],
-                        tickColor: 'transparent',
-                        lineColor: 'transparent',
-                        labels: {useHTML: true}
-                    },
-                    yAxis: {
-                        min: 0,
-                        max:5,
-                        tickInterval: 1,
-                        height: 150,
-                        gridLineColor: "#046f9e",
-                        title: {
-                            text: ''
-                        }
-                    },
-                    legend: {
-                        enabled: false
-                    },
-              /*      credits: {
-                        position: {
-                            align: 'left',
-                            x: 5,
-                            y: -5 // position of credits
-                        },
-                        text: 'click category name for description',
-                        href: null
-            
-                    },
-             */      tooltip: {
-                        enabled: false
-                    },
-            
-                    series: [{
-                           name:'Total',
-                           id: 'Values',
-                           data: []
-                        }]
-                };
-            
-                var Labels = [],
-                counData = [];
-                for (var i = 0; i < Values.length; i++){
-                counData.push({
-                name: Labels[i],
-                y: Values[i]})
-                }
-                options.series[0].data = counData;
-                var chart = new Highcharts.Chart(options)
-            
-                $('.highcharts-xaxis-labels text, .highcharts-xaxis-labels span').click(function () {
-                   // console.log(this.textContent.split(' ')[0]);
-                     EXTODdraw(this.textContent.split(' ')[0]);
-                });
-             //    console.log(bikeindata);
-                }
-        });
+    // Start Bar Charts 
+    function EXTODdraw(value) {
+      alert("modal goes here");
+    //    $('#EXTODModal').one('shown.bs.modal', function() {
+    //    $('#EXTODTabs a[data-target="#' + value + '"]').tab('show'); }).modal('show');
+    //    $('#FTODPModal').modal('close');
+    }
+
+    // Chart 1 values
+      var score1 = [
+      props.civic_scor,
+      props.park_score,
+      props.retail_sco,
+      props.eta_score,
+      props.employee_s 
+      ];
+      updatebarChart(score1);
+
+      function updatebarChart(Values) {
+          var options = {
+              chart: {
+                  renderTo: 'chart1',
+                  type:'bar',
+                  plotBackgroundColor: null,
+                  plotBorderWidth: 0,//null,
+                  plotShadow: false,
+                  height:200,
+                  spacingLeft: 25,
+                  spacingRight: 60,
+                  backgroundColor: '#FFF'
+                //  backgroundColor: '#EFEFEF'
+              },
+                colors: ['#8C3095']
+              ,
+              credits: {
+                  enabled: false
+              },
+              title: {
+                //  text: 'Bicycle Volume by Month',
+                text:null,
+                  x: -20 //center
+              },
+              xAxis: {
+                  categories: [ 'Civic and Cultural Attractors','Parks and Open Space','Walkable Retail and Centers','Essential Services (ETA)','Employees'],
+                  tickColor: 'transparent',
+                  lineColor: 'transparent',
+                  labels: {useHTML: true}
+              },
+              yAxis: {
+                  min: 0,
+                  max:5,
+                  tickInterval: 1,
+                  height: 150,
+                  gridLineColor: "#8C3095",
+                  title: {
+                      text: ''
+                  }
+              },
+              legend: {
+                  enabled: false
+              },
+        /*      credits: {
+                  position: {
+                      align: 'left',
+                      x: 5,
+                      y: -5 // position of credits
+                  },
+                  text: 'click category name for description',
+                  href: null
+      
+              },
+        */      tooltip: {
+                  enabled: false
+              },
+              series: [{
+                      name:'Total',
+                      id: 'Values',
+                      data: []
+                  }]
+          };
+      
+          var Labels = [],
+          counData = [];
+          for (var i = 0; i < Values.length; i++){
+          counData.push({
+          name: Labels[i],
+          y: Values[i]})
+          }
+          options.series[0].data = counData;
+          var chart = new Highcharts.Chart(options)
+      
+          $('.highcharts-xaxis-labels text, .highcharts-xaxis-labels span').click(function () {
+              // console.log(this.textContent.split(' ')[0]);
+                EXTODdraw(this.textContent.split(' ')[0]);
+          });
+        //    console.log(bikeindata);
+          }
+      }
+
         map.on('mousemove', 'stations', (e) => {
             map.getCanvas().style.cursor = 'pointer';
             var coordinates = e.features[0].geometry.coordinates.slice();
-            var description = '<h3>'+ e.features[0].properties.STATION +' : '+e.features[0].properties.RS_FINAL+'</h3>';
+            var description = '<h3>'+ e.features[0].properties.station +' : '+e.features[0].properties.AS_SCORE+'</h3>';
           if (e.features.length > 0) {
             // When the mouse moves over the station layer, update the
             // feature state for the feature under the mouse
@@ -199,8 +269,5 @@ map.on('load', () => {
 populateOptions(retailSearch)
 */
 })
-
-
-
 // modal
 handleModal(modal, modalToggle, closeModal)

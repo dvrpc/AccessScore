@@ -55,7 +55,7 @@ const layers = {
         'circle-stroke-width': .5,
         'circle-color': [
             'step',
-            ['get', 'RS_FINAL'],
+            ['get', 'AS_CAT'],
            // '#EE3224',
            '#d73027',
             3,
