@@ -94,7 +94,6 @@ map.on('load', () => {
     map.flyTo({
     // created a parameter that pulls the lat/long values from the geojson
     center: coordinates,
-    pitch: 20,
     speed: 0.7,
     zoom: 13,
     });
@@ -131,7 +130,7 @@ map.on('load', () => {
                   backgroundColor: '#FFF'
                 //  backgroundColor: '#EFEFEF'
               },
-                colors: ['#8C3095']
+                colors: ['#b16eb7']
               ,
               credits: {
                   enabled: false

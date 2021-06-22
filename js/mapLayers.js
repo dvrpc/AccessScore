@@ -36,8 +36,8 @@ const layers = {
             'line-cap': 'round'
             },
         'paint': {
-        'line-color': '#888',
-        'line-opacity':.4,
+        'line-color': '#f3eada',
+        'line-opacity':.6,
         'line-width': 3
         }
     },

@@ -202,11 +202,10 @@ h3 small {
     vertical-align: middle;
     margin-left: 7px;
 }
-
 #infoSwitch {
     margin:10px 0px 0px 10px;
     background: #fcfcfc;
-    border: 2px solid #f4a22d;
+    border: 2px solid #ffa17a;
     border-radius: 3px;
 }
 /* END Sidebar */
