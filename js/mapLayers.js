@@ -48,71 +48,36 @@ const layers = {
         "paint": {
         'circle-radius': 
         ['step', ['zoom'],
-        ['case',['boolean', ['feature-state', 'hover'], false],6,3],
+        ['case',['boolean', ['feature-state', 'hover'], false],6,4],
         10,
-        ['case',['boolean', ['feature-state', 'hover'], false],7,4],
+        ['case',['boolean', ['feature-state', 'hover'], false],8,6],
         13,
-        ['case',['boolean', ['feature-state', 'hover'], false],8,5]],
+        ['case',['boolean', ['feature-state', 'hover'], false],10,7]],
+      //  'circle-stroke-color': '#e5e5e5',
+        'circle-stroke-color': '#fff',
 
-// ['step', ['zoom'],
-// ['case', ['all', ['!', ['feature-state', 'hidden']], ['get', 'red'], 1, 0],
-// 10,
-// ['case', ['all', ['!', ['feature-state', 'hidden']], ['any', ['get', 'red'], ['get', 'green']], 1, 0],
-// 15,
-// ['case', [['!', ['feature-state', 'hidden']], 1, 0]],
-
-        'circle-stroke-color': '#e5e5e5',
-        'circle-stroke-width': .5,
+        'circle-stroke-width': 1,
         'circle-color': [
             'step',
             ['get', 'AS_CAT'],
-           // '#EE3224',
-           '#d73027',
-            3,
-         //   '#F7911E',
-         '#fc8d59',
-            4,
-         //   '#fee08b',
-         '#fee090',
-            5,
-         //   '#FEE900',
-         '#ffffbf',
-            6,
-         //   '#a6d96a',
-         '#e0f3f8',
-            7,
-         //   '#1a9850',
-         '#91bfdb',
-            8,
-        //    '#006837',
-        '#4575b4',
-            11,
-            /* other */ '#ccc'
-            ]
+            // '#d73027',
+            // 3,
+            // '#fc8d59',
+            // 4,
+            // '#fee090',
+            // 5,
+            // '#ffffbf',
+            // 6,
+            // '#e0f3f8',
+            // 7,
+            // '#91bfdb',
+            // 8,
+            // '#4575b4',
+            // 11,
+            '#a50026',3,'#d73027',4,'#f46d43',5,'#fdae61',6,'#74add1',7,'#4575b4',8,'#313695',11,'#ccc'
+        ]
+        }
     }
-    
-}
 }
 
 export default layers
-/*'circle-color': [
-'step',
-['get', 'point_count'],
-'#51bbd6',
-100,
-'#f1f075',
-750,
-'#f28cb1'
-],
-/*if (i == 0) return "#991f31";
-                if (i == 1) return "#60afa1";
-                if (i == 2) return "#a6c834";
-                if (i == 3) return "#006886";
-                if (i == 4) return "#3b8448";
-                if (i == 5) return "#db182e";
-                if (i == 6) return "#e38225";
-                if (i == 7) return "#e7c32a";
-                if (i == 8) return "#9ab9a8";
-                if (i == 9) return "#5d558b";
-                else return "grey";
-                */

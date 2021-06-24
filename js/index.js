@@ -74,19 +74,19 @@ map.on('load', () => {
     ;
     document.getElementById("stationName").innerHTML = info;
     var content = "<div class='data-row'><span class='data-info'>Civic and Cultural Attractors </span><span class='data-value'> " +
-      props.civic_cnt +
-      "</span></div>" +
-      "<br><div class='data-row'><span class='data-info'>Parks and Open Space </span><span class='data-value'> " +
-      props.park_score +
-      "</span></div>" +
-      "<br><div class='data-row'><span class='data-info'>Walkable Retail and Centers </span><span class='data-value'> " +
-      props.retail_sco +
-      "</span></div>" +
-      "<br><div class='data-row'><span class='data-info'>Essential Services (ETA) </span><span class='data-value'> " +
-      props.eta_cnt +
+      props.civ_sm +
       "</span></div>" +
       "<br><div class='data-row'><span class='data-info'>Employees (Nets 2015) within 1-mile of the station  </span><span class='data-value'> " +
-      numeral(props.emp_sum).format("(0,0)") +
+      numeral(props.emp_sm).format("(0,0)") +
+      "</span></div>"+ 
+      "<br><div class='data-row'><span class='data-info'>Essential Services (ETA) </span><span class='data-value'> " +
+      props.ess_sm +
+      "</span></div>" +
+      "<br><div class='data-row'><span class='data-info'>Parks and Open Space </span><span class='data-value'> " +
+      props.pos_sc +
+      "</span></div>" +
+      "<br><div class='data-row'><span class='data-info'>Walkable Retail and Centers </span><span class='data-value'> " +
+      props.wrc_sc +
       "</span></div>" 
       ;
     document.getElementById("dataMeasurements").innerHTML = content;
@@ -107,13 +107,7 @@ map.on('load', () => {
     }
 
     // Chart 1 values
-      var score1 = [
-      props.civic_scor,
-      props.park_score,
-      props.retail_sco,
-      props.eta_score,
-      props.employee_s 
-      ];
+      var score1 = [props.civ_sc,props.emp_sc,props.ess_sc, props.pos_sc,props.wrc_sc];
       updatebarChart(score1);
 
       function updatebarChart(Values) {
@@ -141,7 +135,7 @@ map.on('load', () => {
                   x: -20 //center
               },
               xAxis: {
-                  categories: [ 'Civic and Cultural Attractors','Parks and Open Space','Walkable Retail and Centers','Essential Services (ETA)','Employees'],
+                  categories: [ 'Civic and Cultural Attractors','Employees','Essential Services (ETA)','Parks and Open Space','Walkable Retail and Centers'],
                   tickColor: 'transparent',
                   lineColor: 'transparent',
                   labels: {useHTML: true}
@@ -201,7 +195,7 @@ map.on('load', () => {
             map.getCanvas().style.cursor = 'pointer';
             var coordinates = e.features[0].geometry.coordinates.slice();
             var description = '<h3>'+ e.features[0].properties.station +' : '+e.features[0].properties.AS_SCORE+'</h3>';
-          if (e.features.length > 0) {
+            if (e.features.length > 0) {
             // When the mouse moves over the station layer, update the
             // feature state for the feature under the mouse
             if (stationID) {
