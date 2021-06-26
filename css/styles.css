@@ -14,6 +14,7 @@ h1 {
 :root {
     --theme-dvrpc: #0078ae;
     --theme-dark: #505a5e;
+    --theme-dark2: #979797;
     --theme-access: #30958c;
     --theme-access2:rgba(48, 149, 140,0.7);
     --theme-access3:rgba(173,0,116,0.8);
@@ -147,59 +148,7 @@ nav {
     padding: 8px;
     background: rgba(255,255,255, 0.85);
 }
-.circle {
-    width:10px;
-    height:10px;
-    border-radius:50px;
-    font-size:20px;
-    color:#fff;
-    line-height:100px;
-    background: #fff;
-    display: inline-block;
-    margin-right: 5px;
-}
-/* .as-2 {
-    background: #d73027;
-}
-.as-3 {
-    background: #fc8d59;
-}
-.as-4 {
-    background: #fee090;
-}
-.as-5 {
-    background: #ffffbf;
-}
-.as-6 {
-    background: #e0f3f8;
-}
-.as-7 {
-    background: #91bfdb;
-}
-.as-8 {
-    background: #4575b4;
-} */
-.as-2 {
-    background: #a50026;
-}
-.as-3 {
-    background: #d73027;
-}
-.as-4 {
-    background: #f46d43;
-}
-.as-5 {
-    background: #fdae61;
-}
-.as-6 {
-    background: #74add1;
-}
-.as-7 {
-    background: #4575b4;
-}
-.as-8 {
-    background: #313695;
-}
+
 /* END Main Webmap Area */
 
 
@@ -235,29 +184,27 @@ nav {
 }
 #stationHeader {
     color:#333;
-    font-size: 18px;
- /*   word-break:break-all; */
     margin: 5px 0px 5px 10px;
     border-radius: 4px;
     border-color: #dadada;
-   /* background-color: var(--theme-reatil-lite); */
+    background-color: #fff; 
     overflow: hidden;
-   /*  border-bottom: 1px solid #ccc; */
-    text-align: center;
     box-shadow: 1px 2px 3px rgba(0,0,0,.3);
 }
 #stationName{
-    background-color: var(--theme-access4);
     color: #000000;
     padding: .25rem 0;
     border-radius: 3px;
-    box-shadow: 1.5px 0 0 rgba(0,0,0,.2);
-    text-align: center;; 
+    /* box-shadow: 1.5px 0 0 rgba(0,0,0,.2); */
+    font-size:20px;
+    text-align: left;
+    float: left;
+    margin: 10px;
 }
 h3 small {
-  /*  color: #f7f7f7 !important; */
-    color: #000000 !important;
+    color: #696969 !important;
     font-size: 65%;
+    font-weight: normal;
 }
 #operatorLogo{
     vertical-align: middle;
@@ -265,11 +212,106 @@ h3 small {
 }
 #infoSwitch {
     margin:10px 0px 0px 10px;
-    background: #fcfcfc;
-    border: 2px solid #ffa17a;
+    background: #fff;
+    border: 2px solid #dadada;
     border-radius: 3px;
 }
+#scoreWrapper {
+    margin: 5px 0px 5px 10px;
+    border-radius: 4px;
+    border-color: #dadada;
+    background-color: #fff; 
+    overflow: hidden;
+    box-shadow: 1px 2px 3px rgba(0,0,0,.3);
+    display: flex;
+    justify-content: space-between;
+}
+.odemeter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 7vw;
+    height: 7vw;
+    background-color: RGBA(252, 102, 32, 1);
+    border-radius: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 10px 30px 10px 30px;
+    color:#FFF;
+    font-size: 25px;
+}
+.AS {
+    text-align: center;
+}
+#as-score{
+    text-align: center;
+    color: #000000;
+    font-weight: bold;
+    cursor: pointer;
+}
+#bs-score{
+    text-align: center;
+    font-weight: 500;
+    color: var(--theme-dark2);
+    cursor: pointer;
+    padding: 2px 0px 2px 0px;
+}
+.BS {
+    text-align: center;
+}
+#ws-score{
+    text-align: center;
+    font-weight: 500;
+    color: var(--theme-dark2);
+    cursor: pointer;
+    padding: 2px 0px 2px 0px;
+}
+.WS {
+    text-align: center;
+}
+#legendWrapper{
+    margin: 5px 0px 5px 10px;
+    border-radius: 4px;
+    border-color: #dadada;
+    background-color: #fff; 
+    overflow: hidden;
+    box-shadow: 1px 2px 3px rgba(0,0,0,.3);
+    display: flex;
+    justify-content: space-between;
+}
+#legend-Item{
+    text-align: center;
+}
+.circle {
+    width:20px;
+    height:20px;
+    border-radius:50px;
+}
 /* END Sidebar */
+/* Score Colors */
+.as-2 {
+    background: #a50026;
+}
+.as-3 {
+    background: #d73027;
+}
+.as-4 {
+    background: #f46d43;
+}
+.as-5 {
+    background: #fdae61;
+}
+.as-6 {
+    background: #74add1;
+}
+.as-7 {
+    background: #4575b4;
+}
+.as-8 {
+    background: #313695;
+}
+/* End Score Colors */
 
 /* Charts */
 .highcharts-root {

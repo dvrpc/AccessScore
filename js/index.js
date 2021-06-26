@@ -2,6 +2,9 @@ import makeMap from './map.js'
 import sources from './mapSources.js'
 import layers from './mapLayers.js'
 import handleModal from './modal.js'
+import handleStation from './charts.js'
+import handleStationB from './charts2.js'
+import handleStationW from './charts3.js'
 // add additional imports here (popups, forms, etc)
 
 
@@ -25,6 +28,37 @@ document.querySelectorAll(".scoreSelection").forEach(el => {
     document.getElementById(id).style.display = "block"
   }
 })
+
+document.getElementById("AS").addEventListener("click", function() {
+ // alert("Hello World!");
+  document.getElementById("accessScore").style.display = "block"
+  document.getElementById("bikeScore").style.display = "none"
+  document.getElementById("walkScore").style.display = "none"
+  map.setLayoutProperty('stations', "visibility", "visible")
+  map.setLayoutProperty('stationsB', "visibility", "none")
+  map.setLayoutProperty('stationsW', "visibility", "none")
+});
+
+document.getElementById("BS").addEventListener("click", function() {
+  // alert("Hello World!");
+   document.getElementById("accessScore").style.display = "none"
+   document.getElementById("bikeScore").style.display = "block"
+   document.getElementById("walkScore").style.display = "none"
+   map.setLayoutProperty('stations', "visibility", "none")
+   map.setLayoutProperty('stationsB', "visibility", "visible")
+   map.setLayoutProperty('stationsW', "visibility", "none")
+ });
+
+ document.getElementById("WS").addEventListener("click", function() {
+  // alert("Hello World!");
+   document.getElementById("accessScore").style.display = "none"
+   document.getElementById("bikeScore").style.display = "none"
+   document.getElementById("walkScore").style.display = "block"
+   map.setLayoutProperty('stations', "visibility", "none")
+   map.setLayoutProperty('stationsB', "visibility", "none")
+   map.setLayoutProperty('stationsW', "visibility", "visible")
+ });
+
 
 const searchForm = document.getElementById('search')
 var retailSearch = {};
@@ -53,193 +87,162 @@ map.on('load', () => {
       handleStation(props,coordinates,map)    
     });
 
-  
-    const handleStation = function (props,coordinates,map) {
-         //   var props = e.features[0].properties;
-           // console.log(props.STATION);
-
-    var info =
-    "<div id='stationName'><h3 style='margin-top:0;'>" +
-    props.station +
-    "<small> - "+
-    props.line+
-    "</span><span><img id='operatorLogo' src='./img/" +
-    props.operator +
-    ".png'/></span><br>"+
-    props.county +
-    "<span></span> County, <span>" +
-    props.state +
-    "</span></small></h3></div>"+
-    "</div>" 
-    ;
-    document.getElementById("stationName").innerHTML = info;
-    var content = "<div class='data-row'><span class='data-info'>Civic and Cultural Attractors </span><span class='data-value'> " +
-      props.civ_sm +
-      "</span></div>" +
-      "<br><div class='data-row'><span class='data-info'>Employees (Nets 2015) within 1-mile of the station  </span><span class='data-value'> " +
-      numeral(props.emp_sm).format("(0,0)") +
-      "</span></div>"+ 
-      "<br><div class='data-row'><span class='data-info'>Essential Services (ETA) </span><span class='data-value'> " +
-      props.ess_sm +
-      "</span></div>" +
-      "<br><div class='data-row'><span class='data-info'>Parks and Open Space </span><span class='data-value'> " +
-      props.pos_sc +
-      "</span></div>" +
-      "<br><div class='data-row'><span class='data-info'>Walkable Retail and Centers </span><span class='data-value'> " +
-      props.wrc_sc +
-      "</span></div>" 
-      ;
-    document.getElementById("dataMeasurements").innerHTML = content;
-           
-    map.flyTo({
-    // created a parameter that pulls the lat/long values from the geojson
-    center: coordinates,
-    speed: 0.7,
-    zoom: 13,
+    map.on('click','stationsB', (e) => {
+      var props = e.features[0].properties;
+      var coordinates = e.features[0].geometry.coordinates;
+      handleStationB(props,coordinates,map)    
     });
 
-    // Start Bar Charts 
-    function EXTODdraw(value) {
-      alert("modal goes here");
-    //    $('#EXTODModal').one('shown.bs.modal', function() {
-    //    $('#EXTODTabs a[data-target="#' + value + '"]').tab('show'); }).modal('show');
-    //    $('#FTODPModal').modal('close');
-    }
+    map.on('click','stationsW', (e) => {
+      var props = e.features[0].properties;
+      var coordinates = e.features[0].geometry.coordinates;
+      handleStationW(props,coordinates,map)    
+    });
 
-    // Chart 1 values
-      var score1 = [props.civ_sc,props.emp_sc,props.ess_sc, props.pos_sc,props.wrc_sc];
-      updatebarChart(score1);
-
-      function updatebarChart(Values) {
-          var options = {
-              chart: {
-                  renderTo: 'chart1',
-                  type:'bar',
-                  plotBackgroundColor: null,
-                  plotBorderWidth: 0,//null,
-                  plotShadow: false,
-                  height:200,
-                  spacingLeft: 25,
-                  spacingRight: 60,
-                  backgroundColor: '#FFF'
-                //  backgroundColor: '#EFEFEF'
-              },
-                colors: ['#b16eb7']
-              ,
-              credits: {
-                  enabled: false
-              },
-              title: {
-                //  text: 'Bicycle Volume by Month',
-                text:null,
-                  x: -20 //center
-              },
-              xAxis: {
-                  categories: [ 'Civic and Cultural Attractors','Employees','Essential Services (ETA)','Parks and Open Space','Walkable Retail and Centers'],
-                  tickColor: 'transparent',
-                  lineColor: 'transparent',
-                  labels: {useHTML: true}
-              },
-              yAxis: {
-                  min: 0,
-                  max:5,
-                  tickInterval: 1,
-                  height: 150,
-                  gridLineColor: "#8C3095",
-                  title: {
-                      text: ''
-                  }
-              },
-              legend: {
-                  enabled: false
-              },
-        /*      credits: {
-                  position: {
-                      align: 'left',
-                      x: 5,
-                      y: -5 // position of credits
-                  },
-                  text: 'click category name for description',
-                  href: null
-      
-              },
-        */      tooltip: {
-                  enabled: false
-              },
-              series: [{
-                      name:'Total',
-                      id: 'Values',
-                      data: []
-                  }]
-          };
-      
-          var Labels = [],
-          counData = [];
-          for (var i = 0; i < Values.length; i++){
-          counData.push({
-          name: Labels[i],
-          y: Values[i]})
-          }
-          options.series[0].data = counData;
-          var chart = new Highcharts.Chart(options)
-      
-          $('.highcharts-xaxis-labels text, .highcharts-xaxis-labels span').click(function () {
-              // console.log(this.textContent.split(' ')[0]);
-                EXTODdraw(this.textContent.split(' ')[0]);
+    map.on('mousemove', 'stations', (e) => {
+        map.getCanvas().style.cursor = 'pointer';
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var description = '<h3>'+ e.features[0].properties.station +' : '+e.features[0].properties.AS_SCORE+'</h3>';
+        if (e.features.length > 0) {
+        // When the mouse moves over the station layer, update the
+        // feature state for the feature under the mouse
+        if (stationID) {
+          map.removeFeatureState({
+            source: 'accessscore',
+            id: stationID
           });
-        //    console.log(bikeindata);
+        }
+        stationID = e.features[0].id;
+        map.setFeatureState(
+          {
+            source: 'accessscore',
+            id: stationID
+          },
+          {
+            hover: true
           }
+        );
       }
+    // Populate the popup and set its coordinates
+    // based on the feature found.
+    popup.setLngLat(coordinates).setHTML(description).addTo(map);
+    });
 
-        map.on('mousemove', 'stations', (e) => {
-            map.getCanvas().style.cursor = 'pointer';
-            var coordinates = e.features[0].geometry.coordinates.slice();
-            var description = '<h3>'+ e.features[0].properties.station +' : '+e.features[0].properties.AS_SCORE+'</h3>';
-            if (e.features.length > 0) {
-            // When the mouse moves over the station layer, update the
-            // feature state for the feature under the mouse
-            if (stationID) {
-              map.removeFeatureState({
-                source: 'accessscore',
-                id: stationID
-              });
-            }
-            stationID = e.features[0].id;
-            map.setFeatureState(
-              {
-                source: 'accessscore',
-                id: stationID
-              },
-              {
-                hover: true
-              }
-            );
-          }
-        // Populate the popup and set its coordinates
-        // based on the feature found.
-        popup.setLngLat(coordinates).setHTML(description).addTo(map);
+    map.on('mousemove', 'stationsB', (e) => {
+      map.getCanvas().style.cursor = 'pointer';
+      var coordinates = e.features[0].geometry.coordinates.slice();
+      var description = '<h3>'+ e.features[0].properties.station +' : '+e.features[0].properties.BS_SCORE+'</h3>';
+      if (e.features.length > 0) {
+      // When the mouse moves over the station layer, update the
+      // feature state for the feature under the mouse
+      if (stationID) {
+        map.removeFeatureState({
+          source: 'CycleScore',
+          id: stationID
+        });
+      }
+      stationID = e.features[0].id;
+      map.setFeatureState(
+        {
+          source: 'CycleScore',
+          id: stationID
+        },
+        {
+          hover: true
+        }
+      );
+    }
+  // Populate the popup and set its coordinates
+  // based on the feature found.
+  popup.setLngLat(coordinates).setHTML(description).addTo(map);
+  });
 
-        });
-        // When the mouse leaves the station layer, update the
-        // feature state of the previously hovered feature
-        map.on('mouseleave', 'stations', function () {
-          if (stationID) {
-            map.setFeatureState(
-              {
-                source: 'accessscore',
-                id: stationID
-              },
-              {
-                hover: false
-              }
-            );
+  map.on('mousemove', 'stationsW', (e) => {
+    map.getCanvas().style.cursor = 'pointer';
+    var coordinates = e.features[0].geometry.coordinates.slice();
+    var description = '<h3>'+ e.features[0].properties.station +' : '+e.features[0].properties.WS_SCORE+'</h3>';
+    if (e.features.length > 0) {
+    // When the mouse moves over the station layer, update the
+    // feature state for the feature under the mouse
+    if (stationID) {
+      map.removeFeatureState({
+        source: 'WalkScore',
+        id: stationID
+      });
+    }
+    stationID = e.features[0].id;
+    map.setFeatureState(
+      {
+        source: 'WalkScore',
+        id: stationID
+      },
+      {
+        hover: true
+      }
+    );
+  }
+// Populate the popup and set its coordinates
+// based on the feature found.
+popup.setLngLat(coordinates).setHTML(description).addTo(map);
+});
+    // When the mouse leaves the station layer, update the
+    // feature state of the previously hovered feature
+    map.on('mouseleave', 'stations', function () {
+      if (stationID) {
+        map.setFeatureState(
+          {
+            source: 'accessscore',
+            id: stationID
+          },
+          {
+            hover: false
           }
-          stationID = null;
-          // Reset the cursor style
-          // close popup
-          map.getCanvas().style.cursor = '';
-          popup.remove();
-        });
+        );
+      }
+      stationID = null;
+      // Reset the cursor style
+      // close popup
+      map.getCanvas().style.cursor = '';
+      popup.remove();
+    });
+
+    map.on('mouseleave', 'stationsB', function () {
+      if (stationID) {
+        map.setFeatureState(
+          {
+            source: 'CycleScore',
+            id: stationID
+          },
+          {
+            hover: false
+          }
+        );
+      }
+      stationID = null;
+      // Reset the cursor style
+      // close popup
+      map.getCanvas().style.cursor = '';
+      popup.remove();
+    });
+
+    map.on('mouseleave', 'stationsW', function () {
+      if (stationID) {
+        map.setFeatureState(
+          {
+            source: 'WalkScore',
+            id: stationID
+          },
+          {
+            hover: false
+          }
+        );
+      }
+      stationID = null;
+      // Reset the cursor style
+      // close popup
+      map.getCanvas().style.cursor = '';
+      popup.remove();
+    });
 
  // stations.features.forEach(function (marker) {
 //      retailSearch[marker.properties.STATION] = marker

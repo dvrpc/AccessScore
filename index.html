@@ -61,24 +61,40 @@
                 <div id="sidebar-content">                
                     
                     <div id="stationHeader">
-                    <div id="stationName"></div>    
+                    <div id="stationName"></div>   
+                    </div>  
+
+                    <div id="scoreWrapper">
+                       
+                        <div id="AS" value="AS" class="AS">
+                        <div id="as-score"></div> 
+                        Access Score    
+                    </div>
+
+                        <div id="BS" value="BS" class="BS">
+                        <div id="bs-score"></div>
+                        Cycle Score
+                       </div>
+
+                        <div id="WS" value="WS" class="WS">
+                        <div id="ws-score"></div>   
+                         Pedestrian Score
+                        </div>
                     </div>  
 
                     <form>
-                        <fieldset id="infoSwitch">
-                        <legend id="infoSwitch-title">Filter Scoring Analysis</legend>
-                        <label id="chart-info" for="radio3">
-                        <input id="radio3" type="radio" name="img" class="scoreSelection" checked data-image-to-show="accessScore" checked><i class="glyphicon glyphicon-align-left"></i>&nbsp;&nbsp;Access Score
-                        </label>
-                        <label id="data-info" for="radio4">
-                        <input id="radio4" type="radio" name="img" class="scoreSelection" data-image-to-show="bikeScore"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;Bike Score
-                        </label>
-                        <label id="data-info" for="radio5">
-                            <input id="radio5" type="radio" name="img" class="scoreSelection" data-image-to-show="walkScore"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;Walk Score
-                            </label>
+                        <fieldset id="legendWrapper">
+                        <legend id="infoSwitch-title">Category Scoring</legend>
+                        <div id="legend-Item"><div class="circle as-2"></div><span>1-2 Low</span></div>
+                        <div id="legend-Item"><div class="circle as-3"></div><span>3</span></div>
+                        <div id="legend-Item"><div class="circle as-4"></div><span>4</span></div>
+                        <div id="legend-Item"><div class="circle as-5"></div><span>5</span></div>
+                        <div id="legend-Item"><div class="circle as-6"></div><span>6</span></div>
+                        <div id="legend-Item"><div class="circle as-7"></div><span>7</span></div>
+                        <div id="legend-Item"><div class="circle as-8"></div><span>8-10 High</span></div>
                         </fieldset>
                     </form>
-
+                    
                     <form>
                         <fieldset id="infoSwitch">
                         <legend id="infoSwitch-title">Select a Scoring Methods</legend>
@@ -131,17 +147,7 @@
                 </footer>
             </article>
 
-            <div id="map">
-                <div id="legendBox" class="legend">
-                    <b>AccessScore</b>
-                    <div><div class="circle as-8"></div><span>8-9 High</span></div>
-                    <div><div class="circle as-7"></div><span>7</span></div>
-                    <div><div class="circle as-6"></div><span>6</span></div>
-                    <div><div class="circle as-5"></div><span>5</span></div>
-                    <div><div class="circle as-4"></div><span>4</span></div>
-                    <div><div class="circle as-3"></div><span>3</span></div>
-                    <div><div class="circle as-2"></div><span>1-2 Low</span></div>
-                </div>    
+            <div id="map">  
             </div>
         </main>
 
