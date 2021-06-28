@@ -17,8 +17,19 @@ h1 {
     --theme-dark2: #979797;
     --theme-access: #30958c;
     --theme-access2:rgba(48, 149, 140,0.7);
-    --theme-access3:rgba(173,0,116,0.8);
-    --theme-access4:#EAF4F3 ;
+    --theme-access-lite: #59AAA3;
+    --theme-access-lite2:#EAF4F3 ;
+    --theme-access-dark: #267770;
+
+    --theme-accessO:#f4a22d;
+    --theme-accessO2:rgba(244,162,45,0.8);
+    --theme-accessO-lite:#F6B457;
+    --theme-accessO-dark:#C38124 ;
+
+    --theme-accessF:#ad0074;
+    --theme-accessF2:rgba(173,0,116,0.8);
+    --theme-accessF-lite:#BD338F;
+    --theme-accessF-dark:#8A005C ;
 
     --wrapper-padding: 10px;
     --wrapper-padding-double: 20px;
@@ -241,14 +252,16 @@ h3 small {
     color:#FFF;
     font-size: 25px;
 }
-.AS {
-    text-align: center;
-}
 #as-score{
     text-align: center;
     color: #000000;
     font-weight: bold;
     cursor: pointer;
+}
+.AS {
+    text-align: center;
+    color: var(--theme-access);
+    font-weight: bold;
 }
 #bs-score{
     text-align: center;
@@ -259,6 +272,7 @@ h3 small {
 }
 .BS {
     text-align: center;
+    color:grey;
 }
 #ws-score{
     text-align: center;
@@ -269,6 +283,7 @@ h3 small {
 }
 .WS {
     text-align: center;
+    color:grey;
 }
 #legendWrapper{
     margin: 5px 0px 5px 10px;

@@ -35,8 +35,7 @@ const handleStationB = function (props,coordinates,map) {
         var color = 'background:#313695';
       }
 
-    var accessScore = "<div class='odemeter' style="+ color +">"+ props.AS_SCORE+ "</div>"+
-    "<div class='scoreSelection' value='accessScore'>Access Score</div>"
+    var accessScore = "<div class='odemeter' style="+ color +">"+ props.AS_SCORE+ "</div>"
     document.getElementById("as-score").innerHTML = accessScore;
 
     if (props.BS_SCORE <= 2.99) {
@@ -55,8 +54,7 @@ const handleStationB = function (props,coordinates,map) {
         var color = 'background:#313695';
       }
 
-    var bikeScore = "<div class='odemeter' style="+ color +">"+ props.BS_SCORE+ "</div>"+
-    "<div class='scoreSelection' value='bikeScore'>Cycle Score</div>"
+    var bikeScore = "<div class='odemeter' style="+ color +">"+ props.BS_SCORE+ "</div>"
     document.getElementById("bs-score").innerHTML = bikeScore;
 
     if (props.WS_SCORE <= 2.99) {
@@ -75,8 +73,7 @@ const handleStationB = function (props,coordinates,map) {
         var color = 'background:#313695';
       }
 
-    var walkScore = "<div class='odemeter' style="+ color +">"+ props.WS_SCORE+ "</div>"+
-    "<div class='scoreSelection' value='walkScore'>Pedestrian Score</div>"
+    var walkScore = "<div class='odemeter' style="+ color +">"+ props.WS_SCORE+ "</div>"
     document.getElementById("ws-score").innerHTML = walkScore;
 
     var content = "<div class='data-row'><span class='data-info'>Civic and Cultural Attractors </span><span class='data-value'> " +

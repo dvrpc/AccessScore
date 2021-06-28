@@ -100,7 +100,7 @@ const handleStation = function (props,coordinates,map) {
     // created a parameter that pulls the lat/long values from the geojson
     center: coordinates,
     speed: 0.7,
-    zoom: 13,
+    zoom: 12,
     });
 
     // Start Bar Charts 
@@ -129,7 +129,7 @@ const handleStation = function (props,coordinates,map) {
              backgroundColor: '#FFF'
            //  backgroundColor: '#EFEFEF'
          },
-           colors: ['#b16eb7']
+           colors: ['#59AAA3']
          ,
          credits: {
              enabled: false
@@ -150,7 +150,7 @@ const handleStation = function (props,coordinates,map) {
              max:5,
              tickInterval: 1,
              height: 150,
-             gridLineColor: "#8C3095",
+             gridLineColor: "#267770",
              title: {
                  text: ''
              }

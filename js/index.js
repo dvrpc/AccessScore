@@ -21,22 +21,38 @@ document.querySelectorAll(".infoSelection").forEach(el => {
   }
 })
 
-document.querySelectorAll(".scoreSelection").forEach(el => {
-  el.onclick = event => {
-    const id = event.target.dataset.imageToShow
-    document.querySelectorAll(".score").forEach(img => { img.style.display = "none" })
-    document.getElementById(id).style.display = "block"
-  }
-})
+// document.querySelectorAll(".scoreSelection").forEach(el => {
+//   el.onclick = event => {
+//     const id = event.target.dataset.imageToShow
+//     document.querySelectorAll(".score").forEach(img => { img.style.display = "none" })
+//     document.getElementById(id).style.display = "block"
+//   }
+// })
 
 document.getElementById("AS").addEventListener("click", function() {
  // alert("Hello World!");
   document.getElementById("accessScore").style.display = "block"
   document.getElementById("bikeScore").style.display = "none"
   document.getElementById("walkScore").style.display = "none"
+
+  $('#BS').css({
+    'color':'grey',
+    'font-weight':'normal'
+  });
+  $('#WS').css({
+    'color':'grey',
+    'font-weight':'normal'
+  });
+  $('#AS').css({
+    'color':'var(--theme-access)',
+    'font-weight':'bold'
+  });
+
   map.setLayoutProperty('stations', "visibility", "visible")
   map.setLayoutProperty('stationsB', "visibility", "none")
   map.setLayoutProperty('stationsW', "visibility", "none")
+  map.setLayoutProperty('bs_limit', "visibility", "none")
+  map.setLayoutProperty('ws_limit', "visibility", "none")
 });
 
 document.getElementById("BS").addEventListener("click", function() {
@@ -44,9 +60,25 @@ document.getElementById("BS").addEventListener("click", function() {
    document.getElementById("accessScore").style.display = "none"
    document.getElementById("bikeScore").style.display = "block"
    document.getElementById("walkScore").style.display = "none"
+   
+  $('#AS').css({
+    'color':'grey',
+    'font-weight':'normal'
+  });
+  $('#WS').css({
+    'color':'grey',
+    'font-weight':'normal'
+  });
+  $('#BS').css({
+    'color':'var(--theme-accessO)',
+    'font-weight':'bold'
+  });
+
    map.setLayoutProperty('stations', "visibility", "none")
    map.setLayoutProperty('stationsB', "visibility", "visible")
    map.setLayoutProperty('stationsW', "visibility", "none")
+   map.setLayoutProperty('as_2mile', "visibility", "none")
+   map.setLayoutProperty('ws_limit', "visibility", "none")
  });
 
  document.getElementById("WS").addEventListener("click", function() {
@@ -54,8 +86,24 @@ document.getElementById("BS").addEventListener("click", function() {
    document.getElementById("accessScore").style.display = "none"
    document.getElementById("bikeScore").style.display = "none"
    document.getElementById("walkScore").style.display = "block"
+  
+   $('#AS').css({
+    'color':'grey',
+    'font-weight':'normal'
+  });
+  $('#BS').css({
+    'color':'grey',
+    'font-weight':'normal'
+  });
+  $('#WS').css({
+    'color':'var(--theme-accessF)',
+    'font-weight':'bold'
+  });
+
    map.setLayoutProperty('stations', "visibility", "none")
    map.setLayoutProperty('stationsB', "visibility", "none")
+   map.setLayoutProperty('as_2mile', "visibility", "none")
+   map.setLayoutProperty('bs_limit', "visibility", "none")
    map.setLayoutProperty('stationsW', "visibility", "visible")
  });
 
@@ -73,36 +121,67 @@ map.on('load', () => {
 
     // add map events here (click, mousemove, etc)
     var stationID = null;
-
+    var stationIDb = null;
+    var stationIDw = null;
+  
     // Create a popup, but don't add it to the map yet.
-    var popup = new mapboxgl.Popup({
+    let popup = new mapboxgl.Popup({
         className: "station-popup",
         closeButton: false,
         closeOnClick: false
         });
 
     map.on('click','stations', (e) => {
+    //  console.log(stationID);
+      stationID = e.features[0].properties.dvrpc_id;
       var props = e.features[0].properties;
       var coordinates = e.features[0].geometry.coordinates;
-      handleStation(props,coordinates,map)    
+      handleStation(props,coordinates,map)   
+      
+        // When the mouse moves over the station layer, update the
+        // feature state for the feature under the mouse
+        if (stationID) {
+          map.setFilter('as_2mile', ['==', 'dvrpc_id', stationID]);
+          map.setLayoutProperty('as_2mile', 'visibility', 'visible');
+        }
+     //  properties.dvrpc_id
+     
+      //  map.setLayoutProperty('as_2mile', 'visibility', 'none');
+     
+
     });
 
     map.on('click','stationsB', (e) => {
+     // console.log(stationIDb);
+      stationIDb = e.features[0].properties.dvrpc_id;
       var props = e.features[0].properties;
       var coordinates = e.features[0].geometry.coordinates;
-      handleStationB(props,coordinates,map)    
+      handleStationB(props,coordinates,map)   
+      
+      if (stationIDb) {
+        map.setFilter('bs_limit', ['==', 'dvrpc_id', stationIDb]);
+        map.setLayoutProperty('bs_limit', 'visibility', 'visible');
+      }
     });
 
     map.on('click','stationsW', (e) => {
+      stationIDw = e.features[0].properties.dvrpc_id;
       var props = e.features[0].properties;
       var coordinates = e.features[0].geometry.coordinates;
-      handleStationW(props,coordinates,map)    
+      handleStationW(props,coordinates,map)  
+      
+      if (stationIDw) {
+        map.setFilter('ws_limit', ['==', 'GIS_ID', stationIDw]);
+        map.setLayoutProperty('ws_limit', 'visibility', 'visible');
+      }
     });
 
     map.on('mousemove', 'stations', (e) => {
         map.getCanvas().style.cursor = 'pointer';
         var coordinates = e.features[0].geometry.coordinates.slice();
         var description = '<h3>'+ e.features[0].properties.station +' : '+e.features[0].properties.AS_SCORE+'</h3>';
+        var Popclass = 'station-popup';
+
         if (e.features.length > 0) {
         // When the mouse moves over the station layer, update the
         // feature state for the feature under the mouse
@@ -111,6 +190,7 @@ map.on('load', () => {
             source: 'accessscore',
             id: stationID
           });
+      //    map.setLayoutProperty('as_2mile', 'visibility', 'visible');
         }
         stationID = e.features[0].id;
         map.setFeatureState(
@@ -125,7 +205,10 @@ map.on('load', () => {
       }
     // Populate the popup and set its coordinates
     // based on the feature found.
+   // popup.setClassName(Popclass);
+
     popup.setLngLat(coordinates).setHTML(description).addTo(map);
+
     });
 
     map.on('mousemove', 'stationsB', (e) => {
@@ -154,7 +237,7 @@ map.on('load', () => {
     }
   // Populate the popup and set its coordinates
   // based on the feature found.
-  popup.setLngLat(coordinates).setHTML(description).addTo(map);
+  popup.remove();
   });
 
   map.on('mousemove', 'stationsW', (e) => {
@@ -198,6 +281,7 @@ popup.setLngLat(coordinates).setHTML(description).addTo(map);
             hover: false
           }
         );
+    //    map.setLayoutProperty('as_2mile', 'visibility', 'none');
       }
       stationID = null;
       // Reset the cursor style

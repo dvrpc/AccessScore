@@ -23,6 +23,22 @@ const sources = {
         data:'https://arcgis.dvrpc.org/portal/rest/services/Transportation/PassengerRail/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
         generateId: true //
     },
+    'as_2mile': {
+        type:'geojson',
+        data:'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/AccessScore/FeatureServer/3/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
+        generateId: true //
+    },
+    'bs_limit': {
+        type:'geojson',
+        data:'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/AccessScore/FeatureServer/2/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
+        generateId: true //
+    },
+    'ws_limit': {
+        type:'geojson',
+        data:'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/AccessScore/FeatureServer/1/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
+        generateId: true //
+    },
+
 }
 
 export default sources

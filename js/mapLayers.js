@@ -41,6 +41,33 @@ const layers = {
         'line-width': 3
         }
     },
+    as_2mile: {
+        "id": "as_2mile",
+        "type": "fill",
+        "source": "as_2mile",
+        "paint": {
+          "fill-color": "rgba(48, 149, 140, 0.5)"
+        },
+        "layout": { "visibility": "none" }
+      },
+      bs_limit: {
+        "id": "bs_limit",
+        "type": "fill",
+        "source": "bs_limit",
+        "paint": {
+          "fill-color": "rgba(244,162,45, 0.5)"
+        },
+        "layout": { "visibility": "none" }
+      },
+      ws_limit: {
+        "id": "ws_limit",
+        "type": "fill",
+        "source": "ws_limit",
+        "paint": {
+          "fill-color": "rgba(173,0,116, 0.5)"
+        },
+        "layout": { "visibility": "none" }
+      },
     AccessScore:{
         "id": "stations",
         "type": "circle",
@@ -110,6 +137,7 @@ const layers = {
         ]
         }
     }
+   
 }
 
 export default layers
