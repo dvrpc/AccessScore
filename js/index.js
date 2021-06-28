@@ -126,7 +126,7 @@ map.on('load', () => {
   
     // Create a popup, but don't add it to the map yet.
     let popup = new mapboxgl.Popup({
-        className: "station-popup",
+     //   className: "station-popup",
         closeButton: false,
         closeOnClick: false
         });
@@ -137,18 +137,12 @@ map.on('load', () => {
       var props = e.features[0].properties;
       var coordinates = e.features[0].geometry.coordinates;
       handleStation(props,coordinates,map)   
-      
-        // When the mouse moves over the station layer, update the
-        // feature state for the feature under the mouse
-        if (stationID) {
-          map.setFilter('as_2mile', ['==', 'dvrpc_id', stationID]);
-          map.setLayoutProperty('as_2mile', 'visibility', 'visible');
-        }
-     //  properties.dvrpc_id
-     
-      //  map.setLayoutProperty('as_2mile', 'visibility', 'none');
-     
-
+      // When the mouse moves over the station layer, update the
+      // feature state for the feature under the mouse
+      if (stationID) {
+        map.setFilter('as_2mile', ['==', 'dvrpc_id', stationID]);
+        map.setLayoutProperty('as_2mile', 'visibility', 'visible');
+      }
     });
 
     map.on('click','stationsB', (e) => {
@@ -180,7 +174,7 @@ map.on('load', () => {
         map.getCanvas().style.cursor = 'pointer';
         var coordinates = e.features[0].geometry.coordinates.slice();
         var description = '<h3>'+ e.features[0].properties.station +' : '+e.features[0].properties.AS_SCORE+'</h3>';
-        var Popclass = 'station-popup';
+       // var Popclass = 'station-popup';
 
         if (e.features.length > 0) {
         // When the mouse moves over the station layer, update the
@@ -203,11 +197,10 @@ map.on('load', () => {
           }
         );
       }
-    // Populate the popup and set its coordinates
-    // based on the feature found.
-   // popup.setClassName(Popclass);
-
-    popup.setLngLat(coordinates).setHTML(description).addTo(map);
+      // Populate the popup and set its coordinates
+      // based on the feature found.
+      popup.addClassName('station-popup');
+      popup.setLngLat(coordinates).setHTML(description).addTo(map);
 
     });
 
@@ -237,7 +230,7 @@ map.on('load', () => {
     }
   // Populate the popup and set its coordinates
   // based on the feature found.
-  popup.remove();
+  popup.setLngLat(coordinates).setHTML(description).addTo(map);
   });
 
   map.on('mousemove', 'stationsW', (e) => {

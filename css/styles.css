@@ -405,6 +405,13 @@ h3 small {
     height: 15px;
     border-color: #fff;
   }
+
+  .station-popupBS .mapboxgl-popup-content {
+    background-color: var(--theme-accessO);
+    height: 15px;
+    border-color: #fff;
+  }
+
 .station-popup .mapboxgl-popup-tip {
     border-top-color: var(--theme-access2);
   }
