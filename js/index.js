@@ -34,6 +34,8 @@ document.getElementById("AS").addEventListener("click", function() {
   document.getElementById("accessScore").style.display = "block"
   document.getElementById("bikeScore").style.display = "none"
   document.getElementById("walkScore").style.display = "none"
+  document.documentElement.style
+  .setProperty('--popup-color', '#30958c');
 
   $('#BS').css({
     'color':'grey',
@@ -60,7 +62,12 @@ document.getElementById("BS").addEventListener("click", function() {
    document.getElementById("accessScore").style.display = "none"
    document.getElementById("bikeScore").style.display = "block"
    document.getElementById("walkScore").style.display = "none"
-   
+
+ //  document.document.getElementsByClassName("station-popup").style.backgroundColor = "#f4a22d"
+ // $('.station-popup').css('background-color', '#f4a22d');
+  document.documentElement.style
+    .setProperty('--popup-color', '#90D782');
+
   $('#AS').css({
     'color':'grey',
     'font-weight':'normal'
@@ -86,6 +93,9 @@ document.getElementById("BS").addEventListener("click", function() {
    document.getElementById("accessScore").style.display = "none"
    document.getElementById("bikeScore").style.display = "none"
    document.getElementById("walkScore").style.display = "block"
+   
+   document.documentElement.style
+   .setProperty('--popup-color', '#ad0074');
   
    $('#AS').css({
     'color':'grey',
@@ -126,7 +136,7 @@ map.on('load', () => {
   
     // Create a popup, but don't add it to the map yet.
     let popup = new mapboxgl.Popup({
-     //   className: "station-popup",
+        className: "station-popup",
         closeButton: false,
         closeOnClick: false
         });
@@ -165,7 +175,7 @@ map.on('load', () => {
       handleStationW(props,coordinates,map)  
       
       if (stationIDw) {
-        map.setFilter('ws_limit', ['==', 'GIS_ID', stationIDw]);
+        map.setFilter('ws_limit', ['==', 'dvrpc_id', stationIDw]);
         map.setLayoutProperty('ws_limit', 'visibility', 'visible');
       }
     });
@@ -199,7 +209,7 @@ map.on('load', () => {
       }
       // Populate the popup and set its coordinates
       // based on the feature found.
-      popup.addClassName('station-popup');
+   //   popup.addClassName('station-popup');
       popup.setLngLat(coordinates).setHTML(description).addTo(map);
 
     });

@@ -1,6 +1,5 @@
 const handleStationB = function (props,coordinates,map) {
     //  var props = e.features[0].properties;
-    // console.log(props.STATION);
 
     var info =
     "<h3>" +
@@ -36,6 +35,7 @@ const handleStationB = function (props,coordinates,map) {
       }
 
     var accessScore = "<div class='odemeter' style="+ color +">"+ props.AS_SCORE+ "</div>"
+    // "<div id='accessScore' class='scoreSelection' value='accessScore'>Access Score</div>"
     document.getElementById("as-score").innerHTML = accessScore;
 
     if (props.BS_SCORE <= 2.99) {
@@ -55,6 +55,7 @@ const handleStationB = function (props,coordinates,map) {
       }
 
     var bikeScore = "<div class='odemeter' style="+ color +">"+ props.BS_SCORE+ "</div>"
+    // "<div class='scoreSelection' value='bikeScore'>Cycle Score</div>"
     document.getElementById("bs-score").innerHTML = bikeScore;
 
     if (props.WS_SCORE <= 2.99) {
@@ -74,31 +75,32 @@ const handleStationB = function (props,coordinates,map) {
       }
 
     var walkScore = "<div class='odemeter' style="+ color +">"+ props.WS_SCORE+ "</div>"
+    // "<div class='scoreSelection' value='walkScore'>Pedestrian Score</div>"
     document.getElementById("ws-score").innerHTML = walkScore;
 
     var content = "<div class='data-row'><span class='data-info'>Civic and Cultural Attractors </span><span class='data-value'> " +
-    props.civ_sm +
+    props.civ_sm_a +
     "</span></div>" +
     "<br><div class='data-row'><span class='data-info'>Employees (Nets 2015) within 1-mile of the station  </span><span class='data-value'> " +
-    numeral(props.emp_sm).format("(0,0)") +
+    numeral(props.emp_sm_a).format("(0,0)") +
     "</span></div>"+ 
     "<br><div class='data-row'><span class='data-info'>Essential Services (ETA) </span><span class='data-value'> " +
-    props.ess_sm +
+    props.ess_sm_a +
     "</span></div>" +
     "<br><div class='data-row'><span class='data-info'>Parks and Open Space </span><span class='data-value'> " +
-    props.pos_sc +
+    props.pos_sc_a +
     "</span></div>" +
     "<br><div class='data-row'><span class='data-info'>Walkable Retail and Centers </span><span class='data-value'> " +
-    props.wrc_sc +
+    props.wrc_sc_a +
     "</span></div>" 
     ;
-    document.getElementById("dataMeasurements").innerHTML = content;
+    document.getElementById("dataMeasurements1").innerHTML = content;
         
     map.flyTo({
     // created a parameter that pulls the lat/long values from the geojson
     center: coordinates,
     speed: 0.7,
-    zoom: 13,
+    zoom: 12,
     });
 
     // Start Bar Charts 
@@ -110,13 +112,20 @@ const handleStationB = function (props,coordinates,map) {
     }
 
     // Chart 1 values
-    var score1 = [props.civ_sc,props.emp_sc,props.ess_sc, props.pos_sc,props.wrc_sc];
+    var score1 = [props.civ_sc_a,props.emp_sc_a,props.ess_sc_a, props.pos_sc_a,props.wrc_sc_a];
+    var score2 = [props.ipd_sc_a,props.pop_sc_a,props.zvh_sc_a];
+    // var score3 = [props.civ_sc_a,props.emp_sc_a,props.ess_sc_a, props.pos_sc_a,props.wrc_sc_a];
+    // var score4 = [props.civ_sc_a,props.emp_sc_a,props.ess_sc_a, props.pos_sc_a,props.wrc_sc_a];
+
     updatebarChart(score1);
+    updatebarChart2(score2);
+    // updatebarChart(score3);
+    // updatebarChart(score4);
 
     function updatebarChart(Values) {
      var options = {
          chart: {
-             renderTo: 'chart1',
+             renderTo: 'chartAS1',
              type:'bar',
              plotBackgroundColor: null,
              plotBorderWidth: 0,//null,
@@ -127,7 +136,7 @@ const handleStationB = function (props,coordinates,map) {
              backgroundColor: '#FFF'
            //  backgroundColor: '#EFEFEF'
          },
-           colors: ['#b16eb7']
+           colors: ['#267770']
          ,
          credits: {
              enabled: false
@@ -148,7 +157,7 @@ const handleStationB = function (props,coordinates,map) {
              max:5,
              tickInterval: 1,
              height: 150,
-             gridLineColor: "#8C3095",
+             gridLineColor: "#267770",
              title: {
                  text: ''
              }
@@ -181,5 +190,74 @@ const handleStationB = function (props,coordinates,map) {
      });
    //    console.log(bikeindata);
      }
+ // Chart 2
+ function updatebarChart2(Values) {
+    var options = {
+        chart: {
+            renderTo: 'chartAS2',
+            type:'bar',
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,//null,
+            plotShadow: false,
+            height:200,
+            spacingLeft: 25,
+            spacingRight: 60,
+            backgroundColor: '#FFF'
+          //  backgroundColor: '#EFEFEF'
+        },
+          colors: ['#267770']
+        ,
+        credits: {
+            enabled: false
+        },
+        title: {
+          //  text: 'Bicycle Volume by Month',
+          text:null,
+            x: -20 //center
+        },
+        xAxis: {
+            categories: [ 'Indicators of Potential Disadvantage','Population Density','Zero Vehicle Households'],
+            tickColor: 'transparent',
+            lineColor: 'transparent',
+            labels: {useHTML: true}
+        },
+        yAxis: {
+            min: 0,
+            max:5,
+            tickInterval: 1,
+            height: 150,
+            gridLineColor: "#267770",
+            title: {
+                text: ''
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            enabled: false
+        },
+        series: [{
+                name:'Total',
+                id: 'Values',
+                data: []
+            }]
+   };
+
+    var Labels = [],
+    counData = [];
+    for (var i = 0; i < Values.length; i++){
+    counData.push({
+    name: Labels[i],
+    y: Values[i]})
+    }
+    options.series[0].data = counData;
+    var chart = new Highcharts.Chart(options)
+    $('.highcharts-xaxis-labels text, .highcharts-xaxis-labels span').click(function () {
+        // console.log(this.textContent.split(' ')[0]);
+          chart1Modal(this.textContent.split(' ')[0]);
+    });
+  //    console.log(bikeindata);
+    }    
  }
  export default handleStationB

@@ -52,12 +52,16 @@ const layers = {
       },
       bs_limit: {
         "id": "bs_limit",
-        "type": "fill",
+        "type": "line",
         "source": "bs_limit",
-        "paint": {
-          "fill-color": "rgba(244,162,45, 0.5)"
-        },
-        "layout": { "visibility": "none" }
+        'paint': {
+        'line-color': '#90d782',
+        'line-opacity':.6,
+        'line-width': 6},
+        "layout": { 
+         "visibility": "none",
+         'line-join': 'round',
+         'line-cap': 'round' }
       },
       ws_limit: {
         "id": "ws_limit",

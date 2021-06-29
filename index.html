@@ -24,6 +24,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,700&amp;display=swap">
         <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css">
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
         <link rel="stylesheet" href="./css/styles.css">
         <link rel="stylesheet" href="./css/mobile.css" media="(max-width: 800px)">
         
@@ -65,20 +66,37 @@
                     </div>  
 
                     <div id="scoreWrapper">
-                       
-                        <div id="AS" value="AS" class="AS">
+                        <div id="scoreBox">
                         <div id="as-score"></div> 
-                        Access Score    
-                    </div>
+                        <div id="AS">
+                            <input type="radio" class="lbox-AS" id="control_01" name="select" value="1" checked>
+                            <label id="label-box" class="AS" for="control_01">
+                              <h3>Access Score</h3>
+                              <p>Characteristics within 2 miles of the station.</p>
+                            </label>
+                          </div>   
+                        </div>
 
-                        <div id="BS" value="BS" class="BS">
+                        <div id="scoreBox">
                         <div id="bs-score"></div>
-                        Cycle Score
-                       </div>
+                        <div id="BS">
+                            <input type="radio" class="lbox-BS" id="control_02" name="select" value="2">
+                            <label id="label-box" for="control_02">
+                              <h3>Cycle Score</h3>
+                              <p>Characteristics within the existing all ages and abilities cycle shed.<br><i>(up to 2 miles)</i></p>
+                            </label>
+                          </div>
+                         </div>
 
-                        <div id="WS" value="WS" class="WS">
+                        <div id="scoreBox">
                         <div id="ws-score"></div>   
-                         Pedestrian Score
+                         <div id="WS">
+                            <input type="radio" class="lbox-WS" id="control_03" name="select" value="3">
+                            <label id="label-box" for="control_03">
+                              <h3>Pedestrian Score</h3>
+                              <p>Characteristics within the existing sidewalk network shed.<br><i>(up to 1 mile)</i></p>
+                            </label>
+                          </div>
                         </div>
                     </div>  
 
@@ -99,23 +117,53 @@
                         <fieldset id="infoSwitch">
                         <legend id="infoSwitch-title">Select a Scoring Methods</legend>
                         <label id="chart-info" for="radio1">
-                        <input id="radio1" type="radio" name="img" class="infoSelection" checked data-image-to-show="charts" checked><i class="glyphicon glyphicon-align-left"></i>&nbsp;&nbsp;Category Scoring
+                        <input id="radio1" type="radio" name="img" class="infoSelection" checked data-image-to-show="chartsGroup" checked><i class="glyphicon glyphicon-align-left"></i>&nbsp;&nbsp;Category Scoring
                         </label>
                         <label id="data-info" for="radio2">
-                        <input id="radio2" type="radio" name="img" class="infoSelection" data-image-to-show="info-data"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;Data Measurement
+                        <input id="radio2" type="radio" name="img" class="infoSelection" data-image-to-show="info-data-Group"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;Data Measurement
                         </label>
                         </fieldset>
                     </form>
                
                 <div class="score" id="accessScore">
-                    <div class="info" id="charts">
-                    <h3 class="chart-subheader">Station Area Land Use and Density</h3>
-                    <div class="chart1" id="chart1"></div>  
+                <div class="info" id="chartsGroup">
+                    <div id="charts">
+                        <h3 class="chart-subheader">Station Area Land Use and Density</h3>
+                        <div class="chart1" id="chartAS1"></div>  
                     </div>
-                    <div class='info' id='info-data' style="display: none">     
-                    <h3 class='data-subheader'>Station Area Land Use and Density</h3> 
-                    <div id='dataMeasurements' class='info1'></div>
+                    <div id="charts">
+                        <h3 class="chart-subheader">Demographics</h3>
+                        <div class="chart1" id="chartAS2"></div>  
+                    </div>
+                    <div id="charts">
+                        <h3 class="chart-subheader">Transit Density and Access</h3>
+                        <div class="chart1" id="chartAS3"></div>  
+                    </div>
+                    <div id="charts">
+                        <h3 class="chart-subheader">Bicycle and Pedestrian Safety and Access</h3>
+                        <div class="chart1" id="chartAS4"></div>  
+                    </div>
+                </div>
+
+                <div class='info' id='info-data-Group' style="display: none">  
+                    <div id="info-data">
+                        <h3 class='data-subheader'>Station Area Land Use and Density</h3> 
+                        <div id='dataMeasurements1' class='info1'></div>
                     </div>   
+                    <div id="info-data">
+                        <h3 class='data-subheader'>Demographics</h3> 
+                        <div id='dataMeasurements2' class='info1'></div>
+                    </div>   
+                    <div id="info-data">
+                        <h3 class='data-subheader'>Transit Density and Access</h3> 
+                        <div id='dataMeasurements3' class='info1'></div>
+                    </div>   
+                    <div id="info-data">
+                        <h3 class='data-subheader'>Bicycle and Pedestrian Safety and Access</h3> 
+                        <div id='dataMeasurements4' class='info1'></div>
+                    </div>   
+                </div>   
+
                 </div> 
 
                 <div class="bikeScore" id="bikeScore" style="display: none">
