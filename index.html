@@ -38,11 +38,12 @@
                <!-- <span class="nav-vr">|</span> -->
                 <img src="./img/AccessScore-logo.png" alt="project logo" class="nav-logos" id="accessscore-logo"> 
                 <span id="beta">BETA</span> 
+                <div>
+                    <button id="modal-toggle" class="btn about-btn">about</button>
+                </div>
             </div>
 
-            <div>
-                <button id="modal-toggle" class="nav-btn nav-links">about</button>
-            </div>
+          
             <div class="input-group search-container">
                 <form id="search">
                     <label>
@@ -102,7 +103,7 @@
 
                     <form>
                         <fieldset id="legendWrapper">
-                        <legend id="infoSwitch-title">Category Scoring</legend>
+                        <legend id="infoSwitch-title">category scoring</legend>
                         <div id="legend-Item"><div class="circle as-2"></div><span>1-2 Low</span></div>
                         <div id="legend-Item"><div class="circle as-3"></div><span>3</span></div>
                         <div id="legend-Item"><div class="circle as-4"></div><span>4</span></div>
@@ -112,10 +113,84 @@
                         <div id="legend-Item"><div class="circle as-8"></div><span>8-10 High</span></div>
                         </fieldset>
                     </form>
+
+                    <form class="sidebar-form sidebar-form-toggle">
+                        <fieldset class="sidebar-fieldset">
+                            <legend class="bold-text">toggle base layers</legend>
+                            <ul>
+                              <li>
+                                <label>
+                                  <input
+                                    type="checkbox"
+                                    id="sidewalks"
+                                    name="layer"
+                                    value="sidewalks"
+                                  />
+                                  <i class="fa fa-minus fa-sm legend-sidewalk"></i>
+                                  Sidewalks
+                                </label>
+                              </li>
+                              <li>
+                                <label>
+                                  <input
+                                    type="checkbox"
+                                    id="crosswalks"
+                                    name="layer"
+                                    value="crosswalks"
+                                  />
+                                  <i class="fa fa-minus fa-lg legend-sidewalk"></i>
+                                  Crosswalks
+                                </label>
+                              </li>
+                              <li>
+                                <label>
+                                  <input
+                                    type="checkbox"
+                                    id="county-outline"
+                                    name="layer"
+                                    value="county-outline"
+                                    checked
+                                  />
+                                  County Boundaries
+                                </label>
+                              </li>
+                              <li>
+                                <label>
+                                  <input
+                                    type="checkbox"
+                                    id="municipality-outline"
+                                    name="layer"
+                                    value="municipality-outline"
+                                  />
+                                  Municipal Boundaries
+                                </label>
+                              </li>
+                            </ul>
+                          </fieldset>
+                    </form>
+
+                    <form class="sidebar-form sidebar-form-toggle">
+                        <fieldset class="sidebar-fieldset">
+                            <legend class="bold-text">toggle basemap</legend>
+                            <ul>
+                              <li>
+                                <label>
+                                  <input
+                                    type="checkbox"
+                                    id="nearmap"
+                                    name="layer"
+                                    value="nearmap"
+                                  />
+                                  NearMap Imagery
+                                </label>
+                              </li>
+                            </ul>
+                          </fieldset>
+                    </form>
                     
                     <form>
                         <fieldset id="infoSwitch">
-                        <legend id="infoSwitch-title">Select a Scoring Methods AS</legend>
+                        <legend id="infoSwitch-title">select a scoring method AS</legend>
                         <label id="chart-info" for="radio1">
                         <input id="radio1" type="radio" name="img" class="infoSelection" checked data-image-to-show="chartsGroup" checked><i class="glyphicon glyphicon-align-left"></i>&nbsp;&nbsp;Category Scoring
                         </label>
@@ -127,7 +202,7 @@
 
                     <form>
                         <fieldset id="infoSwitchBS" style="display: none">
-                        <legend id="infoSwitch-title">Select a Scoring Methods BS</legend>
+                        <legend id="infoSwitch-title">select a scoring method BS</legend>
                         <label id="chart-info" for="radio3">
                         <input id="radio3" type="radio" name="img" class="infoSelectionBS" checked data-image-to-show="chartsGroupBS" checked><i class="glyphicon glyphicon-align-left"></i>&nbsp;&nbsp;Category Scoring
                         </label>
@@ -139,7 +214,7 @@
 
                     <form>
                         <fieldset id="infoSwitchWS" style="display: none">
-                        <legend id="infoSwitch-title">Select a Scoring Methods WS</legend>
+                        <legend id="infoSwitch-title">select a scoring method WS</legend>
                         <label id="chart-info" for="radio5">
                         <input id="radio5" type="radio" name="img" class="infoSelectionWS" checked data-image-to-show="chartsGroupWS" checked><i class="glyphicon glyphicon-align-left"></i>&nbsp;&nbsp;Category Scoring
                         </label>

@@ -5,6 +5,7 @@ import handleModal from './modal.js'
 import handleStation from './charts.js'
 import handleStationB from './charts2.js'
 import handleStationW from './charts3.js'
+import { toggleLayers } from "./forms.js";
 // add additional imports here (popups, forms, etc)
 
 
@@ -12,6 +13,10 @@ const modal = document.getElementById('modal')
 const modalToggle = document.getElementById('modal-toggle')
 const closeModal = document.getElementById('close-modal')
 // get additional elements here (forms, etc)
+
+const toggleLayerForms = Array.from(
+  document.querySelectorAll(".sidebar-form-toggle")
+);
 
 document.querySelectorAll(".infoSelection").forEach(el => {
   el.onclick = event => {
@@ -156,6 +161,21 @@ const map = makeMap()
 map.on('load', () => {
     for(const source in sources) map.addSource(source, sources[source])
     for(const layer in layers) map.addLayer(layers[layer])
+
+    // Wire all checkbox layer toggles to an on-click event
+    toggleLayerForms.forEach((form) => toggleLayers(form, map));
+
+    // add map events here (click, mousemove, etc)
+    map.addLayer(
+    {
+    'id': 'nearmap',
+    'type': 'raster',
+    'source': 'nearmap',
+    'paint': {},
+    "layout": {"visibility":"none"}
+    },
+    'road-street'
+    );
 
     // add map events here (click, mousemove, etc)
     var stationID = null;

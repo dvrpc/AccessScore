@@ -1,4 +1,13 @@
 const layers = {
+    // NearMap: {
+    //     'id': 'nearmap',
+    //     'type': 'raster',
+    //     'source': 'nearmap',
+    //     'paint': {},
+    //     "layout": {
+    //         "visibility":"none",
+    //     }
+    // },
     countyOutline: {
         "id": "county-outline",
         "type": "line",
@@ -41,6 +50,38 @@ const layers = {
         'line-width': 3
         }
     },
+    sidewalks: {
+        id: "sidewalks",
+        type: "line",
+        source: "sidewalk_inventory",
+        layout: {
+          // make layer visible by default
+          visibility: "visible",
+        },
+        paint: {
+          "line-width": 1.2,
+          "line-color": "rgba(255,255,255,0.5)",
+        },
+        "source-layer": "ped_lines",
+        filter: ["==", "line_type", 1],
+      },
+      crosswalks: {
+        id: "crosswalks",
+        type: "line",
+        source: "sidewalk_inventory",
+        layout: {
+          // make layer visible by default
+          visibility: "visible",
+        },
+        minzoom: 13,
+        paint: {
+          "line-width": 4,
+          "line-color": "rgba(255,255,255,0.5)",
+          // "line-dasharray": [1, 0.5]
+        },
+        "source-layer": "ped_lines",
+        filter: ["==", "line_type", 2],
+      },
     as_2mile: {
         "id": "as_2mile",
         "type": "fill",
@@ -141,7 +182,7 @@ const layers = {
         ]
         }
     }
-   
+
 }
 
 export default layers
