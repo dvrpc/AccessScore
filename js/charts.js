@@ -41,17 +41,17 @@ const handleStation = function (props,coordinates,map) {
     // "<div id='accessScore' class='scoreSelection' value='accessScore'>Access Score</div>"
     document.getElementById("as-score").innerHTML = accessScore;
 
-    if (props.BS_SCORE <= 2.99) {
+    if (props.BS_SCORE <= 2.9) {
         var color = 'background:#a50026';
       } else if (props.BS_SCORE <= 3.99){
         var color = 'background:#d73027';
-    } else if (props.BS_SCORE <= 4.99){
+    } else if (props.BS_SCORE <= 4.9){
         var color = 'background:#f46d43';
-    } else if (props.BS_SCORE <= 5.99){
+    } else if (props.BS_SCORE <= 5.9){
         var color = 'background:#fdae61';
-    } else if (props.BSCORE <= 6.99){
+    } else if (props.BS_SCORE <= 6.9){
         var color = 'background:#74add1';
-    } else if (props.BS_SCORE <= 7.99){
+    } else if (props.BS_SCORE <= 7.9){
         var color = 'background:#4575b4';
     } else {
         var color = 'background:#313695';
@@ -115,7 +115,7 @@ const handleStation = function (props,coordinates,map) {
     props.npb_npbp  +
     "%</span></div>" +
     "<br><div class='data-row'><span class='data-info'>Percentage of Local Drivers </span><span class='data-value'> " +
-    props.lps_sm_a +
+    numeral(props.surv_calc).format("(0.00)") +
     "%</span></div>"+ 
     "<br><div class='data-row'><span class='data-info'>Transit Vehicle Volume</span><span class='data-value'> " +
     props.tvv_sc +
@@ -134,10 +134,10 @@ const handleStation = function (props,coordinates,map) {
     "</span></div>" +
     "<br><div class='data-row'><span class='data-info'>Low Stress Bike Shed </span><span class='data-value'> " +
     numeral(props.lts_va_a).format("(0.00)") +
-    "</span></div>" +
+    " linear miles</span></div>" +
     "<br><div class='data-row'><span class='data-info'>Walk Shed </span><span class='data-value'> " +
     numeral(props.ped_va_a).format("(0.00)") +
-    "</span></div>" 
+    " linear miles</span></div>" 
     ;
     document.getElementById("dataMeasurements4").innerHTML = content4;
         

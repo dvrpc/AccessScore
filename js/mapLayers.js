@@ -1,13 +1,4 @@
 const layers = {
-    // NearMap: {
-    //     'id': 'nearmap',
-    //     'type': 'raster',
-    //     'source': 'nearmap',
-    //     'paint': {},
-    //     "layout": {
-    //         "visibility":"none",
-    //     }
-    // },
     countyOutline: {
         "id": "county-outline",
         "type": "line",
@@ -29,7 +20,7 @@ const layers = {
         "source": "boundaries",
         "source-layer": "municipalities",
         "layout": {
-            "visibility":"none",
+            "visibility":"visible",
              },
         "paint": {
             'line-width': 0.5,
@@ -55,8 +46,8 @@ const layers = {
         type: "line",
         source: "sidewalk_inventory",
         layout: {
-          // make layer visible by default
-          visibility: "visible",
+          // make layer none by default
+          visibility: "none",
         },
         paint: {
           "line-width": 1.2,
@@ -71,7 +62,7 @@ const layers = {
         source: "sidewalk_inventory",
         layout: {
           // make layer visible by default
-          visibility: "visible",
+          visibility: "none",
         },
         minzoom: 13,
         paint: {

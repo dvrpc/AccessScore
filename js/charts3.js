@@ -46,7 +46,7 @@ const handleStationW = function (props,coordinates,map) {
         var color = 'background:#f46d43';
     } else if (props.BS_SCORE <= 5.99){
         var color = 'background:#fdae61';
-    } else if (props.BSCORE <= 6.99){
+    } else if (props.BS_SCORE <= 6.99){
         var color = 'background:#74add1';
     } else if (props.BS_SCORE <= 7.99){
         var color = 'background:#4575b4';
@@ -112,7 +112,7 @@ const handleStationW = function (props,coordinates,map) {
     props.npb_npbp  +
     "%</span></div>" +
     "<br><div class='data-row'><span class='data-info'>Percentage of Local Drivers </span><span class='data-value'> " +
-    props.lps_sm_w +
+    numeral(props.surv_cal_2).format("(0.00)") +
     "%</span></div>"+ 
     "<br><div class='data-row'><span class='data-info'>Transit Vehicle Volume</span><span class='data-value'> " +
     props.tvv_sc +
@@ -131,10 +131,10 @@ const handleStationW = function (props,coordinates,map) {
     "</span></div>" +
     "<br><div class='data-row'><span class='data-info'>Low Stress Bike Shed </span><span class='data-value'> " +
     numeral(props.lts_va_w).format("(0.00)") +
-    "</span></div>" +
+    " linear miles</span></div>" +
     "<br><div class='data-row'><span class='data-info'>Walk Shed </span><span class='data-value'> " +
     numeral(props.ped_va_w).format("(0.00)") +
-    "</span></div>" 
+    " linear miles</span></div>" 
     ;
     document.getElementById("dataMeasurementsWS4").innerHTML = content4WS;
         

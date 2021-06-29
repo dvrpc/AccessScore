@@ -2,22 +2,25 @@ import makeMap from './map.js'
 import sources from './mapSources.js'
 import layers from './mapLayers.js'
 import handleModal from './modal.js'
+import { toggleLayers } from "./forms.js";
+
+// Handles Map Click for stations
 import handleStation from './charts.js'
 import handleStationB from './charts2.js'
 import handleStationW from './charts3.js'
-import { toggleLayers } from "./forms.js";
+
+
 // add additional imports here (popups, forms, etc)
-
-
 const modal = document.getElementById('modal')
 const modalToggle = document.getElementById('modal-toggle')
 const closeModal = document.getElementById('close-modal')
 // get additional elements here (forms, etc)
 
+// toggle base and basemap layers 
 const toggleLayerForms = Array.from(
   document.querySelectorAll(".sidebar-form-toggle")
 );
-
+// toggle bewteen Chart View and Data View for Access Score
 document.querySelectorAll(".infoSelection").forEach(el => {
   el.onclick = event => {
     const id = event.target.dataset.imageToShow
@@ -25,33 +28,25 @@ document.querySelectorAll(".infoSelection").forEach(el => {
     document.getElementById(id).style.display = "block"
   }
 })
-
+// toggle bewteen Chart View and Data View for Bike Score
 document.querySelectorAll(".infoSelectionBS").forEach(el => {
   el.onclick = event => {
     const id = event.target.dataset.imageToShow
-    document.querySelectorAll(".info").forEach(img => { img.style.display = "none" })
+    document.querySelectorAll(".infoBS").forEach(img => { img.style.display = "none" })
     document.getElementById(id).style.display = "block"
   }
 })
-
+// toggle bewteen Chart View and Data View for Walk Score
 document.querySelectorAll(".infoSelectionWS").forEach(el => {
   el.onclick = event => {
     const id = event.target.dataset.imageToShow
-    document.querySelectorAll(".info").forEach(img => { img.style.display = "none" })
+    document.querySelectorAll(".infoWS").forEach(img => { img.style.display = "none" })
     document.getElementById(id).style.display = "block"
   }
 })
 
-// document.querySelectorAll(".scoreSelection").forEach(el => {
-//   el.onclick = event => {
-//     const id = event.target.dataset.imageToShow
-//     document.querySelectorAll(".score").forEach(img => { img.style.display = "none" })
-//     document.getElementById(id).style.display = "block"
-//   }
-// })
-
+// Access Score CheckBox toggle
 document.getElementById("AS").addEventListener("click", function() {
- // alert("Hello World!");
   document.getElementById("accessScore").style.display = "block";
   document.getElementById("bikeScore").style.display = "none";
   document.getElementById("walkScore").style.display = "none";
@@ -82,8 +77,8 @@ document.getElementById("AS").addEventListener("click", function() {
   map.setLayoutProperty('ws_limit', "visibility", "none")
 });
 
+// Bike Score CheckBox toggle
 document.getElementById("BS").addEventListener("click", function() {
-  // alert("Hello World!");
   document.getElementById("bikeScore").style.display = "block"
   document.getElementById("accessScore").style.display = "none"
   document.getElementById("walkScore").style.display = "none"
@@ -92,8 +87,6 @@ document.getElementById("BS").addEventListener("click", function() {
   document.getElementById("infoSwitch").style.display = "none"
   document.getElementById("infoSwitchWS").style.display = "none"
 
- //  document.document.getElementsByClassName("station-popup").style.backgroundColor = "#f4a22d"
- // $('.station-popup').css('background-color', '#f4a22d');
   document.documentElement.style
     .setProperty('--popup-color', '#90D782');
 
@@ -117,6 +110,7 @@ document.getElementById("BS").addEventListener("click", function() {
    map.setLayoutProperty('ws_limit', "visibility", "none")
  });
 
+ // Walk Score CheckBox toggle
  document.getElementById("WS").addEventListener("click", function() {
   // alert("Hello World!");
    document.getElementById("accessScore").style.display = "none"
@@ -150,10 +144,10 @@ document.getElementById("BS").addEventListener("click", function() {
    map.setLayoutProperty('stationsW', "visibility", "visible")
  });
 
-
-const searchForm = document.getElementById('search')
-var retailSearch = {};
-var stations;
+// Still to come --- Code that is related to Datalist Search 
+// const searchForm = document.getElementById('search')
+// var retailSearch = {};
+// var stations;
 
 // map
 const map = makeMap()
@@ -166,6 +160,7 @@ map.on('load', () => {
     toggleLayerForms.forEach((form) => toggleLayers(form, map));
 
     // add map events here (click, mousemove, etc)
+    // Add NearMap Imagery, it is added here do to neediung to place layer below road-street layer
     map.addLayer(
     {
     'id': 'nearmap',
@@ -257,7 +252,6 @@ map.on('load', () => {
       }
       // Populate the popup and set its coordinates
       // based on the feature found.
-   //   popup.addClassName('station-popup');
       popup.setLngLat(coordinates).setHTML(description).addTo(map);
 
     });
@@ -286,98 +280,98 @@ map.on('load', () => {
         }
       );
     }
+    // Populate the popup and set its coordinates
+    // based on the feature found.
+    popup.setLngLat(coordinates).setHTML(description).addTo(map);
+    });
+
+    map.on('mousemove', 'stationsW', (e) => {
+      map.getCanvas().style.cursor = 'pointer';
+      var coordinates = e.features[0].geometry.coordinates.slice();
+      var description = '<h3>'+ e.features[0].properties.station +' : '+e.features[0].properties.WS_SCORE+'</h3>';
+      if (e.features.length > 0) {
+      // When the mouse moves over the station layer, update the
+      // feature state for the feature under the mouse
+      if (stationID) {
+        map.removeFeatureState({
+          source: 'WalkScore',
+          id: stationID
+        });
+      }
+      stationID = e.features[0].id;
+      map.setFeatureState(
+        {
+          source: 'WalkScore',
+          id: stationID
+        },
+        {
+          hover: true
+        }
+      );
+    }
   // Populate the popup and set its coordinates
   // based on the feature found.
   popup.setLngLat(coordinates).setHTML(description).addTo(map);
   });
-
-  map.on('mousemove', 'stationsW', (e) => {
-    map.getCanvas().style.cursor = 'pointer';
-    var coordinates = e.features[0].geometry.coordinates.slice();
-    var description = '<h3>'+ e.features[0].properties.station +' : '+e.features[0].properties.WS_SCORE+'</h3>';
-    if (e.features.length > 0) {
-    // When the mouse moves over the station layer, update the
-    // feature state for the feature under the mouse
+  // When the mouse leaves the station layer, update the
+  // feature state of the previously hovered feature
+  map.on('mouseleave', 'stations', function () {
     if (stationID) {
-      map.removeFeatureState({
-        source: 'WalkScore',
-        id: stationID
-      });
+      map.setFeatureState(
+        {
+          source: 'accessscore',
+          id: stationID
+        },
+        {
+          hover: false
+        }
+      );
+  //    map.setLayoutProperty('as_2mile', 'visibility', 'none');
     }
-    stationID = e.features[0].id;
-    map.setFeatureState(
-      {
-        source: 'WalkScore',
-        id: stationID
-      },
-      {
-        hover: true
-      }
-    );
-  }
-// Populate the popup and set its coordinates
-// based on the feature found.
-popup.setLngLat(coordinates).setHTML(description).addTo(map);
-});
-    // When the mouse leaves the station layer, update the
-    // feature state of the previously hovered feature
-    map.on('mouseleave', 'stations', function () {
-      if (stationID) {
-        map.setFeatureState(
-          {
-            source: 'accessscore',
-            id: stationID
-          },
-          {
-            hover: false
-          }
-        );
-    //    map.setLayoutProperty('as_2mile', 'visibility', 'none');
-      }
-      stationID = null;
-      // Reset the cursor style
-      // close popup
-      map.getCanvas().style.cursor = '';
-      popup.remove();
-    });
+    stationID = null;
+    // Reset the cursor style
+    // close popup
+    map.getCanvas().style.cursor = '';
+    popup.remove();
+  });
 
-    map.on('mouseleave', 'stationsB', function () {
-      if (stationID) {
-        map.setFeatureState(
-          {
-            source: 'CycleScore',
-            id: stationID
-          },
-          {
-            hover: false
-          }
-        );
-      }
-      stationID = null;
-      // Reset the cursor style
-      // close popup
-      map.getCanvas().style.cursor = '';
-      popup.remove();
-    });
+  map.on('mouseleave', 'stationsB', function () {
+    if (stationID) {
+      map.setFeatureState(
+        {
+          source: 'CycleScore',
+          id: stationID
+        },
+        {
+          hover: false
+        }
+      );
+    }
+    stationID = null;
+    // Reset the cursor style
+    // close popup
+    map.getCanvas().style.cursor = '';
+    popup.remove();
+  });
 
-    map.on('mouseleave', 'stationsW', function () {
-      if (stationID) {
-        map.setFeatureState(
-          {
-            source: 'WalkScore',
-            id: stationID
-          },
-          {
-            hover: false
-          }
-        );
-      }
-      stationID = null;
-      // Reset the cursor style
-      // close popup
-      map.getCanvas().style.cursor = '';
-      popup.remove();
-    });
+  map.on('mouseleave', 'stationsW', function () {
+    if (stationID) {
+      map.setFeatureState(
+        {
+          source: 'WalkScore',
+          id: stationID
+        },
+        {
+          hover: false
+        }
+      );
+    }
+    stationID = null;
+    // Reset the cursor style
+    // close popup
+    map.getCanvas().style.cursor = '';
+    popup.remove();
+  });
 
  // stations.features.forEach(function (marker) {
 //      retailSearch[marker.properties.STATION] = marker
