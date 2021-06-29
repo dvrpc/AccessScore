@@ -1,5 +1,8 @@
 const handleStation = function (props,coordinates,map) {
     //  var props = e.features[0].properties;
+//  if( document.getElementById("accessScore").style.display = "block") {
+//   alert("display not available");
+// }
 
     var info =
     "<h3>" +

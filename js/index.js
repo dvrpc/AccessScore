@@ -21,6 +21,22 @@ document.querySelectorAll(".infoSelection").forEach(el => {
   }
 })
 
+document.querySelectorAll(".infoSelectionBS").forEach(el => {
+  el.onclick = event => {
+    const id = event.target.dataset.imageToShow
+    document.querySelectorAll(".info").forEach(img => { img.style.display = "none" })
+    document.getElementById(id).style.display = "block"
+  }
+})
+
+document.querySelectorAll(".infoSelectionWS").forEach(el => {
+  el.onclick = event => {
+    const id = event.target.dataset.imageToShow
+    document.querySelectorAll(".info").forEach(img => { img.style.display = "none" })
+    document.getElementById(id).style.display = "block"
+  }
+})
+
 // document.querySelectorAll(".scoreSelection").forEach(el => {
 //   el.onclick = event => {
 //     const id = event.target.dataset.imageToShow
@@ -31,9 +47,13 @@ document.querySelectorAll(".infoSelection").forEach(el => {
 
 document.getElementById("AS").addEventListener("click", function() {
  // alert("Hello World!");
-  document.getElementById("accessScore").style.display = "block"
-  document.getElementById("bikeScore").style.display = "none"
-  document.getElementById("walkScore").style.display = "none"
+  document.getElementById("accessScore").style.display = "block";
+  document.getElementById("bikeScore").style.display = "none";
+  document.getElementById("walkScore").style.display = "none";
+
+  document.getElementById("infoSwitch").style.display = "block";
+  document.getElementById("infoSwitchBS").style.display = "none";
+  document.getElementById("infoSwitchWS").style.display = "none";
   document.documentElement.style
   .setProperty('--popup-color', '#30958c');
 
@@ -59,9 +79,13 @@ document.getElementById("AS").addEventListener("click", function() {
 
 document.getElementById("BS").addEventListener("click", function() {
   // alert("Hello World!");
-   document.getElementById("accessScore").style.display = "none"
-   document.getElementById("bikeScore").style.display = "block"
-   document.getElementById("walkScore").style.display = "none"
+  document.getElementById("bikeScore").style.display = "block"
+  document.getElementById("accessScore").style.display = "none"
+  document.getElementById("walkScore").style.display = "none"
+
+  document.getElementById("infoSwitchBS").style.display = "block"
+  document.getElementById("infoSwitch").style.display = "none"
+  document.getElementById("infoSwitchWS").style.display = "none"
 
  //  document.document.getElementsByClassName("station-popup").style.backgroundColor = "#f4a22d"
  // $('.station-popup').css('background-color', '#f4a22d');
@@ -93,6 +117,10 @@ document.getElementById("BS").addEventListener("click", function() {
    document.getElementById("accessScore").style.display = "none"
    document.getElementById("bikeScore").style.display = "none"
    document.getElementById("walkScore").style.display = "block"
+
+   document.getElementById("infoSwitchWS").style.display = "block"
+   document.getElementById("infoSwitch").style.display = "none"
+   document.getElementById("infoSwitchBS").style.display = "none"
    
    document.documentElement.style
    .setProperty('--popup-color', '#ad0074');

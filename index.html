@@ -115,7 +115,7 @@
                     
                     <form>
                         <fieldset id="infoSwitch">
-                        <legend id="infoSwitch-title">Select a Scoring Methods</legend>
+                        <legend id="infoSwitch-title">Select a Scoring Methods AS</legend>
                         <label id="chart-info" for="radio1">
                         <input id="radio1" type="radio" name="img" class="infoSelection" checked data-image-to-show="chartsGroup" checked><i class="glyphicon glyphicon-align-left"></i>&nbsp;&nbsp;Category Scoring
                         </label>
@@ -124,42 +124,66 @@
                         </label>
                         </fieldset>
                     </form>
+
+                    <form>
+                        <fieldset id="infoSwitchBS" style="display: none">
+                        <legend id="infoSwitch-title">Select a Scoring Methods BS</legend>
+                        <label id="chart-info" for="radio3">
+                        <input id="radio3" type="radio" name="img" class="infoSelectionBS" checked data-image-to-show="chartsGroupBS" checked><i class="glyphicon glyphicon-align-left"></i>&nbsp;&nbsp;Category Scoring
+                        </label>
+                        <label id="data-info" for="radio4">
+                        <input id="radio4" type="radio" name="img" class="infoSelectionBS" data-image-to-show="info-data-GroupBS"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;Data Measurement
+                        </label>
+                        </fieldset>
+                    </form>
+
+                    <form>
+                        <fieldset id="infoSwitchWS" style="display: none">
+                        <legend id="infoSwitch-title">Select a Scoring Methods WS</legend>
+                        <label id="chart-info" for="radio5">
+                        <input id="radio5" type="radio" name="img" class="infoSelectionWS" checked data-image-to-show="chartsGroupWS" checked><i class="glyphicon glyphicon-align-left"></i>&nbsp;&nbsp;Category Scoring
+                        </label>
+                        <label id="data-info" for="radio6">
+                        <input id="radio6" type="radio" name="img" class="infoSelectionWS" data-image-to-show="info-data-GroupWS"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;Data Measurement
+                        </label>
+                        </fieldset>
+                    </form>
                
                 <div class="score" id="accessScore">
                 <div class="info" id="chartsGroup">
                     <div id="charts">
-                        <h3 class="chart-subheader">Station Area Land Use and Density</h3>
+                        <h3 class="chart-subheader" id="chartAS">Station Area Land Use and Density</h3>
                         <div class="chart1" id="chartAS1"></div>  
                     </div>
                     <div id="charts">
-                        <h3 class="chart-subheader">Demographics</h3>
+                        <h3 class="chart-subheader" id="chartAS">Demographics</h3>
                         <div class="chart1" id="chartAS2"></div>  
                     </div>
                     <div id="charts">
-                        <h3 class="chart-subheader">Transit Density and Access</h3>
+                        <h3 class="chart-subheader" id="chartAS">Transit Density and Access</h3>
                         <div class="chart1" id="chartAS3"></div>  
                     </div>
                     <div id="charts">
-                        <h3 class="chart-subheader">Bicycle and Pedestrian Safety and Access</h3>
+                        <h3 class="chart-subheader" id="chartAS">Bicycle and Pedestrian Safety and Access</h3>
                         <div class="chart1" id="chartAS4"></div>  
                     </div>
                 </div>
 
                 <div class='info' id='info-data-Group' style="display: none">  
                     <div id="info-data">
-                        <h3 class='data-subheader'>Station Area Land Use and Density</h3> 
+                        <h3 class='data-subheader' id="chartAS">Station Area Land Use and Density</h3> 
                         <div id='dataMeasurements1' class='info1'></div>
                     </div>   
                     <div id="info-data">
-                        <h3 class='data-subheader'>Demographics</h3> 
+                        <h3 class='data-subheader' id="chartAS">Demographics</h3> 
                         <div id='dataMeasurements2' class='info1'></div>
                     </div>   
                     <div id="info-data">
-                        <h3 class='data-subheader'>Transit Density and Access</h3> 
+                        <h3 class='data-subheader' id="chartAS">Transit Density and Access</h3> 
                         <div id='dataMeasurements3' class='info1'></div>
                     </div>   
                     <div id="info-data">
-                        <h3 class='data-subheader'>Bicycle and Pedestrian Safety and Access</h3> 
+                        <h3 class='data-subheader' id="chartAS">Bicycle and Pedestrian Safety and Access</h3> 
                         <div id='dataMeasurements4' class='info1'></div>
                     </div>   
                 </div>   
@@ -167,25 +191,81 @@
                 </div> 
 
                 <div class="bikeScore" id="bikeScore" style="display: none">
-                 <!--   <div class="info" id="charts">
-                         <h3 class="chart-subheader">Station Area Land Use and Density</h3>
-                        <div class="chart1" id="chart1"></div>  
+                    <div class="info" id="chartsGroupBS">
+                        <div id="charts">
+                            <h3 class="chart-subheader" id="chartBS">Station Area Land Use and Density</h3>
+                            <div class="chart1" id="chartBS1"></div>  
                         </div>
-                        <div class='info' id='info-data' style="display: none">     
-                        <h3 class='data-subheader'>Station Area Land Use and Density</h3> 
-                        <div id='dataMeasurements' class='info1'></div>
-                        </div>      -->
+                        <div id="charts">
+                            <h3 class="chart-subheader" id="chartBS">Demographics</h3>
+                            <div class="chart1" id="chartBS2"></div>  
+                        </div>
+                        <div id="charts">
+                            <h3 class="chart-subheader" id="chartBS">Transit Density and Access</h3>
+                            <div class="chart1" id="chartBS3"></div>  
+                        </div>
+                        <div id="charts">
+                            <h3 class="chart-subheader" id="chartBS">Bicycle and Pedestrian Safety and Access</h3>
+                            <div class="chart1" id="chartBS4"></div>  
+                        </div>
+                    </div>
+                    <div class='info' id='info-data-GroupBS' style="display: none">  
+                        <div id="info-data">
+                            <h3 class='data-subheader' id="chartBS">Station Area Land Use and Density</h3> 
+                            <div id='dataMeasurementsBS1' class='info1'></div>
+                        </div>   
+                        <div id="info-data">
+                            <h3 class='data-subheader' id="chartBS">Demographics</h3> 
+                            <div id='dataMeasurementsBS2' class='info1'></div>
+                        </div>   
+                        <div id="info-data">
+                            <h3 class='data-subheader' id="chartBS">Transit Density and Access</h3> 
+                            <div id='dataMeasurementsBS3' class='info1'></div>
+                        </div>   
+                        <div id="info-data">
+                            <h3 class='data-subheader' id="chartBS">Bicycle and Pedestrian Safety and Access</h3> 
+                            <div id='dataMeasurementsBS4' class='info1'></div>
+                        </div>   
+                    </div>  
                 </div>
 
                 <div class="walkScore" id="walkScore" style="display: none">
-                    <!-- <div class="info" id="charts">
-                        <h3 class="chart-subheader">Station Area Land Use and Density</h3>
-                        <div class="chart1" id="chart1"></div>  
+                    <div class="info" id="chartsGroupWS">
+                        <div id="charts">
+                            <h3 class="chart-subheader" id="chartWS">Station Area Land Use and Density</h3>
+                            <div class="chart1" id="chartWS1"></div>  
                         </div>
-                        <div class='info' id='info-data' style="display: none">     
-                        <h3 class='data-subheader'>Station Area Land Use and Density</h3> 
-                        <div id='dataMeasurements' class='info1'></div>
-                        </div>       -->
+                        <div id="charts">
+                            <h3 class="chart-subheader" id="chartWS">Demographics</h3>
+                            <div class="chart1" id="chartWS2"></div>  
+                        </div>
+                        <div id="charts">
+                            <h3 class="chart-subheader" id="chartWS">Transit Density and Access</h3>
+                            <div class="chart1" id="chartWS3"></div>  
+                        </div>
+                        <div id="charts">
+                            <h3 class="chart-subheader" id="chartWS">Bicycle and Pedestrian Safety and Access</h3>
+                            <div class="chart1" id="chartWS4"></div>  
+                        </div>
+                    </div>
+                    <div class='info' id='info-data-GroupWS' style="display: none">  
+                        <div id="info-data">
+                            <h3 class='data-subheader' id="chartWS">Station Area Land Use and Density</h3> 
+                            <div id='dataMeasurementsWS1' class='info1'></div>
+                        </div>   
+                        <div id="info-data">
+                            <h3 class='data-subheader' id="chartWS">Demographics</h3> 
+                            <div id='dataMeasurementsWS2' class='info1'></div>
+                        </div>   
+                        <div id="info-data">
+                            <h3 class='data-subheader' id="chartWS">Transit Density and Access</h3> 
+                            <div id='dataMeasurementsWS3' class='info1'></div>
+                        </div>   
+                        <div id="info-data">
+                            <h3 class='data-subheader' id="chartWS">Bicycle and Pedestrian Safety and Access</h3> 
+                            <div id='dataMeasurementsWS4' class='info1'></div>
+                        </div>   
+                    </div>  
                 </div>
               
                 </div>

@@ -78,23 +78,65 @@ const handleStationB = function (props,coordinates,map) {
     // "<div class='scoreSelection' value='walkScore'>Pedestrian Score</div>"
     document.getElementById("ws-score").innerHTML = walkScore;
 
-    var content = "<div class='data-row'><span class='data-info'>Civic and Cultural Attractors </span><span class='data-value'> " +
-    props.civ_sm_a +
+    var content1BS = "<div class='data-row'><span class='data-info'>Civic and Cultural Attractors </span><span class='data-value'> " +
+    props.civ_sm_b +
     "</span></div>" +
     "<br><div class='data-row'><span class='data-info'>Employees (Nets 2015) within 1-mile of the station  </span><span class='data-value'> " +
-    numeral(props.emp_sm_a).format("(0,0)") +
+    numeral(props.emp_sm_b).format("(0,0)") +
     "</span></div>"+ 
     "<br><div class='data-row'><span class='data-info'>Essential Services (ETA) </span><span class='data-value'> " +
-    props.ess_sm_a +
+    props.ess_sm_b +
     "</span></div>" +
     "<br><div class='data-row'><span class='data-info'>Parks and Open Space </span><span class='data-value'> " +
-    props.pos_sc_a +
+    props.pos_sc_b +
     "</span></div>" +
     "<br><div class='data-row'><span class='data-info'>Walkable Retail and Centers </span><span class='data-value'> " +
-    props.wrc_sc_a +
+    props.wrc_sc_b +
     "</span></div>" 
     ;
-    document.getElementById("dataMeasurements1").innerHTML = content;
+    document.getElementById("dataMeasurementsBS1").innerHTML = content1BS;
+
+    var content2BS = "<div class='data-row'><span class='data-info'>Indicators of Potential Disadvantage </span><span class='data-value'> " +
+    props.ipd_sc_b +
+    "</span></div>" +
+    "<br><div class='data-row'><span class='data-info'>Population Density  </span><span class='data-value'> " +
+    numeral(props.pop_sm_b).format("(0,0)") +
+    "</span></div>"+ 
+    "<br><div class='data-row'><span class='data-info'>Zero Vehicle Households</span><span class='data-value'> " +
+    numeral(props.zvh_sm_b).format("(0,0)") +
+    "</span></div>" 
+    ;
+    document.getElementById("dataMeasurementsBS2").innerHTML = content2BS;
+
+    var content3BS = "<div class='data-row'><span class='data-info'>Non-Parking Boards </span><span class='data-value'> " +
+    props.npb_npbp  +
+    "%</span></div>" +
+    "<br><div class='data-row'><span class='data-info'>Percentage of Local Drivers </span><span class='data-value'> " +
+    props.lps_sm_b +
+    "%</span></div>"+ 
+    "<br><div class='data-row'><span class='data-info'>Transit Vehicle Volume</span><span class='data-value'> " +
+    props.tvv_sc +
+    "</span></div>" 
+    ;
+    document.getElementById("dataMeasurementsBS3").innerHTML = content3BS;
+
+    var content4BS = "<div class='data-row'><span class='data-info'>Circuit Trail Proximity </span><span class='data-value'> " +
+    props.cir_sc_b +
+    "</span></div>" +
+    "<br><div class='data-row'><span class='data-info'>Connectivity Score </span><span class='data-value'> " +
+    numeral(props.int_va_b).format("(0.00)") +
+    "</span></div>"+ 
+    "<br><div class='data-row'><span class='data-info'>Crashes </span><span class='data-value'> " +
+    props.ksi_sm_b +
+    "</span></div>" +
+    "<br><div class='data-row'><span class='data-info'>Low Stress Bike Shed </span><span class='data-value'> " +
+    numeral(props.lts_va_b).format("(0.00)") +
+    "</span></div>" +
+    "<br><div class='data-row'><span class='data-info'>Walk Shed </span><span class='data-value'> " +
+    numeral(props.ped_va_b).format("(0.00)") +
+    "</span></div>" 
+    ;
+    document.getElementById("dataMeasurementsBS4").innerHTML = content4BS;
         
     map.flyTo({
     // created a parameter that pulls the lat/long values from the geojson
@@ -112,31 +154,31 @@ const handleStationB = function (props,coordinates,map) {
     }
 
     // Chart 1 values
-    var score1 = [props.civ_sc_a,props.emp_sc_a,props.ess_sc_a, props.pos_sc_a,props.wrc_sc_a];
-    var score2 = [props.ipd_sc_a,props.pop_sc_a,props.zvh_sc_a];
-    // var score3 = [props.civ_sc_a,props.emp_sc_a,props.ess_sc_a, props.pos_sc_a,props.wrc_sc_a];
-    // var score4 = [props.civ_sc_a,props.emp_sc_a,props.ess_sc_a, props.pos_sc_a,props.wrc_sc_a];
+    var score1BS = [props.civ_sc_b,props.emp_sc_b,props.ess_sc_b, props.pos_sc_b,props.wrc_sc_b];
+    var score2BS = [props.ipd_sc_b,props.pop_sc_b,props.zvh_sc_b];
+    var score3BS = [props.npb_sc,props.lps_sc_b,props.tvv_sc];
+    var score4BS = [props.cir_sc_b,props.int_sc_b,props.ksi_sc_b, props.lts_sc_b,props.ped_sc_b];
 
-    updatebarChart(score1);
-    updatebarChart2(score2);
-    // updatebarChart(score3);
-    // updatebarChart(score4);
+    updatebarChartBS(score1BS);
+    updatebarChartBS2(score2BS);
+    updatebarChartBS3(score3BS);
+    updatebarChartBS4(score4BS);
 
-    function updatebarChart(Values) {
+    function updatebarChartBS(Values) {
      var options = {
          chart: {
-             renderTo: 'chartAS1',
+             renderTo: 'chartBS1',
              type:'bar',
              plotBackgroundColor: null,
              plotBorderWidth: 0,//null,
              plotShadow: false,
              height:200,
-             spacingLeft: 25,
-             spacingRight: 60,
+             spacingLeft: 20,
+             spacingRight: 20,
              backgroundColor: '#FFF'
            //  backgroundColor: '#EFEFEF'
          },
-           colors: ['#267770']
+           colors: ['#90d782']
          ,
          credits: {
              enabled: false
@@ -157,7 +199,7 @@ const handleStationB = function (props,coordinates,map) {
              max:5,
              tickInterval: 1,
              height: 150,
-             gridLineColor: "#267770",
+             gridLineColor: "#90d782",
              title: {
                  text: ''
              }
@@ -190,22 +232,22 @@ const handleStationB = function (props,coordinates,map) {
      });
    //    console.log(bikeindata);
      }
- // Chart 2
- function updatebarChart2(Values) {
+ // Start Chart 2
+ function updatebarChartBS2(Values) {
     var options = {
         chart: {
-            renderTo: 'chartAS2',
+            renderTo: 'chartBS2',
             type:'bar',
             plotBackgroundColor: null,
             plotBorderWidth: 0,//null,
             plotShadow: false,
-            height:200,
-            spacingLeft: 25,
-            spacingRight: 60,
+            height:130,
+            spacingLeft: 20,
+            spacingRight: 20,
             backgroundColor: '#FFF'
           //  backgroundColor: '#EFEFEF'
         },
-          colors: ['#267770']
+          colors: ['#90d782']
         ,
         credits: {
             enabled: false
@@ -225,8 +267,8 @@ const handleStationB = function (props,coordinates,map) {
             min: 0,
             max:5,
             tickInterval: 1,
-            height: 150,
-            gridLineColor: "#267770",
+            height: 80,
+            gridLineColor: "#90d782",
             title: {
                 text: ''
             }
@@ -259,5 +301,147 @@ const handleStationB = function (props,coordinates,map) {
     });
   //    console.log(bikeindata);
     }    
+     // EndChart 2
+  // Start Chart 3
+  function updatebarChartBS3(Values) {
+    var options = {
+        chart: {
+            renderTo: 'chartBS3',
+            type:'bar',
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,//null,
+            plotShadow: false,
+            height:130,
+            spacingLeft: 20,
+            spacingRight: 20,
+            backgroundColor: '#FFF'
+          //  backgroundColor: '#EFEFEF'
+        },
+          colors: ['#90d782']
+        ,
+        credits: {
+            enabled: false
+        },
+        title: {
+          //  text: 'Bicycle Volume by Month',
+          text:null,
+            x: -20 //center
+        },
+        xAxis: {
+            categories: [ 'Non-Parking Boards','Percentage of Local Drivers','Transit Vehicle Volume'],
+            tickColor: 'transparent',
+            lineColor: 'transparent',
+            labels: {useHTML: true}
+        },
+        yAxis: {
+            min: 0,
+            max:5,
+            tickInterval: 1,
+            height: 80,
+            gridLineColor: "#90d782",
+            title: {
+                text: ''
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            enabled: false
+        },
+        series: [{
+                name:'Total',
+                id: 'Values',
+                data: []
+            }]
+   };
+
+    var Labels = [],
+    counData = [];
+    for (var i = 0; i < Values.length; i++){
+    counData.push({
+    name: Labels[i],
+    y: Values[i]})
+    }
+    options.series[0].data = counData;
+    var chart = new Highcharts.Chart(options)
+    $('.highcharts-xaxis-labels text, .highcharts-xaxis-labels span').click(function () {
+        // console.log(this.textContent.split(' ')[0]);
+          chart1Modal(this.textContent.split(' ')[0]);
+    });
+  //    console.log(bikeindata);
+    }    
+     // EndChart 3
+       // Start Chart 3
+  function updatebarChartBS4(Values) {
+    var options = {
+        chart: {
+            renderTo: 'chartBS4',
+            type:'bar',
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,//null,
+            plotShadow: false,
+            height:200,
+            spacingLeft: 20,
+            spacingRight: 20,
+            backgroundColor: '#FFF'
+          //  backgroundColor: '#EFEFEF'
+        },
+          colors: ['#90d782']
+        ,
+        credits: {
+            enabled: false
+        },
+        title: {
+          //  text: 'Bicycle Volume by Month',
+          text:null,
+            x: -20 //center
+        },
+        xAxis: {
+            categories: [ 'Circuit Trail Proximity','Connectivity Score','Crashes','Low Stress Bike Shed','Walk Shed'],
+            tickColor: 'transparent',
+            lineColor: 'transparent',
+            labels: {useHTML: true}
+        },
+        yAxis: {
+            min: 0,
+            max:5,
+            tickInterval: 1,
+            height: 150,
+            gridLineColor: "#73ac68",
+            title: {
+                text: ''
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            enabled: false
+        },
+        series: [{
+                name:'Total',
+                id: 'Values',
+                data: []
+            }]
+   };
+
+    var Labels = [],
+    counData = [];
+    for (var i = 0; i < Values.length; i++){
+    counData.push({
+    name: Labels[i],
+    y: Values[i]})
+    }
+    options.series[0].data = counData;
+    var chart = new Highcharts.Chart(options)
+    $('.highcharts-xaxis-labels text, .highcharts-xaxis-labels span').click(function () {
+        // console.log(this.textContent.split(' ')[0]);
+          chart1Modal(this.textContent.split(' ')[0]);
+    });
+  //    console.log(bikeindata);
+    }    
+     // EndChart 4
+       
  }
  export default handleStationB
