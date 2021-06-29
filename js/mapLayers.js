@@ -27,6 +27,21 @@ const layers = {
             'line-color': '#4a5c64'
         }
     },
+    transit_stops: {
+      'id': 'transit_stops',
+      'type': 'circle',
+      'source': 'sidewalk_analysis',
+      "source-layer": "transit_stops",
+      "layout": {
+        "visibility":"none",
+         },
+      'paint': {
+        'circle-radius': 2,
+        'circle-stroke-color': '#ffc6af',
+        'circle-stroke-width': .2,
+        'circle-color':'#ffa17a'
+      }
+    },
     prail:{
         "id": "prail",
         "type": "line",
@@ -42,37 +57,66 @@ const layers = {
         }
     },
     sidewalks: {
-        id: "sidewalks",
-        type: "line",
-        source: "sidewalk_inventory",
-        layout: {
-          // make layer none by default
-          visibility: "none",
-        },
-        paint: {
-          "line-width": 1.2,
-          "line-color": "rgba(255,255,255,0.5)",
-        },
-        "source-layer": "ped_lines",
-        filter: ["==", "line_type", 1],
+      id: "sidewalks",
+      type: "line",
+      source: "sidewalk_inventory",
+      layout: {
+        // make layer none by default
+        visibility: "none",
       },
-      crosswalks: {
-        id: "crosswalks",
-        type: "line",
-        source: "sidewalk_inventory",
-        layout: {
-          // make layer visible by default
-          visibility: "none",
-        },
-        minzoom: 13,
-        paint: {
-          "line-width": 4,
-          "line-color": "rgba(255,255,255,0.5)",
-          // "line-dasharray": [1, 0.5]
-        },
-        "source-layer": "ped_lines",
-        filter: ["==", "line_type", 2],
+      paint: {
+        "line-width": 1.2,
+        "line-color": "rgba(255,255,255,0.5)",
       },
+      "source-layer": "ped_lines",
+      filter: ["==", "line_type", 1],
+    },
+    crosswalks: {
+      id: "crosswalks",
+      type: "line",
+      source: "sidewalk_inventory",
+      layout: {
+        // make layer visible by default
+        visibility: "none",
+      },
+      minzoom: 13,
+      paint: {
+        "line-width": 4,
+        "line-color": "rgba(255,255,255,0.5)",
+        // "line-dasharray": [1, 0.5]
+      },
+      "source-layer": "ped_lines",
+      filter: ["==", "line_type", 2],
+    },
+    circuit_trails: {
+        'id':'circuit_trails',
+        'type':'line',
+        'source':'circuit_trails',
+        'layout':{'visibility': 'none'},
+        'paint':{
+        'line-width':1.5,
+        'line-color':'#4fe314'
+        }
+    },  
+    lts: {
+      // existing_conditions_lts
+      id: "lts",
+      type: "line",
+      source: "lts",
+      layout: {
+        // make layer visible by default
+        visibility: "none",
+      },
+      minzoom: 11,
+      paint: {
+        "line-width": 1.5,
+        "line-color": "rgba(249, 248, 113,0.7)",
+        // "line-dasharray": [1, 0.5]
+      },
+      "source-layer": "existing_conditions_lts",
+   //   filter: ["==", "lts_score", 3],
+      filter: ['match', ['get', 'lts_score'], [3,4], true, false],
+  }, 
     as_2mile: {
         "id": "as_2mile",
         "type": "fill",

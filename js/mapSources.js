@@ -42,6 +42,14 @@ const sources = {
         type: "vector",
         url: "https://tiles.dvrpc.org/data/pedestrian-network.json",
       },
+    sidewalk_analysis: {
+        type: "vector",
+        url: "https://tiles.dvrpc.org/data/sidewalk-gaps-analysis-v2.json",
+      },  
+    lts: {
+        type: "vector",
+        url: "https://tiles.dvrpc.org/data/lts-layertest.json",
+      },
     'nearmap': {
         'type': 'raster',
         // use the tiles option to specify a WMS tile source URL

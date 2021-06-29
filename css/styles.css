@@ -589,14 +589,24 @@ section {
 
 
 /* CUSTOM STYLE FOR CHECKBOX */
+.legend-as {
+    color:#30958c;
+  }
 .legend-sidewalk {
     color: var(--theme-dark);
   }
-  
+  .legend-circuit {
+    color:#4fe314;
+  }
+  .legend-bus-stops {
+    color:#ffa17a;
+  }
+  .legend-lts {
+    color:#f9f871;
+  }
 #sidebar-content ul {
     list-style-type: none;
 }
-
 input[type="checkbox"]:focus {
     outline: 0;
   }
