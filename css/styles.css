@@ -589,6 +589,10 @@ section {
 
 
 /* CUSTOM STYLE FOR CHECKBOX */
+.legend-sidewalk {
+    color: var(--theme-dark);
+  }
+  
 #sidebar-content ul {
     list-style-type: none;
 }

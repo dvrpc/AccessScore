@@ -63,7 +63,7 @@ const handleStation = function (props,coordinates,map) {
 
     if (props.WS_SCORE <= 2.99) {
         var color = 'background:#a50026';
-      } else if (props.WS_SCORE <= 3.99){
+    } else if (props.WS_SCORE <= 3.99){
         var color = 'background:#d73027';
     } else if (props.WS_SCORE <= 4.99){
         var color = 'background:#f46d43';
@@ -75,39 +75,82 @@ const handleStation = function (props,coordinates,map) {
         var color = 'background:#4575b4';
     } else {
         var color = 'background:#313695';
-      }
+    }
 
     var walkScore = "<div class='odemeter' style="+ color +">"+ props.WS_SCORE+ "</div>"
     // "<div class='scoreSelection' value='walkScore'>Pedestrian Score</div>"
     document.getElementById("ws-score").innerHTML = walkScore;
 
+    if (props.pos_sc_a == 1) {
+        var POS= '> 2 mile';
+    } else  if (props.pos_sc_a == 2) {
+        var POS= '> 1 mile';
+    } else  if (props.pos_sc_a == 3) {
+        var POS= '1/2 mile - 1 mile';
+    } else  if (props.pos_sc_a == 4) {
+        var POS= '<= 1/2 mile';
+    } else  if (props.pos_sc_a == 5) {
+        var POS= 'on/adjacent';
+    } else {
+        var POS = '';
+    }
+
+    if (props.wrc_sc_a == 1) {
+        var WRC= '> 2 mile';
+    } else  if (props.wrc_sc_a == 2) {
+        var WRC = '> 1 mile';
+    } else  if (props.wrc_sc_a == 3) {
+        var WRC = '1/2 mile - 1 mile';
+    } else  if (props.wrc_sc_a == 4) {
+        var WRC = '<= 1/2 mile';
+    } else  if (props.wrc_sc_a == 5) {
+        var WRC = 'on/adjacent';
+    } else {
+        var WRC = '';
+    }
+
     var content1 = "<div class='data-row'><span class='data-info'>Civic and Cultural Attractors </span><span class='data-value'> " +
     props.civ_sm_a +
-    "</span></div>" +
+    "  resources</span></div>" +
     "<br><div class='data-row'><span class='data-info'>Employees (Nets 2015) within 1-mile of the station  </span><span class='data-value'> " +
     numeral(props.emp_sm_a).format("(0,0)") +
-    "</span></div>"+ 
+    " employees</span></div>"+ 
     "<br><div class='data-row'><span class='data-info'>Essential Services (ETA) </span><span class='data-value'> " +
     props.ess_sm_a +
-    "</span></div>" +
+    " services</span></div>" +
     "<br><div class='data-row'><span class='data-info'>Parks and Open Space </span><span class='data-value'> " +
-    props.pos_sc_a +
+    //props.pos_sc_a +
+    POS +
     "</span></div>" +
     "<br><div class='data-row'><span class='data-info'>Walkable Retail and Centers </span><span class='data-value'> " +
-    props.wrc_sc_a +
+    WRC +
     "</span></div>" 
     ;
     document.getElementById("dataMeasurements1").innerHTML = content1;
 
+    if (props.ipd_sc_a == 1) {
+        var IPD = 'well below average';
+    } else  if (props.ipd_sc_a == 2) {
+        var IPD = 'below average';
+    } else  if (props.ipd_sc_a == 3) {
+        var IPD = 'average';
+    } else  if (props.ipd_sc_a == 4) {
+        var IPD = 'above average';
+    } else  if (props.ipd_sc_a == 5) {
+        var IPD = 'well above average';
+    } else {
+        var IPD = 'n/a';
+    }
+
     var content2 = "<div class='data-row'><span class='data-info'>Indicators of Potential Disadvantage </span><span class='data-value'> " +
-    props.ipd_sc_a +
+    IPD +
     "</span></div>" +
     "<br><div class='data-row'><span class='data-info'>Population Density  </span><span class='data-value'> " +
     numeral(props.pop_sm_a).format("(0,0)") +
-    "</span></div>"+ 
+    " persons</span></div>"+ 
     "<br><div class='data-row'><span class='data-info'>Zero Vehicle Households</span><span class='data-value'> " +
     numeral(props.zvh_sm_a).format("(0,0)") +
-    "</span></div>" 
+    " households</span></div>" 
     ;
     document.getElementById("dataMeasurements2").innerHTML = content2;
 
@@ -118,20 +161,34 @@ const handleStation = function (props,coordinates,map) {
     numeral(props.surv_calc).format("(0.00)") +
     "%</span></div>"+ 
     "<br><div class='data-row'><span class='data-info'>Transit Vehicle Volume</span><span class='data-value'> " +
-    props.tvv_sc +
-    "</span></div>" 
+    // props.tvv_sc +
+    "<i>*values coming soon</i></span></div>" 
     ;
     document.getElementById("dataMeasurements3").innerHTML = content3;
 
+    if (props.cir_sc_a == 1) {
+        var CIR= '> 2 mile';
+    } else  if (props.cir_sc_a == 2) {
+        var CIR = '> 1 mile';
+    } else  if (props.cir_sc_a == 3) {
+        var CIR = '1/2 mile - 1 mile';
+    } else  if (props.cir_sc_a == 4) {
+        var CIR = '<= 1/2 mile';
+    } else  if (props.cir_sc_a == 5) {
+        var CIR = 'on/adjacent';
+    } else {
+        var CIR = '';
+    }
+
     var content4 = "<div class='data-row'><span class='data-info'>Circuit Trail Proximity </span><span class='data-value'> " +
-    props.cir_sc_a +
+    CIR +
     "</span></div>" +
     "<br><div class='data-row'><span class='data-info'>Connectivity Score </span><span class='data-value'> " +
     numeral(props.int_va_a).format("(0.00)") +
     "</span></div>"+ 
     "<br><div class='data-row'><span class='data-info'>Crashes </span><span class='data-value'> " +
     props.ksi_sm_a +
-    "</span></div>" +
+    " total ksi crashes (5yrs)</span></div>" +
     "<br><div class='data-row'><span class='data-info'>Low Stress Bike Shed </span><span class='data-value'> " +
     numeral(props.lts_va_a).format("(0.00)") +
     " linear miles</span></div>" +
