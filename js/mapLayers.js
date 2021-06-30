@@ -118,6 +118,25 @@ const layers = {
    //   filter: ["==", "lts_score", 3],
       filter: ['match', ['get', 'lts_score'], [3,4], true, false],
   }, 
+  bikelane: {
+    // existing_conditions_lts
+    id: "bikelane",
+    type: "line",
+    source: "lts",
+    layout: {
+      // make layer visible by default
+      visibility: "none",
+    },
+   // minzoom: 11,
+    paint: {
+      "line-width": 1.5,
+      "line-color": "rgba(198,121, 246,0.7)",
+      // "line-dasharray": [1, 0.5]
+    },
+    "source-layer": "existing_conditions_lts",
+     filter: ["==", "bikefacili", 'Bike Lane'],
+  //  filter: ['<>', ['get', 'bikefacili'], [""], true, false],
+}, 
     as_2mile: {
         "id": "as_2mile",
         "type": "fill",
