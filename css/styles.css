@@ -700,7 +700,7 @@ input[type="checkbox"]:focus {
 font-size: 18px;
 margin-bottom: 5px;
 }
-#CAT1-Modal, #CAT2-Modal , #CAT3-Modal , #CAT4-Modal {
+#about, #CAT1-Modal, #CAT2-Modal , #CAT3-Modal , #CAT4-Modal {
     max-width: 800px !important;
     z-index: 1000 !important ;
 }

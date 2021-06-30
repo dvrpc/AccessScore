@@ -21,6 +21,10 @@ const toggleLayerForms = Array.from(
   document.querySelectorAll(".sidebar-form-toggle")
 );
 
+$(document).ready(function(){
+  $("#about").modal('show');
+});
+
 // toggle bewteen Chart View and Data View for Access Score
 document.querySelectorAll(".infoSelection").forEach(el => {
   el.onclick = event => {
@@ -167,7 +171,7 @@ map.on('load', () => {
 
     // Wire all checkbox layer toggles to an on-click event
     toggleLayerForms.forEach((form) => toggleLayers(form, map));
-
+ 
     // add map events here (click, mousemove, etc)
     // Add NearMap Imagery, it is added here do to neediung to place layer below road-street layer
     map.addLayer(
@@ -404,4 +408,4 @@ populateOptions(retailSearch)
 */
 })
 // modal
-handleModal(modal, modalToggle, closeModal)
+// handleModal(modal, modalToggle, closeModal)

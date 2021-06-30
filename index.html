@@ -39,12 +39,12 @@
                 <img src="./img/AccessScore-logo.png" alt="project logo" class="nav-logos" id="accessscore-logo"> 
                 <span id="beta">BETA</span> 
                 <div>
-                    <button id="modal-toggle" class="btn about-btn">about</button>
+                    <a class="btn about-btn" href="#about" rel="modal:open">about</a>
                 </div>
             </div>
 
           
-            <div class="input-group search-container">
+            <!-- <div class="input-group search-container">
                 <form id="search">
                     <label>
                         Search by station:
@@ -55,7 +55,7 @@
 
                     <button type="submit" class="btn">search</button>
                 </form>
-            </div>
+            </div> -->
         </nav>
 
         <main id="main-content-wrapper" class="flex-row flex-between">
@@ -403,14 +403,14 @@
             </div>
         </main>
 
-        <div id="modal" role="dialog">
-            <div id="modal-content">
+        <!-- <div id="about" >
+            <div id="content">
                 <span id="close-modal">&times;</span>                        
-                <!-- <div class="tab nav-tabs">
+                 <div class="tab nav-tabs">
                     <button name="tablinks" class="aboutSelection" checked data-image-to-show="about" active>About</button>
                     <button name="tablinks" class="aboutSelection" data-image-to-show="purpose">Purpose</button>
-                </div> -->
-                <div id="about" class="tabcontent" style="display: block">
+                </div> 
+                 <div id="about" class="tabcontent" style="display: block">
                     <p><B>AccessScore</B> is an analysis tool that assesses the infrastructure and demographic characteristics around transit stations that relate to how supportive of bicycling and walking the area is and how much bicycle and pedestrian activity there is or could be. The analysis includes Region Rail and heavy rail, light rail, trolley, subway stations throughout the Philadelphia region with service provided by SEPTA, NJ TRANSIT, and PATCO.    
                     </p>
                     <br>
@@ -433,15 +433,44 @@
                             <a href="mailto:tstead@dvrpc.org@dvrpc.org" class="one">tstead@dvrpc.org</a><br/>
                             </address>
                     </p>  
-                    <div id="about_footer"><p>The information provided through this web application is the culmination of field work and research done by DVRPC staff. For more information on how this analysis was used to support and develop strategies for these retail districts, please visit our Community Resilience webpage.</p>
-                    </div>  
-                </div>
-                
-                <div id="purpose" class="tabcontent" style="display: none">
-                    <p>Paris is the capital of France.</p> 
                 </div>
             </div> 
-        </div>
+        </div> -->
+
+            <!-- Legend Modal -->
+            <div class="modal" id="about">
+                <div class="modal-dialog" style="width:710px;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h3>AccessScore</h3>
+                        </div>
+                        <div class="modal-body">
+                            <p>This analysis tool assesses the infrastructure and demographic characteristics around transit stations that relate to how supportive of bicycling and walking the area is and how much bicycle and pedestrian activity there is or could be. The analysis includes Region Rail and heavy rail, light rail, trolley, subway stations throughout the Philadelphia region with service provided by SEPTA, NJ TRANSIT, and PATCO.    
+                            </p>
+                            <br>
+                            <p>To create this score, DVRPC staff collected data on station area characteristics that are likely to be factors in whether walk, cycle, or drive to transit stations. The sum of those factors, within two miles of the station, is calculated to give each station a total AccessScore. Together, these individual factors, and a station's total AccessScore, will give transit agencies, trail advocacy groups and municipalities a picture of the station area characteristics that contribute to demand for bicycle facilities and amenities. Ultimately, AccessScore may help communities identify and prioritize improvements designed to strengthen pedestrian, cycling, and transit connectivity.
+                            </p>
+                            <br>
+                            <p>In addition to AccessScore, which measures the demand for and supply of facilities for both walkers and people biking, the project team developed a score focused on pedestrians and one focused solely on bicycle-friendliness. 
+                            </p>
+                            <br>
+                            <p><B>Pedestrian Score:</B> uses the existing sidewalk network to create a boundary for scoring walkability near stations. It defines the catchment area as the distance that can be walked continuously on existing sidewalks up to 1 mile. All categories are scored by what is present within that catchment area.   
+                            </p>
+                            <br>
+                            <p><B>Cycle Score:</B> uses DVRPC’s Bicycle Level of Traffic Stress analysis to create a boundary for scoring cycling near stations. It defines the catchment areas as the distance that can be cycled continuously on LTS 1 and 2 road segments that abut the station up to two miles. All categories are scored by what is present within that catchment area.
+                            </p>
+                            <br>
+                            <p>
+                                <h4>For more information:</h4>
+                                    <address>
+                                    Thom Stead | Senior Transportation Planner, Office of Transit, Bicycle, and Pedestrian Planning<br/>
+                                    <a href="mailto:tstead@dvrpc.org@dvrpc.org" class="one">tstead@dvrpc.org</a><br/>
+                                    </address>
+                            </p>  
+                        </div><!-- /.modal-body -->
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal fade--> 
 
 
             <!-- Legend Modal -->
