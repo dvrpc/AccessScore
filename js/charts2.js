@@ -182,9 +182,13 @@ const handleStationB = function (props,coordinates,map) {
     "<br><div class='data-row'><span class='data-info'>Connectivity Score </span><span class='data-value'> " +
     numeral(props.int_va_b).format("(0.00)") +
     "</span></div>"+ 
-    "<br><div class='data-row'><span class='data-info'>Crashes </span><span class='data-value'> " +
+    "<br><div class='data-row'><span class='data-info'>Crashes (KSI from 2015-2019) </span><span class='data-value'> " +
     props.ksi_sm_b +
-    " total ksi crashes (5yrs)</span></div>" +
+    " total ksi ("+
+    props.ksi_bike_1+
+    " bike ksi/"+
+    props.ksi_ped__1+
+    " ped ksi)</span></div>" +
     "<br><div class='data-row'><span class='data-info'>Low Stress Bike Shed </span><span class='data-value'> " +
     numeral(props.lts_va_b).format("(0.00)") +
     " linear miles</span></div>" +
