@@ -45,6 +45,15 @@ document.querySelectorAll(".infoSelectionWS").forEach(el => {
   }
 })
 
+// toggle bewteen Chart View and Data View for Walk Score
+document.querySelectorAll(".aboutSelection").forEach(el => {
+  el.onclick = event => {
+    const id = event.target.dataset.imageToShow
+    document.querySelectorAll(".tabcontent").forEach(tablinks => { tablinks.style.display = "none" })
+    document.getElementById(id).style.display = "block"
+  }
+})
+
 // Access Score CheckBox toggle
 document.getElementById("AS").addEventListener("click", function() {
   document.getElementById("accessScore").style.display = "block";
@@ -143,7 +152,6 @@ document.getElementById("BS").addEventListener("click", function() {
    map.setLayoutProperty('bs_limit', "visibility", "none")
    map.setLayoutProperty('stationsW', "visibility", "visible")
  });
-
 // Still to come --- Code that is related to Datalist Search 
 // const searchForm = document.getElementById('search')
 // var retailSearch = {};

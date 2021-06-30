@@ -7,6 +7,7 @@ const initMap = () => {
         center: [-75.2273, 40.071],
         bounds: [[-76.09405517578125, 39.49211914385648],[-74.32525634765625,40.614734298694216]],
     })
+    
 }
 
 const makeRegionalExtentControl = map => {

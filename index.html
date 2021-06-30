@@ -190,6 +190,30 @@
                                 LTS 3+4
                             </label>
                             </li>
+                            <li>
+                            <label>
+                                <input
+                                type="checkbox"
+                                id="parking"
+                                name="layer"
+                                value="parking"
+                                />
+                                <i class="fa fa-minus fa-md legend-parking"></i>
+                                Transit Station Parking Lot Footprints <i>coming soon</i>
+                            </label>
+                            </li>
+                            <li>
+                            <label>
+                                <input
+                                type="checkbox"
+                                id="retail"
+                                name="layer"
+                                value="retial"
+                                />
+                                <i class="fa fa-minus fa-md legend-retail"></i>
+                                Retail Districts <i>coming soon</i>
+                            </label>
+                            </li>
                             </ul>
                           </fieldset>
                     </form>
@@ -381,12 +405,31 @@
 
         <div id="modal" role="dialog">
             <div id="modal-content">
-                <span id="close-modal">&times;</span>
-        
-                <h2 class="modal-content-subheader">Modal content goes here</h2>
-                <p>About the project, methodology, disclaimer, contact info, etc.</p>
-            </div>
+                <span id="close-modal">&times;</span>                        
+                <div class="tab">
+                    <button name="tablinks" class="aboutSelection" checked data-image-to-show="about" >About</button>
+                    <button name="tablinks" class="aboutSelection" data-image-to-show="purpose">Purpose</button>
+                </div>
+                <div id="about" class="tabcontent" style="display: block">
+                    <p>AccessScore is a webmap and analysis that assesses the infrastructure and demographic characteristics around transit stations that relate to how supportive of bicycling and walking the area is and how much bicycle and pedestrian activity there is or could be. The analysis includes Region Rail and heavy rail, light rail, trolley, subway stations throughout the Philadelphia region with service provided by SEPTA, NJ TRANSIT, and PATCO.    
+                    </p>
+                    <p>To create this score, DVRPC staff collected data on station area characteristics that are likely to be factors in whether walk, cycle, or drive to transit stations. The sum of those factors, within two miles of the station, is calculated to give each station a total AccessScore. Together, these individual factors, and a station's total AccessScore, will give transit agencies, trail advocacy groups and municipalities a picture of the station area characteristics that contribute to demand for bicycle facilities and amenities. Ultimately, AccessScore may help communities identify and prioritize improvements designed to strengthen pedestrian, cycling, and transit connectivity.
+                    </p>
+                    <p>In addition to AccessScore, which measures the demand for and supply of facilities for both walkers and people biking, the project team developed a score focused on pedestrians and one focused solely on bicycle-friendliness. 
+                    </p>
+                    <p>Pedestrian Score: PedestrianScore uses the existing sidewalk network to create a boundary for scoring walkability near stations. It defines the catchment area as the distance that can be walked continuously on existing sidewalks up to 1 mile. All categories are scored by what is present within that catchment area.   
+                    </p>
+                    <p>Cycle Score: CycleScore uses DVRPC’s Bicycle Level of Traffic Stress analysis to create a boundary for scoring cycling near stations. It defines the catchment areas as the distance that can be cycled continuously on LTS 1 and 2 road segments that abut the station up to two miles. All categories are scored by what is present within that catchment area.
+                    </p>
+                    <p>For more information, please contact Thom Stead at  tstead@dvrpc.org</p>
+                </div>
+                
+                <div id="purpose" class="tabcontent" style="display: none">
+                    <p>Paris is the capital of France.</p> 
+                </div>
+            </div> 
         </div>
+
         <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script> -->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>  

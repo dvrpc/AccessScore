@@ -594,16 +594,22 @@ section {
   }
 .legend-sidewalk {
     color: var(--theme-dark);
-  }
-  .legend-circuit {
-    color:#4fe314;
-  }
-  .legend-bus-stops {
-    color:#ffa17a;
-  }
-  .legend-lts {
-    color:#f9f871;
-  }
+}
+.legend-circuit {
+color:#4fe314;
+}
+.legend-bus-stops {
+color:#ffa17a;
+}
+.legend-lts {
+color:#f9f871;
+}
+.legend-parking{
+color:#696969;    
+}
+.legend-retail{
+  color:#39398e;   
+}
 #sidebar-content ul {
     list-style-type: none;
 }
@@ -650,4 +656,41 @@ input[type="checkbox"]:focus {
     left: 16px;
     right: 0;
     transition: border 0.25s, left 0.15s 0.25s, right 0.25s 0.175s;
+  }
+
+  /* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #d12626;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #ccc;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
   }
