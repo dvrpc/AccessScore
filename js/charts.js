@@ -206,12 +206,9 @@ const handleStation = function (props,coordinates,map) {
     });
 
     // Start Bar Charts 
-    function chart1Modal(value) {
-    alert("modal goes here");
-    //    $('#EXTODModal').one('shown.bs.modal', function() {
-    //    $('#EXTODTabs a[data-target="#' + value + '"]').tab('show'); }).modal('show');
-    //    $('#FTODPModal').modal('close');
-    }
+    //  function chart1Modal(value) {
+    //  alert("modal goes here");
+    //  }
 
     // Chart 1 values
     var score1 = [props.civ_sc_a,props.emp_sc_a,props.ess_sc_a, props.pos_sc_a,props.wrc_sc_a];
@@ -286,10 +283,10 @@ const handleStation = function (props,coordinates,map) {
      }
      options.series[0].data = counData;
      var chart = new Highcharts.Chart(options)
-     $('.highcharts-xaxis-labels text, .highcharts-xaxis-labels span').click(function () {
-         // console.log(this.textContent.split(' ')[0]);
-           chart1Modal(this.textContent.split(' ')[0]);
-     });
+    //  $('.highcharts-xaxis-labels text, .highcharts-xaxis-labels span').click(function () {
+    //      // console.log(this.textContent.split(' ')[0]);
+    //        chart1Modal(this.textContent.split(' ')[0]);
+    //  });
    //    console.log(bikeindata);
      }
  // Start Chart 2
@@ -355,10 +352,10 @@ const handleStation = function (props,coordinates,map) {
     }
     options.series[0].data = counData;
     var chart = new Highcharts.Chart(options)
-    $('.highcharts-xaxis-labels text, .highcharts-xaxis-labels span').click(function () {
-        // console.log(this.textContent.split(' ')[0]);
-          chart1Modal(this.textContent.split(' ')[0]);
-    });
+    // $('.highcharts-xaxis-labels text, .highcharts-xaxis-labels span').click(function () {
+    //     // console.log(this.textContent.split(' ')[0]);
+    //       chart1Modal(this.textContent.split(' ')[0]);
+    // });
   //    console.log(bikeindata);
     }    
      // EndChart 2
@@ -425,10 +422,10 @@ const handleStation = function (props,coordinates,map) {
     }
     options.series[0].data = counData;
     var chart = new Highcharts.Chart(options)
-    $('.highcharts-xaxis-labels text, .highcharts-xaxis-labels span').click(function () {
-        // console.log(this.textContent.split(' ')[0]);
-          chart1Modal(this.textContent.split(' ')[0]);
-    });
+    // $('.highcharts-xaxis-labels text, .highcharts-xaxis-labels span').click(function () {
+    //     // console.log(this.textContent.split(' ')[0]);
+    //       chart1Modal(this.textContent.split(' ')[0]);
+    // });
   //    console.log(bikeindata);
     }    
      // EndChart 3
@@ -495,10 +492,10 @@ const handleStation = function (props,coordinates,map) {
     }
     options.series[0].data = counData;
     var chart = new Highcharts.Chart(options)
-    $('.highcharts-xaxis-labels text, .highcharts-xaxis-labels span').click(function () {
-        // console.log(this.textContent.split(' ')[0]);
-          chart1Modal(this.textContent.split(' ')[0]);
-    });
+    // $('.highcharts-xaxis-labels text, .highcharts-xaxis-labels span').click(function () {
+    //     // console.log(this.textContent.split(' ')[0]);
+    //       chart1Modal(this.textContent.split(' ')[0]);
+    // });
   //    console.log(bikeindata);
     }    
      // EndChart 4

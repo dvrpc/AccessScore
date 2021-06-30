@@ -20,6 +20,7 @@ const closeModal = document.getElementById('close-modal')
 const toggleLayerForms = Array.from(
   document.querySelectorAll(".sidebar-form-toggle")
 );
+
 // toggle bewteen Chart View and Data View for Access Score
 document.querySelectorAll(".infoSelection").forEach(el => {
   el.onclick = event => {

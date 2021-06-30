@@ -78,6 +78,8 @@ h1 {
     height: 100%;
     overflow: auto;
     background: rgba(0, 0, 0, 0.3);
+    align-items: center;
+    justify-content: center;
 }
 #modal-content{
     position: relative;
@@ -662,9 +664,9 @@ input[type="checkbox"]:focus {
 .tab {
     overflow: hidden;
     border: 1px solid #ccc;
-    background-color: #d12626;
+    background-color: #fff;
   }
-  
+ 
   /* Style the buttons inside the tab */
   .tab button {
     background-color: inherit;
@@ -679,12 +681,12 @@ input[type="checkbox"]:focus {
   
   /* Change background color of buttons on hover */
   .tab button:hover {
-    background-color: #ddd;
+    background-color: #30958c;
   }
   
   /* Create an active/current tablink class */
   .tab button.active {
-    background-color: #ccc;
+    background-color: #30958c;
   }
   
   /* Style the tab content */
@@ -694,3 +696,18 @@ input[type="checkbox"]:focus {
     border: 1px solid #ccc;
     border-top: none;
   }
+.modal-header {
+font-size: 18px;
+margin-bottom: 5px;
+}
+#CAT1-Modal, #CAT2-Modal , #CAT3-Modal , #CAT4-Modal {
+    max-width: 800px !important;
+    z-index: 1000 !important ;
+}
+hr {
+    border-color: #eee;
+    margin-top: 10px;
+}
+.mapboxgl-ctrl-logo {
+    display: none !important;
+}

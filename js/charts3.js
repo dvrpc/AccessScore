@@ -202,12 +202,12 @@ const handleStationW = function (props,coordinates,map) {
     });
 
     // Start Bar Charts 
-    function chart1Modal(value) {
-    alert("modal goes here");
-    //    $('#EXTODModal').one('shown.bs.modal', function() {
-    //    $('#EXTODTabs a[data-target="#' + value + '"]').tab('show'); }).modal('show');
-    //    $('#FTODPModal').modal('close');
-    }
+    // function chart1Modal(value) {
+    // alert("modal goes here");
+    // //    $('#EXTODModal').one('shown.bs.modal', function() {
+    // //    $('#EXTODTabs a[data-target="#' + value + '"]').tab('show'); }).modal('show');
+    // //    $('#FTODPModal').modal('close');
+    // }
 
     // Chart 1 values
     var score1WS = [props.civ_sc_w,props.emp_sc_w,props.ess_sc_w, props.pos_sc_w,props.wrc_sc_w];
@@ -282,10 +282,10 @@ const handleStationW = function (props,coordinates,map) {
      }
      options.series[0].data = counData;
      var chart = new Highcharts.Chart(options)
-     $('.highcharts-xaxis-labels text, .highcharts-xaxis-labels span').click(function () {
-         // console.log(this.textContent.split(' ')[0]);
-           chart1Modal(this.textContent.split(' ')[0]);
-     });
+    //  $('.highcharts-xaxis-labels text, .highcharts-xaxis-labels span').click(function () {
+    //      // console.log(this.textContent.split(' ')[0]);
+    //        chart1Modal(this.textContent.split(' ')[0]);
+    //  });
    //    console.log(bikeindata);
      }
  // Start Chart 2
@@ -351,10 +351,10 @@ const handleStationW = function (props,coordinates,map) {
     }
     options.series[0].data = counData;
     var chart = new Highcharts.Chart(options)
-    $('.highcharts-xaxis-labels text, .highcharts-xaxis-labels span').click(function () {
-        // console.log(this.textContent.split(' ')[0]);
-          chart1Modal(this.textContent.split(' ')[0]);
-    });
+    // $('.highcharts-xaxis-labels text, .highcharts-xaxis-labels span').click(function () {
+    //     // console.log(this.textContent.split(' ')[0]);
+    //       chart1Modal(this.textContent.split(' ')[0]);
+    // });
   //    console.log(bikeindata);
     }    
      // EndChart 2
@@ -421,10 +421,10 @@ const handleStationW = function (props,coordinates,map) {
     }
     options.series[0].data = counData;
     var chart = new Highcharts.Chart(options)
-    $('.highcharts-xaxis-labels text, .highcharts-xaxis-labels span').click(function () {
-        // console.log(this.textContent.split(' ')[0]);
-          chart1Modal(this.textContent.split(' ')[0]);
-    });
+    // $('.highcharts-xaxis-labels text, .highcharts-xaxis-labels span').click(function () {
+    //     // console.log(this.textContent.split(' ')[0]);
+    //       chart1Modal(this.textContent.split(' ')[0]);
+    // });
   //    console.log(bikeindata);
     }    
      // EndChart 3
@@ -491,10 +491,10 @@ const handleStationW = function (props,coordinates,map) {
     }
     options.series[0].data = counData;
     var chart = new Highcharts.Chart(options)
-    $('.highcharts-xaxis-labels text, .highcharts-xaxis-labels span').click(function () {
-        // console.log(this.textContent.split(' ')[0]);
-          chart1Modal(this.textContent.split(' ')[0]);
-    });
+    // $('.highcharts-xaxis-labels text, .highcharts-xaxis-labels span').click(function () {
+    //     // console.log(this.textContent.split(' ')[0]);
+    //       chart1Modal(this.textContent.split(' ')[0]);
+    // });
   //    console.log(bikeindata);
     }    
      // EndChart 4

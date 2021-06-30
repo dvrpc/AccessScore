@@ -32,6 +32,7 @@ const layers = {
       'type': 'circle',
       'source': 'sidewalk_analysis',
       "source-layer": "transit_stops",
+      minzoom: 11,
       "layout": {
         "visibility":"none",
          },
