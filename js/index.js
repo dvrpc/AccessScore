@@ -198,17 +198,30 @@ map.on('load', () => {
         });
 
     map.on('click','stations', (e) => {
+      var sidebarViz = $("#sidebar").css("display");
+      if (sidebarViz !== "block") {
+      //  $("#map").toggleClass("col-sm-6 col-md-6 col-lg-6 col-sm-12 col-md-12 col-lg-12");
+        $("#map").css("width", "50%");
+        $("#sidebar").css("display", "block");
+        $("#legend-box").css("display", "none");
+        map.resize();
+      }
+      // document.getElementById("sidebar").style.display = "block";
+      // document.getElementById("map").style.width = "50%";
+      // $(window.map).resize();
+
     //  console.log(stationID);
       stationID = e.features[0].properties.dvrpc_id;
       var props = e.features[0].properties;
       var coordinates = e.features[0].geometry.coordinates;
-      handleStation(props,coordinates,map)   
+      
       // When the mouse moves over the station layer, update the
       // feature state for the feature under the mouse
       if (stationID) {
         map.setFilter('as_2mile', ['==', 'dvrpc_id', stationID]);
         map.setLayoutProperty('as_2mile', 'visibility', 'visible');
       }
+      handleStation(props,coordinates,map)   
     });
 
     map.on('click','stationsB', (e) => {

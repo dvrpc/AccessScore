@@ -59,7 +59,7 @@
         </nav>
 
         <main id="main-content-wrapper" class="flex-row flex-between">
-            <article id="sidebar">
+            <div id="sidebar">
                 <div id="sidebar-content">                
                     
                     <div id="stationHeader">
@@ -395,47 +395,24 @@
                 </div>
 
                 <footer class="flex-column">
-                    
+                    <p>Access Score (&nbsp;Beta&nbsp;)&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#disclaimer" aria-label="disclaimer" rel="modal:open" style="color:white">&nbsp;&nbsp;Disclaimer</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.dvrpc.org/policies/" target="_new" class="hp-link" aria-label="policies" style="color: #fff !important"> Policies</a></p>    
                 </footer>
-            </article>
+            </div>
 
-            <div id="map">  
+            <div id="map">
+            <div id="legend-box">
+                 <span>category scoring</span>
+                    <div id="legend-box-Item" class="circle as-2"><span>1-2 Low</span></div>
+                    <div id="legend-box-Item" class="circle as-3"><span>3</span></div>
+                    <div id="legend-box-Item" class="circle as-4"><span>4</span></div>
+                    <div id="legend-box-Item" class="circle as-5"><span>5</span></div>
+                    <div id="legend-box-Item" class="circle as-6"><span>6</span></div>
+                    <div id="legend-box-Item" class="circle as-7"><span>7</span></div>
+                    <div id="legend-box-Item" class="circle as-8"><span>8-10 High</span></div>
+               
+            </div>    
             </div>
         </main>
-
-        <!-- <div id="about" >
-            <div id="content">
-                <span id="close-modal">&times;</span>                        
-                 <div class="tab nav-tabs">
-                    <button name="tablinks" class="aboutSelection" checked data-image-to-show="about" active>About</button>
-                    <button name="tablinks" class="aboutSelection" data-image-to-show="purpose">Purpose</button>
-                </div> 
-                 <div id="about" class="tabcontent" style="display: block">
-                    <p><B>AccessScore</B> is an analysis tool that assesses the infrastructure and demographic characteristics around transit stations that relate to how supportive of bicycling and walking the area is and how much bicycle and pedestrian activity there is or could be. The analysis includes Region Rail and heavy rail, light rail, trolley, subway stations throughout the Philadelphia region with service provided by SEPTA, NJ TRANSIT, and PATCO.    
-                    </p>
-                    <br>
-                    <p>To create this score, DVRPC staff collected data on station area characteristics that are likely to be factors in whether walk, cycle, or drive to transit stations. The sum of those factors, within two miles of the station, is calculated to give each station a total AccessScore. Together, these individual factors, and a station's total AccessScore, will give transit agencies, trail advocacy groups and municipalities a picture of the station area characteristics that contribute to demand for bicycle facilities and amenities. Ultimately, AccessScore may help communities identify and prioritize improvements designed to strengthen pedestrian, cycling, and transit connectivity.
-                    </p>
-                    <br>
-                    <p>In addition to AccessScore, which measures the demand for and supply of facilities for both walkers and people biking, the project team developed a score focused on pedestrians and one focused solely on bicycle-friendliness. 
-                    </p>
-                    <br>
-                    <p><B>Pedestrian Score:</B> uses the existing sidewalk network to create a boundary for scoring walkability near stations. It defines the catchment area as the distance that can be walked continuously on existing sidewalks up to 1 mile. All categories are scored by what is present within that catchment area.   
-                    </p>
-                    <br>
-                    <p><B>Cycle Score:</B> uses DVRPC’s Bicycle Level of Traffic Stress analysis to create a boundary for scoring cycling near stations. It defines the catchment areas as the distance that can be cycled continuously on LTS 1 and 2 road segments that abut the station up to two miles. All categories are scored by what is present within that catchment area.
-                    </p>
-                    <br>
-                    <p>
-                        <h4>For more information:</h4>
-                            <address>
-                            Thom Stead | Senior Planner, Office of Community and Economic Development<br/>
-                            <a href="mailto:tstead@dvrpc.org@dvrpc.org" class="one">tstead@dvrpc.org</a><br/>
-                            </address>
-                    </p>  
-                </div>
-            </div> 
-        </div> -->
 
             <!-- Legend Modal -->
             <div class="modal" id="about">
@@ -467,6 +444,22 @@
                                     <a href="mailto:tstead@dvrpc.org@dvrpc.org" class="one">tstead@dvrpc.org</a><br/>
                                     </address>
                             </p>  
+                        </div><!-- /.modal-body -->
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal fade--> 
+
+
+            <!-- Legend Modal -->
+            <div class="modal" id="disclaimer">
+                <div class="modal-dialog" style="width:710px;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h3>Data Disclaimer</h3>
+                        </div>
+                        <div class="modal-body">
+                            <p>This web page is a public resource of general information. The Delaware Valley Regional Planning Commission (DVRPC) makes no warranty, representation, or guarantee as to the content, sequence, accuracy, timeliness, or completeness of any of the spatial data or database information provided herein. DVRPC and partner state, local, and other agencies shall assume no liability for errors, omissions, or inaccuracies in the information provided regardless of how caused; or any decision made or action taken or not taken by any person relying on any information or data furnished within.</p>>
+                           
                         </div><!-- /.modal-body -->
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
@@ -721,5 +714,7 @@
         <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>  
         <script type="text/javascript" src="js/numeral.js"></script>
         <script type="text/javascript" src="https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js"></script>
+    
+        <script>var _gaq=[['_setAccount','UA-9825778-1'],['_trackPageview']];(function(d){var g=d.createElement('script'),s=d.scripts[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document))</script>
     </body>
 </html>
