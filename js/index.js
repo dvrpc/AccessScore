@@ -22,8 +22,25 @@ const toggleLayerForms = Array.from(
 );
 
 $(document).ready(function(){
-  $("#about").modal('show');
+//  $("#about").modal('show');
 });
+
+var active = null;
+
+const storeStation = (activeStation)=>{
+   active = activeStation;
+ // console.log(activeStation)
+}
+
+var propsStation = null;
+var corrdinatesStation = null;
+
+const storeFull = (props, corrdinates)=>{
+  propsStation = props;
+  corrdinatesStation = corrdinates;
+}
+
+// storeFull()
 
 // toggle bewteen Chart View and Data View for Access Score
 document.querySelectorAll(".infoSelection").forEach(el => {
@@ -61,6 +78,7 @@ document.querySelectorAll(".aboutSelection").forEach(el => {
 
 // Access Score CheckBox toggle
 document.getElementById("AS").addEventListener("click", function() {
+  handleStation(propsStation,corrdinatesStation,map)
   document.getElementById("accessScore").style.display = "block";
   document.getElementById("bikeScore").style.display = "none";
   document.getElementById("walkScore").style.display = "none";
@@ -89,10 +107,18 @@ document.getElementById("AS").addEventListener("click", function() {
   map.setLayoutProperty('stationsW', "visibility", "none")
   map.setLayoutProperty('bs_limit', "visibility", "none")
   map.setLayoutProperty('ws_limit', "visibility", "none")
+
+  map.setFilter('as_2mile', ['==', 'dvrpc_id', active]);
+  map.setLayoutProperty('as_2mile', 'visibility', 'visible');
 });
 
 // Bike Score CheckBox toggle
 document.getElementById("BS").addEventListener("click", function() {
+  //storeStation()
+  // console.log(active)
+  // console.log(propsStation)
+  // console.log(corrdinatesStation)
+  handleStationB(propsStation,corrdinatesStation,map)
   document.getElementById("bikeScore").style.display = "block"
   document.getElementById("accessScore").style.display = "none"
   document.getElementById("walkScore").style.display = "none"
@@ -122,11 +148,16 @@ document.getElementById("BS").addEventListener("click", function() {
    map.setLayoutProperty('stationsW', "visibility", "none")
    map.setLayoutProperty('as_2mile', "visibility", "none")
    map.setLayoutProperty('ws_limit', "visibility", "none")
+
+   map.setFilter('bs_limit', ['==', 'dvrpc_id', active]);
+   map.setLayoutProperty('bs_limit', 'visibility', 'visible');
+   
  });
 
  // Walk Score CheckBox toggle
  document.getElementById("WS").addEventListener("click", function() {
   // alert("Hello World!");
+  handleStationW(propsStation,corrdinatesStation,map)
    document.getElementById("accessScore").style.display = "none"
    document.getElementById("bikeScore").style.display = "none"
    document.getElementById("walkScore").style.display = "block"
@@ -156,6 +187,9 @@ document.getElementById("BS").addEventListener("click", function() {
    map.setLayoutProperty('as_2mile', "visibility", "none")
    map.setLayoutProperty('bs_limit', "visibility", "none")
    map.setLayoutProperty('stationsW', "visibility", "visible")
+
+   map.setFilter('ws_limit', ['==', 'dvrpc_id', active]);
+   map.setLayoutProperty('ws_limit', 'visibility', 'visible');
  });
 // Still to come --- Code that is related to Datalist Search 
 // const searchForm = document.getElementById('search')
@@ -204,12 +238,9 @@ map.on('load', () => {
         $("#map").css("width", "50%");
         $("#sidebar").css("display", "block");
         $("#legend-box").css("display", "none");
+        $("#clickBait").css("display", "none"); 
         map.resize();
       }
-      // document.getElementById("sidebar").style.display = "block";
-      // document.getElementById("map").style.width = "50%";
-      // $(window.map).resize();
-
     //  console.log(stationID);
       stationID = e.features[0].properties.dvrpc_id;
       var props = e.features[0].properties;
@@ -222,6 +253,8 @@ map.on('load', () => {
         map.setLayoutProperty('as_2mile', 'visibility', 'visible');
       }
       handleStation(props,coordinates,map)   
+      storeStation(stationID)
+      storeFull(props,coordinates)
     });
 
     map.on('click','stationsB', (e) => {
@@ -229,24 +262,29 @@ map.on('load', () => {
       stationIDb = e.features[0].properties.dvrpc_id;
       var props = e.features[0].properties;
       var coordinates = e.features[0].geometry.coordinates;
-      handleStationB(props,coordinates,map)   
-      
+  
       if (stationIDb) {
         map.setFilter('bs_limit', ['==', 'dvrpc_id', stationIDb]);
         map.setLayoutProperty('bs_limit', 'visibility', 'visible');
       }
+      handleStationB(props,coordinates,map)   
+      storeStation(stationIDb)
+      storeFull(props,coordinates)
     });
 
     map.on('click','stationsW', (e) => {
       stationIDw = e.features[0].properties.dvrpc_id;
       var props = e.features[0].properties;
       var coordinates = e.features[0].geometry.coordinates;
-      handleStationW(props,coordinates,map)  
+    
       
       if (stationIDw) {
         map.setFilter('ws_limit', ['==', 'dvrpc_id', stationIDw]);
         map.setLayoutProperty('ws_limit', 'visibility', 'visible');
       }
+      handleStationW(props,coordinates,map)  
+      storeStation(stationIDw)
+      storeFull(props,coordinates)
     });
 
     map.on('mousemove', 'stations', (e) => {

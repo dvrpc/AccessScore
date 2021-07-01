@@ -37,7 +37,7 @@ const handleStation = function (props,coordinates,map) {
         var color = 'background:#313695';
       }
 
-    var accessScore = "<div class='odemeter' style="+ color +">"+ props.AS_SCORE+ "</div>"
+    var accessScore = "<div class='odemeter' style="+ color +">"+ props.AS_SCORE+"</div>"
     // "<div id='accessScore' class='scoreSelection' value='accessScore'>Access Score</div>"
     document.getElementById("as-score").innerHTML = accessScore;
 
