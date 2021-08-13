@@ -65,7 +65,7 @@
                     <div id="stationHeader">
                     <div id="stationName"></div>   
                     </div>  
-
+<!-- Score Section -->
                     <div id="scoreWrapper">
                         <div id="scoreBox">
                         <div id="as-score"></div>  
@@ -99,144 +99,25 @@
                             </label>
                           </div>
                         </div>
+                        <br style="clear: both;">
+                        <div id="legendSet">
+                        <form>
+                            <fieldset id="legendWrapper">
+                            <legend id="infoSwitch-title">category scoring</legend>
+                            <div id="legend-Item"><div class="circle as-2"></div><span>1-2 Low</span></div>
+                            <div id="legend-Item"><div class="circle as-3"></div><span>3</span></div>
+                            <div id="legend-Item"><div class="circle as-4"></div><span>4</span></div>
+                            <div id="legend-Item"><div class="circle as-5"></div><span>5</span></div>
+                            <div id="legend-Item"><div class="circle as-6"></div><span>6</span></div>
+                            <div id="legend-Item"><div class="circle as-7"></div><span>7</span></div>
+                            <div id="legend-Item"><div class="circle as-8"></div><span>8-10 High</span></div>
+                            </fieldset>
+                        </form>
+                    </div>
                     </div>  
 
-                    <form>
-                        <fieldset id="legendWrapper">
-                        <legend id="infoSwitch-title">category scoring</legend>
-                        <div id="legend-Item"><div class="circle as-2"></div><span>1-2 Low</span></div>
-                        <div id="legend-Item"><div class="circle as-3"></div><span>3</span></div>
-                        <div id="legend-Item"><div class="circle as-4"></div><span>4</span></div>
-                        <div id="legend-Item"><div class="circle as-5"></div><span>5</span></div>
-                        <div id="legend-Item"><div class="circle as-6"></div><span>6</span></div>
-                        <div id="legend-Item"><div class="circle as-7"></div><span>7</span></div>
-                        <div id="legend-Item"><div class="circle as-8"></div><span>8-10 High</span></div>
-                        </fieldset>
-                    </form>
-
-                    <form class="sidebar-form sidebar-form-toggle">
-                        <fieldset class="sidebar-fieldset">
-                            <legend class="bold-text">toggle base layers</legend>
-                            <ul>
-                            <li>
-                            <label>
-                                <input
-                                type="checkbox"
-                                id="transit_stops"
-                                name="layer"
-                                value="transit_stops"
-                                />
-                                <i class="fa fa-circle fa-sm legend-bus-stops"></i>
-                                Bus Stops
-                            </label>
-                            </li>
-                            <li>
-                            <label>
-                                <input
-                                type="checkbox"
-                                id="circuit_trails"
-                                name="layer"
-                                value="circuit_trails"
-                                />
-                                <i class="fa fa-minus fa-sm legend-circuit"></i>
-                                The Circuit Trails
-                            </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    id="bikelane"
-                                    name="layer"
-                                    value="bikelane"
-                                    />
-                                    <i class="fa fa-minus fa-sm legend-bikelane"></i>
-                                    On-Street Bike Network
-                                </label>
-                                </li>
-                            <li>
-                            <label>
-                                <input
-                                type="checkbox"
-                                id="sidewalks"
-                                name="layer"
-                                value="sidewalks"
-                                />
-                                <i class="fa fa-minus fa-sm legend-sidewalk"></i>
-                                Sidewalks
-                            </label>
-                            </li>
-                            <li>
-                            <label>
-                                <input
-                                type="checkbox"
-                                id="crosswalks"
-                                name="layer"
-                                value="crosswalks"
-                                />
-                                <i class="fa fa-minus fa-lg legend-sidewalk"></i>
-                                Crosswalks
-                            </label>
-                            </li>
-                            <li>
-                            <label>
-                                <input
-                                type="checkbox"
-                                id="lts"
-                                name="layer"
-                                value="lts"
-                                />
-                                <i class="fa fa-minus fa-sm legend-lts"></i>
-                                LTS 3+4
-                            </label>
-                            </li>
-                            <!-- <li>
-                            <label>
-                                <input
-                                type="checkbox"
-                                id="parking"
-                                name="layer"
-                                value="parking"
-                                />
-                                <i class="fa fa-minus fa-md legend-parking"></i>
-                                Transit Station Parking Lot Footprints <i>coming soon</i>
-                            </label>
-                            </li>
-                            <li>
-                            <label>
-                                <input
-                                type="checkbox"
-                                id="retail"
-                                name="layer"
-                                value="retial"
-                                />
-                                <i class="fa fa-minus fa-md legend-retail"></i>
-                                Retail Districts <i>coming soon</i>
-                            </label>
-                            </li> -->
-                            </ul>
-                          </fieldset>
-                    </form>
-
-                    <form class="sidebar-form sidebar-form-toggle">
-                        <fieldset class="sidebar-fieldset">
-                            <legend class="bold-text">toggle basemap</legend>
-                            <ul>
-                              <li>
-                                <label>
-                                  <input
-                                    type="checkbox"
-                                    id="nearmap"
-                                    name="layer"
-                                    value="nearmap"
-                                  />
-                                  NearMap Imagery
-                                </label>
-                              </li>
-                            </ul>
-                          </fieldset>
-                    </form>
-                    
+<!-- Chart Section                     -->
+                <div id="chartWrapper">
                     <form>
                         <fieldset id="infoSwitch">
                         <legend id="infoSwitch-title">select a scoring method</legend>
@@ -272,7 +153,7 @@
                         </label>
                         </fieldset>
                     </form>
-               
+                <br style="clear: both;">
                 <div class="score" id="accessScore">
                 <div class="info" id="chartsGroup">
                     <div id="charts">
@@ -393,7 +274,132 @@
                 </div>
               
                 </div>
+ <!-- Toggle Scetion                    -->
+ <div id="toggleWrapper">
+    <form class="sidebar-form sidebar-form-toggle">
+        <fieldset class="sidebar-fieldset">
+            <legend class="bold-text">toggle base layers</legend>
+            <ul>
+            <li>
+            <label>
+                <input
+                type="checkbox"
+                id="transit_stops"
+                name="layer"
+                value="transit_stops"
+                />
+                <i class="fa fa-circle fa-sm legend-bus-stops"></i>
+                Bus Stops
+            </label>
+            </li>
+            <li>
+            <label>
+                <input
+                type="checkbox"
+                id="circuit_trails"
+                name="layer"
+                value="circuit_trails"
+                />
+                <i class="fa fa-minus fa-sm legend-circuit"></i>
+                The Circuit Trails
+            </label>
+            </li>
+            <li>
+                <label>
+                    <input
+                    type="checkbox"
+                    id="bikelane"
+                    name="layer"
+                    value="bikelane"
+                    />
+                    <i class="fa fa-minus fa-sm legend-bikelane"></i>
+                    On-Street Bike Network
+                </label>
+                </li>
+            <li>
+            <label>
+                <input
+                type="checkbox"
+                id="sidewalks"
+                name="layer"
+                value="sidewalks"
+                />
+                <i class="fa fa-minus fa-sm legend-sidewalk"></i>
+                Sidewalks
+            </label>
+            </li>
+            <li>
+            <label>
+                <input
+                type="checkbox"
+                id="crosswalks"
+                name="layer"
+                value="crosswalks"
+                />
+                <i class="fa fa-minus fa-lg legend-sidewalk"></i>
+                Crosswalks
+            </label>
+            </li>
+            <li>
+            <label>
+                <input
+                type="checkbox"
+                id="lts"
+                name="layer"
+                value="lts"
+                />
+                <i class="fa fa-minus fa-sm legend-lts"></i>
+                LTS 3+4
+            </label>
+            </li>
+            <!-- <li>
+            <label>
+                <input
+                type="checkbox"
+                id="parking"
+                name="layer"
+                value="parking"
+                />
+                <i class="fa fa-minus fa-md legend-parking"></i>
+                Transit Station Parking Lot Footprints <i>coming soon</i>
+            </label>
+            </li>
+            <li>
+            <label>
+                <input
+                type="checkbox"
+                id="retail"
+                name="layer"
+                value="retial"
+                />
+                <i class="fa fa-minus fa-md legend-retail"></i>
+                Retail Districts <i>coming soon</i>
+            </label>
+            </li> -->
+            </ul>
+          </fieldset>
+    </form>
 
+    <form class="sidebar-form sidebar-form-toggle">
+        <fieldset class="sidebar-fieldset">
+            <legend class="bold-text">toggle basemap</legend>
+            <ul>
+              <li>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="nearmap"
+                    name="layer"
+                    value="nearmap"
+                  />
+                  NearMap Imagery
+                </label>
+              </li>
+            </ul>
+          </fieldset>
+    </form>
+    </div>                
+            </div>
                 <footer class="flex-column">
                     <p>Access Score (&nbsp;Beta&nbsp;)&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#disclaimer" aria-label="disclaimer" rel="modal:open" style="color:white">&nbsp;&nbsp;Disclaimer</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.dvrpc.org/policies/" target="_new" class="hp-link" aria-label="policies" style="color: #fff !important"> Policies</a></p>    
                 </footer>
@@ -438,13 +444,23 @@
                             <p><B>Cycle Score:</B> uses DVRPC’s Bicycle Level of Traffic Stress analysis to create a boundary for scoring cycling near stations. It defines the catchment areas as the distance that can be cycled continuously on LTS 1 and 2 road segments that abut the station up to two miles. All categories are scored by what is present within that catchment area.
                             </p>
                             <br>
-                            <p>
+                            
                                 <h4>For more information:</h4>
-                                    <address>
-                                    Thom Stead | Senior Transportation Planner, Office of Transit, Bicycle, and Pedestrian Planning<br/>
-                                    <a href="mailto:tstead@dvrpc.org@dvrpc.org" class="one">tstead@dvrpc.org</a><br/>
-                                    </address>
-                            </p>  
+                                <address>
+                                Thom Stead | Senior Transportation Planner, Office of Transit, Bicycle, and Pedestrian Planning<br/>
+                                <a href="mailto:tstead@dvrpc.org@dvrpc.org" class="one">tstead@dvrpc.org</a><br/>
+                                </address>
+                            
+                            <div style="background-color:rgba(90,127,151,0.75);border-radius: 10px;padding:10px;">
+                                <p>
+                                <i>This web page is a public resource of general information. The Delaware Valley Regional Planning Commission (DVRPC) makes no warranty, 
+                                representation, or guarantee as to the content, sequence, accuracy, timeliness, or completeness of any of the spatial data or database 
+                                information provided herein. DVRPC and partner state, local, and other agencies shall assume no liability for errors, omissions, or 
+                                inaccuracies in the information provided regardless of how caused; or any decision made or action taken or not taken by any person relying 
+                                on any information or data furnished within.</i>
+                                </p><br/>
+                                <i><a class="one" href="https://www.dvrpc.org/Policies/" target="_new">Click Here</a>  for more information about DVRPC Policies.</i>
+                            </div>
                         </div><!-- /.modal-body -->
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->

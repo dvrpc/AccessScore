@@ -216,16 +216,27 @@ const handleStation = function (props,coordinates,map) {
 
     // Chart 1 values
     var score1 = [props.civ_sc_a,props.emp_sc_a,props.ess_sc_a, props.pos_sc_a,props.wrc_sc_a];
+    var score1BS = [props.civ_sc_b,props.emp_sc_b,props.ess_sc_b, props.pos_sc_b,props.wrc_sc_b];
+    var score1WS = [props.civ_sc_w,props.emp_sc_w,props.ess_sc_w, props.pos_sc_w,props.wrc_sc_w];
+    
     var score2 = [props.ipd_sc_a,props.pop_sc_a,props.zvh_sc_a];
+    var score2BS = [props.ipd_sc_b,props.pop_sc_b,props.zvh_sc_b];
+    var score2WS = [props.ipd_sc_w,props.pop_sc_w,props.zvh_sc_w];
+  
     var score3 = [props.npb_sc,props.lps_sc_a,props.tvv_sc];
+    var score3BS = [props.npb_sc,props.lps_sc_b,props.tvv_sc];
+    var score3WS = [props.npb_sc,props.lps_sc_w,props.tvv_sc];
+
     var score4 = [props.cir_sc_a,props.int_sc_a,props.ksi_sc_a, props.lts_sc_a,props.ped_sc_a];
+    var score4BS = [props.cir_sc_b,props.int_sc_b,props.ksi_sc_b, props.lts_sc_b,props.ped_sc_b];
+    var score4WS = [props.cir_sc_w,props.int_sc_w,props.ksi_sc_w, props.lts_sc_w,props.ped_sc_w];
 
-    updatebarChart(score1);
-    updatebarChart2(score2);
-    updatebarChart3(score3);
-    updatebarChart4(score4);
+    updatebarChart(score1,score1BS,score1WS);
+    updatebarChart2(score2,score2BS,score2WS);
+    updatebarChart3(score3,score3BS,score3WS);
+    updatebarChart4(score4,score4BS,score4WS);
 
-    function updatebarChart(Values) {
+    function updatebarChart(Values,Values2,Values3) {
      var options = {
          chart: {
              renderTo: 'chartAS1',
@@ -239,7 +250,7 @@ const handleStation = function (props,coordinates,map) {
              backgroundColor: '#FFF'
            //  backgroundColor: '#EFEFEF'
          },
-           colors: ['#267770']
+           colors: ['#267770','#90d782','#ad0074']
          ,
          credits: {
              enabled: false
@@ -269,13 +280,22 @@ const handleStation = function (props,coordinates,map) {
              enabled: false
          },
          tooltip: {
-             enabled: false
+             enabled: true
          },
          series: [{
-                 name:'Total',
-                 id: 'Values',
-                 data: []
-             }]
+                 name:'Access Score',
+                //  id: 'Values',
+                 data: Values
+             },{
+                name:'Cycle Score',
+               //  id: 'Values',
+                data: Values2
+            },{
+                name:'Pedestrian Score',
+               //  id: 'Values',
+                data: Values3
+            }
+            ]
     };
  
      var Labels = [],
@@ -294,7 +314,7 @@ const handleStation = function (props,coordinates,map) {
    //    console.log(bikeindata);
      }
  // Start Chart 2
- function updatebarChart2(Values) {
+ function updatebarChart2(Values, Values2, Values3) {
     var options = {
         chart: {
             renderTo: 'chartAS2',
@@ -308,7 +328,7 @@ const handleStation = function (props,coordinates,map) {
             backgroundColor: '#FFF'
           //  backgroundColor: '#EFEFEF'
         },
-          colors: ['#267770']
+        colors: ['#267770','#90d782','#ad0074']
         ,
         credits: {
             enabled: false
@@ -341,11 +361,20 @@ const handleStation = function (props,coordinates,map) {
             enabled: false
         },
         series: [{
-                name:'Total',
-                id: 'Values',
-                data: []
-            }]
-   };
+            name:'Access Score',
+           //  id: 'Values',
+            data: Values
+        },{
+           name:'Cycle Score',
+          //  id: 'Values',
+           data: Values2
+       },{
+           name:'Pedestrian Score',
+          //  id: 'Values',
+           data: Values3
+       }
+       ]
+};
 
     var Labels = [],
     counData = [];
@@ -364,7 +393,7 @@ const handleStation = function (props,coordinates,map) {
     }    
      // EndChart 2
   // Start Chart 3
-  function updatebarChart3(Values) {
+  function updatebarChart3(Values, Values2, Values3) {
     var options = {
         chart: {
             renderTo: 'chartAS3',
@@ -378,7 +407,7 @@ const handleStation = function (props,coordinates,map) {
             backgroundColor: '#FFF'
           //  backgroundColor: '#EFEFEF'
         },
-          colors: ['#267770']
+        colors: ['#267770','#90d782','#ad0074']
         ,
         credits: {
             enabled: false
@@ -411,11 +440,20 @@ const handleStation = function (props,coordinates,map) {
             enabled: false
         },
         series: [{
-                name:'Total',
-                id: 'Values',
-                data: []
-            }]
-   };
+            name:'Access Score',
+           //  id: 'Values',
+            data: Values
+        },{
+           name:'Cycle Score',
+          //  id: 'Values',
+           data: Values2
+       },{
+           name:'Pedestrian Score',
+          //  id: 'Values',
+           data: Values3
+       }
+       ]
+};
 
     var Labels = [],
     counData = [];
@@ -434,7 +472,7 @@ const handleStation = function (props,coordinates,map) {
     }    
      // EndChart 3
        // Start Chart 3
-  function updatebarChart4(Values) {
+  function updatebarChart4(Values, Values2, Values3) {
     var options = {
         chart: {
             renderTo: 'chartAS4',
@@ -448,7 +486,7 @@ const handleStation = function (props,coordinates,map) {
             backgroundColor: '#FFF'
           //  backgroundColor: '#EFEFEF'
         },
-          colors: ['#267770']
+        colors: ['#267770','#90d782','#ad0074']
         ,
         credits: {
             enabled: false
@@ -481,11 +519,20 @@ const handleStation = function (props,coordinates,map) {
             enabled: false
         },
         series: [{
-                name:'Total',
-                id: 'Values',
-                data: []
-            }]
-   };
+            name:'Access Score',
+           //  id: 'Values',
+            data: Values
+        },{
+           name:'Cycle Score',
+          //  id: 'Values',
+           data: Values2
+       },{
+           name:'Pedestrian Score',
+          //  id: 'Values',
+           data: Values3
+       }
+       ]
+};
 
     var Labels = [],
     counData = [];

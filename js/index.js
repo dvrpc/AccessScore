@@ -22,7 +22,7 @@ const toggleLayerForms = Array.from(
 );
 
 $(document).ready(function(){
- $("#about").modal('show');
+// $("#about").modal('show');
 });
 
 var active = null;
