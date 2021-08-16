@@ -244,7 +244,8 @@ const handleStation = function (props,coordinates,map) {
              plotBackgroundColor: null,
              plotBorderWidth: 0,//null,
              plotShadow: false,
-             height:200,
+             height:225,
+             marginLeft:220,
              spacingLeft: 20,
              spacingRight: 20,
              backgroundColor: '#FFF'
@@ -270,7 +271,7 @@ const handleStation = function (props,coordinates,map) {
              min: 0,
              max:5,
              tickInterval: 1,
-             height: 150,
+             height: 170,
              gridLineColor: "#267770",
              title: {
                  text: ''
@@ -322,7 +323,8 @@ const handleStation = function (props,coordinates,map) {
             plotBackgroundColor: null,
             plotBorderWidth: 0,//null,
             plotShadow: false,
-            height:130,
+            height:150,
+            marginLeft:225,
             spacingLeft: 20,
             spacingRight: 20,
             backgroundColor: '#FFF'
@@ -342,13 +344,14 @@ const handleStation = function (props,coordinates,map) {
             categories: [ 'Indicators of Potential Disadvantage','Population Density','Zero Vehicle Households'],
             tickColor: 'transparent',
             lineColor: 'transparent',
-            labels: {useHTML: true}
+            labels: {useHTML: true,
+            align:'right'}
         },
         yAxis: {
             min: 0,
             max:5,
             tickInterval: 1,
-            height: 80,
+            height: 100,
             gridLineColor: "#267770",
             title: {
                 text: ''
@@ -401,7 +404,8 @@ const handleStation = function (props,coordinates,map) {
             plotBackgroundColor: null,
             plotBorderWidth: 0,//null,
             plotShadow: false,
-            height:130,
+            height:150,
+            marginLeft:220,
             spacingLeft: 20,
             spacingRight: 20,
             backgroundColor: '#FFF'
@@ -427,7 +431,7 @@ const handleStation = function (props,coordinates,map) {
             min: 0,
             max:5,
             tickInterval: 1,
-            height: 80,
+            height: 100,
             gridLineColor: "#267770",
             title: {
                 text: ''
@@ -480,7 +484,8 @@ const handleStation = function (props,coordinates,map) {
             plotBackgroundColor: null,
             plotBorderWidth: 0,//null,
             plotShadow: false,
-            height:200,
+            height:220,
+            marginLeft:220,
             spacingLeft: 20,
             spacingRight: 20,
             backgroundColor: '#FFF'
@@ -506,7 +511,7 @@ const handleStation = function (props,coordinates,map) {
             min: 0,
             max:5,
             tickInterval: 1,
-            height: 150,
+            height: 170,
             gridLineColor: "#267770",
             title: {
                 text: ''

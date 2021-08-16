@@ -28,6 +28,11 @@ const sources = {
         data:'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/AccessScore/FeatureServer/3/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
         generateId: true //
     },
+    'as_limit': {
+        type:'geojson',
+        data:'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/AccessScore/FeatureServer/3/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
+        generateId: true //
+    },
     'bs_limit': {
         type:'geojson',
         data:'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/AccessScore/FeatureServer/2/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
@@ -64,6 +69,15 @@ const sources = {
         type:'geojson',
         data:'https://arcgis.dvrpc.org/portal/rest/services/Transportation/CircuitTrails/FeatureServer/0/query?where=circuit+%3D+%27Existing%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson',
         generateId: true //    
+    },
+    'parks': {
+        type:'geojson',
+        // returnIdsOnly
+        data:'https://arcgis.dvrpc.org/portal/rest/services/Planning/DVRPC_ProtectedOpenSpace/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=geojson'  
+    },
+    'IPD': {
+        type:'geojson',
+        data:"https://arcgis.dvrpc.org/portal/rest/services/Demographics/IPD_2018/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=geojson" 
     },
 }
 

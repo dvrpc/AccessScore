@@ -531,7 +531,7 @@ section {
     flex: 1;
     padding: 0.5rem;
   }
-  
+  /* hides radio button */
   input[class=lbox-AS],  input[class=lbox-BS],  input[class=lbox-WS] {
     display: none;
   }
@@ -544,27 +544,38 @@ section {
     box-shadow: none;
     cursor: not-allowed;
   }
-  
-  input[class=lbox-AS]:checked + #label-box {
+  input[class=lbox-AS] + #label-box {
     background: #30958c;
     border: 2px solid #30958c;
     color: white;
+  }
+
+  input[class=lbox-BS] + #label-box {
+    background: #90d782;
+    border: 2px solid #73ac68;
+    color: white;
+  }
+
+  input[class=lbox-WS] + #label-box {
+    background: #ad0074;
+    border: 2px solid #8A005C;
+    color: white;
+  }
+  
+   input[class=lbox-AS]:checked + #label-box {
+
     box-shadow: 0px 0px 20px rgba(0, 255, 128, 0.75);
   }
 
   input[class=lbox-BS]:checked + #label-box {
-    background: #90d782;
-    border: 2px solid #73ac68;
-    color: white;
+
     box-shadow: 0px 0px 20px rgba(144, 215, 130, 0.75);
   }
 
   input[class=lbox-WS]:checked + #label-box {
-    background: #ad0074;
-    border: 2px solid #8A005C;
-    color: white;
+
     box-shadow: 0px 0px 20px rgba(173,0,116, 0.75);
-  }
+  } 
   
   input[class=lbox-AS]:checked + #label-box::after {
     color: #3d3f43;
@@ -651,6 +662,9 @@ color:#696969;
 }
 .legend-bikelane{
     color:#c679f6;
+}
+.legend-IPD{
+    color:#081d58;
 }
 #sidebar-content ul {
     list-style-type: none;

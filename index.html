@@ -278,7 +278,7 @@
  <div id="toggleWrapper">
     <form class="sidebar-form sidebar-form-toggle">
         <fieldset class="sidebar-fieldset">
-            <legend class="bold-text">toggle base layers</legend>
+            <legend class="bold-text">toggle base layers <a href="#tLayers-Modal" rel="modal:open" style="color: #000;"><i class="fa fa-info-circle" aria-hidden="true" data-toggle='tooltip' title='toggler layers'></i></a></legend>
             <ul>
             <li>
             <label>
@@ -352,6 +352,18 @@
                 LTS 3+4
             </label>
             </li>
+            <li>
+                <label>
+                    <input
+                    type="checkbox"
+                    id="IPD"
+                    name="layer"
+                    value="IPD"
+                    />
+                    <!-- <i class="fa fa-minus fa-md legend-IPD"></i> -->
+                    IPD (refer to info for legend)
+                </label>
+                </li>
             <!-- <li>
             <label>
                 <input
@@ -441,7 +453,7 @@
                             <p><B>Pedestrian Score:</B> uses the existing sidewalk network to create a boundary for scoring walkability near stations. It defines the catchment area as the distance that can be walked continuously on existing sidewalks up to 1 mile. All categories are scored by what is present within that catchment area.   
                             </p>
                             <br>
-                            <p><B>Cycle Score:</B> uses DVRPC’s Bicycle Level of Traffic Stress analysis to create a boundary for scoring cycling near stations. It defines the catchment areas as the distance that can be cycled continuously on LTS 1 and 2 road segments that abut the station up to two miles. All categories are scored by what is present within that catchment area.
+                            <p><B>Cycle Score:</B> uses <a href="https://www.dvrpc.org/webmaps/BikeStress/" target="_new">DVRPC’s Bicycle Level of Traffic Stress (LTS)</a> analysis to create a boundary for scoring cycling near stations. It defines the catchment areas as the distance that can be cycled continuously on LTS 1 and 2 road segments that abut the station up to two miles. All categories are scored by what is present within that catchment area.
                             </p>
                             <br>
                             
@@ -549,7 +561,7 @@
                                 <li>Low-Medium (2)= 1 - 2 miles </li>
                                 <li>Low (1) = > 2 miles</li>
                             </ul>
-                            <p style="color:grey"><i>Source: DVRPC.</i></p>
+                            <p style="color:grey"><i>Source: Philadelphia Department of Planning and Development, DVRPC.</i></p>
                         </p>
                     </div><!-- /.modal-body -->
                 </div><!-- /.modal-content -->
@@ -681,6 +693,7 @@
                             <hr>
                             <br>
                             <p><B>Crashes</B> - Crashes reports and sums the number of reportable crashes within two miles of the station. Total crashes are then scored from low (1) to high (5). The number of crashes that resulted in death or a severe injury generally, and specifically for a pedestrian or a bicyclist are labeled. 
+                            
                                 <ul class="a">Scoring: 2015-2019 KSI Crashes within 2 miles of station
                                     <li>High (5)= 1,255 - 2,083 </li>
                                     <li>Medium-High (4) = 548 - 1,254</li>
@@ -688,6 +701,7 @@
                                     <li>Low-Medium (2) = 265 - 378</li>
                                     <li>Low (1) = 65 - 264</li>
                                 </ul>
+                                To learn more visit:<a href="https://www.dvrpc.org/webmaps/crash-data/" target="_new">DVRPC Crash Data Viewer</a>. 
                                <p style="color:grey"><i>Sources: PennDOT, NJDOT.</i></p>
                             </p>
                             <hr>
@@ -719,6 +733,28 @@
                 </div><!-- /.modal-dialog -->
             </div><!-- /.modal fade-->   
 
+             <!-- Legend Modal -->
+             <div class="modal" id="tLayers-Modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h3>Base Layers</h3>
+                        </div>
+                        <div class="modal-body">
+                            <p><b>IPD</b>
+                                <img src="./img/ipd-legend.png" alt="ipd" class="legend-IPD" id="ipd-legend"> 
+              
+                            </p>
+                            <hr>
+                            <br>
+                            <p><B>LTS 3 + 4</B> - Hello yes.
+                                <p style="color:grey"><i>Source: DVRPC.</i></p>
+                            </p>
+                            <hr>
+                        </div><!-- /.modal-body -->
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal fade-->   
         <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script> -->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
        

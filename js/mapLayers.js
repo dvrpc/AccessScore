@@ -27,12 +27,61 @@ const layers = {
             'line-color': '#4a5c64'
         }
     },
+    IPD: {
+      id: "IPD",
+      type: "fill",
+      source: "IPD",
+      paint: {
+        "fill-color": [
+          "interpolate",
+          ["linear"],
+          ["get", "ipd_score"],
+          9,
+          "#ffffd9",
+          13,
+          "#edf8b1",
+          15,
+          "#c7e9b4",
+          17,
+          "#7fcdbb",
+          19,
+          "#41b6c4",
+          21,
+          "#1d91c0",
+          24,
+          "#225ea8",
+          27,
+          "#253494",
+          30,
+          "#081d58"
+        ],
+        "fill-opacity": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          0,
+          1,
+          7,
+          0.75
+        ]
+      },
+      "layout": { "visibility": "none" }
+    },
+    parks: {
+      "id": "parks",
+      "type": "fill",
+      "source": "parks",
+      "paint": {
+        "fill-color": "rgba( 134, 195, 25,  0.5)"
+      },
+      "layout": { "visibility": "none" }
+    },
     transit_stops: {
       'id': 'transit_stops',
       'type': 'circle',
       'source': 'sidewalk_analysis',
       "source-layer": "transit_stops",
-      minzoom: 11,
+      // minzoom: 11,
       "layout": {
         "visibility":"none",
          },
@@ -80,7 +129,7 @@ const layers = {
         // make layer visible by default
         visibility: "none",
       },
-      minzoom: 13,
+      // minzoom: 13,
       paint: {
         "line-width": 4,
         "line-color": "rgba(255,255,255,0.5)",
@@ -145,6 +194,19 @@ const layers = {
           "fill-color": "rgba(48, 149, 140, 0.5)"
         },
         "layout": { "visibility": "none" }
+      },
+      as_limit: {
+        "id": "as_limit",
+        "type": "line",
+        "source": "as_limit",
+        'paint': {
+        'line-color': '#30958c',
+        'line-opacity':.6,
+        'line-width': 8},
+        "layout": { 
+         "visibility": "none",
+         'line-join': 'round',
+         'line-cap': 'round' }
       },
       bs_limit: {
         "id": "bs_limit",
@@ -237,7 +299,6 @@ const layers = {
         ]
         }
     }
-
 }
 
 export default layers
