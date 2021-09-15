@@ -223,13 +223,18 @@ const layers = {
       },
       ws_limit: {
         "id": "ws_limit",
-        "type": "fill",
+        "type": "line",
         "source": "ws_limit",
-        "paint": {
-          "fill-color": "rgba(173,0,116, 0.5)"
+        'paint': {
+          // "fill-color": "rgba(173,0,116, 0.5)"
+          'line-color': '#ad0073',
+          'line-opacity':.6,
+          'line-width': 4.5},
+          "layout": { 
+           "visibility": "none",
+           'line-join': 'round',
+           'line-cap': 'round' }
         },
-        "layout": { "visibility": "none" }
-      },
     AccessScore:{
         "id": "stations",
         "type": "circle",

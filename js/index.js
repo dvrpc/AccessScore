@@ -235,9 +235,11 @@ map.on('load', () => {
       // feature state for the feature under the mouse
       if (stationID) {
         map.setFilter('as_2mile', ['==', 'dvrpc_id', stationID]);
+        // map.setFilter('as_limit', ['==', 'dvrpc_id', stationID]);
         map.setFilter('bs_limit', ['==', 'dvrpc_id', stationID]);
         map.setFilter('ws_limit', ['==', 'dvrpc_id', stationID]);
         map.setLayoutProperty('as_2mile', 'visibility', 'visible');
+        // map.setLayoutProperty('as_limit', 'visibility', 'visible');
         map.setLayoutProperty('bs_limit', 'visibility', 'visible');
         map.setLayoutProperty('ws_limit', 'visibility', 'visible');
       }
