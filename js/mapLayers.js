@@ -92,6 +92,21 @@ const layers = {
         'circle-color':'#ffa17a'
       }
     },
+    crime: {
+      'id': 'crime',
+      'type': 'circle',
+      'source': 'crime',
+      // minzoom: 11,
+      "layout": {
+        "visibility":"none",
+         },
+      'paint': {
+        'circle-radius': 2,
+        'circle-stroke-color': '#ffc6af',
+        'circle-stroke-width': .2,
+        'circle-color':'#ffa17a'
+      }
+    },
     prail:{
         "id": "prail",
         "type": "line",
@@ -195,12 +210,14 @@ const layers = {
         },
         "layout": { "visibility": "none" }
       },
-      as_limit: {
-        "id": "as_limit",
+      as_osm_limits: {
+        "id": "as_osm_limits",
         "type": "line",
-        "source": "as_limit",
+        "source": "as_osm_limits",
+        "source-layer": "as_osm_limits",
         'paint': {
-        'line-color': '#30958c',
+        // 'line-color': '#30958c',
+        'line-color': '#59AAA3',
         'line-opacity':.6,
         'line-width': 8},
         "layout": { 

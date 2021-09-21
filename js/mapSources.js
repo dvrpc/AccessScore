@@ -3,6 +3,11 @@ const sources = {
         type: 'vector',
         url: 'https://tiles.dvrpc.org/data/dvrpc-municipal.json'
     },
+    'crime': {
+        type:'geojson',
+        data:' https://phl.carto.com/api/v2/sql?q=SELECT+*+FROM+shootings+WHERE+year+BETWEEN+2016+AND+2021+&filename=shootings&format=geojson&skipfields=cartodb_id',
+        generateId: true //
+    },
     'accessscore': {
         type:'geojson',
         data:'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/AccessScore/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
@@ -28,10 +33,12 @@ const sources = {
         data:'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/AccessScore/FeatureServer/9/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
         generateId: true //
     },
-    'as_limit': {
-        type:'geojson',
-        data:'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/AccessScore/FeatureServer/3/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
-        generateId: true //
+    'as_osm_limits': {
+        // type:'geojson',
+        type:'vector',
+        // data:'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/AccessScore/FeatureServer/3/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
+        url:'https://tiles.dvrpc.org/data/access-score.json'
+        // generateId: true //
     },
     'bs_limit': {
         type:'geojson',
@@ -53,7 +60,7 @@ const sources = {
       },  
     lts: {
         type: "vector",
-        url: "https://tiles.dvrpc.org/data/lts-layertest.json",
+        url: "https://tiles.dvrpc.org/data/lts.json",
       },
     'nearmap': {
         'type': 'raster',
