@@ -206,7 +206,8 @@ const layers = {
         "type": "fill",
         "source": "as_2mile",
         "paint": {
-          "fill-color": "rgba(48, 149, 140, 0.5)"
+          // "fill-color": "rgba(48, 149, 140, 0.5)"
+          "fill-color": "rgba( 245, 245, 245, 0.1)"
         },
         "layout": { "visibility": "none" }
       },
@@ -217,9 +218,9 @@ const layers = {
         "source-layer": "as_osm_limits",
         'paint': {
         // 'line-color': '#30958c',
-        'line-color': '#59AAA3',
-        'line-opacity':.6,
-        'line-width': 8},
+        'line-color': '#3bb8ad',
+        'line-opacity':.8,
+        'line-width': 4.5},
         "layout": { 
          "visibility": "none",
          'line-join': 'round',
@@ -230,9 +231,10 @@ const layers = {
         "type": "line",
         "source": "bs_limit",
         'paint': {
-        'line-color': '#90d782',
-        'line-opacity':.6,
-        'line-width': 6},
+        // 'line-color': '#90d782',
+        'line-color': '#246e29',
+        'line-opacity':.8,
+        'line-width': 3.5},
         "layout": { 
          "visibility": "none",
          'line-join': 'round',
@@ -245,8 +247,8 @@ const layers = {
         'paint': {
           // "fill-color": "rgba(173,0,116, 0.5)"
           'line-color': '#ad0073',
-          'line-opacity':.6,
-          'line-width': 4.5},
+          'line-opacity':.8,
+          'line-width': 2.5},
           "layout": { 
            "visibility": "none",
            'line-join': 'round',
