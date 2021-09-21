@@ -232,7 +232,7 @@ const layers = {
         "source": "bs_limit",
         'paint': {
         // 'line-color': '#90d782',
-        'line-color': '#246e29',
+        'line-color': '#6ecb5b',
         'line-opacity':.8,
         'line-width': 3.5},
         "layout": { 
