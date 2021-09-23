@@ -89,7 +89,8 @@ const layers = {
         'circle-radius': 2,
         'circle-stroke-color': '#ffc6af',
         'circle-stroke-width': .2,
-        'circle-color':'#ffa17a'
+        'circle-color':'#e0c063'
+        // 'circle-color':'#ffa17a'
       }
     },
     crime: {
@@ -104,7 +105,7 @@ const layers = {
         'circle-radius': 2,
         'circle-stroke-color': '#ffc6af',
         'circle-stroke-width': .2,
-        'circle-color':'#ffa17a'
+        'circle-color':'#c70c4d'
       }
     },
     prail:{
@@ -120,6 +121,15 @@ const layers = {
         'line-opacity':.6,
         'line-width': 3
         }
+    },
+    retail: {
+      "id": "retail",
+      "type": "fill",
+      "source": "retail",
+      "paint": {
+        "fill-color": "rgba(156, 157, 240, 0.7)"
+      },
+      "layout": { "visibility": "none" }
     },
     sidewalks: {
       id: "sidewalks",
@@ -194,7 +204,7 @@ const layers = {
    // minzoom: 11,
     paint: {
       "line-width": 1.5,
-      "line-color": "rgba(198,121, 246,0.7)",
+      "line-color": "rgba(255, 161, 122,0.7)",
       // "line-dasharray": [1, 0.5]
     },
     "source-layer": "existing_conditions_lts",
@@ -231,8 +241,14 @@ const layers = {
         "type": "line",
         "source": "bs_limit",
         'paint': {
+        // OG Green
         // 'line-color': '#90d782',
-        'line-color': '#6ecb5b',
+        // Darker Green
+        // 'line-color': '#6ecb5b',
+        // Light Green
+        //  'line-color':'#6ecc1f',
+           // Light Purple
+        'line-color':'#Df73FF',
         'line-opacity':.8,
         'line-width': 3.5},
         "layout": { 
@@ -245,8 +261,10 @@ const layers = {
         "type": "line",
         "source": "ws_limit",
         'paint': {
-          // "fill-color": "rgba(173,0,116, 0.5)"
+          // Magenta
           'line-color': '#ad0073',
+          // Orange
+          'line-color': '#efa801',
           'line-opacity':.8,
           'line-width': 2.5},
           "layout": { 

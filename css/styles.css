@@ -300,6 +300,7 @@ h3 small {
 #scoreBox{
     display: block;
     width:33%;
+    margin: 15px 0px 0px 0px;
 }
 #as-score{
     text-align: center;
@@ -535,15 +536,18 @@ section {
   input[class=lbox-AS],  input[class=lbox-BS],  input[class=lbox-WS] {
     display: none;
   }
+  
   input[class=lbox-AS]:not(:disabled) ~ #label-box,  input[class=lbox-BS]:not(:disabled) ~ #label-box,  input[class=lbox-WS]:not(:disabled) ~ #label-box {
     cursor: pointer;
   }
+
   input[class=lbox-AS]:disabled ~ #label-box, input[class=lbox-BS]:disabled ~ #label-box, input[class=lbox-WS]:disabled ~ #label-box {
     color: #bcc2bf;
     border-color: #bcc2bf;
     box-shadow: none;
     cursor: not-allowed;
   }
+
   input[class=lbox-AS] + #label-box {
     background: #30958c;
     border: 2px solid #30958c;
@@ -563,17 +567,14 @@ section {
   }
   
    input[class=lbox-AS]:checked + #label-box {
-
     box-shadow: 0px 0px 20px rgba(0, 255, 128, 0.75);
   }
 
   input[class=lbox-BS]:checked + #label-box {
-
     box-shadow: 0px 0px 20px rgba(144, 215, 130, 0.75);
   }
 
   input[class=lbox-WS]:checked + #label-box {
-
     box-shadow: 0px 0px 20px rgba(173,0,116, 0.75);
   } 
   

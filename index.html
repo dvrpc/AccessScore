@@ -68,36 +68,41 @@
 <!-- Score Section -->
                     <div id="scoreWrapper">
                         <div id="scoreBox">
-                        <div id="as-score"></div>  
+                       
+                        
                         <div id="AS">
                             <input type="radio" class="lbox-AS" id="control_01" name="select" value="1" checked>
                             <label id="label-box" class="AS" for="control_01">
                               <h3>Access Score</h3>
-                              <p>Characteristics within 2 miles of the station.</p>
+                           
                             </label>
-                          </div>   
+                        </div>   
+                        <p>Characteristics within 2 miles of the station.</p>
+                        <div id="as-score"></div>  
                         </div>
 
                         <div id="scoreBox">
-                        <div id="bs-score"></div>
+                     
                         <div id="BS">
                             <input type="radio" class="lbox-BS" id="control_02" name="select" value="2">
                             <label id="label-box" for="control_02">
                               <h3>Cycle Score</h3>
-                              <p>Characteristics within the existing all ages and abilities cycle shed.<br><i>(up to 2 miles)</i></p>
                             </label>
                           </div>
+                          <p>Characteristics within the existing all ages and abilities cycle shed.<br><i>(up to 2 miles)</i></p>
+                          <div id="bs-score"></div>
                          </div>
 
                         <div id="scoreBox">
-                        <div id="ws-score"></div>   
+                        
                          <div id="WS">
                             <input type="radio" class="lbox-WS" id="control_03" name="select" value="3">
                             <label id="label-box" for="control_03">
                               <h3>Pedestrian Score</h3>
-                              <p>Characteristics within the existing sidewalk network shed.<br><i>(up to 1 mile)</i></p>
                             </label>
                           </div>
+                          <p>Characteristics within the existing sidewalk network shed.<br><i>(up to 1 mile)</i></p>
+                          <div id="ws-score"></div>  
                         </div>
                         <br style="clear: both;">
                         <div id="legendSet">
@@ -376,18 +381,18 @@
                 City of Philadelphia Shooting Victims <i>(2016-2021)</i>
             </label>
             </li>
-         <!--     <li>
+            <li>
             <label>
                 <input
                 type="checkbox"
                 id="retail"
                 name="layer"
-                value="retial"
+                value="retail"
                 />
                 <i class="fa fa-minus fa-md legend-retail"></i>
-                Retail Districts <i>coming soon</i>
+                Retail Districts
             </label>
-            </li> -->
+            </li>
             </ul>
           </fieldset>
     </form>
@@ -404,7 +409,7 @@
                     name="layer"
                     value="nearmap"
                   />
-                  NearMap Imagery
+                  Aerial Imagery
                 </label>
               </li>
             </ul>

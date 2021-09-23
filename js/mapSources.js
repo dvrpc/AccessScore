@@ -82,6 +82,11 @@ const sources = {
         // returnIdsOnly
         data:'https://arcgis.dvrpc.org/portal/rest/services/Planning/DVRPC_ProtectedOpenSpace/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=geojson'  
     },
+    'retail': {
+        type:'geojson',
+        // returnIdsOnly
+        data:'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/Retail/FeatureServer/1/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=geojson'  
+    },
     'IPD': {
         type:'geojson',
         data:"https://arcgis.dvrpc.org/portal/rest/services/Demographics/IPD_2018/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=geojson" 
