@@ -128,6 +128,7 @@ const layers = {
       "source": "retail",
       "paint": {
         "fill-color": "rgba(156, 157, 240, 0.7)"
+        // hex #9C9DF0
       },
       "layout": { "visibility": "none" }
     },
@@ -205,6 +206,7 @@ const layers = {
     paint: {
       "line-width": 1.5,
       "line-color": "rgba(255, 161, 122,0.7)",
+      // hex #FFA17A
       // "line-dasharray": [1, 0.5]
     },
     "source-layer": "existing_conditions_lts",
@@ -262,7 +264,7 @@ const layers = {
         "source": "ws_limit",
         'paint': {
           // Magenta
-          'line-color': '#ad0073',
+          // 'line-color': '#ad0073',
           // Orange
           'line-color': '#efa801',
           'line-opacity':.8,

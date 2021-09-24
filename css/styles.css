@@ -267,10 +267,11 @@ h3 small {
     margin-left: 7px;
 }
 #infoSwitch, #infoSwitchBS, #infoSwitchWS {
-    margin:10px 0px 0px 10px;
+    margin: 10px 10px 5px 25px;
     background: #fff;
     border: 2px solid #dadada;
     border-radius: 3px;
+    width: 92%;
 }
 #scoreWrapper {
     margin: 5px 0px 5px 10px;
@@ -282,47 +283,38 @@ h3 small {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
 }
 .odemeter {
     display: flex;
     flex-direction: column; 
     align-items: center;
     justify-content: center;
-    width: 7vw;
-    height: 7vw;
+    width: 5vw;
+    height: 5vw;
     border-radius: 100%;
     overflow: hidden;
-    margin: 10px 30px 10px 50px;
+    margin: auto;
     color:#FFF;
     font-size: 25px;
+    font-weight: bold;
 }
 #scoreBox{
     display: block;
     width:33%;
     margin: 15px 0px 0px 0px;
 }
-#as-score{
+#score-text {
     text-align: center;
-    font-weight: bold;
-    margin-bottom: 30px;
 }
-#bs-score{
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 30px;
-}
-#ws-score{
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 30px;
+.score-cb{
 }
 #legendSet{
-width: 100%;
-margin: 0px 10px 0px 0px;
+    width: 95%;
+    margin: 5px auto 10px auto;
 }
 #legendWrapper{
-    margin: 5px 0px 5px 10px;
+    /* margin: 5px 0px 5px 10px; */
     border-radius: 4px;
     /* border-color: #dadada; */
     background-color: #fff; 
@@ -351,7 +343,7 @@ margin: 0px 10px 0px 0px;
     border: 1px solid #979797;
     border-radius: 20px;
     padding: 1rem;
-    margin: 1rem;
+    margin: 10px auto 10px auto;
     text-align: center;
     box-shadow: 0px 3px 10px -2px rgba(48, 149, 140, 0.5);
     position: relative;
@@ -407,7 +399,7 @@ margin: 0px 10px 0px 0px;
     background-color: #fff;
     border-radius: 3px;
     box-shadow: 1px 2px 3px rgba(0,0,0,.3);
-    margin: 10px 0px 0px 10px;
+    margin: 10px 10px 0px 10px;
 }
 .chart-subheader {
     /* background-color: var(--theme-access);*/
@@ -511,8 +503,6 @@ margin: 0px 10px 0px 0px;
 }
 /* END Map */
 
-
-
 /* Footer */
 footer {
     padding: var(--wrapper-padding);
@@ -549,39 +539,44 @@ section {
   }
 
   input[class=lbox-AS] + #label-box {
-    background: #30958c;
-    border: 2px solid #30958c;
+   /* OG color #30958c; */
+    background: #3bb8ad;
+    border: 2px solid #236e68;
     color: white;
   }
 
   input[class=lbox-BS] + #label-box {
-    background: #90d782;
-    border: 2px solid #73ac68;
+    /* background: #90d782;
+    border: 2px solid #73ac68; */
+    background:#Df73FF;
+    border: 2px solid #d64cff;
     color: white;
   }
 
   input[class=lbox-WS] + #label-box {
-    background: #ad0074;
-    border: 2px solid #8A005C;
+    /* background: #ad0074;
+    border: 2px solid #8A005C; */
+    background:#efa801;
+    border: 2px solid #ef8001;
     color: white;
   }
   
    input[class=lbox-AS]:checked + #label-box {
-    box-shadow: 0px 0px 20px rgba(0, 255, 128, 0.75);
+    box-shadow: 0px 0px 20px rgba(59, 184, 173, 0.75);
   }
 
   input[class=lbox-BS]:checked + #label-box {
-    box-shadow: 0px 0px 20px rgba(144, 215, 130, 0.75);
+    box-shadow: 0px 0px 20px rgba(223,115,255, 0.75);
   }
 
   input[class=lbox-WS]:checked + #label-box {
-    box-shadow: 0px 0px 20px rgba(173,0,116, 0.75);
+    box-shadow: 0px 0px 20px rgba(239,168,1,0.75);
   } 
   
   input[class=lbox-AS]:checked + #label-box::after {
     color: #3d3f43;
     font-family: FontAwesome;
-    border: 2px solid #30958c;
+    border: 2px solid #236e68;
     content: "";
     font-size: 14px;
     position: absolute;
@@ -599,7 +594,7 @@ section {
   input[class=lbox-BS]:checked + #label-box::after {
     color: #3d3f43;
     font-family: FontAwesome;
-    border: 2px solid #90d782;
+    border: 2px solid #d64cff;
     content: "";
     font-size: 14px;
     position: absolute;
@@ -617,7 +612,7 @@ section {
   input[class=lbox-WS]:checked + #label-box::after {
     color: #3d3f43;
     font-family: FontAwesome;
-    border: 2px solid #ad0074;
+    border: 2px solid #ef8001;
     content: "";
     font-size: 14px;
     position: absolute;
@@ -641,7 +636,13 @@ section {
 
 /* CUSTOM STYLE FOR CHECKBOX */
 .legend-as {
-    color:#30958c;
+    color:#3bb8ad;
+  }
+  .legend-bs {
+    color:#Df73FF;
+  }
+  .legend-ws {
+    color:#efa801;
   }
 .legend-sidewalk {
     color: var(--theme-dark);
@@ -650,7 +651,7 @@ section {
 color:#4fe314;
 }
 .legend-bus-stops {
-color:#ffa17a;
+color:#e0c063;
 }
 .legend-lts {
 color:#f9f871;
@@ -659,13 +660,16 @@ color:#f9f871;
 color:#696969;    
 }
 .legend-retail{
-  color:#39398e;   
+  color:#9C9DF0;   
 }
 .legend-bikelane{
-    color:#c679f6;
+    color:#FFA17A;
 }
 .legend-IPD{
     color:#081d58;
+}
+.legend-crime{
+    color:#c70c4d
 }
 #sidebar-content ul {
     list-style-type: none;

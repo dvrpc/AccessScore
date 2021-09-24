@@ -253,7 +253,7 @@ const handleStation = function (props,coordinates,map) {
              backgroundColor: '#FFF'
            //  backgroundColor: '#EFEFEF'
          },
-           colors: ['#267770','#90d782','#ad0074']
+           colors: ['#267770','#df73ff','#efa801']
          ,
          credits: {
              enabled: false
@@ -332,7 +332,7 @@ const handleStation = function (props,coordinates,map) {
             backgroundColor: '#FFF'
           //  backgroundColor: '#EFEFEF'
         },
-        colors: ['#267770','#90d782','#ad0074']
+        colors: ['#267770','#df73ff','#efa801']
         ,
         credits: {
             enabled: false
@@ -413,7 +413,7 @@ const handleStation = function (props,coordinates,map) {
             backgroundColor: '#FFF'
           //  backgroundColor: '#EFEFEF'
         },
-        colors: ['#267770','#90d782','#ad0074']
+        colors: ['#267770','#df73ff','#efa801']
         ,
         credits: {
             enabled: false
@@ -493,7 +493,7 @@ const handleStation = function (props,coordinates,map) {
             backgroundColor: '#FFF'
           //  backgroundColor: '#EFEFEF'
         },
-        colors: ['#267770','#90d782','#ad0074']
+        colors: ['#267770','#df73ff','#efa801']
         ,
         credits: {
             enabled: false

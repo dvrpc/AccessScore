@@ -67,43 +67,44 @@
                     </div>  
 <!-- Score Section -->
                     <div id="scoreWrapper">
+
                         <div id="scoreBox">
-                       
-                        
-                        <div id="AS">
+                        <div id="AS" class="score-cb">
                             <input type="radio" class="lbox-AS" id="control_01" name="select" value="1" checked>
                             <label id="label-box" class="AS" for="control_01">
                               <h3>Access Score</h3>
-                           
                             </label>
                         </div>   
-                        <p>Characteristics within 2 miles of the station.</p>
+                        <div id="score-text"><p>Characteristics <br>within 2 miles <br>of the station.</p></div>
+                        <br style="clear: both;">
                         <div id="as-score"></div>  
                         </div>
 
                         <div id="scoreBox">
-                     
-                        <div id="BS">
+                        <div id="BS" class="score-cb">
                             <input type="radio" class="lbox-BS" id="control_02" name="select" value="2">
                             <label id="label-box" for="control_02">
                               <h3>Cycle Score</h3>
                             </label>
                           </div>
-                          <p>Characteristics within the existing all ages and abilities cycle shed.<br><i>(up to 2 miles)</i></p>
+                          <div id="score-text"><p>Characteristics within the existing all ages and abilities cycle shed.<br><i>(up to 2 miles)</i></p></div>
+                          <br style="clear: both;">
                           <div id="bs-score"></div>
                          </div>
 
                         <div id="scoreBox">
-                        
-                         <div id="WS">
+                         <div id="WS" class="score-cb">
                             <input type="radio" class="lbox-WS" id="control_03" name="select" value="3">
                             <label id="label-box" for="control_03">
                               <h3>Pedestrian Score</h3>
                             </label>
                           </div>
-                          <p>Characteristics within the existing sidewalk network shed.<br><i>(up to 1 mile)</i></p>
+                        
+                          <div id="score-text"><p>Characteristics within the existing sidewalk network shed.<br><i>(up to 1 mile)</i></p></div>
+                          <br style="clear: both;">
                           <div id="ws-score"></div>  
                         </div>
+
                         <br style="clear: both;">
                         <div id="legendSet">
                         <form>
@@ -377,7 +378,7 @@
                 name="layer"
                 value="crime"
                 />
-                <i class="fa fa-circle fa-sm legend-bus-stops"></i>
+                <i class="fa fa-circle fa-sm legend-crime"></i>
                 City of Philadelphia Shooting Victims <i>(2016-2021)</i>
             </label>
             </li>
@@ -393,6 +394,18 @@
                 Retail Districts
             </label>
             </li>
+            <li>
+                <label>
+                    <input
+                    type="checkbox"
+                    id="retail2"
+                    name="layer"
+                    value="retail2"
+                    />
+                    <i class="fa fa-minus fa-md legend-retail"></i>
+                    Philly Walkable Retail (Coming Soon)
+                </label>
+                </li>
             </ul>
           </fieldset>
     </form>
@@ -401,6 +414,57 @@
         <fieldset class="sidebar-fieldset">
             <legend class="bold-text">toggle basemap</legend>
             <ul>
+                <li>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="as_osm_limits"
+                        name="layer"
+                        value="as_osm_limits"
+                        checked="checked"
+                      />
+                      <i class="fa fa-minus fa-md legend-as"></i>
+                      Access Score Limits
+                    </label>
+                  </li>
+                  <li>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="bs_limit"
+                        name="layer"
+                        value="bs_limit"
+                        checked="checked"
+                      />
+                      <i class="fa fa-minus fa-md legend-bs"></i>
+                      Cycle Score Limits
+                    </label>
+                  </li>
+                  <li>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="ws_limit"
+                        name="layer"
+                        value="ws_limit"
+                        checked="checked"
+                      />
+                      <i class="fa fa-minus fa-md legend-ws"></i>
+                     Pedestrian Score Limits
+                    </label>
+                  </li>
+              <li>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Buildings"
+                    name="layer"
+                    value="Buildings"
+                    checked="checked"
+                  />
+                  Building Footprints
+                </label>
+              </li>
               <li>
                 <label>
                   <input
@@ -418,7 +482,7 @@
     </div>                
             </div>
                 <footer class="flex-column">
-                    <p>Access Score (&nbsp;Beta&nbsp;)&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#disclaimer" aria-label="disclaimer" rel="modal:open" style="color:white">&nbsp;&nbsp;Disclaimer</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.dvrpc.org/policies/" target="_new" class="hp-link" aria-label="policies" style="color: #fff !important"> Policies</a></p>    
+                    <p>Access Score (&nbsp;Beta&nbsp;)&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#disclaimer" aria-label="disclaimer" rel="modal:open" style="color:white">Disclaimer</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.dvrpc.org/policies/" target="_new" class="hp-link" aria-label="policies" style="color: #fff !important">Policies</a></p>    
                 </footer>
             </div>
 
