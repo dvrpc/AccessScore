@@ -242,6 +242,7 @@ const layers = {
         "id": "bs_limit",
         "type": "line",
         "source": "bs_limit",
+        "source-layer":"cycle_lowstress_limits",
         'paint': {
         // OG Green
         // 'line-color': '#90d782',
@@ -262,6 +263,7 @@ const layers = {
         "id": "ws_limit",
         "type": "line",
         "source": "ws_limit",
+        "source-layer":"walk_pednetwork_limits",
         'paint': {
           // Magenta
           // 'line-color': '#ad0073',
