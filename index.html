@@ -67,8 +67,9 @@
                     </div>  
 <!-- Score Section -->
                     <div id="scoreWrapper">
-
-                        <div id="scoreBox">
+                        <div id="scoreIntro"><p><i>Explore the various scoring characteristics by clicking on scoring name.</i> </p>
+                        </div>
+                            <div id="scoreBox">
                         <div id="AS" class="score-cb">
                             <input type="radio" class="lbox-AS" id="control_01" name="select" value="1" checked>
                             <label id="label-box" class="AS" for="control_01">
@@ -287,6 +288,46 @@
             <legend class="bold-text">toggle base layers <a href="#tLayers-Modal" rel="modal:open" style="color: #000;"><i class="fa fa-info-circle" aria-hidden="true" data-toggle='tooltip' title='toggler layers'></i></a></legend>
             <ul>
             <li>
+                <label>
+                    <input
+                    type="checkbox"
+                    id="as_osm_limits"
+                    name="layer"
+                    value="as_osm_limits"
+                    checked="checked"
+                    />
+                    <i class="fa fa-minus fa-md legend-as"></i>
+                    Access Score Limits
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input
+                    type="checkbox"
+                    id="bs_limit"
+                    name="layer"
+                    value="bs_limit"
+                    checked="checked"
+                    />
+                    <i class="fa fa-minus fa-md legend-bs"></i>
+                    Cycle Score Limits
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input
+                    type="checkbox"
+                    id="ws_limit"
+                    name="layer"
+                    value="ws_limit"
+                    checked="checked"
+                    />
+                    <i class="fa fa-minus fa-md legend-ws"></i>
+                    Pedestrian Score Limits
+                </label>
+            </li>
+            <hr>
+            <li>
             <label>
                 <input
                 type="checkbox"
@@ -414,45 +455,7 @@
         <fieldset class="sidebar-fieldset">
             <legend class="bold-text">toggle basemap</legend>
             <ul>
-                <li>
-                    <label>
-                      <input
-                        type="checkbox"
-                        id="as_osm_limits"
-                        name="layer"
-                        value="as_osm_limits"
-                        checked="checked"
-                      />
-                      <i class="fa fa-minus fa-md legend-as"></i>
-                      Access Score Limits
-                    </label>
-                  </li>
-                  <li>
-                    <label>
-                      <input
-                        type="checkbox"
-                        id="bs_limit"
-                        name="layer"
-                        value="bs_limit"
-                        checked="checked"
-                      />
-                      <i class="fa fa-minus fa-md legend-bs"></i>
-                      Cycle Score Limits
-                    </label>
-                  </li>
-                  <li>
-                    <label>
-                      <input
-                        type="checkbox"
-                        id="ws_limit"
-                        name="layer"
-                        value="ws_limit"
-                        checked="checked"
-                      />
-                      <i class="fa fa-minus fa-md legend-ws"></i>
-                     Pedestrian Score Limits
-                    </label>
-                  </li>
+              
               <li>
                 <label>
                   <input

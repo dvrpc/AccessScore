@@ -285,6 +285,9 @@ h3 small {
     flex-direction: row;
     flex-wrap: wrap; 
 }
+#scoreIntro{
+    margin: 5px 0px 0px 10px; 
+}
 .odemeter {
     display: flex;
     flex-direction: column; 
@@ -765,7 +768,7 @@ input[type="checkbox"]:focus {
     }
     hr {
     border-color: #eee;
-    margin-top: 10px;
+    margin: 10px 20px 10px 0px;
     }
     .mapboxgl-ctrl-logo {
     display: none !important;

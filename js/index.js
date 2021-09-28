@@ -121,7 +121,7 @@ document.getElementById("BS").addEventListener("click", function() {
   // document.getElementById("infoSwitch").style.display = "none"
   // document.getElementById("infoSwitchWS").style.display = "none"
 
-  document.documentElement.style.setProperty('--popup-color', '#90D782');
+  document.documentElement.style.setProperty('--popup-color', '#Df73FF');
 
   $('#AS').css({
     'color':'grey',
@@ -155,7 +155,7 @@ document.getElementById("BS").addEventListener("click", function() {
   //  document.getElementById("infoSwitch").style.display = "none"
   //  document.getElementById("infoSwitchBS").style.display = "none"
    
-   document.documentElement.style.setProperty('--popup-color', '#ad0074');
+   document.documentElement.style.setProperty('--popup-color', '#efa801');
   
    $('#AS').css({
     'color':'grey',
@@ -291,9 +291,11 @@ map.on('load', () => {
   
       if (stationIDb) {
         map.setFilter('as_2mile', ['==', 'dvrpc_id', stationIDb]);
+        map.setFilter('as_osm_limits', ['==', 'dvrpc_id', stationIDb]);
         map.setFilter('bs_limit', ['==', 'dvrpc_id', stationIDb]);
         map.setFilter('ws_limit', ['==', 'dvrpc_id', stationIDb]);
         map.setLayoutProperty('as_2mile', 'visibility', 'visible');
+        map.setLayoutProperty('as_osm_limits', 'visibility', 'visible');
         map.setLayoutProperty('bs_limit', 'visibility', 'visible');
         map.setLayoutProperty('ws_limit', 'visibility', 'visible');
       }
@@ -310,9 +312,11 @@ map.on('load', () => {
       
       if (stationIDw) {
         map.setFilter('as_2mile', ['==', 'dvrpc_id', stationIDw]);
+        map.setFilter('as_osm_limits', ['==', 'dvrpc_id', stationIDw]);
         map.setFilter('bs_limit', ['==', 'dvrpc_id', stationIDw]);
         map.setFilter('ws_limit', ['==', 'dvrpc_id', stationIDw]);
         map.setLayoutProperty('as_2mile', 'visibility', 'visible');
+        map.setLayoutProperty('as_osm_limits', 'visibility', 'visible');
         map.setLayoutProperty('bs_limit', 'visibility', 'visible');
         map.setLayoutProperty('ws_limit', 'visibility', 'visible');
       }
