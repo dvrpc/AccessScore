@@ -15,7 +15,11 @@ const modal = document.getElementById('modal')
 const modalToggle = document.getElementById('modal-toggle')
 const closeModal = document.getElementById('close-modal')
 // get additional elements here (forms, etc)
-
+$(document).ready(function(){
+  $(".slide-toggle").click(function(){
+      $("#mylist").slideToggle();
+  });
+});
 // toggle base and basemap layers 
 const toggleLayerForms = Array.from(
   document.querySelectorAll(".sidebar-form-toggle")
@@ -75,6 +79,20 @@ document.querySelectorAll(".aboutSelection").forEach(el => {
     document.getElementById(id).style.display = "block"
   }
 })
+
+// //toggle Splash and Map
+// document.getElementById("mainButton").addEventListener("click", function() {
+//   document.getElementById("main").style.display = "block"
+//   document.getElementById("sidebar").style.display = "none"
+//   document.getElementById("map").style.display = "none"
+// });  
+
+// //toggle Splash and Map
+// document.getElementById("mapButton").addEventListener("click", function() {
+//   document.getElementById("main").style.display = "none"
+//   document.getElementById("sidebar").style.display = "block"
+//   document.getElementById("map").style.display = "block"
+// }); 
 
 // Access Score CheckBox toggle
 document.getElementById("AS").addEventListener("click", function() {
@@ -255,7 +273,7 @@ map.on('load', () => {
       var sidebarViz = $("#sidebar").css("display");
       if (sidebarViz !== "block") {
       //  $("#map").toggleClass("col-sm-6 col-md-6 col-lg-6 col-sm-12 col-md-12 col-lg-12");
-        $("#map").css("width", "50%");
+        $("#map").css("width", "60%");
         $("#sidebar").css("display", "block");
         $("#legend-box").css("display", "none");
         $("#clickBait").css("display", "none"); 

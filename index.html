@@ -41,6 +41,12 @@
                 <div>
                     <a class="btn about-btn" href="#about" rel="modal:open">about</a>
                 </div>
+                <!-- <div id="mainButton">
+                    <a class="btn about-btn" href="#main" >main</a>
+                </div>
+                <div id="mapButton">
+                    <a class="btn about-btn" href="#map" >map</a>
+                </div> -->
             </div>
 
           
@@ -59,6 +65,30 @@
         </nav>
 
         <main id="main-content-wrapper" class="flex-row flex-between">
+<!--Start Splash-->           
+            <!-- <div id="main">
+                <p>This analysis tool assesses the infrastructure and demographic characteristics around transit stations that relate to how supportive of bicycling and walking the area is and how much bicycle and pedestrian activity there is or could be. The analysis includes Region Rail and heavy rail, light rail, trolley, subway stations throughout the Philadelphia region with service provided by SEPTA, NJ TRANSIT, and PATCO.    
+                </p>
+                <br>
+                <p>To create this score, DVRPC staff collected data on station area characteristics that are likely to be factors in whether walk, cycle, or drive to transit stations. The sum of those factors, within two miles of the station, is calculated to give each station a total AccessScore. Together, these individual factors, and a station's total AccessScore, will give transit agencies, trail advocacy groups and municipalities a picture of the station area characteristics that contribute to demand for bicycle facilities and amenities. Ultimately, AccessScore may help communities identify and prioritize improvements designed to strengthen pedestrian, cycling, and transit connectivity.
+                </p>
+                <br>
+                <p>In addition to AccessScore, which measures the demand for and supply of facilities for both walkers and people biking, the project team developed a score focused on pedestrians and one focused solely on bicycle-friendliness. 
+                </p>
+                <br>
+                <p><B>Pedestrian Score:</B> uses the existing sidewalk network to create a boundary for scoring walkability near stations. It defines the catchment area as the distance that can be walked continuously on existing sidewalks up to 1 mile. All categories are scored by what is present within that catchment area.   
+                </p>
+                <br>
+                <p><B>Cycle Score:</B> uses <a href="https://www.dvrpc.org/webmaps/BikeStress/" target="_new">DVRPC’s Bicycle Level of Traffic Stress (LTS)</a> analysis to create a boundary for scoring cycling near stations. It defines the catchment areas as the distance that can be cycled continuously on LTS 1 and 2 road segments that abut the station up to two miles. All categories are scored by what is present within that catchment area.
+                </p>
+                <br>
+                    <h4>For more information:</h4>
+                    <address>
+                    Thom Stead | Senior Transportation Planner, Office of Transit, Bicycle, and Pedestrian Planning<br/>
+                    <a href="mailto:tstead@dvrpc.org@dvrpc.org" class="one">tstead@dvrpc.org</a><br/>
+                    </address>
+            </div> -->
+ <!-- End Splash-->           
             <div id="sidebar">
                 <div id="sidebar-content">                
                     
@@ -283,9 +313,11 @@
                 </div>
  <!-- Toggle Scetion                    -->
  <div id="toggleWrapper">
+   <div class="row"><button type="button" class="slide-toggle">Slide Toggle</button></div> 
     <form class="sidebar-form sidebar-form-toggle">
         <fieldset class="sidebar-fieldset">
-            <legend class="bold-text">toggle base layers <a href="#tLayers-Modal" rel="modal:open" style="color: #000;"><i class="fa fa-info-circle" aria-hidden="true" data-toggle='tooltip' title='toggler layers'></i></a></legend>
+            <legend id="toggleLayers" class="bold-text">toggle base layers <a href="#tLayers-Modal" rel="modal:open" style="color: #000;"><i class="fa fa-info-circle" aria-hidden="true" data-toggle='tooltip' title='toggler layers'></i></a></legend>
+         <div id="mylist">
             <ul>
             <li>
                 <label>
@@ -327,6 +359,29 @@
                 </label>
             </li>
             <hr>
+            <li>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Buildings"
+                    name="layer"
+                    value="Buildings"
+                    checked="checked"
+                  />
+                  Building Footprints
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="nearmap"
+                    name="layer"
+                    value="nearmap"
+                  />
+                  Aerial Imagery
+                </label>
+              </li>
             <li>
             <label>
                 <input
@@ -424,6 +479,18 @@
             </label>
             </li>
             <li>
+                <label>
+                    <input
+                    type="checkbox"
+                    id="es"
+                    name="layer"
+                    value="es"
+                    />
+                    <i class="fa fa-circle fa-sm legend-es"></i>
+                    Essential Services
+                </label>
+                </li>
+            <li>
             <label>
                 <input
                 type="checkbox"
@@ -432,7 +499,7 @@
                 value="retail"
                 />
                 <i class="fa fa-minus fa-md legend-retail"></i>
-                Retail Districts
+                Suburban Downtown Retail Districts (DVRPC)
             </label>
             </li>
             <li>
@@ -444,14 +511,15 @@
                     value="retail2"
                     />
                     <i class="fa fa-minus fa-md legend-retail"></i>
-                    Philly Walkable Retail (Coming Soon)
+                    Walkable Commercial Corridors (City of Phila.)
                 </label>
                 </li>
             </ul>
+        </div>
           </fieldset>
     </form>
 
-    <form class="sidebar-form sidebar-form-toggle">
+    <!-- <form class="sidebar-form sidebar-form-toggle">
         <fieldset class="sidebar-fieldset">
             <legend class="bold-text">toggle basemap</legend>
             <ul>
@@ -481,8 +549,8 @@
               </li>
             </ul>
           </fieldset>
-    </form>
-    </div>                
+    </form> -->
+    </div>              
             </div>
                 <footer class="flex-column">
                     <p>Access Score (&nbsp;Beta&nbsp;)&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#disclaimer" aria-label="disclaimer" rel="modal:open" style="color:white">Disclaimer</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.dvrpc.org/policies/" target="_new" class="hp-link" aria-label="policies" style="color: #fff !important">Policies</a></p>    

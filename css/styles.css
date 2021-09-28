@@ -59,8 +59,6 @@ h1 {
 }
 /* END General */
 
-
-
 /* Modal */
 #modal-content{
     box-shadow: var(--box-shadow);
@@ -208,7 +206,7 @@ nav {
 /* Sidebar */
 #sidebar {
     display:none;
-    width: 50%;
+    width: 40%;
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
@@ -672,7 +670,10 @@ color:#696969;
     color:#081d58;
 }
 .legend-crime{
-    color:#c70c4d
+    color:#c70c4d;
+}
+.legend-es{
+    color:#c8ffaf;
 }
 #sidebar-content ul {
     list-style-type: none;

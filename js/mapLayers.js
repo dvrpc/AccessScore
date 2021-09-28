@@ -108,6 +108,21 @@ const layers = {
         'circle-color':'#c70c4d'
       }
     },
+    es: {
+      'id': 'es',
+      'type': 'circle',
+      'source': 'es',
+      // minzoom: 11,
+      "layout": {
+        "visibility":"none",
+         },
+      'paint': {
+        'circle-radius': 2,
+        'circle-stroke-color': '#61ff19',
+        'circle-stroke-width': .2,
+        'circle-color':'#c8ffaf'
+      }
+    },
     prail:{
         "id": "prail",
         "type": "line",
@@ -129,6 +144,16 @@ const layers = {
       "paint": {
         "fill-color": "rgba(156, 157, 240, 0.7)"
         // hex #9C9DF0
+      },
+      "layout": { "visibility": "none" }
+    },
+    retail2: {
+      "id": "retail2",
+      "type": "line",
+      "source": "retail2",
+      "paint": {
+        "line-width": 3,
+        "line-color": "rgba(156, 157, 240,0.6)",
       },
       "layout": { "visibility": "none" }
     },
