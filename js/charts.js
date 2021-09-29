@@ -83,129 +83,126 @@ const handleStation = function (props,coordinates,map) {
     // "<div class='scoreSelection' value='walkScore'>Pedestrian Score</div>"
     document.getElementById("ws-score").innerHTML = walkScore;
 
-    if (props.pos_sc_a == 1) {
-        var POS= '> 2 mile';
-    } else  if (props.pos_sc_a == 2) {
-        var POS= '> 1 mile';
-    } else  if (props.pos_sc_a == 3) {
-        var POS= '1/2 mile - 1 mile';
-    } else  if (props.pos_sc_a == 4) {
-        var POS= '<= 1/2 mile';
-    } else  if (props.pos_sc_a == 5) {
-        var POS= 'on/adjacent';
-    } else {
-        var POS = '';
+    let lookup = {
+        0: "> 2 mile",
+        1: "> 2 mile",
+        2: "> 1 mile",
+        3: "1/2 mile - 1 mile",
+        4:"<= 1/2 mile",
+        5:"on/adjacent"
     }
 
-    if (props.wrc_sc_a == 1) {
-        var WRC= '> 2 mile';
-    } else  if (props.wrc_sc_a == 2) {
-        var WRC = '> 1 mile';
-    } else  if (props.wrc_sc_a == 3) {
-        var WRC = '1/2 mile - 1 mile';
-    } else  if (props.wrc_sc_a == 4) {
-        var WRC = '<= 1/2 mile';
-    } else  if (props.wrc_sc_a == 5) {
-        var WRC = 'on/adjacent';
-    } else {
-        var WRC = '';
+    let POS_a = lookup[props.pos_sc_a];
+    let POS_b = lookup[props.pos_sc_b];
+    let POS_w = lookup[props.pos_sc_w];
+    let WRC_a = lookup[props.wrc_sc_a];
+    let WRC_b = lookup[props.wrc_sc_b];
+    let WRC_w = lookup[props.wrc_sc_w];
+
+    var content1b = "<div><table class='dataTable'>" 
+        +"<tr>"
+        + "<th scope='col'></th>"
+        +"<th scope='col'>Access Score</th>"
+        +"<th scope='col'>Cycle Score</th>"
+        +"<th scope='col'>Pedestrain Score</th>"
+        +"</tr>"
+        +"<tr class='dataTable-row'>"
+        + "<td class='data-info'>Civic and Cultural Attractors</td>"
+        + "<td class='data-value'>"+ props.civ_sm_a +"</td>"
+        + "<td class='data-value'>"+ props.civ_sm_b +"</td>"
+        +"<td class='data-value'>"+ props.civ_sm_w +"</td>"
+        +"</tr>"
+        +"<tr class='dataTable-row'>"
+        + "<td class='data-info'>Employees</td>"
+        +"<td class='data-value'>"+numeral(props.emp_sm_a).format("(0,0)") +"</td>"
+        +"<td class='data-value'>"+numeral(props.emp_sm_b).format("(0,0)") +"</td>"
+        +"<td class='data-value'>"+numeral(props.emp_sm_w).format("(0,0)") +"</td>"
+        +"</tr>"
+        +"<tr class='dataTable-row'>"
+        +"<td class='data-info'>Essential Services (ETA)</td>"
+        +"<td class='data-value'>"+props.ess_sm_a +"</td>"
+        +"<td class='data-value'>"+props.ess_sm_b +"</td>"
+        +"<td class='data-value'>"+props.ess_sm_w +"</td>"
+        +"</tr>"
+        +"<tr class='dataTable-row'>"
+        +"<td class='data-info'>Parks and Open Space</td>"
+        +"<td class='data-value'>"+POS_a+"</td>"
+        +"<td class='data-value'>"+POS_b+"</td>"
+        +"<td class='data-value'>"+POS_w+"</td>"
+        +"</tr>"
+        +"<tr class='dataTable-row'>"
+        +"<td class='data-info2'>Walkable Retail and Centers</td>"
+        +"<td class='data-value2'>"+WRC_a+"</td>"
+        +"<td class='data-value2'>"+WRC_b+"</td>"
+        +"<td class='data-value2'>"+WRC_w+"</td>"
+        +"</tr>"
+        +"</table></div>";
+    document.getElementById("dataMeasurements1b").innerHTML = content1b; 
+
+    let lookupIPD = {
+        0: "n/a",
+        1: "well below average",
+        2: "below average",
+        3: "average",
+        4:"above average",
+        5:"well above average"
     }
+    let IPD_a = lookupIPD[props.ipd_sc_a]; 
 
-    // var content1 = "<div class='data-row'><span class='data-info'>Civic and Cultural Attractors</span><span class='data-value'> " +
-    // props.civ_sm_a +
-    // "  resources</span></div>" +
-    // "<br><div class='data-row'><span class='data-info'>Employees</span><span class='data-value'> " +
-    // numeral(props.emp_sm_a).format("(0,0)") +
-    // " employees</span></div>"+ 
-    // "<br><div class='data-row'><span class='data-info'>Essential Services (ETA)</span><span class='data-value'> " +
-    // props.ess_sm_a +
-    // " services</span></div>" +
-    // "<br><div class='data-row'><span class='data-info'>Parks and Open Space</span><span class='data-value'> " +
-    // //props.pos_sc_a +
-    // POS +
-    // "</span></div>" +
-    // "<br><div class='data-row'><span class='data-info'>Walkable Retail and Centers</span><span class='data-value'> " +
-    // WRC +
-    // "</span></div>" 
-    // ;
-    // document.getElementById("dataMeasurements1").innerHTML = content1;
-
-var content1b = "<div><table class='dataTable'>" 
-+"<tr>"
- + "<th scope='col'></th>"
-  +"<th scope='col'>Access Score</th>"
-  +"<th scope='col'>Cycle Score</th>"
-  +"<th scope='col'>Pedestrain Score</th>"
-+"</tr>"
-+"<tr class='dataTable-row'>"
- + "<td class='data-info'>Civic and Cultural Attractors</td>"
- + "<td class='data-value'>In Stock</td>"
- + "<td class='data-value'>1</td>"
-  +"<td class='data-value'>$30.02</td>"
-+"</tr>"
-+"<tr class='dataTable-row'>"
- + "<td class='data-info'>Employees</td>"
-  +"<td class='data-value'>In Stock</td>"
-  +"<td class='data-value'>2</td>"
-  +"<td class='data-value'>$52.94 ($26.47 &#215; 2)</td>"
-+"</tr>"
-+"<tr class='dataTable-row'>"
-  +"<td class='data-info'>Essential Services (ETA)</td>"
-  +"<td class='data-value'>Out of Stock</td>"
-  +"<td class='data-value'>1</td>"
-  +"<td class='data-value'>$22.23</td>"
-+"</tr>"
-+"<tr class='dataTable-row'>"
-  +"<td class='data-info'>Parks and Open Space</td>"
-  +"<td class='data-value'>In Stock</td>"
-  +"<td class='data-value'>1</td>"
-  +"<td class='data-value' >$30.17</td>"
-+"</tr>"
-+"<tr class='dataTable-row'>"
-  +"<td class='data-info2'>Walkable Retail and Centers</td>"
-  +"<td class='data-value2'>In Stock</td>"
-  +"<td class='data-value2'>1</td>"
-  +"<td class='data-value2'>$30.17</td>"
-+"</tr>"
-+"</table></div>";
-  document.getElementById("dataMeasurements1b").innerHTML = content1b; 
-
-    if (props.ipd_sc_a == 1) {
-        var IPD = 'well below average';
-    } else  if (props.ipd_sc_a == 2) {
-        var IPD = 'below average';
-    } else  if (props.ipd_sc_a == 3) {
-        var IPD = 'average';
-    } else  if (props.ipd_sc_a == 4) {
-        var IPD = 'above average';
-    } else  if (props.ipd_sc_a == 5) {
-        var IPD = 'well above average';
-    } else {
-        var IPD = 'n/a';
-    }
-
-    var content2 = "<div class='data-row'><span class='data-info'>Indicators of Potential Disadvantage </span><span class='data-value'> " +
-    IPD +
-    "</span></div>" +
-    "<br><div class='data-row'><span class='data-info'>Population Density  </span><span class='data-value'> " +
-    numeral(props.pop_sm_a).format("(0,0)") +
-    " persons</span></div>"+ 
-    "<br><div class='data-row'><span class='data-info'>Zero Vehicle Households</span><span class='data-value'> " +
-    numeral(props.zvh_sm_a).format("(0,0)") +
-    " households</span></div>" 
-    ;
+    var content2 = "<div><table class='dataTable'>" 
+    +"<tr>"
+    + "<th scope='col'></th>"
+    +"<th scope='col'>Access Score</th>"
+    +"<th scope='col'>Cycle Score</th>"
+    +"<th scope='col'>Pedestrain Score</th>"
+    +"</tr>"
+    +"<tr class='dataTable-row'>"
+    + "<td class='data-info'>Indicators of Potential Disadvantage</td>"
+    + "<td class='data-value'>"+ props.ipd_sc_a +"</td>"
+    + "<td class='data-value'>"+ props.ipd_sc_b +"</td>"
+    +"<td class='data-value'>"+ props.ipd_sc_w+"</td>"
+    +"</tr>"
+    +"<tr class='dataTable-row'>"
+    +"<td class='data-info'>Population Density</td>"
+    +"<td class='data-value'>"+numeral(props.pop_sm_a).format("(0,0)") +"</td>"
+    +"<td class='data-value'>"+numeral(props.pop_sm_b).format("(0,0)") +"</td>"
+    +"<td class='data-value'>"+numeral(props.pop_sm_w).format("(0,0)") +"</td>"
+    +"</tr>"
+    +"<tr class='dataTable-row'>"
+    +"<td class='data-info2'>Zero Vehicle Households</td>"
+    +"<td class='data-value'>"+numeral(props.zvh_sm_a).format("(0,0)") +"</td>"
+    +"<td class='data-value'>"+numeral(props.zvh_sm_b).format("(0,0)") +"</td>"
+    +"<td class='data-value'>"+numeral(props.zvh_sm_w).format("(0,0)") +"</td>"
+    +"</tr>"
+    +"</table></div>";
     document.getElementById("dataMeasurements2").innerHTML = content2;
 
-    var content3 = "<div class='data-row'><span class='data-info'>Non-Parking Boards </span><span class='data-value'> " +
-    props.npb_npbp  +
-    "%</span></div>" +
-    "<br><div class='data-row'><span class='data-info'>Percentage of Local Drivers </span><span class='data-value'> " +
-    numeral(props.surv_calc).format("(0.00)") +
-    "%</span></div>"+ 
-    "<br><div class='data-row'><span class='data-info'>Transit Vehicle Volume</span><span class='data-value'> " +
-    // props.tvv_sc +
-    "<i>*values coming soon</i></span></div>" 
-    ;
+    var content3 = "<div><table class='dataTable'>" 
+    +"<tr>"
+    + "<th scope='col'></th>"
+    +"<th scope='col'>Access Score</th>"
+    +"<th scope='col'>Cycle Score</th>"
+    +"<th scope='col'>Pedestrain Score</th>"
+    +"</tr>"
+    +"<tr class='dataTable-row'>"
+    + "<td class='data-info'>Non-Parking Boards</td>"
+    + "<td class='data-value'>"+ props.npb_npbp +"</td>"
+    + "<td class='data-value'>"+ props.npb_npbp +"</td>"
+    + "<td class='data-value'>"+ props.npb_npbp +"</td>"
+    +"</tr>"
+    +"<tr class='dataTable-row'>"
+    +"<td class='data-info'>Percentage of Local Drivers</td>"
+    +"<td class='data-value'>"+numeral(props.lps_va_a).format("(0,0)") +"</td>"
+    +"<td class='data-value'>"+numeral(props.lps_va_b).format("(0,0)") +"</td>"
+    +"<td class='data-value'>"+numeral(props.lps_va_w).format("(0,0)") +"</td>"
+    +"</tr>"
+    +"<tr class='dataTable-row'>"
+    +"<td class='data-info2'>Transit Vehicle Volume</td>"
+    +"<td class='data-value'>Coming Soon</td>"
+    +"<td class='data-value'>Coming Soon</td>"
+    +"<td class='data-value'>Coming Soon</td>"
+    +"</tr>"
+    +"</table></div>";
     document.getElementById("dataMeasurements3").innerHTML = content3;
 
     if (props.cir_sc_a == 1) {
