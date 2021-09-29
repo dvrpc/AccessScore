@@ -62,21 +62,21 @@ document.querySelectorAll(".infoSelection").forEach(el => {
   }
 })
 // toggle bewteen Chart View and Data View for Bike Score
-document.querySelectorAll(".infoSelectionBS").forEach(el => {
-  el.onclick = event => {
-    const id = event.target.dataset.imageToShow
-    document.querySelectorAll(".infoBS").forEach(img => { img.style.display = "none" })
-    document.getElementById(id).style.display = "block"
-  }
-})
-// toggle bewteen Chart View and Data View for Walk Score
-document.querySelectorAll(".infoSelectionWS").forEach(el => {
-  el.onclick = event => {
-    const id = event.target.dataset.imageToShow
-    document.querySelectorAll(".infoWS").forEach(img => { img.style.display = "none" })
-    document.getElementById(id).style.display = "block"
-  }
-})
+// document.querySelectorAll(".infoSelectionBS").forEach(el => {
+//   el.onclick = event => {
+//     const id = event.target.dataset.imageToShow
+//     document.querySelectorAll(".infoBS").forEach(img => { img.style.display = "none" })
+//     document.getElementById(id).style.display = "block"
+//   }
+// })
+// // toggle bewteen Chart View and Data View for Walk Score
+// document.querySelectorAll(".infoSelectionWS").forEach(el => {
+//   el.onclick = event => {
+//     const id = event.target.dataset.imageToShow
+//     document.querySelectorAll(".infoWS").forEach(img => { img.style.display = "none" })
+//     document.getElementById(id).style.display = "block"
+//   }
+// })
 
 // toggle bewteen Chart View and Data View for Walk Score
 document.querySelectorAll(".aboutSelection").forEach(el => {
@@ -87,7 +87,7 @@ document.querySelectorAll(".aboutSelection").forEach(el => {
   }
 })
 
-//toggle Splash and Map
+//toggle Home and Map
 document.getElementById("homeLink").addEventListener("click", function() {
   document.getElementById("mapLink").style.display = "block";
   document.getElementById("main").style.display = "flex"
@@ -95,7 +95,7 @@ document.getElementById("homeLink").addEventListener("click", function() {
   document.getElementById("map").style.display = "none"
 });  
 
-//toggle Splash and Map
+//toggle Home and Map
 document.getElementById("mapLink").addEventListener("click", function() {
   document.getElementById("mapLink").style.display = "none";
   document.getElementById("main").style.display = "none"
