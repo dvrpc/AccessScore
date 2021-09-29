@@ -38,18 +38,14 @@
                <!-- <span class="nav-vr">|</span> -->
                 <img src="./img/AccessScore-logo.png" alt="project logo" class="nav-logos" id="accessscore-logo"> 
                 <span id="beta">BETA</span> 
-                <div>
-                    <a class="btn about-btn" href="#about" rel="modal:open">about</a>
-                </div>
-                <div id="mainButton">
-                    <a class="btn about-btn" href="#main" >main</a>
-                </div>
-                <div id="mapButton">
-                    <a class="btn about-btn" href="#map" >map</a>
-                </div>
             </div>
-
-          
+            <div class="landingLink-all">
+                <ul id="landingLinks">
+                    <li id="mapLink" class="landingLink"><a href="#map" data-tab="map" data-toggle="collapse" data-target=".navbar-collapse.in">Map</a></li>
+                    <li id="homeLink" class="landingLink"><a href="#home"  data-tab="home" data-toggle="collapse" data-target=".navbar-collapse.in">&nbsp;&nbsp;Home</a></li>
+                    <!-- <li class="landingLink"><a  href="http://www.dvrpc.org/TOD/" target="_new">TOD in the Region</a></li> -->
+                </ul>
+            </div>
             <!-- <div class="input-group search-container">
                 <form id="search">
                     <label>
@@ -67,29 +63,37 @@
         <main id="main-content-wrapper" class="flex-row flex-between">
 <!--Start Splash-->           
             <div id="main">
-                <p>This analysis tool assesses the infrastructure and demographic characteristics around transit stations that relate to how supportive of bicycling and walking the area is and how much bicycle and pedestrian activity there is or could be. The analysis includes Region Rail and heavy rail, light rail, trolley, subway stations throughout the Philadelphia region with service provided by SEPTA, NJ TRANSIT, and PATCO.    
-                </p>
-                <br>
-                <p>To create this score, DVRPC staff collected data on station area characteristics that are likely to be factors in whether walk, cycle, or drive to transit stations. The sum of those factors, within two miles of the station, is calculated to give each station a total AccessScore. Together, these individual factors, and a station's total AccessScore, will give transit agencies, trail advocacy groups and municipalities a picture of the station area characteristics that contribute to demand for bicycle facilities and amenities. Ultimately, AccessScore may help communities identify and prioritize improvements designed to strengthen pedestrian, cycling, and transit connectivity.
-                </p>
-                <br>
-                <p>In addition to AccessScore, which measures the demand for and supply of facilities for both walkers and people biking, the project team developed a score focused on pedestrians and one focused solely on bicycle-friendliness. 
-                </p>
-                <br>
-                <p><B>Pedestrian Score:</B> uses the existing sidewalk network to create a boundary for scoring walkability near stations. It defines the catchment area as the distance that can be walked continuously on existing sidewalks up to 1 mile. All categories are scored by what is present within that catchment area.   
-                </p>
-                <br>
-                <p><B>Cycle Score:</B> uses <a href="https://www.dvrpc.org/webmaps/BikeStress/" target="_new">DVRPC’s Bicycle Level of Traffic Stress (LTS)</a> analysis to create a boundary for scoring cycling near stations. It defines the catchment areas as the distance that can be cycled continuously on LTS 1 and 2 road segments that abut the station up to two miles. All categories are scored by what is present within that catchment area.
-                </p>
-                <br>
+                <div id="aboutWrapper"> 
+                    <p>This analysis tool assesses the infrastructure and demographic characteristics around transit stations that relate to how supportive of bicycling and walking the area is and how much bicycle and pedestrian activity there is or could be. The analysis includes Region Rail and heavy rail, light rail, trolley, subway stations throughout the Philadelphia region with service provided by SEPTA, NJ TRANSIT, and PATCO.    
+                    </p>
+                    <br>
+                    <p>To create this score, DVRPC staff collected data on station area characteristics that are likely to be factors in whether walk, cycle, or drive to transit stations. The sum of those factors, within two miles of the station, is calculated to give each station a total AccessScore. Together, these individual factors, and a station's total AccessScore, will give transit agencies, trail advocacy groups and municipalities a picture of the station area characteristics that contribute to demand for bicycle facilities and amenities. Ultimately, AccessScore may help communities identify and prioritize improvements designed to strengthen pedestrian, cycling, and transit connectivity.
+                    </p>
+                    <br>
+                    <p>In addition to AccessScore, which measures the demand for and supply of facilities for both walkers and people biking, the project team developed a score focused on pedestrians and one focused solely on bicycle-friendliness. 
+                    </p>
+                    <br>
+                    <p><B>Pedestrian Score:</B> uses the existing sidewalk network to create a boundary for scoring walkability near stations. It defines the catchment area as the distance that can be walked continuously on existing sidewalks up to 1 mile. All categories are scored by what is present within that catchment area.   
+                    </p>
+                    <br>
+                    <p><B>Cycle Score:</B> uses <a href="https://www.dvrpc.org/webmaps/BikeStress/" target="_new">DVRPC’s Bicycle Level of Traffic Stress (LTS)</a> analysis to create a boundary for scoring cycling near stations. It defines the catchment areas as the distance that can be cycled continuously on LTS 1 and 2 road segments that abut the station up to two miles. All categories are scored by what is present within that catchment area.
+                    </p>
+                    <br>
                     <h4>For more information:</h4>
                     <address>
                     Thom Stead | Senior Transportation Planner, Office of Transit, Bicycle, and Pedestrian Planning<br/>
                     <a href="mailto:tstead@dvrpc.org@dvrpc.org" class="one">tstead@dvrpc.org</a><br/>
                     </address>
+                </div>
+                <footer class="flex-column">
+                    <p>Access Score (&nbsp;Beta&nbsp;)&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#disclaimer" aria-label="disclaimer" rel="modal:open" style="color:white">Disclaimer</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.dvrpc.org/policies/" target="_new" class="hp-link" aria-label="policies" style="color: #fff !important">Policies</a></p>    
+                </footer>
             </div>
  <!-- End Splash-->           
             <div id="sidebar">
+                <div>
+                    <a class="btn about-btn" href="#about" rel="modal:open">about</a>
+                </div>
                 <div id="sidebar-content">                
                     
                     <div id="stationHeader">

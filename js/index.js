@@ -88,14 +88,16 @@ document.querySelectorAll(".aboutSelection").forEach(el => {
 })
 
 //toggle Splash and Map
-document.getElementById("mainButton").addEventListener("click", function() {
+document.getElementById("homeLink").addEventListener("click", function() {
+  document.getElementById("mapLink").style.display = "block";
   document.getElementById("main").style.display = "block"
   document.getElementById("sidebar").style.display = "none"
   document.getElementById("map").style.display = "none"
 });  
 
 //toggle Splash and Map
-document.getElementById("mapButton").addEventListener("click", function() {
+document.getElementById("mapLink").addEventListener("click", function() {
+  document.getElementById("mapLink").style.display = "none";
   document.getElementById("main").style.display = "none"
   document.getElementById("map").style.display = "block"
   document.getElementById("sidebar").style.display = "block"

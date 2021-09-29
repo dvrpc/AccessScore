@@ -98,6 +98,9 @@ const handleStation = function (props,coordinates,map) {
     let WRC_a = lookup[props.wrc_sc_a];
     let WRC_b = lookup[props.wrc_sc_b];
     let WRC_w = lookup[props.wrc_sc_w];
+    let CIR_a = lookup[props.cir_sc_a];
+    let CIR_b = lookup[props.cir_sc_b];
+    let CIR_w = lookup[props.cir_sc_w];
 
     var content1b = "<div><table class='dataTable'>" 
         +"<tr>"
@@ -205,40 +208,44 @@ const handleStation = function (props,coordinates,map) {
     +"</table></div>";
     document.getElementById("dataMeasurements3").innerHTML = content3;
 
-    if (props.cir_sc_a == 1) {
-        var CIR= '> 2 mile';
-    } else  if (props.cir_sc_a == 2) {
-        var CIR = '> 1 mile';
-    } else  if (props.cir_sc_a == 3) {
-        var CIR = '1/2 mile - 1 mile';
-    } else  if (props.cir_sc_a == 4) {
-        var CIR = '<= 1/2 mile';
-    } else  if (props.cir_sc_a == 5) {
-        var CIR = 'on/adjacent';
-    } else {
-        var CIR = '';
-    }
-
-    var content4 = "<div class='data-row'><span class='data-info'>Circuit Trail Proximity </span><span class='data-value'> " +
-    CIR +
-    "</span></div>" +
-    "<br><div class='data-row'><span class='data-info'>Connectivity Score </span><span class='data-value'> " +
-    numeral(props.int_va_a).format("(0.00)") +
-    "</span></div>"+ 
-    "<br><div class='data-row'><span class='data-info'>Crashes (KSI from 2015-2019) </span><span class='data-value'> " +
-    props.ksi_sm_a +
-    " total ksi ("+
-    props.ksi_bike_t+
-    " bike ksi/"+
-    props.ksi_ped_to+
-    " ped ksi)</span></div>" +
-    "<br><div class='data-row'><span class='data-info'>Low Stress Bike Shed </span><span class='data-value'> " +
-    numeral(props.lts_va_a).format("(0.00)") +
-    " linear miles</span></div>" +
-    "<br><div class='data-row'><span class='data-info'>Walk Shed </span><span class='data-value'> " +
-    numeral(props.ped_va_a).format("(0.00)") +
-    " linear miles</span></div>" 
-    ;
+    var content4 = "<div><table class='dataTable'>" 
+    +"<tr>"
+    + "<th scope='col'></th>"
+    +"<th scope='col'>Access Score</th>"
+    +"<th scope='col'>Cycle Score</th>"
+    +"<th scope='col'>Pedestrain Score</th>"
+    +"</tr>"
+    +"<tr class='dataTable-row'>"
+    + "<td class='data-info'>Circuit Trail Proximity</td>"
+    + "<td class='data-value'>"+ CIR_a +"</td>"
+    + "<td class='data-value'>"+ CIR_b +"</td>"
+    +"<td class='data-value'>"+ CIR_w +"</td>"
+    +"</tr>"
+    +"<tr class='dataTable-row'>"
+    + "<td class='data-info'>Connectivity Score</td>"
+    +"<td class='data-value'>"+ numeral(props.int_va_a).format("(0.00)") +"</td>"
+    +"<td class='data-value'>"+ numeral(props.int_va_b).format("(0.00)") +"</td>"
+    +"<td class='data-value'>"+ numeral(props.int_va_w).format("(0.00)") +"</td>"
+    +"</tr>"
+    +"<tr class='dataTable-row'>"
+    +"<td class='data-info'>Crashes (KSI from 2015-2019) </td>"
+    +"<td class='data-value'>"+  props.ksi_sm_a +" total ksi</td>"
+    +"<td class='data-value'>"+props.ksi_bike_t +" bike ksi</td>"
+    +"<td class='data-value'>"+ props.ksi_ped_to +" ped ksi</td>"
+    +"</tr>"
+    +"<tr class='dataTable-row'>"
+    +"<td class='data-info'>Low Stress Bike Shed </td>"
+    +"<td class='data-value'>"+ numeral(props.lts_va_a).format("(0.00)")+"</td>"
+    +"<td class='data-value'>"+ numeral(props.lts_va_b).format("(0.00)")+"</td>"
+    +"<td class='data-value'>"+ numeral(props.lts_va_w).format("(0.00)")+"</td>"
+    +"</tr>"
+    +"<tr class='dataTable-row'>"
+    +"<td class='data-info2'>Walk Shed (linear miles)</td>"
+    +"<td class='data-value2'>"+  numeral(props.ped_va_a).format("(0.00)") +"</td>"
+    +"<td class='data-value2'>"+  numeral(props.ped_va_b).format("(0.00)") +"</td>"
+    +"<td class='data-value2'>"+  numeral(props.ped_va_w).format("(0.00)") +"</td>"
+    +"</tr>"
+    +"</table></div>";
     document.getElementById("dataMeasurements4").innerHTML = content4;
         
     map.flyTo({
