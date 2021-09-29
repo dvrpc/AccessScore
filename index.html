@@ -63,32 +63,60 @@
         <main id="main-content-wrapper" class="flex-row flex-between">
 <!--Start Splash-->           
             <div id="main">
+              
                 <div id="aboutWrapper"> 
                     <p>This analysis tool assesses the infrastructure and demographic characteristics around transit stations that relate to how supportive of bicycling and walking the area is and how much bicycle and pedestrian activity there is or could be. The analysis includes Region Rail and heavy rail, light rail, trolley, subway stations throughout the Philadelphia region with service provided by SEPTA, NJ TRANSIT, and PATCO.    
                     </p>
                     <br>
                     <p>To create this score, DVRPC staff collected data on station area characteristics that are likely to be factors in whether walk, cycle, or drive to transit stations. The sum of those factors, within two miles of the station, is calculated to give each station a total AccessScore. Together, these individual factors, and a station's total AccessScore, will give transit agencies, trail advocacy groups and municipalities a picture of the station area characteristics that contribute to demand for bicycle facilities and amenities. Ultimately, AccessScore may help communities identify and prioritize improvements designed to strengthen pedestrian, cycling, and transit connectivity.
                     </p>
-                    <br>
-                    <p>In addition to AccessScore, which measures the demand for and supply of facilities for both walkers and people biking, the project team developed a score focused on pedestrians and one focused solely on bicycle-friendliness. 
-                    </p>
-                    <br>
-                    <p><B>Pedestrian Score:</B> uses the existing sidewalk network to create a boundary for scoring walkability near stations. It defines the catchment area as the distance that can be walked continuously on existing sidewalks up to 1 mile. All categories are scored by what is present within that catchment area.   
-                    </p>
-                    <br>
-                    <p><B>Cycle Score:</B> uses <a href="https://www.dvrpc.org/webmaps/BikeStress/" target="_new">DVRPC’s Bicycle Level of Traffic Stress (LTS)</a> analysis to create a boundary for scoring cycling near stations. It defines the catchment areas as the distance that can be cycled continuously on LTS 1 and 2 road segments that abut the station up to two miles. All categories are scored by what is present within that catchment area.
-                    </p>
-                    <br>
                     <h4>For more information:</h4>
                     <address>
                     Thom Stead | Senior Transportation Planner, Office of Transit, Bicycle, and Pedestrian Planning<br/>
                     <a href="mailto:tstead@dvrpc.org@dvrpc.org" class="one">tstead@dvrpc.org</a><br/>
                     </address>
                 </div>
-                <footer class="flex-column">
-                    <p>Access Score (&nbsp;Beta&nbsp;)&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#disclaimer" aria-label="disclaimer" rel="modal:open" style="color:white">Disclaimer</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.dvrpc.org/policies/" target="_new" class="hp-link" aria-label="policies" style="color: #fff !important">Policies</a></p>    
-                </footer>
+
+                <div id="aboutscoreWrapper">
+                    <div id="scoreBoxAbout">
+                    <div id="AS" class="score-cb">
+                        <input type="radio" class="lbox-AS">
+                        <label id="label-box" class="AS" for="control_01">
+                          <h3>Access Score</h3>
+                        </label>
+                    </div>   
+                    <div id="score-text">
+                        <p>Measures the demand for and supply of facilities for both walkers and people biking, the project team developed a score focused on pedestrians and one focused solely on bicycle-friendliness.</p>
+                    </div>
+                    </div>
+
+                    <div id="scoreBoxAbout">
+                    <div id="BS" class="score-cb">
+                        <input type="radio" class="lbox-BS">
+                        <label id="label-box" for="control_02">
+                          <h3>Cycle Score</h3>
+                        </label>
+                      </div>
+                      <div id="score-text">
+                        <p>Uses <a href="https://www.dvrpc.org/webmaps/BikeStress/" target="_new">DVRPC’s Bicycle Level of Traffic Stress (LTS)</a> analysis to create a boundary for scoring cycling near stations. It defines the catchment areas as the distance that can be cycled continuously on LTS 1 and 2 road segments that abut the station up to two miles. All categories are scored by what is present within that catchment area.
+                        </p>
+                    </div>
+                    </div>
+
+                    <div id="scoreBoxAbout">
+                     <div id="WS" class="score-cb">
+                        <input type="radio" class="lbox-WS">
+                        <label id="label-box" for="control_03">
+                          <h3>Pedestrian Score</h3>
+                        </label>
+                      </div>
+                      <div id="score-text">
+                        <p>Uses the existing sidewalk network to create a boundary for scoring walkability near stations. It defines the catchment area as the distance that can be walked continuously on existing sidewalks up to 1 mile. All categories are scored by what is present within that catchment area.</p> 
+                    </div>
+                </div>
+                </div>
             </div>
+                
  <!-- End Splash-->           
             <div id="sidebar">
                 <div>
@@ -103,7 +131,7 @@
                     <div id="scoreWrapper">
                         <div id="scoreIntro"><p><i>Explore the various scoring methods by clicking on scoring name.</i> </p>
                         </div>
-                            <div id="scoreBox">
+                        <div id="scoreBox">
                         <div id="AS" class="score-cb">
                             <input type="radio" class="lbox-AS" id="control_01" name="select" value="1" checked>
                             <label id="label-box" class="AS" for="control_01">
@@ -561,38 +589,6 @@
         </div>
           </fieldset>
     </form>
-
-    <!-- <form class="sidebar-form sidebar-form-toggle">
-        <fieldset class="sidebar-fieldset">
-            <legend class="bold-text">toggle basemap</legend>
-            <ul>
-              
-              <li>
-                <label>
-                  <input
-                    type="checkbox"
-                    id="Buildings"
-                    name="layer"
-                    value="Buildings"
-                    checked="checked"
-                  />
-                  Building Footprints
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input
-                    type="checkbox"
-                    id="nearmap"
-                    name="layer"
-                    value="nearmap"
-                  />
-                  Aerial Imagery
-                </label>
-              </li>
-            </ul>
-          </fieldset>
-    </form> -->
     </div>              
             </div>
                 <footer class="flex-column">

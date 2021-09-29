@@ -90,7 +90,7 @@ document.querySelectorAll(".aboutSelection").forEach(el => {
 //toggle Splash and Map
 document.getElementById("homeLink").addEventListener("click", function() {
   document.getElementById("mapLink").style.display = "block";
-  document.getElementById("main").style.display = "block"
+  document.getElementById("main").style.display = "flex"
   document.getElementById("sidebar").style.display = "none"
   document.getElementById("map").style.display = "none"
 });  
@@ -281,12 +281,12 @@ map.on('load', () => {
 
     map.on('click','stations', (e) => {
       var sidebarViz = $("#sidebar").css("display");
+      $("#clickBait").css("display", "none"); 
       if (sidebarViz !== "block") {
       //  $("#map").toggleClass("col-sm-6 col-md-6 col-lg-6 col-sm-12 col-md-12 col-lg-12");
         $("#map").css("width", "60%");
         $("#sidebar").css("display", "block");
         $("#legend-box").css("display", "none");
-        $("#clickBait").css("display", "none"); 
         map.resize();
       }
     //  console.log(stationID);
