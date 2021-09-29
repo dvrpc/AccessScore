@@ -90,7 +90,6 @@ const layers = {
         'circle-stroke-color': '#ffc6af',
         'circle-stroke-width': .2,
         'circle-color':'#e0c063'
-        // 'circle-color':'#ffa17a'
       }
     },
     crime: {
@@ -137,6 +136,51 @@ const layers = {
         'line-width': 3
         }
     },
+    septa:{
+      "id": "septa",
+      "type": "line",
+      "source": "septa",
+      'layout': {
+          'line-join': 'round',
+          'line-cap': 'round'
+          },
+      'paint': {
+      'line-color': '#e0c063',
+      'line-opacity':.6,
+      'line-width': 1.5
+      },
+      "layout": { "visibility": "none" }
+  },
+  njt:{
+    "id": "njt",
+    "type": "line",
+    "source": "njt",
+    'layout': {
+        'line-join': 'round',
+        'line-cap': 'round'
+        },
+    'paint': {
+    'line-color': '#e0c063',
+    'line-opacity':.6,
+    'line-width': 1.5
+    },
+    "layout": { "visibility": "none" }
+},
+high:{
+  "id": "high",
+  "type": "line",
+  "source": "high",
+  'layout': {
+      'line-join': 'round',
+      'line-cap': 'round'
+      },
+  'paint': {
+  'line-color': '#fa78b9',
+  'line-opacity':.6,
+  'line-width': 1.5
+  },
+  "layout": { "visibility": "none" }
+},
     retail: {
       "id": "retail",
       "type": "fill",

@@ -111,24 +111,64 @@ const handleStation = function (props,coordinates,map) {
         var WRC = '';
     }
 
-    var content1 = "<div class='data-row'><span class='data-info'>Civic and Cultural Attractors </span><span class='data-value'> " +
-    props.civ_sm_a +
-    "  resources</span></div>" +
-    "<br><div class='data-row'><span class='data-info'>Employees (Nets 2015) within 1-mile of the station  </span><span class='data-value'> " +
-    numeral(props.emp_sm_a).format("(0,0)") +
-    " employees</span></div>"+ 
-    "<br><div class='data-row'><span class='data-info'>Essential Services (ETA) </span><span class='data-value'> " +
-    props.ess_sm_a +
-    " services</span></div>" +
-    "<br><div class='data-row'><span class='data-info'>Parks and Open Space </span><span class='data-value'> " +
-    //props.pos_sc_a +
-    POS +
-    "</span></div>" +
-    "<br><div class='data-row'><span class='data-info'>Walkable Retail and Centers </span><span class='data-value'> " +
-    WRC +
-    "</span></div>" 
-    ;
-    document.getElementById("dataMeasurements1").innerHTML = content1;
+    // var content1 = "<div class='data-row'><span class='data-info'>Civic and Cultural Attractors</span><span class='data-value'> " +
+    // props.civ_sm_a +
+    // "  resources</span></div>" +
+    // "<br><div class='data-row'><span class='data-info'>Employees</span><span class='data-value'> " +
+    // numeral(props.emp_sm_a).format("(0,0)") +
+    // " employees</span></div>"+ 
+    // "<br><div class='data-row'><span class='data-info'>Essential Services (ETA)</span><span class='data-value'> " +
+    // props.ess_sm_a +
+    // " services</span></div>" +
+    // "<br><div class='data-row'><span class='data-info'>Parks and Open Space</span><span class='data-value'> " +
+    // //props.pos_sc_a +
+    // POS +
+    // "</span></div>" +
+    // "<br><div class='data-row'><span class='data-info'>Walkable Retail and Centers</span><span class='data-value'> " +
+    // WRC +
+    // "</span></div>" 
+    // ;
+    // document.getElementById("dataMeasurements1").innerHTML = content1;
+
+var content1b = "<div><table class='dataTable'>" 
++"<tr>"
+ + "<th scope='col'></th>"
+  +"<th scope='col'>Access Score</th>"
+  +"<th scope='col'>Cycle Score</th>"
+  +"<th scope='col'>Pedestrain Score</th>"
++"</tr>"
++"<tr class='dataTable-row'>"
+ + "<td class='data-info'>Civic and Cultural Attractors</td>"
+ + "<td class='data-value'>In Stock</td>"
+ + "<td class='data-value'>1</td>"
+  +"<td class='data-value'>$30.02</td>"
++"</tr>"
++"<tr class='dataTable-row'>"
+ + "<td class='data-info'>Employees</td>"
+  +"<td class='data-value'>In Stock</td>"
+  +"<td class='data-value'>2</td>"
+  +"<td class='data-value'>$52.94 ($26.47 &#215; 2)</td>"
++"</tr>"
++"<tr class='dataTable-row'>"
+  +"<td class='data-info'>Essential Services (ETA)</td>"
+  +"<td class='data-value'>Out of Stock</td>"
+  +"<td class='data-value'>1</td>"
+  +"<td class='data-value'>$22.23</td>"
++"</tr>"
++"<tr class='dataTable-row'>"
+  +"<td class='data-info'>Parks and Open Space</td>"
+  +"<td class='data-value'>In Stock</td>"
+  +"<td class='data-value'>1</td>"
+  +"<td class='data-value' >$30.17</td>"
++"</tr>"
++"<tr class='dataTable-row'>"
+  +"<td class='data-info2'>Walkable Retail and Centers</td>"
+  +"<td class='data-value2'>In Stock</td>"
+  +"<td class='data-value2'>1</td>"
+  +"<td class='data-value2'>$30.17</td>"
++"</tr>"
++"</table></div>";
+  document.getElementById("dataMeasurements1b").innerHTML = content1b; 
 
     if (props.ipd_sc_a == 1) {
         var IPD = 'well below average';

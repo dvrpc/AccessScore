@@ -20,6 +20,13 @@ $(document).ready(function(){
       $("#mylist").slideToggle();
   });
 });
+
+$(document).ready(function() {
+  $('.bold-text').click(function() {
+      $("#mylist").slideToggle();
+      $(".bold-text i").toggleClass("fa-angle-up fa-angle-down");
+  });
+});
 // toggle base and basemap layers 
 const toggleLayerForms = Array.from(
   document.querySelectorAll(".sidebar-form-toggle")
@@ -80,19 +87,20 @@ document.querySelectorAll(".aboutSelection").forEach(el => {
   }
 })
 
-// //toggle Splash and Map
-// document.getElementById("mainButton").addEventListener("click", function() {
-//   document.getElementById("main").style.display = "block"
-//   document.getElementById("sidebar").style.display = "none"
-//   document.getElementById("map").style.display = "none"
-// });  
+//toggle Splash and Map
+document.getElementById("mainButton").addEventListener("click", function() {
+  document.getElementById("main").style.display = "block"
+  document.getElementById("sidebar").style.display = "none"
+  document.getElementById("map").style.display = "none"
+});  
 
-// //toggle Splash and Map
-// document.getElementById("mapButton").addEventListener("click", function() {
-//   document.getElementById("main").style.display = "none"
-//   document.getElementById("sidebar").style.display = "block"
-//   document.getElementById("map").style.display = "block"
-// }); 
+//toggle Splash and Map
+document.getElementById("mapButton").addEventListener("click", function() {
+  document.getElementById("main").style.display = "none"
+  document.getElementById("map").style.display = "block"
+  document.getElementById("sidebar").style.display = "block"
+  map.resize()
+}); 
 
 // Access Score CheckBox toggle
 document.getElementById("AS").addEventListener("click", function() {

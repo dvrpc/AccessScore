@@ -201,6 +201,10 @@ nav {
     background: rgba(255,255,255, 0.85);
     display:block;
 }
+#main{
+ display: block;   
+ width: 100%;
+}
 /* END Main Webmap Area */
 
 /* Sidebar */
@@ -212,6 +216,9 @@ nav {
     overflow-x: hidden;
     /* background-color: #f7f7f7; */
     background-color: #eaeaea;
+}
+#map {
+    display: none;
 }
 #sidebar-content {
     padding: var(--wrapper-padding-double) var(--wrapper-padding);
@@ -450,14 +457,31 @@ h3 small {
 .data-info {
     font-size: small;
     color: #808080;
+    border-bottom: 1px dotted #414770;
 }
 .data-value {
     font-size: medium;
+    border-bottom: 1px dotted #414770;
+}
+.data-info2 {
+    font-size: small;
+    color: #808080;
+}
+.data-value2 {
+    font-size: medium;
+}
+.dataTable tr{
+    /* display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3px 0; */
+    border-bottom: 1px dotted #414770;
+    /* margin: 0px 10px 0px 0px; */
 }
 /* ENDCharts */
 /* Map */
 #map {
-    width: 100%;
+    width: 60%;
     height: 100%;
 }
 .mapboxgl-popup-content {
@@ -654,6 +678,12 @@ color:#4fe314;
 .legend-bus-stops {
 color:#e0c063;
 }
+.legend-septa {
+    color:#e0c063;
+}
+.legend-njt {
+    color:#e0c063;
+}
 .legend-lts {
 color:#f9f871;
 }
@@ -674,6 +704,9 @@ color:#696969;
 }
 .legend-es{
     color:#c8ffaf;
+}
+.legend-high{
+    color:#fa78b9;
 }
 #sidebar-content ul {
     list-style-type: none;

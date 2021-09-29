@@ -8,6 +8,11 @@ const sources = {
         data:' https://phl.carto.com/api/v2/sql?q=SELECT+*+FROM+shootings+WHERE+year+BETWEEN+2016+AND+2021+&filename=shootings&format=geojson&skipfields=cartodb_id',
         generateId: true //
     },
+    'high':{
+        type:'geojson',
+        data:'https://phl.carto.com/api/v2/sql?q=SELECT * FROM high_injury_network_2020&format=geojson&skipfields=cartodb_id',
+        generateId: true //
+    },
     'es': {
         type:'geojson',
         data:'https://arcgis.dvrpc.org/portal/rest/services/Planning/ETA_EssentialServicesPts/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
@@ -39,23 +44,14 @@ const sources = {
         generateId: true //
     },
     'as_osm_limits': {
-        // type:'geojson',
         type:'vector',
-        // data:'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/AccessScore/FeatureServer/3/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
         url:'https://tiles.dvrpc.org/data/access-score.json'
-        // generateId: true //
     },
     'bs_limit': {
-        // type:'geojson',
-        // data:'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/AccessScore/FeatureServer/2/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
-        // generateId: true //
         type:'vector',
         url:'https://tiles.dvrpc.org/data/access-score.json'
     },
     'ws_limit': {
-        // type:'geojson',
-        // data:'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/AccessScore/FeatureServer/1/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
-        // generateId: true //
         type:'vector',
         url:'https://tiles.dvrpc.org/data/access-score.json'
     },
@@ -81,6 +77,16 @@ const sources = {
     'circuit_trails': {
         type:'geojson',
         data:'https://arcgis.dvrpc.org/portal/rest/services/Transportation/CircuitTrails/FeatureServer/0/query?where=circuit+%3D+%27Existing%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson',
+        generateId: true //    
+    },
+    'septa': {
+        type:'geojson',
+        data:'https://arcgis.dvrpc.org/portal/rest/services/Transportation/SEPTA_TransitRoutes/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=geojson',
+        generateId: true //    
+    },
+    'njt': {
+        type:'geojson',
+        data:'https://arcgis.dvrpc.org/portal/rest/services/Transportation/NJTransit_TransitRoutes/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=geojson',
         generateId: true //    
     },
     'parks': {
