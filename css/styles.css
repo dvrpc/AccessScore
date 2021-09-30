@@ -257,6 +257,10 @@ nav {
     border-bottom: 3px solid #312867;
     color: #BBE6FA;
 }
+.dvrpc_full_logo {
+    margin: 10px 15px 6px 5px;
+    float: left;
+}
  
 /* END Main Webmap Area */
 
@@ -414,6 +418,11 @@ h3 small {
     position: relative;
     display: block;
     width:140px;
+  }
+  .EAS{
+    background: var(--theme-access-dark) !important;
+    border: 2px solid #236e68 !important;
+    color: white; 
   }
   .AS{
     background: #3bb8ad !important;

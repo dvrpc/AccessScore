@@ -104,6 +104,14 @@ document.getElementById("mapLink").addEventListener("click", function() {
   map.resize()
 }); 
 
+document.getElementById("EAS").addEventListener("click", function() {
+  document.getElementById("mapLink").style.display = "none";
+  document.getElementById("main").style.display = "none"
+  document.getElementById("map").style.display = "block"
+  document.getElementById("sidebar").style.display = "block"
+  map.resize()
+}); 
+
 // Access Score CheckBox toggle
 document.getElementById("AS").addEventListener("click", function() {
   handleStation(propsStation,corrdinatesStation,map)
