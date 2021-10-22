@@ -25,6 +25,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,700&amp;display=swap">
         <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.2.2/introjs.min.css'>
         <link rel="stylesheet" href="./css/styles.css">
         <link rel="stylesheet" href="./css/mobile.css" media="(max-width: 800px)">
         
@@ -46,7 +47,7 @@
                     <!-- <li class="landingLink"><a  href="http://www.dvrpc.org/TOD/" target="_new">TOD in the Region</a></li> -->
                 </ul>
             </div>
-            <!-- <div class="input-group search-container">
+             <div class="input-group search-container" id="stationSearchForm">
                 <form id="search">
                     <label>
                         Search by station:
@@ -57,7 +58,7 @@
 
                     <button type="submit" class="btn">search</button>
                 </form>
-            </div> -->
+            </div>
         </nav>
 
         <main id="main-content-wrapper" class="flex-row flex-between">
@@ -68,11 +69,11 @@
                     <p>This analysis tool assesses the infrastructure and demographic characteristics around transit stations that relate to how supportive of bicycling and walking the area is and how much bicycle and pedestrian activity there is or could be. The analysis includes Region Rail and heavy rail, light rail, trolley, subway stations throughout the Philadelphia region with service provided by SEPTA, NJ TRANSIT, and PATCO.    
                     </p>
                     <br>
-                    <p>To create this score, DVRPC staff collected data on station area characteristics that are likely to be factors in whether walk, cycle, or drive to transit stations. The sum of those factors, within two miles of the station, is calculated to give each station a total AccessScore. Together, these individual factors, and a station's total AccessScore, will give transit agencies, trail advocacy groups and municipalities a picture of the station area characteristics that contribute to demand for bicycle facilities and amenities. Ultimately, AccessScore may help communities identify and prioritize improvements designed to strengthen pedestrian, cycling, and transit connectivity.
+                    <p>To create this score, DVRPC staff collected data on station area characteristics that are likely to be factors in deciding whether walk, cycle, or drive to transit stations. The sum of those factors, within two miles of the station, is calculated to give each station a total AccessScore. Together, these individual factors, and a station's total AccessScore, will give transit agencies, trail advocacy groups and municipalities a picture of the station area characteristics that contribute to demand for bicycle facilities. Ultimately, AccessScore may help communities identify and prioritize improvements designed to strengthen pedestrian, cycling, and rail connectivity.
                     </p>
                     <div id="EAS" class="score-cb">
                         <label id="label-box" class="EAS">
-                          <h3>Explore Access Score</h3>
+                          <h3>Explore the Map</h3>
                         </label>
                     </div>  
                     <br>
@@ -88,20 +89,20 @@
 
                 <div id="aboutscoreWrapper">
                     <div id="scoreBoxAbout">
-                    <div id="AS" class="score-cb">
+                    <div id="ASabout" class="score-cb">
                         <label id="label-box" class="AS">
-                          <h3>Access Score</h3>
+                          <h3>AccessScore</h3>
                         </label>
                     </div>   
                     <div id="score-text">
-                        <p>Measures the demand for and supply of facilities for both walkers and people biking, the project team developed a score focused on pedestrians and one focused solely on bicycle-friendliness.</p>
+                        <p>Measures the demand for, and supply of, facilities for both walkers and people biking, the project team developed a score focused on pedestrians and one focused solely on bicycle-friendliness.</p>
                     </div>
                     </div>
 
                     <div id="scoreBoxAbout">
-                    <div id="BS" class="score-cb">
+                    <div id="BSabout" class="score-cb">
                         <label id="label-box" class="BS">
-                          <h3>Cycle Score</h3>
+                          <h3>CycleScore</h3>
                         </label>
                       </div>
                       <div id="score-text">
@@ -111,9 +112,9 @@
                     </div>
 
                     <div id="scoreBoxAbout">
-                     <div id="WS" class="score-cb">
+                     <div id="WSabout" class="score-cb">
                         <label id="label-box" class="WS">
-                          <h3>Pedestrian Score</h3>
+                          <h3>PedestrianScore</h3>
                         </label>
                       </div>
                       <div id="score-text">
@@ -128,6 +129,9 @@
                 <div>
                     <a class="btn about-btn" href="#about" rel="modal:open">about</a>
                 </div>
+                <div>
+                    <a class="btn about-btn" href="#" id="tourLink">Take a quick Tour</a>
+                </div>
                 <div id="sidebar-content">                
                     
                     <div id="stationHeader">
@@ -135,13 +139,13 @@
                     </div>  
 <!-- Score Section -->
                     <div id="scoreWrapper">
-                        <div id="scoreIntro"><p><i>Explore the various scoring methods by clicking on scoring name.</i> </p>
+                        <div id="scoreIntro" data-title="Analysis Methods" data-intro="This is where you change analysis methods"><p><i>Explore the various scoring methods by clicking on the green, purple or yellow rectangle.</i> </p>
                         </div>
                         <div id="scoreBox">
                         <div id="AS" class="score-cb">
                             <input type="radio" class="lbox-AS" id="control_01" name="select" value="1" checked>
                             <label id="label-box" class="AS" for="control_01">
-                              <h3>Access Score</h3>
+                              <h3>AccessScore</h3>
                             </label>
                         </div>   
                         <div id="score-text"><p>Characteristics <br>within 2 miles <br>of the station.</p></div>
@@ -153,7 +157,7 @@
                         <div id="BS" class="score-cb">
                             <input type="radio" class="lbox-BS" id="control_02" name="select" value="2">
                             <label id="label-box" for="control_02">
-                              <h3>Cycle Score</h3>
+                              <h3>CycleScore</h3>
                             </label>
                           </div>
                           <div id="score-text"><p>Characteristics within the existing all ages and abilities cycle shed.<br><i>(up to 2 miles)</i></p></div>
@@ -165,7 +169,7 @@
                          <div id="WS" class="score-cb">
                             <input type="radio" class="lbox-WS" id="control_03" name="select" value="3">
                             <label id="label-box" for="control_03">
-                              <h3>Pedestrian Score</h3>
+                              <h3>PedestrianScore</h3>
                             </label>
                           </div>
                         
@@ -192,15 +196,15 @@
                     </div>  
 
 <!-- Chart Section                     -->
-                <div id="chartWrapper">
-                    <form>
+                <div id="chartWrapper" >
+                    <form data-title="Scoring Method" data-intro="View a stations score and data values">
                         <fieldset id="infoSwitch">
                         <legend id="infoSwitch-title">select a scoring method</legend>
                         <label id="chart-info" for="radio1">
                         <input id="radio1" type="radio" name="img" class="infoSelection" checked data-image-to-show="chartsGroup" checked><i class="glyphicon glyphicon-align-left"></i>&nbsp;&nbsp;Category Scoring
                         </label>
                         <label id="data-info" for="radio2">
-                        <input id="radio2" type="radio" name="img" class="infoSelection" data-image-to-show="info-data-Group"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;Data Measurement
+                        <input id="radio2" type="radio" name="img" class="infoSelection" data-image-to-show="info-data-Group"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;Click here to view the data values
                         </label>
                         </fieldset>
                     </form>
@@ -356,8 +360,8 @@
  <!-- Toggle Scetion                    -->
  <div id="toggleWrapper">
     <form class="sidebar-form sidebar-form-toggle">
-        <fieldset class="sidebar-fieldset">
-            <legend id="toggleLayers" class="bold-text"><i class="fa fa-angle-up">toggle base layers</i><a href="#tLayers-Modal" rel="modal:open" style="color: #000;"><i class="fa fa-info-circle" aria-hidden="true" data-toggle='tooltip' title='toggler layers'></i></a></legend>
+        <fieldset class="sidebar-fieldset" data-title="Base Layers" data-intro="Toggle Base Layers on/off">
+            <legend id="toggleLayers" class="bold-text"><i class="fa fa-angle-up">Base Layers</i><a href="#tLayers-Modal" rel="modal:open" style="color: #000;"><i class="fa fa-info-circle" aria-hidden="true" data-toggle='tooltip' title='toggler layers'></i></a></legend>
          <div id="mylist">
             <ul>
             <li>
@@ -370,7 +374,7 @@
                     checked="checked"
                     />
                     <i class="fa fa-minus fa-md legend-as"></i>
-                    Access Score Limits
+                    AccessScore Limits
                 </label>
             </li>
             <li>
@@ -383,7 +387,7 @@
                     checked="checked"
                     />
                     <i class="fa fa-minus fa-md legend-bs"></i>
-                    Cycle Score Limits
+                    CycleScore Limits
                 </label>
             </li>
             <li>
@@ -396,7 +400,7 @@
                     checked="checked"
                     />
                     <i class="fa fa-minus fa-md legend-ws"></i>
-                    Pedestrian Score Limits
+                    PedestrianScore Limits
                 </label>
             </li>
             <hr>
@@ -516,7 +520,7 @@
                 value="lts"
                 />
                 <i class="fa fa-minus fa-sm legend-lts"></i>
-                LTS 3+4
+                Level of Bicycle Traffic Stress 3+4
             </label>
             </li>
             <li>
@@ -528,7 +532,7 @@
                     value="IPD"
                     />
                     <!-- <i class="fa fa-minus fa-md legend-IPD"></i> -->
-                    IPD (refer to info for legend)
+                    Indicators of Potential Disadvantage (refer to info for legend)
                 </label>
                 </li>
            <li>
@@ -590,6 +594,18 @@
                         <i class="fa fa-minus fa-sm legend-high"></i>
                         High Injury Network (City of Phila.)
                     </label>
+                    <li>
+                        <label>
+                            <input
+                            type="checkbox"
+                            id="high"
+                            name="layer"
+                            value="parks"
+                            />
+                            <i class="fa fa-minus fa-sm legend-parks"></i>
+                            Parks and Open Space (DVRPC)
+                        </label>
+                    </li>
                 </li>
             </ul>
         </div>
@@ -598,12 +614,12 @@
     </div>              
             </div>
                 <footer class="flex-column">
-                    <p>Access Score (&nbsp;Beta&nbsp;)&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#disclaimer" aria-label="disclaimer" rel="modal:open" style="color:white">Disclaimer</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.dvrpc.org/policies/" target="_new" class="hp-link" aria-label="policies" style="color: #fff !important">Policies</a></p>    
+                    <p>AccessScore (&nbsp;Beta&nbsp;)&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#disclaimer" aria-label="disclaimer" rel="modal:open" style="color:white">Disclaimer</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.dvrpc.org/policies/" target="_new" class="hp-link" aria-label="policies" style="color: #fff !important">Policies</a></p>    
                 </footer>
             </div>
 
             <div id="map">
-            <div id="clickBait">Click on a station to learn more about its Access Score and characteristics.</div>    
+            <div id="clickBait">Click on a station to learn more about its AccessScore and characteristics.</div>    
             <div id="legend-box">
                  <span>category scoring</span>
                     <div id="legend-box-Item" class="circle as-2"><span>1-2 Low</span></div>
@@ -632,13 +648,13 @@
                             <p>To create this score, DVRPC staff collected data on station area characteristics that are likely to be factors in whether walk, cycle, or drive to transit stations. The sum of those factors, within two miles of the station, is calculated to give each station a total AccessScore. Together, these individual factors, and a station's total AccessScore, will give transit agencies, trail advocacy groups and municipalities a picture of the station area characteristics that contribute to demand for bicycle facilities and amenities. Ultimately, AccessScore may help communities identify and prioritize improvements designed to strengthen pedestrian, cycling, and transit connectivity.
                             </p>
                             <br>
-                            <p>In addition to AccessScore, which measures the demand for and supply of facilities for both walkers and people biking, the project team developed a score focused on pedestrians and one focused solely on bicycle-friendliness. 
+                            <p>In addition to <B>AccessScore</B>, which measures the demand for and supply of facilities for both walkers and people biking, the project team developed a score focused on pedestrians and one focused solely on bicycle-friendliness. 
                             </p>
                             <br>
-                            <p><B>Pedestrian Score:</B> uses the existing sidewalk network to create a boundary for scoring walkability near stations. It defines the catchment area as the distance that can be walked continuously on existing sidewalks up to 1 mile. All categories are scored by what is present within that catchment area.   
+                            <p><B>PedestrianScore:</B> uses the existing sidewalk network to create a boundary for scoring walkability near stations. It defines the catchment area as the distance that can be walked continuously on existing sidewalks up to 1 mile. All categories are scored by what is present within that catchment area.   
                             </p>
                             <br>
-                            <p><B>Cycle Score:</B> uses <a href="https://www.dvrpc.org/webmaps/BikeStress/" target="_new">DVRPC’s Bicycle Level of Traffic Stress (LTS)</a> analysis to create a boundary for scoring cycling near stations. It defines the catchment areas as the distance that can be cycled continuously on LTS 1 and 2 road segments that abut the station up to two miles. All categories are scored by what is present within that catchment area.
+                            <p><B>CycleScore:</B> uses <a href="https://www.dvrpc.org/webmaps/BikeStress/" target="_new">DVRPC’s Bicycle Level of Traffic Stress (LTS)</a> analysis to create a boundary for scoring cycling near stations. It defines the catchment areas as the distance that can be cycled continuously on LTS 1 and 2 road segments that abut the station up to two miles. All categories are scored by what is present within that catchment area.
                             </p>
                             <br>
                                 <h4>For more information:</h4>
@@ -939,8 +955,12 @@
 
         <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>  
         <script type="text/javascript" src="js/numeral.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.2.2/intro.min.js"></script>
+      
         <script type="text/javascript" src="https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js"></script>
-    
+       
+      
+
         <script>var _gaq=[['_setAccount','UA-9825778-1'],['_trackPageview']];(function(d){var g=d.createElement('script'),s=d.scripts[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document))</script>
     </body>
 </html>

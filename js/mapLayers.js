@@ -27,55 +27,6 @@ const layers = {
             'line-color': '#4a5c64'
         }
     },
-    IPD: {
-      id: "IPD",
-      type: "fill",
-      source: "IPD",
-      paint: {
-        "fill-color": [
-          "interpolate",
-          ["linear"],
-          ["get", "ipd_score"],
-          9,
-          "#ffffd9",
-          13,
-          "#edf8b1",
-          15,
-          "#c7e9b4",
-          17,
-          "#7fcdbb",
-          19,
-          "#41b6c4",
-          21,
-          "#1d91c0",
-          24,
-          "#225ea8",
-          27,
-          "#253494",
-          30,
-          "#081d58"
-        ],
-        "fill-opacity": [
-          "interpolate",
-          ["linear"],
-          ["zoom"],
-          0,
-          1,
-          7,
-          0.75
-        ]
-      },
-      "layout": { "visibility": "none" }
-    },
-    parks: {
-      "id": "parks",
-      "type": "fill",
-      "source": "parks",
-      "paint": {
-        "fill-color": "rgba( 134, 195, 25,  0.5)"
-      },
-      "layout": { "visibility": "none" }
-    },
     transit_stops: {
       'id': 'transit_stops',
       'type': 'circle',
@@ -220,6 +171,8 @@ high:{
       id: "crosswalks",
       type: "line",
       source: "sidewalk_inventory",
+      "source-layer": "ped_lines",
+      filter: ["==", "line_type", 2],
       layout: {
         // make layer visible by default
         visibility: "none",
@@ -229,9 +182,7 @@ high:{
         "line-width": 4,
         "line-color": "rgba(255,255,255,0.5)",
         // "line-dasharray": [1, 0.5]
-      },
-      "source-layer": "ped_lines",
-      filter: ["==", "line_type", 2],
+      }
     },
     circuit_trails: {
         'id':'circuit_trails',
@@ -292,59 +243,59 @@ high:{
         },
         "layout": { "visibility": "none" }
       },
-      as_osm_limits: {
-        "id": "as_osm_limits",
-        "type": "line",
-        "source": "as_osm_limits",
-        "source-layer": "as_osm_limits",
-        'paint': {
-        // 'line-color': '#30958c',
-        'line-color': '#3bb8ad',
-        'line-opacity':.8,
-        'line-width': 4.5},
-        "layout": { 
-         "visibility": "none",
-         'line-join': 'round',
-         'line-cap': 'round' }
-      },
-      bs_limit: {
-        "id": "bs_limit",
-        "type": "line",
-        "source": "bs_limit",
-        "source-layer":"cycle_lowstress_limits",
-        'paint': {
-        // OG Green
-        // 'line-color': '#90d782',
-        // Darker Green
-        // 'line-color': '#6ecb5b',
-        // Light Green
-        //  'line-color':'#6ecc1f',
-           // Light Purple
-        'line-color':'#Df73FF',
-        'line-opacity':.8,
-        'line-width': 3.5},
-        "layout": { 
-         "visibility": "none",
-         'line-join': 'round',
-         'line-cap': 'round' }
-      },
-      ws_limit: {
-        "id": "ws_limit",
-        "type": "line",
-        "source": "ws_limit",
-        "source-layer":"walk_pednetwork_limits",
-        'paint': {
-          // Magenta
-          // 'line-color': '#ad0073',
-          // Orange
-          'line-color': '#efa801',
-          'line-opacity':.8,
-          'line-width': 2.5},
-          "layout": { 
-           "visibility": "none",
-           'line-join': 'round',
-           'line-cap': 'round' }
-        },
+      // as_osm_limits: {
+      //   "id": "as_osm_limits",
+      //   "type": "line",
+      //   "source": "as_osm_limits",
+      //   "source-layer": "as_osm_limits",
+      //   'paint': {
+      //   // 'line-color': '#30958c',
+      //   'line-color': '#3bb8ad',
+      //   'line-opacity':.8,
+      //   'line-width': 4.5},
+      //   "layout": { 
+      //    "visibility": "none",
+      //    'line-join': 'round',
+      //    'line-cap': 'round' }
+      // },
+      // bs_limit: {
+      //   "id": "bs_limit",
+      //   "type": "line",
+      //   "source": "bs_limit",
+      //   "source-layer":"cycle_lowstress_limits",
+      //   'paint': {
+      //   // OG Green
+      //   // 'line-color': '#90d782',
+      //   // Darker Green
+      //   // 'line-color': '#6ecb5b',
+      //   // Light Green
+      //   //  'line-color':'#6ecc1f',
+      //      // Light Purple
+      //   'line-color':'#Df73FF',
+      //   'line-opacity':.8,
+      //   'line-width': 3.5},
+      //   "layout": { 
+      //    "visibility": "none",
+      //    'line-join': 'round',
+      //    'line-cap': 'round' }
+      // },
+      // ws_limit: {
+      //   "id": "ws_limit",
+      //   "type": "line",
+      //   "source": "ws_limit",
+      //   "source-layer":"walk_pednetwork_limits",
+      //   'paint': {
+      //     // Magenta
+      //     // 'line-color': '#ad0073',
+      //     // Orange
+      //     'line-color': '#efa801',
+      //     'line-opacity':.8,
+      //     'line-width': 2.5},
+      //     "layout": { 
+      //      "visibility": "none",
+      //      'line-join': 'round',
+      //      'line-cap': 'round' }
+      //   },
     AccessScore:{
         "id": "stations",
         "type": "circle",
@@ -413,6 +364,55 @@ high:{
             '#a50026',3,'#d73027',4,'#f46d43',5,'#fdae61',6,'#74add1',7,'#4575b4',8,'#313695',11,'#ccc'
         ]
         }
+    },
+    parks: {
+      "id": "parks",
+      "type": "fill",
+      "source": "parks",
+      "paint": {
+        "fill-color": "rgba( 134, 195, 25,  0.5)"
+      },
+      "layout": { "visibility": "none" }
+    },
+    IPD: {
+      id: "IPD",
+      type: "fill",
+      source: "IPD",
+      paint: {
+        "fill-color": [
+          "interpolate",
+          ["linear"],
+          ["get", "ipd_score"],
+          9,
+          "#ffffd9",
+          13,
+          "#edf8b1",
+          15,
+          "#c7e9b4",
+          17,
+          "#7fcdbb",
+          19,
+          "#41b6c4",
+          21,
+          "#1d91c0",
+          24,
+          "#225ea8",
+          27,
+          "#253494",
+          30,
+          "#081d58"
+        ],
+        "fill-opacity": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          0,
+          1,
+          7,
+          0.75
+        ]
+      },
+      "layout": { "visibility": "none" }
     }
 }
 

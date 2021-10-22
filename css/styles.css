@@ -261,6 +261,9 @@ nav {
     margin: 10px 15px 6px 5px;
     float: left;
 }
+#stationSearchForm{
+   display: none; 
+}
  
 /* END Main Webmap Area */
 
@@ -794,6 +797,9 @@ color:#696969;
 }
 .legend-high{
     color:#fa78b9;
+}
+.legend-parks{
+    color:#86c319;
 }
 #sidebar-content ul {
     list-style-type: none;

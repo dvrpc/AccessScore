@@ -15,6 +15,22 @@ const modal = document.getElementById('modal')
 const modalToggle = document.getElementById('modal-toggle')
 const closeModal = document.getElementById('close-modal')
 // get additional elements here (forms, etc)
+const searchForm = document.getElementById('search')
+var retailSearch = {};
+
+fetch('https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/AccessScore/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=geojson')
+  .then(response => response.json())
+  .then (data => {
+    var retail = data;
+    retail.features.forEach(function (geojsonrow) {
+      retailSearch[geojsonrow.properties.station] = geojsonrow
+    });
+  });
+ // .then(data => console.log(data));
+ console.log(retailSearch);
+
+
+
 $(document).ready(function(){
   $(".slide-toggle").click(function(){
       $("#mylist").slideToggle();
@@ -87,12 +103,17 @@ document.querySelectorAll(".aboutSelection").forEach(el => {
   }
 })
 
+document.getElementById("tourLink").addEventListener("click", function() {
+  introJs().start();
+});  
+
 //toggle Home and Map
 document.getElementById("homeLink").addEventListener("click", function() {
   document.getElementById("mapLink").style.display = "block";
   document.getElementById("main").style.display = "flex"
   document.getElementById("sidebar").style.display = "none"
   document.getElementById("map").style.display = "none"
+  document.getElementById("stationSearchForm").style.display = "none"
 });  
 
 //toggle Home and Map
@@ -101,14 +122,16 @@ document.getElementById("mapLink").addEventListener("click", function() {
   document.getElementById("main").style.display = "none"
   document.getElementById("map").style.display = "block"
   document.getElementById("sidebar").style.display = "block"
+  document.getElementById("stationSearchForm").style.display = "block"
   map.resize()
 }); 
-
+// Explore the Map Button
 document.getElementById("EAS").addEventListener("click", function() {
   document.getElementById("mapLink").style.display = "none";
   document.getElementById("main").style.display = "none"
   document.getElementById("map").style.display = "block"
   document.getElementById("sidebar").style.display = "block"
+    document.getElementById("stationSearchForm").style.display = "block"
   map.resize()
 }); 
 
@@ -230,14 +253,59 @@ map.on('load', () => {
     // add map events here (click, mousemove, etc)
     // Add NearMap Imagery, it is added here do to neediung to place layer below road-street layer
     map.addLayer(
-    {
-    'id': 'nearmap',
-    'type': 'raster',
-    'source': 'nearmap',
-    'paint': {},
-    "layout": {"visibility":"none"}
-    },
-    'road-street'
+      {
+      "id": "as_osm_limits",
+      "type": "line",
+      "source": "as_osm_limits",
+      "source-layer": "as_osm_limits",
+      'paint': {
+      // 'line-color': '#30958c',
+      'line-color': '#3bb8ad',
+      'line-opacity':.8,
+      'line-width': 4.5},
+      "layout": { 
+       "visibility": "none",
+       'line-join': 'round',
+       'line-cap': 'round' }
+      },
+      'road-rail'
+    );
+    map.addLayer(
+      {
+        "id": "bs_limit",
+      "type": "line",
+      "source": "bs_limit",
+      "source-layer":"cycle_lowstress_limits",
+      'paint': {
+      'line-color':'#Df73FF',
+      'line-opacity':.8,
+      'line-width': 3.5},
+      "layout": { 
+       "visibility": "none",
+       'line-join': 'round',
+       'line-cap': 'round' }
+      },
+      'road-rail'
+    );
+    map.addLayer(
+      {
+        "id": "ws_limit",
+        "type": "line",
+        "source": "ws_limit",
+        "source-layer":"walk_pednetwork_limits",
+        'paint': {
+          // Magenta
+          // 'line-color': '#ad0073',
+          // Orange
+          'line-color': '#efa801',
+          'line-opacity':.8,
+          'line-width': 2.5},
+          "layout": { 
+           "visibility": "none",
+           'line-join': 'round',
+           'line-cap': 'round' }
+      },
+      'road-rail'
     );
     map.addLayer({
       'id': 'Buildings',
@@ -274,12 +342,64 @@ map.on('load', () => {
           'fill-extrusion-opacity': 0.6
           }
     });
+    map.addLayer(
+      {
+      'id': 'nearmap',
+      'type': 'raster',
+      'source': 'nearmap',
+      'paint': {},
+      "layout": {"visibility":"none"}
+      },
+      'road-street'
+      );
+
+
 
     // add map events here (click, mousemove, etc)
     var stationID = null;
     var stationIDb = null;
     var stationIDw = null;
-  
+
+    searchForm.onsubmit = function (e) {
+      e.preventDefault()
+      const input = e.target.children[0].children[0]
+      const searched = input.value
+      const location = retailSearch[searched]
+      
+      if(!location) {
+        alert('Please select a value from the dropdown list')
+        input.value = ''
+        return
+      }
+     
+      // non-mapbox function calling the geojson properties and coordinates that get pushed to the handleDisctrict function
+      var props = location.properties;
+      var coordinates = location.geometry.coordinates;
+      var FID = props.dvrpc_id;
+     // console.log(FID);
+      // stationID = e.features[0].properties.dvrpc_id;
+      stationID =  props.dvrpc_id;
+    //  var props = e.features[0].properties;
+    //  var coordinates = e.features[0].geometry.coordinates;
+
+          // handleSidebarDisplay()
+          // handleDistrict(props,coordinates,map)
+          // handleHighlight(FID-1)
+          if (stationID) {
+            map.setFilter('as_2mile', ['==', 'dvrpc_id', stationID]);
+            map.setFilter('as_osm_limits', ['==', 'dvrpc_id', stationID]);
+            map.setFilter('bs_limit', ['==', 'dvrpc_id', stationID]);
+            map.setFilter('ws_limit', ['==', 'dvrpc_id', stationID]);
+            map.setLayoutProperty('as_2mile', 'visibility', 'visible');
+            map.setLayoutProperty('as_osm_limits', 'visibility', 'visible');
+            map.setLayoutProperty('bs_limit', 'visibility', 'visible');
+            map.setLayoutProperty('ws_limit', 'visibility', 'visible');
+          }
+          handleStation(props,coordinates,map)   
+          storeStation(stationID)
+          storeFull(props,coordinates)
+        // }
+    } 
     // Create a popup, but don't add it to the map yet.
     let popup = new mapboxgl.Popup({
         className: "station-popup",
@@ -516,7 +636,7 @@ map.on('load', () => {
 //  });
 
 // add typeahead
-/* const populateOptions = function (obj) {
+ const populateOptions = function (obj) {
   const datalist = document.getElementById('station-list')
   const frag = document.createDocumentFragment()
   
@@ -525,12 +645,10 @@ map.on('load', () => {
     option.value = el
     frag.appendChild(option)
   })
-
   datalist.appendChild(frag)
 }
-
 populateOptions(retailSearch)
-*/
+
 })
 // modal
 // handleModal(modal, modalToggle, closeModal)
