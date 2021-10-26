@@ -252,7 +252,7 @@ const handleStation = function (props,coordinates,map) {
     // created a parameter that pulls the lat/long values from the geojson
     center: coordinates,
     speed: 0.7,
-    zoom: 12,
+    zoom: 13,
     });
 
     // Start Bar Charts 

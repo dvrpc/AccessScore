@@ -307,6 +307,29 @@ map.on('load', () => {
       },
       'road-rail'
     );
+    map.addLayer(
+    {
+      "id": "stationSelect",
+      "type": "circle",
+      "source": "accessscore",
+      "paint": {
+        'circle-opacity': 0,
+        'circle-radius': 
+        ['step', ['zoom'],
+        ['case',['boolean', ['feature-state', 'hover'], false],8,6],
+        10,
+        ['case',['boolean', ['feature-state', 'hover'], false],10,8],
+        13,
+        ['case',['boolean', ['feature-state', 'hover'], false],12,9]],
+        'circle-stroke-color': '#ffe100',
+        'circle-stroke-width': 3
+      },
+        "layout": { 
+          "visibility": "none"
+      },
+    },
+    'road-rail'
+  );
     map.addLayer({
       'id': 'Buildings',
       'source': 'composite',
@@ -386,10 +409,12 @@ map.on('load', () => {
           // handleDistrict(props,coordinates,map)
           // handleHighlight(FID-1)
           if (stationID) {
+            map.setFilter('stationSelect', ['==', 'dvrpc_id', stationID]);
             map.setFilter('as_2mile', ['==', 'dvrpc_id', stationID]);
             map.setFilter('as_osm_limits', ['==', 'dvrpc_id', stationID]);
             map.setFilter('bs_limit', ['==', 'dvrpc_id', stationID]);
             map.setFilter('ws_limit', ['==', 'dvrpc_id', stationID]);
+            map.setLayoutProperty('stationSelect', 'visibility', 'visible');
             map.setLayoutProperty('as_2mile', 'visibility', 'visible');
             map.setLayoutProperty('as_osm_limits', 'visibility', 'visible');
             map.setLayoutProperty('bs_limit', 'visibility', 'visible');
@@ -421,14 +446,17 @@ map.on('load', () => {
       stationID = e.features[0].properties.dvrpc_id;
       var props = e.features[0].properties;
       var coordinates = e.features[0].geometry.coordinates;
+      /// change circle color
       
       // When the mouse moves over the station layer, update the
       // feature state for the feature under the mouse
       if (stationID) {
+        map.setFilter('stationSelect', ['==', 'dvrpc_id', stationID]);
         map.setFilter('as_2mile', ['==', 'dvrpc_id', stationID]);
         map.setFilter('as_osm_limits', ['==', 'dvrpc_id', stationID]);
         map.setFilter('bs_limit', ['==', 'dvrpc_id', stationID]);
         map.setFilter('ws_limit', ['==', 'dvrpc_id', stationID]);
+        map.setLayoutProperty('stationSelect', 'visibility', 'visible');
         map.setLayoutProperty('as_2mile', 'visibility', 'visible');
         map.setLayoutProperty('as_osm_limits', 'visibility', 'visible');
         map.setLayoutProperty('bs_limit', 'visibility', 'visible');
@@ -438,6 +466,17 @@ map.on('load', () => {
       storeStation(stationID)
       storeFull(props,coordinates)
     });
+
+    // if (e.features.length > 0) {
+    //   // When the mouse moves over the station layer, update the
+    //   // feature state for the feature under the mouse
+    //   if (stationID) {
+       
+    // //    map.setLayoutProperty('as_2mile', 'visibility', 'visible');
+    //   }
+    //   stationID = e.features[0].id;
+    //   map.setFeatureState({source: 'accessscore',id: stationID},{hover: true});
+    // }
 
     map.on('click','stationsB', (e) => {
      // console.log(stationIDb);

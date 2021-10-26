@@ -1,3 +1,4 @@
+var bike_value = ["Bike Lane", "Protected Bike Lane", "Buffered Bike Lane"];
 const layers = {
     countyOutline: {
         "id": "county-outline",
@@ -117,21 +118,21 @@ const layers = {
     },
     "layout": { "visibility": "none" }
 },
-high:{
-  "id": "high",
-  "type": "line",
-  "source": "high",
-  'layout': {
-      'line-join': 'round',
-      'line-cap': 'round'
-      },
-  'paint': {
-  'line-color': '#fa78b9',
-  'line-opacity':.6,
-  'line-width': 1.5
+  high:{
+    "id": "high",
+    "type": "line",
+    "source": "high",
+    'layout': {
+        'line-join': 'round',
+        'line-cap': 'round'
+        },
+    'paint': {
+    'line-color': '#fa78b9',
+    'line-opacity':.6,
+    'line-width': 1.5
+    },
+    "layout": { "visibility": "none" }
   },
-  "layout": { "visibility": "none" }
-},
     retail: {
       "id": "retail",
       "type": "fill",
@@ -230,7 +231,8 @@ high:{
       // "line-dasharray": [1, 0.5]
     },
     "source-layer": "existing_conditions_lts",
-     filter: ["==", "bikefacili", 'Bike Lane'],
+    //  filter: ["==", "bikefacili", 'Bike Lane'],
+     filter:['match', ['get', 'bikefacili'], bike_value, true, false],
   //  filter: ['<>', ['get', 'bikefacili'], [""], true, false],
 }, 
     as_2mile: {
@@ -310,10 +312,16 @@ high:{
         ['case',['boolean', ['feature-state', 'hover'], false],10,7]],
         'circle-stroke-color': '#fff',
         'circle-stroke-width': 1,
-        'circle-color': [
-            'step',
-            ['get', 'AS_SCORE'],
-            '#a50026',3,'#d73027',4,'#f46d43',5,'#fdae61',6,'#74add1',7,'#4575b4',8,'#313695',11,'#ccc'
+        'circle-color': ['step',
+        ['get', 'AS_SCORE'],
+        '#a50026',
+        3,'#d73027',
+        4,'#f46d43',
+        5,'#fdae61',
+        6,'#74add1',
+        7,'#4575b4',
+        8,'#313695',
+        11,'#ccc'
         ]
         }
     },
