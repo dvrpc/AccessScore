@@ -165,8 +165,11 @@ document.getElementById("AS").addEventListener("click", function() {
 
 });
 
+
 // Bike Score CheckBox toggle
 document.getElementById("BS").addEventListener("click", function() {
+  // document.getElementById("bs_limit").prop('checked', true);
+  $("#bs_limit").prop("checked", true);
   //storeStation()
   // console.log(active)
   // console.log(propsStation)
@@ -388,26 +391,18 @@ map.on('load', () => {
       const input = e.target.children[0].children[0]
       const searched = input.value
       const location = retailSearch[searched]
-      
       if(!location) {
         alert('Please select a value from the dropdown list')
         input.value = ''
         return
       }
-     
       // non-mapbox function calling the geojson properties and coordinates that get pushed to the handleDisctrict function
       var props = location.properties;
       var coordinates = location.geometry.coordinates;
       var FID = props.dvrpc_id;
      // console.log(FID);
-      // stationID = e.features[0].properties.dvrpc_id;
       stationID =  props.dvrpc_id;
-    //  var props = e.features[0].properties;
-    //  var coordinates = e.features[0].geometry.coordinates;
 
-          // handleSidebarDisplay()
-          // handleDistrict(props,coordinates,map)
-          // handleHighlight(FID-1)
           if (stationID) {
             map.setFilter('stationSelect', ['==', 'dvrpc_id', stationID]);
             map.setFilter('as_2mile', ['==', 'dvrpc_id', stationID]);
@@ -431,7 +426,7 @@ map.on('load', () => {
         closeButton: false,
         closeOnClick: false
         });
-
+// AccessScore Station Click
     map.on('click','stations', (e) => {
       var sidebarViz = $("#sidebar").css("display");
       $("#clickBait").css("display", "none"); 
@@ -454,30 +449,19 @@ map.on('load', () => {
         map.setFilter('stationSelect', ['==', 'dvrpc_id', stationID]);
         map.setFilter('as_2mile', ['==', 'dvrpc_id', stationID]);
         map.setFilter('as_osm_limits', ['==', 'dvrpc_id', stationID]);
-        map.setFilter('bs_limit', ['==', 'dvrpc_id', stationID]);
-        map.setFilter('ws_limit', ['==', 'dvrpc_id', stationID]);
+        // map.setFilter('bs_limit', ['==', 'dvrpc_id', stationID]);
+        // map.setFilter('ws_limit', ['==', 'dvrpc_id', stationID]);
         map.setLayoutProperty('stationSelect', 'visibility', 'visible');
         map.setLayoutProperty('as_2mile', 'visibility', 'visible');
         map.setLayoutProperty('as_osm_limits', 'visibility', 'visible');
-        map.setLayoutProperty('bs_limit', 'visibility', 'visible');
-        map.setLayoutProperty('ws_limit', 'visibility', 'visible');
+        // map.setLayoutProperty('bs_limit', 'visibility', 'visible');
+        // map.setLayoutProperty('ws_limit', 'visibility', 'visible');
       }
       handleStation(props,coordinates,map)   
       storeStation(stationID)
       storeFull(props,coordinates)
     });
-
-    // if (e.features.length > 0) {
-    //   // When the mouse moves over the station layer, update the
-    //   // feature state for the feature under the mouse
-    //   if (stationID) {
-       
-    // //    map.setLayoutProperty('as_2mile', 'visibility', 'visible');
-    //   }
-    //   stationID = e.features[0].id;
-    //   map.setFeatureState({source: 'accessscore',id: stationID},{hover: true});
-    // }
-
+// CycleScore Station Click
     map.on('click','stationsB', (e) => {
      // console.log(stationIDb);
       stationIDb = e.features[0].properties.dvrpc_id;
@@ -498,7 +482,7 @@ map.on('load', () => {
       storeStation(stationIDb)
       storeFull(props,coordinates)
     });
-
+// PedestrianScore Station Click
     map.on('click','stationsW', (e) => {
       stationIDw = e.features[0].properties.dvrpc_id;
       var props = e.features[0].properties;
@@ -519,7 +503,7 @@ map.on('load', () => {
       storeStation(stationIDw)
       storeFull(props,coordinates)
     });
-
+// // AccessScore Station HOVER
     map.on('mousemove', 'stations', (e) => {
         map.getCanvas().style.cursor = 'pointer';
         var coordinates = e.features[0].geometry.coordinates.slice();
