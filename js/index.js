@@ -1,7 +1,7 @@
 import makeMap from './map.js'
 import sources from './mapSources.js'
 import layers from './mapLayers.js'
-import handleModal from './modal.js'
+// import handleModal from './modal.js'
 import { toggleLayers } from "./forms.js";
 
 // Handles Map Click for stations
@@ -11,9 +11,9 @@ import handleStationW from './charts3.js'
 
 
 // add additional imports here (popups, forms, etc)
-const modal = document.getElementById('modal')
-const modalToggle = document.getElementById('modal-toggle')
-const closeModal = document.getElementById('close-modal')
+// const modal = document.getElementById('modal')
+// const modalToggle = document.getElementById('modal-toggle')
+// const closeModal = document.getElementById('close-modal')
 // get additional elements here (forms, etc)
 const searchForm = document.getElementById('search')
 var retailSearch = {};
@@ -27,19 +27,48 @@ fetch('https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/Access
     });
   });
  // .then(data => console.log(data));
- console.log(retailSearch);
+//  console.log(retailSearch);
+// MONITORING GROUP
+$("#monitoring").on("mouseenter", function () {
+	$("#monitoring_group").show();
+});
 
+$("#monitoring").on("mouseleave", function () {
+	$("#monitoring_group").hide();
+	$("#monitoring_group").on("mouseenter", function () {
+		$("#monitoring_group").show();
+	});
+});
 
+$("#monitoring_group").on("mouseleave", function () {
+	$("#monitoring_group").hide();
+});
 
-$(document).ready(function(){
-  $(".slide-toggle").click(function(){
-      $("#mylist").slideToggle();
-  });
+$(".monitoringCheckbox").on("click", function() {
+	let listMonitoringGroup = ["in", "naddepartment"];
+	$('.monitoringCheckbox:checked').each(function(){
+		listMonitoringGroup.push(this.value);
+	});
+	map.setFilter('monitoring', listMonitoringGroup);
+
+	var visibility = map.getLayoutProperty('monitoring', 'visibility');
+	if (visibility === 'visible') {
+		if ($("#monitoring6").is(':checked')) {
+			map.setLayoutProperty('monitoring_soc', 'visibility', 'visible');
+		} else {
+			map.setLayoutProperty('monitoring_soc', 'visibility', 'none');
+		}
+	}
 });
 
 $(document).ready(function() {
-  $('.bold-text').click(function() {
-      $("#mylist").slideToggle();
+//   $(".slide-toggle").click(function(){
+//     $("#mylist").slideToggle();
+// });
+
+  $('.chart-subheader-layers').click(function() {
+      $('#mylist').toggleClass('shown');
+      // $("#mylist").slideToggle();
       $(".bold-text i").toggleClass("fa-angle-up fa-angle-down");
   });
 });
@@ -379,8 +408,6 @@ map.on('load', () => {
       'road-street'
       );
 
-
-
     // add map events here (click, mousemove, etc)
     var stationID = null;
     var stationIDb = null;
@@ -507,7 +534,8 @@ map.on('load', () => {
     map.on('mousemove', 'stations', (e) => {
         map.getCanvas().style.cursor = 'pointer';
         var coordinates = e.features[0].geometry.coordinates.slice();
-        var description = '<h3>'+ e.features[0].properties.station +' : '+e.features[0].properties.AS_SCORE+'</h3>';
+        var description = '<h3>'+ e.features[0].properties.station +'</h3>';
+        // var description = '<h3>'+ e.features[0].properties.station +' : '+e.features[0].properties.AS_SCORE+'</h3>';
        // var Popclass = 'station-popup';
 
         if (e.features.length > 0) {
