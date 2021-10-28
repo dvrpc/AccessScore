@@ -139,44 +139,50 @@
                             <option value="1">CycleScore</option>
                             <option value="2">PedestrianScore</option>
                         </select> -->
-                        <div id="scoreIntro" data-title="Analysis Methods" data-intro="This is where you change analysis methods">
+                        <div id="scoreIntro" >
+                            
                             <p>Clicking on a rail station will zoom in and display scoring analysis method catchment areas. Below you can view characteristics scores as well as data values.
+                            <h2>Select an Analysis</h2>
                             <i>Explore the various scoring analysis methods by clicking on the green, purple or orange rectangle to toggle station scoring.</i> 
                             </p>
                         </div>
 
-                        <div id="scoreBox">
-                            <div id="AS" class="score-cb">
-                                <input type="radio" class="lbox-AS" id="control_01" name="select" value="1" checked>
-                                <label id="label-box" class="AS" for="control_01">
-                                <h3>AccessScore</h3>
-                                </label>
-                            </div>   
-                            <div id="score-text"><p>Characteristics <br>within 2 miles <br>of the station.</p></div>
-                        </div>
-
-                        <div id="scoreBox">
-                            <div id="BS" class="score-cb">
-                                <input type="radio" class="lbox-BS" id="control_02" name="select" value="2">
-                                <label id="label-box" for="control_02">
-                                <h3>CycleScore</h3>
-                                </label>
-                            </div>
-                            <div id="score-text"><p>Characteristics within the existing all ages and abilities cycle shed.<br><i>(up to 2 miles)</i></p></div>
+                        <div id="scoreTogglers" data-title="Analysis Methods" data-intro="This is where you change analysis methods">
+                            <div id="scoreBox">
+                                <div id="AS" class="score-cb">
+                                    <input type="radio" class="lbox-AS" id="control_01" name="select" value="1" checked>
+                                    <label id="label-box" class="AS" for="control_01">
+                                    <h3>AccessScore</h3>
+                                    </label>
+                                </div>   
+                                <div id="score-text"><p>Characteristics <br>within 2 miles <br>of the station.</p></div>
                             </div>
 
-                        <div id="scoreBox">
-                            <div id="WS" class="score-cb">
-                                <input type="radio" class="lbox-WS" id="control_03" name="select" value="3">
-                                <label id="label-box" for="control_03">
-                                <h3>PedestrianScore</h3>
-                                </label>
+                            <div id="scoreBox">
+                                <div id="BS" class="score-cb">
+                                    <input type="radio" class="lbox-BS" id="control_02" name="select" value="2">
+                                    <label id="label-box" class="BS" for="control_02">
+                                    <h3>CycleScore</h3>
+                                    </label>
+                                </div>
+                                <div id="score-text"><p>Characteristics within the existing all ages and abilities cycle shed.<br><i>(up to 2 miles)</i></p></div>
                             </div>
-                            <div id="score-text"><p>Characteristics within the existing sidewalk network shed.<br><i>(up to 1 mile)</i></p></div>
+
+                            <div id="scoreBox">
+                                <div id="WS" class="score-cb">
+                                    <input type="radio" class="lbox-WS" id="control_03" name="select" value="3">
+                                    <label id="label-box" class="WS" for="control_03">
+                                    <h3>PedestrianScore</h3>
+                                    </label>
+                                </div>
+                                <div id="score-text"><p>Characteristics within the existing sidewalk network shed.<br><i>(up to 1 mile)</i></p></div>
+                            </div>
                         </div>
+
                     </div>  
 <!-- Score Section -->
                     <div id="scoreWrapper">
+                        <h2>Station Scoring</h2>
                         <div id="stationName"></div>  
 
                         <div id="stationScores">
@@ -203,6 +209,7 @@
 
 <!-- Chart Section                     -->
                 <div id="chartWrapper" >
+                    <h2>Scoring Characteristics and Data Values</h2>
                     <form data-title="Scoring Method" data-intro="View a stations score and data values">
                         <fieldset id="infoSwitch">
                         <legend id="infoSwitch-title">view different scoring methods:</legend>
