@@ -49,7 +49,7 @@ const makeMap = () => {
     const map = initMap()
     const control = makeRegionalExtentControl(map)
 
-    map.addControl(control);
+    map.addControl(control,"bottom-right");
 
     return map
 }

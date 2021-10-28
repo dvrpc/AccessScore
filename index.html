@@ -82,6 +82,7 @@
                         </label>
                     </div>  
                     <br>
+                    <hr>
                     <h3>For more information:</h3>
                     <img src="https://www.dvrpc.org/img/homepage/dvrpclogo70px.png" alt="DVRPC logo" class="dvrpc_full_logo"/>
                     <p style="margin: 5px 0px 0px 45px;display:block"><span>
@@ -354,261 +355,7 @@
                         </div>   
                     </div>  
                 </div>
-              
                 </div>
- <!-- Toggle Scetion-->
- <!-- <div id="toggleWrapper">
-    <form class="sidebar-form sidebar-form-toggle">
-        <h3 class="chart-subheader-layers" id="baseLayers"><i class="fa fa-angle-up">Base Layers</i><a href="#tLayers-Modal" rel="modal:open" style="color:#FFF"><i class="fa fa-info-circle" aria-hidden="true" data-toggle='tooltip' title='toggler layers'></i></a></h3>
-                    
-        <fieldset class="sidebar-fieldset" data-title="Base Layers" data-intro="Toggle Base Layers on/off">   
-            <div id="mylist">
-            <ul>
-            <li>
-                <label>
-                    <input
-                    type="checkbox"
-                    id="as_osm_limits"
-                    name="layer"
-                    value="as_osm_limits"
-                    checked="checked"
-                    />
-                    <i class="fa fa-minus fa-md legend-as"></i>
-                    AccessScore Limits
-                </label>
-            </li>
-            <li>
-                <label>
-                    <input
-                    type="checkbox"
-                    id="bs_limit"
-                    name="layer"
-                    value="bs_limit"
-                    />
-                    <i class="fa fa-minus fa-md legend-bs"></i>
-                    CycleScore Limits
-                </label>
-            </li>
-            <li>
-                <label>
-                    <input
-                    type="checkbox"
-                    id="ws_limit"
-                    name="layer"
-                    value="ws_limit"
-                    />
-                    <i class="fa fa-minus fa-md legend-ws"></i>
-                    PedestrianScore Limits
-                </label>
-            </li>
-            <hr>
-            <li>
-                <label>
-                  <input
-                    type="checkbox"
-                    id="Buildings"
-                    name="layer"
-                    value="Buildings"
-                    checked="checked"
-                  />
-                  Building Footprints
-                </label>
-              </li>
-              <li>
-                <label>
-                  <input
-                    type="checkbox"
-                    id="nearmap"
-                    name="layer"
-                    value="nearmap"
-                  />
-                  Aerial Imagery
-                </label>
-              </li>
-            <li>
-            <label>
-                <input
-                type="checkbox"
-                id="transit_stops"
-                name="layer"
-                value="transit_stops"
-                />
-                <i class="fa fa-circle fa-sm legend-bus-stops"></i>
-                Bus Stops
-            </label>
-            </li>
-            <li>
-                <label>
-                    <input
-                    type="checkbox"
-                    id="septa"
-                    name="layer"
-                    value="septa"
-                    />
-                    <i class="fa fa-minus fa-sm legend-septa"></i>
-                    SEPTA Bus Transit Routes 
-                </label>
-                </li>
-            <li>
-                <label>
-                    <input
-                    type="checkbox"
-                    id="njt"
-                    name="layer"
-                    value="njt"
-                    />
-                    <i class="fa fa-minus fa-sm legend-njt"></i>
-                    NJT Bus Transit Routes 
-                </label>
-            </li>
-            <li>
-            <label>
-                <input
-                type="checkbox"
-                id="circuit_trails"
-                name="layer"
-                value="circuit_trails"
-                />
-                <i class="fa fa-minus fa-sm legend-circuit"></i>
-                The Circuit Trails
-            </label>
-            </li>
-            <li>
-                <label>
-                    <input
-                    type="checkbox"
-                    id="bikelane"
-                    name="layer"
-                    value="bikelane"
-                    />
-                    <i class="fa fa-minus fa-sm legend-bikelane"></i>
-                    On-Street Bike Network
-                </label>
-                </li>
-            <li>
-            <label>
-                <input
-                type="checkbox"
-                id="sidewalks"
-                name="layer"
-                value="sidewalks"
-                />
-                <i class="fa fa-minus fa-sm legend-sidewalk"></i>
-                Sidewalks
-            </label>
-            </li>
-            <li>
-            <label>
-                <input
-                type="checkbox"
-                id="crosswalks"
-                name="layer"
-                value="crosswalks"
-                />
-                <i class="fa fa-minus fa-lg legend-sidewalk"></i>
-                Crosswalks
-            </label>
-            </li>
-            <li>
-            <label>
-                <input
-                type="checkbox"
-                id="lts"
-                name="layer"
-                value="lts"
-                />
-                <i class="fa fa-minus fa-sm legend-lts"></i>
-                Level of Bicycle Traffic Stress 3+4
-            </label>
-            </li>
-            <li>
-                <label>
-                    <input
-                    type="checkbox"
-                    id="IPD"
-                    name="layer"
-                    value="IPD"
-                    />
-                    Indicators of Potential Disadvantage (refer to info for legend)
-                </label>
-                </li>
-           <li>
-            <label>
-                <input
-                type="checkbox"
-                id="crime"
-                name="layer"
-                value="crime"
-                />
-                <i class="fa fa-circle fa-sm legend-crime"></i>
-                City of Philadelphia Shooting Victims <i>(2016-2021)</i>
-            </label>
-            </li>
-            <li>
-                <label>
-                    <input
-                    type="checkbox"
-                    id="es"
-                    name="layer"
-                    value="es"
-                    />
-                    <i class="fa fa-circle fa-sm legend-es"></i>
-                    Essential Services
-                </label>
-                </li>
-            <li>
-            <label>
-                <input
-                type="checkbox"
-                id="retail"
-                name="layer"
-                value="retail"
-                />
-                <i class="fa fa-minus fa-md legend-retail"></i>
-                Suburban Downtown Retail Districts (DVRPC)
-            </label>
-            </li>
-            <li>
-                <label>
-                    <input
-                    type="checkbox"
-                    id="retail2"
-                    name="layer"
-                    value="retail2"
-                    />
-                    <i class="fa fa-minus fa-md legend-retail"></i>
-                    Walkable Commercial Corridors (City of Phila.)
-                </label>
-                </li>
-                <li>
-                    <label>
-                        <input
-                        type="checkbox"
-                        id="high"
-                        name="layer"
-                        value="high"
-                        />
-                        <i class="fa fa-minus fa-sm legend-high"></i>
-                        High Injury Network (City of Phila.)
-                    </label>
-                    <li>
-                        <label>
-                            <input
-                            type="checkbox"
-                            id="high"
-                            name="layer"
-                            value="parks"
-                            />
-                            <i class="fa fa-minus fa-sm legend-parks"></i>
-                            Parks and Open Space (DVRPC)
-                        </label>
-                    </li>
-                </li>
-            </ul>
-        </div>
-          </fieldset>
-    </form>
- </div>               -->
             </div>
                 <footer class="flex-column">
                     <p>AccessScore (&nbsp;Beta&nbsp;)&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#disclaimer" aria-label="disclaimer" rel="modal:open" style="color:white">Disclaimer</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.dvrpc.org/policies/" target="_new" class="hp-link" aria-label="policies" style="color: #fff !important">Policies</a></p>    
@@ -872,18 +619,18 @@
                     </form>
                     </div>
                 </div>
-            <div id="clickBait">Click on a station to learn more about its AccessScore and characteristics.</div>    
-            <div id="legend-box">
-                 <span>station scoring</span>
-                    <div id="legend-box-Item" class="circle as-2"><span>1-2</span></div>
-                    <div id="legend-box-Item" class="circle as-3"><span>3</span></div>
-                    <div id="legend-box-Item" class="circle as-4"><span>4</span></div>
-                    <div id="legend-box-Item" class="circle as-5"><span>5</span></div>
-                    <div id="legend-box-Item" class="circle as-6"><span>6</span></div>
-                    <div id="legend-box-Item" class="circle as-7"><span>7</span></div>
-                    <div id="legend-box-Item" class="circle as-8"><span>8-10</span></div>
-               
-            </div>    
+                <!-- <div id="clickBait">Click on a station to learn more about its AccessScore and characteristics.</div> -->
+                <div id="legend-box">
+                    <span>station scoring</span>
+                        <div id="legend-box-Item" class="circle as-2"><span>1-2</span></div>
+                        <div id="legend-box-Item" class="circle as-3"><span>3</span></div>
+                        <div id="legend-box-Item" class="circle as-4"><span>4</span></div>
+                        <div id="legend-box-Item" class="circle as-5"><span>5</span></div>
+                        <div id="legend-box-Item" class="circle as-6"><span>6</span></div>
+                        <div id="legend-box-Item" class="circle as-7"><span>7</span></div>
+                        <div id="legend-box-Item" class="circle as-8"><span>8-10</span></div>
+                
+                </div>    
             </div>
         </main>
 
@@ -1199,9 +946,7 @@
             </div><!-- /.modal fade-->   
         <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script> -->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-       
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script> -->
-
+      
         <!-- jQuery Modal -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
@@ -1212,8 +957,6 @@
       
         <script type="text/javascript" src="https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js"></script>
        
-      
-
         <script>var _gaq=[['_setAccount','UA-9825778-1'],['_trackPageview']];(function(d){var g=d.createElement('script'),s=d.scripts[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document))</script>
     </body>
 </html>
