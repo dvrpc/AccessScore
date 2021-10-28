@@ -39,7 +39,7 @@ const handleStation = function (props,coordinates,map) {
         var color = 'background:#313695';
       }
 
-    var accessScore = "<div class='odemeter' style="+ color +">"+ props.AS_SCORE+"</div>"
+    var accessScore = "<div class='odemeter' style="+ color +">"+ props.AS_SCORE+"</div><div class='odemter-text'>AccessScore</div>"
     // "<div id='accessScore' class='scoreSelection' value='accessScore'>Access Score</div>"
     document.getElementById("as-score").innerHTML = accessScore;
 
@@ -59,7 +59,7 @@ const handleStation = function (props,coordinates,map) {
         var color = 'background:#313695';
       }
 
-    var bikeScore = "<div class='odemeter' style="+ color +">"+ props.BS_SCORE+ "</div>"
+    var bikeScore = "<div class='odemeter' style="+ color +">"+ props.BS_SCORE+ "</div><div class='odemter-text'>CycleScore</div>"
     // "<div class='scoreSelection' value='bikeScore'>Cycle Score</div>"
     document.getElementById("bs-score").innerHTML = bikeScore;
 
@@ -79,7 +79,7 @@ const handleStation = function (props,coordinates,map) {
         var color = 'background:#313695';
     }
 
-    var walkScore = "<div class='odemeter' style="+ color +">"+ props.WS_SCORE+ "</div>"
+    var walkScore = "<div class='odemeter' style="+ color +">"+ props.WS_SCORE+ "</div><div class='odemter-text'>PedestrianScore</div>"
     // "<div class='scoreSelection' value='walkScore'>Pedestrian Score</div>"
     document.getElementById("ws-score").innerHTML = walkScore;
 
@@ -292,6 +292,7 @@ const handleStation = function (props,coordinates,map) {
              plotShadow: false,
              height:225,
              marginLeft:220,
+             marginBottom:30,
              spacingLeft: 20,
              spacingRight: 20,
              backgroundColor: '#FFF'
@@ -324,21 +325,23 @@ const handleStation = function (props,coordinates,map) {
              }
          },
          legend: {
-             enabled: false
+             enabled: true,
+             x: 15,
+             y: 15
          },
          tooltip: {
              enabled: true
          },
          series: [{
-                 name:'Access Score',
+                 name:'AccessScore',
                 //  id: 'Values',
                  data: Values
              },{
-                name:'Cycle Score',
+                name:'CycleScore',
                //  id: 'Values',
                 data: Values2
             },{
-                name:'Pedestrian Score',
+                name:'PedestrianScore',
                //  id: 'Values',
                 data: Values3
             }
@@ -371,6 +374,7 @@ const handleStation = function (props,coordinates,map) {
             plotShadow: false,
             height:150,
             marginLeft:225,
+            marginBottom:30,
             spacingLeft: 20,
             spacingRight: 20,
             backgroundColor: '#FFF'
@@ -404,21 +408,23 @@ const handleStation = function (props,coordinates,map) {
             }
         },
         legend: {
-            enabled: false
+            enabled: true,
+            x: 15,
+            y: 15
         },
         tooltip: {
             enabled: false
         },
         series: [{
-            name:'Access Score',
+            name:'AccessScore',
            //  id: 'Values',
             data: Values
         },{
-           name:'Cycle Score',
+           name:'CycleScore',
           //  id: 'Values',
            data: Values2
        },{
-           name:'Pedestrian Score',
+           name:'PedestrianScore',
           //  id: 'Values',
            data: Values3
        }
@@ -452,6 +458,7 @@ const handleStation = function (props,coordinates,map) {
             plotShadow: false,
             height:150,
             marginLeft:220,
+            marginBottom:30,
             spacingLeft: 20,
             spacingRight: 20,
             backgroundColor: '#FFF'
@@ -484,21 +491,23 @@ const handleStation = function (props,coordinates,map) {
             }
         },
         legend: {
-            enabled: false
+            enabled: true,
+            x: 15,
+            y: 15
         },
         tooltip: {
             enabled: false
         },
         series: [{
-            name:'Access Score',
+            name:'AccessScore',
            //  id: 'Values',
             data: Values
         },{
-           name:'Cycle Score',
+           name:'CycleScore',
           //  id: 'Values',
            data: Values2
        },{
-           name:'Pedestrian Score',
+           name:'PedestrianScore',
           //  id: 'Values',
            data: Values3
        }
@@ -532,6 +541,7 @@ const handleStation = function (props,coordinates,map) {
             plotShadow: false,
             height:220,
             marginLeft:220,
+            marginBottom:30,
             spacingLeft: 20,
             spacingRight: 20,
             backgroundColor: '#FFF'
@@ -564,21 +574,23 @@ const handleStation = function (props,coordinates,map) {
             }
         },
         legend: {
-            enabled: false
+            enabled: true,
+            x: 15,
+            y: 15
         },
         tooltip: {
             enabled: false
         },
         series: [{
-            name:'Access Score',
+            name:'AccessScore',
            //  id: 'Values',
             data: Values
         },{
-           name:'Cycle Score',
+           name:'CycleScore',
           //  id: 'Values',
            data: Values2
        },{
-           name:'Pedestrian Score',
+           name:'PedestrianScore',
           //  id: 'Values',
            data: Values3
        }

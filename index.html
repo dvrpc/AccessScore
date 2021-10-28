@@ -39,7 +39,11 @@
                 <a href="/" class="nav-links"><img src="./img/DVRPC-logo.png" alt="DVRPC logo" id="dvrpc-logo" class="nav-logos" /></a>
                <!-- <span class="nav-vr">|</span> -->
                 <img src="./img/AccessScore-logo.png" alt="project logo" class="nav-logos" id="accessscore-logo"> 
-                <span id="beta">BETA</span> 
+                <!-- <span id="beta">BETA</span>  -->
+                <div>
+                    <a class="btn about-btn" href="#about" rel="modal:open">about</a>
+                </div>
+                <div><a class="btn about-btn" href="#" id="tourLink">Take a quick Tour</a></div>
             </div>
             <div class="landingLink-all">
                 <ul id="landingLinks">
@@ -127,70 +131,71 @@
                 
  <!-- End Splash-->           
             <div id="sidebar">
-                <div>
-                    <a class="btn about-btn" href="#about" rel="modal:open">about</a>
-                </div>
-                <div>
-                    <a class="btn about-btn" href="#" id="tourLink">Take a quick Tour</a>
-                </div>
-                <div id="sidebar-content">                
-                    
-                    <div id="stationHeader">
-                    <div id="stationName"></div>   
+                <div id="sidebar-content">   
+ <!-- Method Section -->                   
+                    <div id="analysisWrapper">    
+                        <!-- <select class="">
+                            <option selected="" value="0">AccessScore</option>
+                            <option value="1">CycleScore</option>
+                            <option value="2">PedestrianScore</option>
+                        </select> -->
+                        <div id="scoreIntro" data-title="Analysis Methods" data-intro="This is where you change analysis methods">
+                            <p>Clicking on a rail station will zoom in and display scoring analysis method catchment areas. Below you can view characteristics scores as well as data values.
+                            <i>Explore the various scoring analysis methods by clicking on the green, purple or orange rectangle to toggle station scoring.</i> 
+                            </p>
+                        </div>
+
+                        <div id="scoreBox">
+                            <div id="AS" class="score-cb">
+                                <input type="radio" class="lbox-AS" id="control_01" name="select" value="1" checked>
+                                <label id="label-box" class="AS" for="control_01">
+                                <h3>AccessScore</h3>
+                                </label>
+                            </div>   
+                            <div id="score-text"><p>Characteristics <br>within 2 miles <br>of the station.</p></div>
+                        </div>
+
+                        <div id="scoreBox">
+                            <div id="BS" class="score-cb">
+                                <input type="radio" class="lbox-BS" id="control_02" name="select" value="2">
+                                <label id="label-box" for="control_02">
+                                <h3>CycleScore</h3>
+                                </label>
+                            </div>
+                            <div id="score-text"><p>Characteristics within the existing all ages and abilities cycle shed.<br><i>(up to 2 miles)</i></p></div>
+                            </div>
+
+                        <div id="scoreBox">
+                            <div id="WS" class="score-cb">
+                                <input type="radio" class="lbox-WS" id="control_03" name="select" value="3">
+                                <label id="label-box" for="control_03">
+                                <h3>PedestrianScore</h3>
+                                </label>
+                            </div>
+                            <div id="score-text"><p>Characteristics within the existing sidewalk network shed.<br><i>(up to 1 mile)</i></p></div>
+                        </div>
                     </div>  
 <!-- Score Section -->
                     <div id="scoreWrapper">
-                        <div id="scoreIntro" data-title="Analysis Methods" data-intro="This is where you change analysis methods"><p><i>Explore the various scoring methods by clicking on the green, purple or yellow rectangle.</i> </p>
-                        </div>
-                        <div id="scoreBox">
-                        <div id="AS" class="score-cb">
-                            <input type="radio" class="lbox-AS" id="control_01" name="select" value="1" checked>
-                            <label id="label-box" class="AS" for="control_01">
-                              <h3>AccessScore</h3>
-                            </label>
-                        </div>   
-                        <div id="score-text"><p>Characteristics <br>within 2 miles <br>of the station.</p></div>
-                        <br style="clear: both;">
-                        <div id="as-score"></div>  
+                        <div id="stationName"></div>  
+
+                        <div id="stationScores">
+                            <div id="as-score"></div>  
+                            <div id="bs-score"></div> 
+                            <div id="ws-score"></div>  
                         </div>
 
-                        <div id="scoreBox">
-                        <div id="BS" class="score-cb">
-                            <input type="radio" class="lbox-BS" id="control_02" name="select" value="2">
-                            <label id="label-box" for="control_02">
-                              <h3>CycleScore</h3>
-                            </label>
-                          </div>
-                          <div id="score-text"><p>Characteristics within the existing all ages and abilities cycle shed.<br><i>(up to 2 miles)</i></p></div>
-                          <br style="clear: both;">
-                          <div id="bs-score"></div>
-                         </div>
-
-                        <div id="scoreBox">
-                         <div id="WS" class="score-cb">
-                            <input type="radio" class="lbox-WS" id="control_03" name="select" value="3">
-                            <label id="label-box" for="control_03">
-                              <h3>PedestrianScore</h3>
-                            </label>
-                          </div>
-                        
-                          <div id="score-text"><p>Characteristics within the existing sidewalk network shed.<br><i>(up to 1 mile)</i></p></div>
-                          <br style="clear: both;">
-                          <div id="ws-score"></div>  
-                        </div>
-
-                        <br style="clear: both;">
                         <div id="legendSet">
                         <form>
                             <fieldset id="legendWrapper">
-                            <legend id="infoSwitch-title">category scoring</legend>
-                            <div id="legend-Item"><div class="circle as-2"></div><span>1-2 Low</span></div>
+                            <legend id="infoSwitch-title">station scoring</legend>
+                            <div id="legend-Item"><div class="circle as-2"></div><span>1-2</span></div>
                             <div id="legend-Item"><div class="circle as-3"></div><span>3</span></div>
                             <div id="legend-Item"><div class="circle as-4"></div><span>4</span></div>
                             <div id="legend-Item"><div class="circle as-5"></div><span>5</span></div>
                             <div id="legend-Item"><div class="circle as-6"></div><span>6</span></div>
                             <div id="legend-Item"><div class="circle as-7"></div><span>7</span></div>
-                            <div id="legend-Item"><div class="circle as-8"></div><span>8-10 High</span></div>
+                            <div id="legend-Item"><div class="circle as-8"></div><span>8-10</span></div>
                             </fieldset>
                         </form>
                     </div>
@@ -200,42 +205,28 @@
                 <div id="chartWrapper" >
                     <form data-title="Scoring Method" data-intro="View a stations score and data values">
                         <fieldset id="infoSwitch">
-                        <legend id="infoSwitch-title">select a scoring method</legend>
-                        <label id="chart-info" for="radio1">
-                        <input id="radio1" type="radio" name="img" class="infoSelection" checked data-image-to-show="chartsGroup" checked><i class="glyphicon glyphicon-align-left"></i>&nbsp;&nbsp;Category Scoring
+                        <legend id="infoSwitch-title">view different scoring methods:</legend>
+                        <label id="chart-info" for="radio1"><i class="fa fa-align-left"></i>&nbsp;&nbsp;Category Scoring
+                        <input id="radio1" type="radio" name="img" class="infoSelection" checked data-image-to-show="chartsGroup" checked>
                         </label>
-                        <label id="data-info" for="radio2">
-                        <input id="radio2" type="radio" name="img" class="infoSelection" data-image-to-show="info-data-Group"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;Data Measurements
-                        </label>
-                        </fieldset>
-                    </form>
-
-                    <form>
-                        <fieldset id="infoSwitchBS" style="display: none">
-                        <legend id="infoSwitch-title">select a scoring method</legend>
-                        <label id="chart-info" for="radio3">
-                        <input id="radio3" type="radio" name="img" class="infoSelectionBS" checked data-image-to-show="chartsGroupBS" checked><i class="glyphicon glyphicon-align-left"></i>&nbsp;&nbsp;Category Scoring
-                        </label>
-                        <label id="data-info" for="radio4">
-                        <input id="radio4" type="radio" name="img" class="infoSelectionBS" data-image-to-show="info-data-GroupBS"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;Data Measurement
+                        <label id="data-info" for="radio2"><i class="fa fa-th"></i>&nbsp;&nbsp;Data Measurements
+                        <input id="radio2" type="radio" name="img" class="infoSelection" data-image-to-show="info-data-Group">
                         </label>
                         </fieldset>
                     </form>
-
-                    <form>
-                        <fieldset id="infoSwitchWS" style="display: none">
-                        <legend id="infoSwitch-title">select a scoring method</legend>
-                        <label id="chart-info" for="radio5">
-                        <input id="radio5" type="radio" name="img" class="infoSelectionWS" checked data-image-to-show="chartsGroupWS" checked><i class="glyphicon glyphicon-align-left"></i>&nbsp;&nbsp;Category Scoring
-                        </label>
-                        <label id="data-info" for="radio6">
-                        <input id="radio6" type="radio" name="img" class="infoSelectionWS" data-image-to-show="info-data-GroupWS"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;Data Measurement
-                        </label>
-                        </fieldset>
-                    </form>
-                <br style="clear: both;">
                 <div class="score" id="accessScore">
                 <div class="info" id="chartsGroup">
+                    <!-- <div class="legend-bar-chart">
+                        <label id="label-box-small" class="AS">
+                            <h3>AccessScore</h3>
+                        </label>
+                        <label id="label-box-small" class="BS">
+                            <h3>CycleScore</h3>
+                        </label>
+                        <label id="label-box-small" class="WS">
+                            <h3>PedestrianScore</h3>
+                        </label>
+                    </div> -->
                     <div id="charts">
                         <h3 class="chart-subheader" id="chartAS">Station Area Land Use and Density <a href="#CAT1-Modal" rel="modal:open" style="color:#FFF"><i class="fa fa-info-circle" aria-hidden="true" data-toggle='tooltip' title='Category Info'></i></a></h3>
                         <div class="chart1" id="chartAS1"></div>  
@@ -618,27 +609,12 @@
             </div>
 
             <div id="map">
-                <div id='btn-gr-layers'>
-                    <div id='complaint' class="btn-layer">
-                            <img class="svg" src="img/btn/complaint.svg"/>
+                <div id='btn-toggle-layers'>
+                    <div id='monitoring' class="btn toggle-btn" >
+                    Base Layers <i class="fa fa-angle-up" id="expander-icon"></i>
                     </div>
-                    <div id='complaint_group' style="display:none">
-                        <div><input class="complaintCheckbox" type="checkbox" id="complaint1" value="выхлопы автотранспорта" checked><label for="complaint1"> выхлопы автотранспорта</label></div>
-                        <div><input class="complaintCheckbox" type="checkbox" id="complaint2" value="выбросы предприятий" checked><label for="complaint2"> выбросы предприятий</label></div>
-                        <div><input class="complaintCheckbox" type="checkbox" id="complaint3" value="свалочные газы" checked><label for="complaint3"> свалочные газы</label></div>
-                        <div><input class="complaintCheckbox" type="checkbox" id="complaint4" value="неустановленный источник" checked><label for="complaint4"> неустановленный источник</label></div>
-                    </div>
-                    <div id='factory' class="btn-layer">
-                            <img class="svg" src="img/btn/factory.svg"/>
-                    </div>
-                    <div id='traffic' class="btn-layer">
-                            <img class="svg" src="img/btn/traffic.svg"/>
-                    </div>
-                    <div id='monitoring' class="btn-layer" data-title="Analysis Methods" data-intro="This is where you change analysis methods">
-                            <img class="svg" src="img/btn/monitoring.svg"/>
-                    </div>
-                    <div id='monitoring_group' style="display:none" >
-                    <form class="sidebar-form sidebar-form-toggle">
+                    <div id='monitoring_group' style="display:none" data-title="Toggle Base Layers" data-intro="This is where you change turn layers on/off">
+                    <form class="sidebar-form-toggle">
                     <fieldset class="toggle-fieldset">    
                         <div id="mylist">
                             <ul>
@@ -891,14 +867,14 @@
                 </div>
             <div id="clickBait">Click on a station to learn more about its AccessScore and characteristics.</div>    
             <div id="legend-box">
-                 <span>category scoring</span>
-                    <div id="legend-box-Item" class="circle as-2"><span>1-2 Low</span></div>
+                 <span>station scoring</span>
+                    <div id="legend-box-Item" class="circle as-2"><span>1-2</span></div>
                     <div id="legend-box-Item" class="circle as-3"><span>3</span></div>
                     <div id="legend-box-Item" class="circle as-4"><span>4</span></div>
                     <div id="legend-box-Item" class="circle as-5"><span>5</span></div>
                     <div id="legend-box-Item" class="circle as-6"><span>6</span></div>
                     <div id="legend-box-Item" class="circle as-7"><span>7</span></div>
-                    <div id="legend-box-Item" class="circle as-8"><span>8-10 High</span></div>
+                    <div id="legend-box-Item" class="circle as-8"><span>8-10</span></div>
                
             </div>    
             </div>
@@ -906,7 +882,7 @@
 
             <!-- Legend Modal -->
             <div class="modal" id="about">
-                <div class="modal-dialog" style="width:710px;">
+                <div class="modal-dialog" style="width:710px;z-index: 500;">
                     <div class="modal-content">
                         <div class="modal-header">
                         <h3>AccessScore</h3>

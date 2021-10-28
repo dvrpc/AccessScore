@@ -9,133 +9,17 @@ import handleStation from './charts.js'
 import handleStationB from './charts2.js'
 import handleStationW from './charts3.js'
 
-
 // add additional imports here (popups, forms, etc)
-// const modal = document.getElementById('modal')
-// const modalToggle = document.getElementById('modal-toggle')
-// const closeModal = document.getElementById('close-modal')
-// get additional elements here (forms, etc)
-const searchForm = document.getElementById('search')
-var retailSearch = {};
-
-fetch('https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/AccessScore/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=geojson')
-  .then(response => response.json())
-  .then (data => {
-    var retail = data;
-    retail.features.forEach(function (geojsonrow) {
-      retailSearch[geojsonrow.properties.station] = geojsonrow
-    });
-  });
- // .then(data => console.log(data));
-//  console.log(retailSearch);
-// MONITORING GROUP
-$("#monitoring").on("mouseenter", function () {
-	$("#monitoring_group").show();
-});
-
-$("#monitoring").on("mouseleave", function () {
-	$("#monitoring_group").hide();
-	$("#monitoring_group").on("mouseenter", function () {
-		$("#monitoring_group").show();
-	});
-});
-
-$("#monitoring_group").on("mouseleave", function () {
-	$("#monitoring_group").hide();
-});
-
-$(".monitoringCheckbox").on("click", function() {
-	let listMonitoringGroup = ["in", "naddepartment"];
-	$('.monitoringCheckbox:checked').each(function(){
-		listMonitoringGroup.push(this.value);
-	});
-	map.setFilter('monitoring', listMonitoringGroup);
-
-	var visibility = map.getLayoutProperty('monitoring', 'visibility');
-	if (visibility === 'visible') {
-		if ($("#monitoring6").is(':checked')) {
-			map.setLayoutProperty('monitoring_soc', 'visibility', 'visible');
-		} else {
-			map.setLayoutProperty('monitoring_soc', 'visibility', 'none');
-		}
-	}
-});
-
-$(document).ready(function() {
-//   $(".slide-toggle").click(function(){
-//     $("#mylist").slideToggle();
-// });
-
-  $('.chart-subheader-layers').click(function() {
-      $('#mylist').toggleClass('shown');
-      // $("#mylist").slideToggle();
-      $(".bold-text i").toggleClass("fa-angle-up fa-angle-down");
-  });
-});
-// toggle base and basemap layers 
+// $(document).ready(function(){
+//   // $("#about").modal('show');
+//   });
+// core functionality 
+//toggle base and basemap layers 
 const toggleLayerForms = Array.from(
   document.querySelectorAll(".sidebar-form-toggle")
 );
 
-$(document).ready(function(){
-// $("#about").modal('show');
-});
-
-var active = null;
-
-const storeStation = (activeStation)=>{
-   active = activeStation;
- // console.log(activeStation)
-}
-
-var propsStation = null;
-var corrdinatesStation = null;
-
-const storeFull = (props, corrdinates)=>{
-  propsStation = props;
-  corrdinatesStation = corrdinates;
-}
-
-// storeFull()
-
-// toggle bewteen Chart View and Data View for Access Score
-document.querySelectorAll(".infoSelection").forEach(el => {
-  el.onclick = event => {
-    const id = event.target.dataset.imageToShow
-    document.querySelectorAll(".info").forEach(img => { img.style.display = "none" })
-    document.getElementById(id).style.display = "block"
-  }
-})
-// toggle bewteen Chart View and Data View for Bike Score
-// document.querySelectorAll(".infoSelectionBS").forEach(el => {
-//   el.onclick = event => {
-//     const id = event.target.dataset.imageToShow
-//     document.querySelectorAll(".infoBS").forEach(img => { img.style.display = "none" })
-//     document.getElementById(id).style.display = "block"
-//   }
-// })
-// // toggle bewteen Chart View and Data View for Walk Score
-// document.querySelectorAll(".infoSelectionWS").forEach(el => {
-//   el.onclick = event => {
-//     const id = event.target.dataset.imageToShow
-//     document.querySelectorAll(".infoWS").forEach(img => { img.style.display = "none" })
-//     document.getElementById(id).style.display = "block"
-//   }
-// })
-
-// toggle bewteen Chart View and Data View for Walk Score
-document.querySelectorAll(".aboutSelection").forEach(el => {
-  el.onclick = event => {
-    const id = event.target.dataset.imageToShow
-    document.querySelectorAll(".tabcontent").forEach(tablinks => { tablinks.style.display = "none" })
-    document.getElementById(id).style.display = "block"
-  }
-})
-
-document.getElementById("tourLink").addEventListener("click", function() {
-  introJs().start();
-});  
-
+// Home Page and Map interaction
 //toggle Home and Map
 document.getElementById("homeLink").addEventListener("click", function() {
   document.getElementById("mapLink").style.display = "block";
@@ -154,7 +38,7 @@ document.getElementById("mapLink").addEventListener("click", function() {
   document.getElementById("stationSearchForm").style.display = "block"
   map.resize()
 }); 
-// Explore the Map Button
+// toggle Home and Map Explore the Map Button
 document.getElementById("EAS").addEventListener("click", function() {
   document.getElementById("mapLink").style.display = "none";
   document.getElementById("main").style.display = "none"
@@ -163,17 +47,61 @@ document.getElementById("EAS").addEventListener("click", function() {
     document.getElementById("stationSearchForm").style.display = "block"
   map.resize()
 }); 
+// get additional elements here (forms, etc)
+
+// Search Functionality
+const searchForm = document.getElementById('search')
+var retailSearch = {};
+
+fetch('https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/AccessScore/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=geojson')
+  .then(response => response.json())
+  .then (data => {
+    var retail = data;
+    retail.features.forEach(function (geojsonrow) {
+      retailSearch[geojsonrow.properties.station] = geojsonrow
+    });
+  });
+ // .then(data => console.log(data));
+//  console.log(retailSearch);
+
+
+// Base Layer Toggler
+$("#monitoring").on("mouseenter", function () {
+	$("#monitoring_group").show();
+  $("#expander-icon").toggleClass("fa-angle-up fa-angle-down");
+});
+
+$("#monitoring").on("mouseleave", function () {
+	$("#monitoring_group").hide();
+  $("#expander-icon").toggleClass("fa-angle-down fa-angle-up");
+	$("#monitoring_group").on("mouseenter", function () {
+		$("#monitoring_group").show();
+	});
+});
+
+$("#monitoring_group").on("mouseleave", function () {
+	$("#monitoring_group").hide();
+
+});
+
+// storeFull()
+// toggle bewteen Category Scoring (CHARTS) and Data Measurements (Values)
+document.querySelectorAll(".infoSelection").forEach(el => {
+  el.onclick = event => {
+    const id = event.target.dataset.imageToShow
+    document.querySelectorAll(".info").forEach(img => { img.style.display = "none" })
+    document.getElementById(id).style.display = "block"
+  }
+})
+
+document.getElementById("tourLink").addEventListener("click", function() {
+  $("#monitoring_group").show();
+  introJs().start();
+});  
 
 // Access Score CheckBox toggle
 document.getElementById("AS").addEventListener("click", function() {
   handleStation(propsStation,corrdinatesStation,map)
-  // document.getElementById("accessScore").style.display = "block";
-  // document.getElementById("bikeScore").style.display = "none";
-  // document.getElementById("walkScore").style.display = "none";
-
-  // document.getElementById("infoSwitch").style.display = "block";
-  // document.getElementById("infoSwitchBS").style.display = "none";
-  // document.getElementById("infoSwitchWS").style.display = "none";
   document.documentElement.style.setProperty('--popup-color', '#30958c');
 
   $('#BS').css({
@@ -204,14 +132,6 @@ document.getElementById("BS").addEventListener("click", function() {
   // console.log(propsStation)
   // console.log(corrdinatesStation)
   handleStationB(propsStation,corrdinatesStation,map)
-  // document.getElementById("bikeScore").style.display = "block"
-  // document.getElementById("accessScore").style.display = "none"
-  // document.getElementById("walkScore").style.display = "none"
-
-  // document.getElementById("infoSwitchBS").style.display = "block"
-  // document.getElementById("infoSwitch").style.display = "none"
-  // document.getElementById("infoSwitchWS").style.display = "none"
-
   document.documentElement.style.setProperty('--popup-color', '#Df73FF');
 
   $('#AS').css({
@@ -238,14 +158,6 @@ document.getElementById("BS").addEventListener("click", function() {
  // Walk Score CheckBox toggle
  document.getElementById("WS").addEventListener("click", function() {
   handleStationW(propsStation,corrdinatesStation,map)
-  //  document.getElementById("accessScore").style.display = "none"
-  //  document.getElementById("bikeScore").style.display = "none"
-  //  document.getElementById("walkScore").style.display = "block"
-
-  //  document.getElementById("infoSwitchWS").style.display = "block"
-  //  document.getElementById("infoSwitch").style.display = "none"
-  //  document.getElementById("infoSwitchBS").style.display = "none"
-   
    document.documentElement.style.setProperty('--popup-color', '#efa801');
   
    $('#AS').css({
@@ -272,6 +184,21 @@ document.getElementById("BS").addEventListener("click", function() {
 // var retailSearch = {};
 // var stations;
 
+// variable for functionality
+var active = null;
+
+const storeStation = (activeStation)=>{
+   active = activeStation;
+ // console.log(activeStation)
+}
+
+var propsStation = null;
+var corrdinatesStation = null;
+
+const storeFull = (props, corrdinates)=>{
+  propsStation = props;
+  corrdinatesStation = corrdinates;
+}
 // map
 const map = makeMap()
 
@@ -372,10 +299,6 @@ map.on('load', () => {
     //  'minzoom': 14,
         'paint': {
           'fill-extrusion-color': '#aaa',
-           
-          // Use an 'interpolate' expression to
-          // add a smooth transition effect to
-          // the buildings as the user zooms in.
           'fill-extrusion-height': [
           'interpolate',
           ['linear'],
@@ -407,6 +330,12 @@ map.on('load', () => {
       },
       'road-street'
       );
+      // Create a popup, but don't add it to the map yet.
+      let popup = new mapboxgl.Popup({
+        className: "station-popup",
+        closeButton: false,
+        closeOnClick: false
+        });  
 
     // add map events here (click, mousemove, etc)
     var stationID = null;
@@ -423,7 +352,7 @@ map.on('load', () => {
         input.value = ''
         return
       }
-      // non-mapbox function calling the geojson properties and coordinates that get pushed to the handleDisctrict function
+      // non-mapbox function calling the geojson properties and coordinates that get pushed to the handleStation function
       var props = location.properties;
       var coordinates = location.geometry.coordinates;
       var FID = props.dvrpc_id;
@@ -447,12 +376,7 @@ map.on('load', () => {
           storeFull(props,coordinates)
         // }
     } 
-    // Create a popup, but don't add it to the map yet.
-    let popup = new mapboxgl.Popup({
-        className: "station-popup",
-        closeButton: false,
-        closeOnClick: false
-        });
+  
 // AccessScore Station Click
     map.on('click','stations', (e) => {
       var sidebarViz = $("#sidebar").css("display");
