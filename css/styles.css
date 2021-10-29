@@ -332,7 +332,7 @@ nav {
     overflow: hidden;
     box-shadow: 1px 2px 3px rgba(0,0,0,.3);
 } */
-#analysisWrapper {
+#analysisWrapper, #exploreWrapper {
     margin: 5px 0px 5px 10px;
     border-radius: 4px;
     border-color: #dadada;
@@ -387,7 +387,7 @@ nav {
     flex-direction: row;
     flex-wrap: wrap; 
 }
-#scoreIntro{
+#wrapperIntro{
     margin: 5px 0px 0px 10px; 
 }
 #stationScores {

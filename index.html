@@ -40,9 +40,9 @@
                <!-- <span class="nav-vr">|</span> -->
                 <img src="./img/AccessScore-logo.png" alt="project logo" class="nav-logos" id="accessscore-logo"> 
                 <!-- <span id="beta">BETA</span>  -->
-                <div>
+                <!-- <div>
                     <a class="btn about-btn" href="#about" rel="modal:open">about</a>
-                </div>
+                </div> -->
             </div>
             <div class="landingLink-all">
                 <ul id="landingLinks">
@@ -132,18 +132,23 @@
  <!-- End Splash-->           
             <div id="sidebar">
                 <div id="sidebar-content">   
- <!-- Method Section -->                   
+ <!-- Method Section -->
+                    <div id="exploreWrapper">
+                        <div id="wrapperIntro">
+                        <h2>Explore</h2>
+                        <p>Clicking on a rail station will zoom in and display scoring analysis catchment areas based on the active method. You will then be able to view that stations AccessScore, CycleScore, and PedestrianScore as well as each characteristics score and data values.
+                        </p>  
+                        </div>       
+                    </div>                     
                     <div id="analysisWrapper">    
                         <!-- <select class="">
                             <option selected="" value="0">AccessScore</option>
                             <option value="1">CycleScore</option>
                             <option value="2">PedestrianScore</option>
                         </select> -->
-                        <div id="scoreIntro" >
-                            
-                            <p>Clicking on a rail station will zoom in and display scoring analysis method catchment areas. Below you can view characteristics scores as well as data values.
-                            <h2>Select an Analysis</h2>
-                            <i>Explore the various scoring analysis methods by clicking on the green, purple or orange rectangle to toggle station scoring.</i> 
+                        <div id="wrapperIntro" >
+                            <h2>Change Scoring Analysis</h2>
+                            <p><i>Change the various scoring analysis methods by clicking on the green, purple or orange rectangle to toggle station scoring.</i> 
                             </p>
                         </div>
 
@@ -181,9 +186,11 @@
 
                     </div>  
 <!-- Score Section -->
-                    <div id="scoreWrapper">
+                    <div id="scoreWrapper" data-title="Station Scoring" data-intro="View a stations AccessScore, CycleScore, and PedestrianScore">
+                        <div id="wrapperIntro">
                         <h2>Station Scoring</h2>
-                        <div id="stationName"></div>  
+                        </div>
+                        <div id="stationName" ></div>  
 
                         <div id="stationScores">
                             <div id="as-score"></div>  
@@ -209,8 +216,10 @@
 
 <!-- Chart Section                     -->
                 <div id="chartWrapper" >
+                    <div id="wrapperIntro">
                     <h2>Scoring Characteristics and Data Values</h2>
-                    <form data-title="Scoring Method" data-intro="View a stations score and data values">
+                    </div>
+                    <form data-title="Scoring Characteristics and Data Values" data-intro="View station characterist scores and data values">
                         <fieldset id="infoSwitch">
                         <legend id="infoSwitch-title">view different scoring methods:</legend>
                         <label id="chart-info" for="radio1"><i class="fa fa-align-left"></i>&nbsp;&nbsp;Category Scoring
