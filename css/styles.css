@@ -200,7 +200,13 @@ nav {
     z-index: 1;
     padding: 8px;
     background: rgba(255,255,255, 0.85);
-    display:block;
+    display:flex;
+    width:400px;
+    justify-content: space-between;
+}
+#legend-box-Item {
+    text-align: center;
+    margin-bottom: 5px;
 }
 #clickBait {
     right: 25%;
@@ -481,10 +487,7 @@ nav {
     border: 2px solid #ef8001 !important;
     color: white;
   }
-  #legend-box-Item {
-    text-align: center;
-    margin-bottom: 5px;
-}
+
 .legend-bar-chart {
     overflow: hidden;
     /* box-shadow: 1px 2px 3px rgba(0,0,0,.3); */

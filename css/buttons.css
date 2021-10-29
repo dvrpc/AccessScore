@@ -23,8 +23,32 @@ margin: 5px;
 	width: 60px;
 	cursor: pointer;
 } 
+#btn-tour{
+	position: absolute;
+    right: 85px;
+    top: 15px;
+	z-index: 2 !important;
+    height: 60px;
+	width: 60px;
+	cursor: pointer;
+} 
+#btn-legend{
+	position: absolute;
+    left: 10px;
+    bottom: -10px;
+	z-index: 2 !important;
+    height: 60px;
+	width: 60px;
+	cursor: pointer;
+} 
 .toggle-btn {
     margin: 5px 10px 0px 10px;
+    color: #fff;
+    background-color: black;
+    box-shadow: 0px 0px 7px 0px #ffffffa1;
+}
+.legend-btn {
+    /* margin: 5px 10px 0px 10px; */
     color: #fff;
     background-color: black;
     box-shadow: 0px 0px 7px 0px #ffffffa1;
@@ -32,6 +56,7 @@ margin: 5px;
 /* #monitoring:hover path{
 	fill: #63cad7;
 } */
+
 #monitoring_group {
 	position: absolute;
     left: 10px;
@@ -65,5 +90,20 @@ margin: 5px;
 .toggle-form {
     margin: var(--wrapper-padding) auto;
 }
-
+#legend-group {
+	position: absolute;
+    left: 0px;
+    bottom: 55px;
+    height: auto;
+    width: 100px;
+    padding: 5px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.legend-content-hide {
+    visibility: hidden;
+}
 

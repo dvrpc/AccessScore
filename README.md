@@ -1,5 +1,5 @@
 # AccessScore
-##AccessScore
+## AccessScore
 This analysis tool assesses the infrastructure and demographic characteristics around transit stations that relate to how supportive of bicycling and walking the area is and how much bicycle and pedestrian activity there is or could be. The analysis includes Region Rail and heavy rail, light rail, trolley, subway stations throughout the Philadelphia region with service provided by SEPTA, NJ TRANSIT, and PATCO.                  
 
 ## JS library dependencies

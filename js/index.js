@@ -44,7 +44,7 @@ document.getElementById("EAS").addEventListener("click", function() {
   document.getElementById("main").style.display = "none"
   document.getElementById("map").style.display = "block"
   document.getElementById("sidebar").style.display = "block"
-    document.getElementById("stationSearchForm").style.display = "block"
+  document.getElementById("stationSearchForm").style.display = "block"
   map.resize()
 }); 
 // get additional elements here (forms, etc)
@@ -81,9 +81,16 @@ $("#monitoring").on("mouseleave", function () {
 
 $("#monitoring_group").on("mouseleave", function () {
 	$("#monitoring_group").hide();
-
 });
-
+// Legend Toggler
+const legendBtn = document.getElementById('legend-items')
+// const legendContainer = legendBtn.nextElementSibling
+legendBtn.onclick = e => toggleLegend(e)
+const toggleLegend = e => {
+  const content = e.target.nextElementSibling
+  content.classList.toggle('legend-content-hide')
+  $("#legend-icon").toggleClass("fa-angle-down fa-angle-up");
+}
 // storeFull()
 // toggle bewteen Category Scoring (CHARTS) and Data Measurements (Values)
 document.querySelectorAll(".infoSelection").forEach(el => {
