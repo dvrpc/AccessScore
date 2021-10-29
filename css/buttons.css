@@ -23,6 +23,12 @@ margin: 5px;
 	width: 60px;
 	cursor: pointer;
 } 
+.toggle-btn {
+    margin: 5px 10px 0px 10px;
+    color: #fff;
+    background-color: black;
+    box-shadow: 0px 0px 7px 0px #ffffffa1;
+}
 #btn-tour{
 	position: absolute;
     right: 85px;
@@ -41,12 +47,6 @@ margin: 5px;
 	width: 60px;
 	cursor: pointer;
 } 
-.toggle-btn {
-    margin: 5px 10px 0px 10px;
-    color: #fff;
-    background-color: black;
-    box-shadow: 0px 0px 7px 0px #ffffffa1;
-}
 .legend-btn {
     /* margin: 5px 10px 0px 10px; */
     color: #fff;
@@ -97,12 +97,28 @@ margin: 5px;
     height: auto;
     width: 100px;
     padding: 5px;
-    background-color: black;
-    color: white;
+    /* background-color: black; */
+    color: black;
     border-radius: 5px;
     font-size: 14px;
     cursor: pointer;
+    background: rgba(255,255,255, 0.85);
+    display:block;
 }
+/* old css for OG legend Box */
+/* #legend-box-Item {
+    text-align: center;
+    margin-bottom: 5px;
+}
+#legend-box {
+    position: absolute;
+    bottom: 33px;
+    right: 10px;
+    z-index: 1001;
+    padding: 8px;
+    background: rgba(255,255,255, 0.85);
+    display:block;
+} */
 .legend-content-hide {
     visibility: hidden;
 }
