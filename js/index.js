@@ -95,6 +95,39 @@ const storeFull = (props, corrdinates)=>{
 // map
 const map = makeMap()
 
+// const map2 = new mapboxgl.Map({
+//   container: 'map2', // container ID
+//   style: 'mapbox://styles/mapbox/dark-v10', // style URL
+//   center: [ -75.26,40.00,], // starting position [lng, lat]
+//   zoom: 12,
+//   interactive: false// starting zoom
+// });
+
+// map2.on('load', () => {
+
+// map2.addSource(
+//   'as_osm_limits',
+//   { type:'vector',
+//   url:'https://tiles.dvrpc.org/data/access-score.json'});
+//   map2.addLayer(
+//     {
+//     "id": "as_osm_limits",
+//     "type": "line",
+//     "source": "as_osm_limits",
+//     "source-layer": "as_osm_limits",
+//     'paint': {
+//     'line-color': '#3bb8ad',
+//     'line-opacity':.8,
+//     'line-width': 4.5},
+//     "layout": { 
+//      "visibility": "none",
+//      'line-join': 'round',
+//      'line-cap': 'round' }
+//     },
+//     'road-rail'
+//   );
+// });
+
 map.on('load', () => {
 
     togglerAS (map);

@@ -126,6 +126,10 @@
                         <p>Uses the existing sidewalk network to create a boundary for scoring walkability near stations. It defines the catchment area as the distance that can be walked continuously on existing sidewalks up to 1 mile. All categories are scored by what is present within that catchment area.</p> 
                     </div>
                 </div>
+                <!-- <div id="map2"><div> -->
+              <div id="score-map">
+                <img src="./img/score-map.png" alt="project logo" class="score-map" > 
+              </div>
                 </div>
             </div>
                 
@@ -136,7 +140,7 @@
                     <div id="exploreWrapper">
                         <div id="wrapperIntro">
                         <h2>Explore</h2>
-                        <p>Clicking on a rail station will zoom in and display scoring analysis catchment areas based on the active method. You will then be able to view that stations AccessScore, CycleScore, and PedestrianScore as well as each characteristics score and data values.
+                        <p>Clicking on a rail station will zoom in and display scoring analysis catchment areas based on the active scoring analysis method (AccessScore, CycleScore, or PedestrianScore). You will then be able to view that stations AccessScore, CycleScore, and PedestrianScore overall scores (1-10) as well as each individual characteristic scores (0-5) and data values.
                         </p>  
                         </div>       
                     </div>                     
@@ -189,6 +193,8 @@
                     <div id="scoreWrapper" data-title="Station Scoring" data-intro="View a stations AccessScore, CycleScore, and PedestrianScore">
                         <div id="wrapperIntro">
                         <h2>Station Scoring</h2>
+                        <p><i>Compare a station scores for all three scoring analysis methods (AccessScore, CycleScore, and PedestrianScore). The scores are the sum for each ststaions characteristic normalzied to a 1 (low) to 10 (high) scale.</i> 
+                        </p>
                         </div>
                         <div id="stationName" ></div>  
 
@@ -218,6 +224,8 @@
                 <div id="chartWrapper" >
                     <div id="wrapperIntro">
                     <h2>Scoring Characteristics and Data Values</h2>
+                    <p><i>View a stations score (0-5) and data vaules for each of the various characteristics.</i> 
+                    </p>
                     </div>
                     <form data-title="Scoring Characteristics and Data Values" data-intro="View station characterist scores and data values">
                         <fieldset id="infoSwitch">

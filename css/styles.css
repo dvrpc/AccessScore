@@ -12,7 +12,7 @@ h1 {
     text-align: center;
 }
 h2 {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 h3 small {
     color: #696969 !important;
@@ -291,6 +291,11 @@ nav {
     height:50px;
     width:100%;
 }
+.score-map {
+    width: 90% ;
+    margin: 10px auto 10px auto;
+    display: block;
+}
 /* End Home Page */
 
 /* Sidebar */
@@ -488,13 +493,16 @@ nav {
     background: white;
     border: 1px solid #979797;
     border-radius: 10px;
-    padding: 5px;
+    /* padding: 5px; */
+    padding:1vh;
     margin: 10px auto 10px auto;
     text-align: center;
     box-shadow: 0px 3px 10px -2px rgba(48, 149, 140, 0.5);
     position: relative;
     display: block;
-    width:140px;
+    /* width:140px; */
+    width:35vh;
+    max-width: 140px;
   }
   .EAS{
     background: var(--theme-access-map) !important;
@@ -708,6 +716,11 @@ nav {
 #map {
     width: 60%;
     height: 100%;
+}
+#map2 {
+    position: absolute;
+    width: 80vh;
+    height: 30vh;
 }
 .mapboxgl-ctrl-logo {
     display: none !important;
