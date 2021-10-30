@@ -37,6 +37,7 @@ margin: 5px;
     height: 60px;
 	width: 60px;
 	cursor: pointer;
+    display: none;
 } 
 #btn-legend{
 	position: absolute;

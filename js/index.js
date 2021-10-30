@@ -3,7 +3,7 @@ import sources from './mapSources.js'
 import layers from './mapLayers.js'
 // import handleModal from './modal.js'
 import { toggleLayers } from "./forms.js";
-import { togglerBS } from "./toggler.js";
+import { togglerHome, togglerMap, togglerEAS, togglerAS, togglerBS, togglerWS } from "./toggler.js";
 
 // Handles Map Click for stations
 import handleStation from './charts.js'
@@ -20,34 +20,6 @@ const toggleLayerForms = Array.from(
   document.querySelectorAll(".sidebar-form-toggle")
 );
 
-// Home Page and Map interaction
-//toggle Home and Map
-document.getElementById("homeLink").addEventListener("click", function() {
-  document.getElementById("mapLink").style.display = "block";
-  document.getElementById("main").style.display = "flex"
-  document.getElementById("sidebar").style.display = "none"
-  document.getElementById("map").style.display = "none"
-  document.getElementById("stationSearchForm").style.display = "none"
-});  
-
-//toggle Home and Map
-document.getElementById("mapLink").addEventListener("click", function() {
-  document.getElementById("mapLink").style.display = "none";
-  document.getElementById("main").style.display = "none"
-  document.getElementById("map").style.display = "block"
-  document.getElementById("sidebar").style.display = "block"
-  document.getElementById("stationSearchForm").style.display = "block"
-  map.resize()
-}); 
-// toggle Home and Map Explore the Map Button
-document.getElementById("EAS").addEventListener("click", function() {
-  document.getElementById("mapLink").style.display = "none";
-  document.getElementById("main").style.display = "none"
-  document.getElementById("map").style.display = "block"
-  document.getElementById("sidebar").style.display = "block"
-  document.getElementById("stationSearchForm").style.display = "block"
-  map.resize()
-}); 
 // get additional elements here (forms, etc)
 
 // Search Functionality
@@ -105,89 +77,6 @@ document.getElementById("tourLink").addEventListener("click", function() {
   introJs().start();
 });  
 
-// Access Score CheckBox toggle
-document.getElementById("AS").addEventListener("click", function() {
-  // handleStation(propsStation,corrdinatesStation,map)
-  $("#bs_limit").prop("checked", false);
-  $('#as_osm_limits').attr('checked', true); // Unchecks it
-  $('#ws_limit').attr('checked', false); // Unchecks it
-  document.documentElement.style.setProperty('--popup-color', '#30958c');
-  $('#BS').css({
-    'font-weight':'normal'
-  });
-  $('#WS').css({
-    'font-weight':'normal'
-  });
-  $('#AS').css({
-    'font-weight':'bold'
-  });
-  map.setLayoutProperty('stations', "visibility", "visible")
-  map.setLayoutProperty('stationsB', "visibility", "none")
-  map.setLayoutProperty('stationsW', "visibility", "none")
-  // map.setFilter('as_2mile', ['==', 'dvrpc_id', active]);
-});
-
-
-// // Bike Score CheckBox toggle
-// document.getElementById("BS").addEventListener("click", function() {
-//   $("#bs_limit").prop("checked", true);
-//   $('#as_osm_limits').attr('checked', false); // Unchecks it
-//   $('#ws_limit').attr('checked', false); // Unchecks it
-  
-//   //storeStation()
-//   // console.log(active)
-//   // console.log(propsStation)
-//   // console.log(corrdinatesStation)
-
-//   document.documentElement.style.setProperty('--popup-color', '#Df73FF');
-//   $('#AS').css({
-//     'color':'grey',
-//     'font-weight':'normal',
-//     'box-shadow': '0px 0px 0px rgba(0, 255, 128, 0)' 
-//   });
-//   $('#WS').css({
-//     'color':'grey',
-//     'font-weight':'normal'
-//   });
-//   $('#BS').css({
-//     'color':'var(--theme-accessO)',
-//     'font-weight':'bold'
-//   });
-//    //  map.setFilter('bs_limit', ['==', 'dvrpc_id', active]);
-//    // handleStationB(propsStation,corrdinatesStation,map)
-//    map.setLayoutProperty('stations', "visibility", "none")
-//    map.setLayoutProperty('stationsB', "visibility", "visible")
-//    map.setLayoutProperty('stationsW', "visibility", "none")
- 
-//  });
-
- // Walk Score CheckBox toggle
- document.getElementById("WS").addEventListener("click", function() {
-  // handleStationW(propsStation,corrdinatesStation,map)
-  $("#bs_limit").prop("checked", false);
-  $('#as_osm_limits').attr('checked', false); // Unchecks it
-  $('#ws_limit').attr('checked', true); // Unchecks it
-   document.documentElement.style.setProperty('--popup-color', '#efa801');
-  
-   $('#AS').css({
-    'color':'grey',
-    'font-weight':'normal'
-  });
-  $('#BS').css({
-    'color':'grey',
-    'font-weight':'normal'
-  });
-  $('#WS').css({
-    'color':'var(--theme-accessF)',
-    'font-weight':'bold'
-  });
-
-   map.setLayoutProperty('stations', "visibility", "none")
-   map.setLayoutProperty('stationsB', "visibility", "none")
-   map.setLayoutProperty('stationsW', "visibility", "visible")
-  //  map.setFilter('ws_limit', ['==', 'dvrpc_id', active]);
- });
-
 // variable for functionality
 var active = null;
 
@@ -207,7 +96,14 @@ const storeFull = (props, corrdinates)=>{
 const map = makeMap()
 
 map.on('load', () => {
-  togglerBS (map);
+
+    togglerAS (map);
+    togglerBS (map);
+    togglerWS (map);
+    togglerHome ();
+    togglerMap (map);
+    togglerEAS (map);
+
     for(const source in sources) map.addSource(source, sources[source])
     for(const layer in layers) map.addLayer(layers[layer])
 
@@ -339,11 +235,12 @@ map.on('load', () => {
         closeOnClick: false
         });  
 
-    // add map events here (click, mousemove, etc)
+// add map events here (click, mousemove, etc)
     var stationID = null;
     var stationIDb = null;
     var stationIDw = null;
 
+// Search by Station
     searchForm.onsubmit = function (e) {
       e.preventDefault()
       const input = e.target.children[0].children[0]
@@ -381,16 +278,21 @@ map.on('load', () => {
   
 // AccessScore Station Click
     map.on('click','stations', (e) => {
-      var sidebarViz = $("#sidebar").css("display");
-      $("#clickBait").css("display", "none"); 
-      if (sidebarViz !== "block") {
-      //  $("#map").toggleClass("col-sm-6 col-md-6 col-lg-6 col-sm-12 col-md-12 col-lg-12");
-        $("#map").css("width", "60%");
-        $("#sidebar").css("display", "block");
-        $("#legend-box").css("display", "none");
-        map.resize();
-      }
+      // var sidebarViz = $("#sidebar").css("display");
+      // // $("#clickBait").css("display", "none"); 
+      // if (sidebarViz !== "block") {
+      // //  $("#map").toggleClass("col-sm-6 col-md-6 col-lg-6 col-sm-12 col-md-12 col-lg-12");
+      //   $("#map").css("width", "60%");
+      //   $("#sidebar").css("display", "block");
+      //   $("#legend-box").css("display", "none");
+      //   map.resize();
+      // }
     //  console.log(stationID);
+      $("#analysisWrapper").css("display", "flex");
+      $("#scoreWrapper").css("display", "flex");
+      $("#chartWrapper").css("display", "block");
+      $("#btn-tour").css("display", "block");
+
       stationID = e.features[0].properties.dvrpc_id;
       var props = e.features[0].properties;
       var coordinates = e.features[0].geometry.coordinates;
