@@ -154,7 +154,16 @@ map.on('load', () => {
       'paint': {
       'line-color': '#3bb8ad',
       'line-opacity':.8,
-      'line-width': 4.5},
+      'line-width': 
+      {
+        "base": 9,
+        "stops": [
+          [10, 1],
+          [12, 2],
+          [13, 4]
+        ]
+      }
+    },
       "layout": { 
        "visibility": "none",
        'line-join': 'round',
