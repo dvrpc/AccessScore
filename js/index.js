@@ -180,7 +180,16 @@ map.on('load', () => {
       'paint': {
       'line-color':'#Df73FF',
       'line-opacity':.8,
-      'line-width': 3.5},
+      'line-width': 
+      {
+        "base": 9,
+        "stops": [
+          [10, 1],
+          [12, 2],
+          [13, 3.5]
+        ]
+      }
+    },
       "layout": { 
        "visibility": "none",
        'line-join': 'round',
@@ -198,7 +207,16 @@ map.on('load', () => {
           // Orange
           'line-color': '#efa801',
           'line-opacity':.8,
-          'line-width': 2.5},
+          'line-width': 
+          {
+            "base": 9,
+            "stops": [
+              [10, 1],
+              [12, 2],
+              [13, 3]
+            ]
+          }
+        },
           "layout": { 
            "visibility": "none",
            'line-join': 'round',

@@ -38,10 +38,19 @@ const layers = {
         "visibility":"none",
          },
       'paint': {
-        'circle-radius': 2,
-        'circle-stroke-color': '#ffc6af',
-        'circle-stroke-width': .2,
-        'circle-color':'#e0c063'
+        // 'circle-radius': 2,
+        'circle-stroke-color': '#f2e5c0',
+        'circle-stroke-width': 1,
+        'circle-color':'#e0c063',
+        'circle-radius': 
+        {
+          "base": 9,
+          "stops": [
+            [10, 1],
+            [13, 2],
+            [15, 4],
+          ]
+        },
       }
     },
     crime: {
@@ -53,10 +62,18 @@ const layers = {
         "visibility":"none",
          },
       'paint': {
-        'circle-radius': 2,
+        // 'circle-radius': 2,
         'circle-stroke-color': '#ffc6af',
         'circle-stroke-width': .2,
-        'circle-color':'#c70c4d'
+        'circle-color':'#c70c4d',
+        'circle-radius':  {
+          "base": 9,
+          "stops": [
+            [10, 1],
+            [13, 2],
+            [15, 4],
+          ]
+        },
       }
     },
     es: {
@@ -68,10 +85,17 @@ const layers = {
         "visibility":"none",
          },
       'paint': {
-        'circle-radius': 2,
         'circle-stroke-color': '#61ff19',
         'circle-stroke-width': .2,
-        'circle-color':'#c8ffaf'
+        'circle-color':'#c8ffaf',
+        'circle-radius':  {
+          "base": 9,
+          "stops": [
+            [10, 2],
+            [13, 3],
+            [15, 4.4],
+          ]
+        },
       }
     },
     prail:{
