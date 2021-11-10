@@ -423,7 +423,7 @@ map.on('load', () => {
     map.on('mousemove', 'stations', (e) => {
         map.getCanvas().style.cursor = 'pointer';
         var coordinates = e.features[0].geometry.coordinates.slice();
-        var description = '<h3>'+ e.features[0].properties.station +'</h3>';
+        var description = '<h3>'+ e.features[0].properties.station +' : '+e.features[0].properties.AS_SCORE+'</h3>';
         // var description = '<h3>'+ e.features[0].properties.station +' : '+e.features[0].properties.AS_SCORE+'</h3>';
        // var Popclass = 'station-popup';
 

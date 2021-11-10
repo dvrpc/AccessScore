@@ -291,6 +291,25 @@ nav {
     height:50px;
     width:100%;
 }
+
+#scoreBoxAbout{
+    display: flex;
+    margin: 15px 0px 0px 0px;
+}
+.score-cb {
+    display: flex;
+}
+.score-box {
+    display: inline-block;
+    width:25%;
+}
+#score-text {
+    text-align: left;
+    font-weight: lighter;
+    display: inline-block;
+    width: 100%;/*set width to 100%*/
+    margin: 0px 0px 0px 10px;
+}
 .score-map {
     width: 90% ;
     margin: 10px auto 10px auto;
@@ -439,14 +458,7 @@ nav {
     width:33%;
     margin: 15px 0px 0px 0px;
 }
-#scoreBoxAbout{
-    display: block;
-    margin: 15px 0px 0px 0px;
-}
-#score-text {
-    text-align: center;
-    font-weight: lighter;
-}
+
 #legendSet{
     width: 95%;
     margin: 5px 3% 10px 3%;
@@ -490,6 +502,21 @@ nav {
   }
   #label-box {
     height: 100%;
+    background: white;
+    border: 1px solid #979797;
+    border-radius: 10px;
+    /* padding: 5px; */
+    padding:1vh;
+    margin: 10px auto 10px auto;
+    text-align: center;
+    box-shadow: 0px 3px 10px -2px rgba(48, 149, 140, 0.5);
+    position: relative;
+    display: block;
+    /* width:140px; */
+    width:35vh;
+    max-width: 140px;
+  }
+  #label-box-about {
     background: white;
     border: 1px solid #979797;
     border-radius: 10px;

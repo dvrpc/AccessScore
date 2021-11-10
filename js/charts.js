@@ -330,7 +330,7 @@ const handleStation = function (props,coordinates,map) {
              y: 15
          },
          tooltip: {
-             enabled: true
+             enabled: false
          },
          series: [{
                  name:'AccessScore',
