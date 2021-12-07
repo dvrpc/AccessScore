@@ -12,9 +12,7 @@ const handleStationW = function (props,coordinates,map) {
     " ( "+props.operator +")</small></h3><small>"+
     props.county +
     " County, " +
-    props.state +
-    "<br> DVRPC ID:"+
-    props.dvrpc_id+
+    props.state
     "</small></div>" 
     ;
     document.getElementById("stationName").innerHTML = info;

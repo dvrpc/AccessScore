@@ -15,9 +15,9 @@
         <!--  DVRPC Website VERSION #7.0 Copyright (c) 1995-2020 Delaware Valley Regional Planning Commission. All rights reserved.   -->
         
         <!-- social media -->
-        <meta property="og:title" content="">
+        <meta property="og:title" content="AccessScore">
         <meta propery="og:type" content="website">
-        <meta property="og:url" content="">
+        <meta property="og:url" content="AccessScore is a webmap displaying an analysis that assesses the infrastructure and demographic characteristics around transit stations that relate to how supportive of bicycling and walking the area is and how much bicycle and pedestrian activity there is or could be.">
         <meta property="og:description" content="">
         <meta property="og:image" content="">
 
@@ -70,13 +70,11 @@
             <div id="main">
               
                 <div id="aboutWrapper"> 
-                    <p>This analysis tool assesses the infrastructure and demographic characteristics around transit stations that relate to how supportive of bicycling and walking the area is and how much bicycle and pedestrian activity there is or could be. The analysis includes Region Rail and heavy rail, light rail, trolley, and subway stations throughout the Philadelphia region with service provided by SEPTA, NJ TRANSIT, and PATCO.    
-                    </p>
+                    <p>AccessScore is a webmap displaying an analysis that assesses the infrastructure and demographic characteristics around transit stations that relate to how supportive of bicycling and walking the area is and how much bicycle and pedestrian activity there is or could be. The analysis includes Regional Rail and heavy rail, light rail, trolley, and subway stations throughout the Philadelphia region with service provided by SEPTA, NJ TRANSIT, and PATCO.</p>
                     <br>
-                    <p>To create this score, DVRPC staff collected data on station area characteristics that are likely to be factors in whether people walk, bicycle, or drive to transit stations. Together, these individual factors, and a station's total AccessScore, will give transit agencies, trail advocacy groups and municipalities a picture of the station area characteristics that contribute to demand for bicycle and pedestrian facilities. Ultimately, AccessScore may help communities identify and prioritize improvements designed to strengthen pedestrian, cycling, and transit connectivity.
-                    </p>
+                    <p>To create this score, DVRPC staff collected data on station area characteristics that are likely to be factors in whether people walk, bicycle, or drive to transit stations. Together, these individual factors, and a station's total AccessScore, will give transit agencies, trail advocacy groups and municipalities a picture of the station area characteristics that contribute to demand for bicycle and pedestrian facilities. Ultimately, AccessScore may help communities identify and prioritize improvements designed to strengthen pedestrian, cycling, and transit connectivity.</p>
                     <br>
-                    <p>In addition to AccessScore, staff defined and calculated a PedestrianScore and a CycleScore. All three scores are defined to the right.</p>
+                    <p>In addition to AccessScore, staff defined and calculated a PedestrianScore and a CycleScore. All three scores are defined below.</p>
                     <div id="EAS" class="score">
                         <label id="label-box-large" class="EAS">
                           <h3>Explore the Map</h3>
@@ -114,8 +112,9 @@
                         </label>
                       </div>
                       <div id="score-text">
-                        <p>Uses <a href="https://www.dvrpc.org/webmaps/BikeStress/" target="_new">DVRPC’s Bicycle Level of Traffic Stress (LTS)</a> analysis to create a boundary for scoring cycling near stations. It defines the catchment areas as the distance that can be cycled continuously on LTS 1 and 2 road segments that abut the station up to two miles. All categories are scored by what is present within that catchment area.
+                        <p>Uses <a href="https://www.dvrpc.org/webmaps/BikeStress/" target="_new">DVRPC’s Bicycle Level of Traffic Stress (LTS)</a> analysis to create a boundary for scoring bicycle demand and access to stations. It defines the catchment areas as the distance that can be cycled continuously on LTS 1 (comfortable for most every cyclist) and 2 (comfortable for most adult riders) road segments that abut the station, up to two miles. All categories are scored by what is present within that catchment area. 
                         </p>
+                       
                     </div>
                     </div>
 
@@ -126,7 +125,7 @@
                         </label>
                       </div>
                       <div id="score-text">
-                        <p>Uses the existing sidewalk network to create a boundary for scoring walkability near stations. It defines the catchment area as the distance that can be walked continuously on existing sidewalks up to 1 mile. All categories are scored by what is present within that catchment area.</p> 
+                        <p>Uses the existing sidewalk network to create a boundary for scoring walkability near stations. It defines the catchment area as the distance that can be walked continuously on existing sidewalks up to one mile. All categories are scored by what is present within that catchment area.</p> 
                     </div>
                 </div>
                 <!-- <div id="map2"><div> -->
@@ -154,12 +153,12 @@
                             <option value="2">PedestrianScore</option>
                         </select> -->
                         <div id="wrapperIntro" >
-                            <h2>Change Scoring Analysis</h2>
+                            <h2>Analysis Methods</h2>
                             <p><i>Change the various station scoring analysis methods by clicking on the green, purple or orange rectangle. This will toggle the stations scoring value on the map.</i> 
                             </p>
                         </div>
 
-                        <div id="scoreTogglers" data-title="Analysis Methods" data-intro="This is where you change analysis methods">
+                        <div id="scoreTogglers" data-title="Analysis Methods" data-intro="Click on colored boxes to change which score is showing on the map.">
                             <div id="scoreBox">
                                 <div id="AS" class="score-cb">
                                     <input type="radio" class="lbox-AS" id="control_01" name="select" value="1" checked>
@@ -193,10 +192,10 @@
 
                     </div>  
 <!-- Score Section -->
-                    <div id="scoreWrapper" data-title="Station Scoring" data-intro="View a stations AccessScore, CycleScore, and PedestrianScore">
+                    <div id="scoreWrapper" data-title="Station Scoring" data-intro="View a station’s AccessScore, CycleScore, and PedestrianScore.">
                         <div id="wrapperIntro">
                         <h2>Station Scoring</h2>
-                        <p><i>Compare a station scores for all three scoring analysis methods (AccessScore, CycleScore, and PedestrianScore). The scores are the sum for each ststaions characteristic normalzied to a 1 (low) to 10 (high) scale.</i> 
+                        <p><i>Compare a station scores for all three scoring analysis methods (AccessScore, CycleScore, and PedestrianScore). The scores are the sum for each stations characteristic normalized to a 1 (low) to 10 (high) scale.</i> 
                         </p>
                         </div>
                         <div id="stationName" ></div>  
@@ -227,10 +226,10 @@
                 <div id="chartWrapper" >
                     <div id="wrapperIntro">
                     <h2>Scoring Characteristics and Data Values</h2>
-                    <p><i>View a stations score (0-5) and data vaules for each of the various characteristics.</i> 
+                    <p><i>View a station’s characteristic scores and data values. Click the “i” button to see definitions and sources.</i> 
                     </p>
                     </div>
-                    <form data-title="Scoring Characteristics and Data Values" data-intro="View station characterist scores and data values">
+                    <form data-title="Scoring Characteristics and Data Values" data-intro="View a station’s characteristic scores and data values. Click the “i” button to see definitions and sources.">
                         <fieldset id="infoSwitch">
                         <legend id="infoSwitch-title">view different scoring values and results:</legend>
                         <label id="chart-info" for="radio1"><i class="fa fa-align-left"></i>&nbsp;&nbsp;Characteristics Scoring
@@ -386,11 +385,12 @@
                     <div id='monitoring' class="btn toggle-btn" >
                     Base Layers <i class="fa fa-angle-up" id="expander-icon"></i>
                     </div>
-                    <div id='monitoring_group' style="display:none" data-title="Toggle Base Layers" data-intro="This is where you change turn layers on/off">
+                    <div id='monitoring_group' style="display:none" data-title="Toggle Base Layers" data-intro="Turn layers on and off to change whether they are viewable on the map.">
                     <form class="sidebar-form-toggle">
                     <fieldset class="toggle-fieldset">    
                         <div id="mylist">
                             <ul>
+                            <b><u>Scoring Catchment</u></b>    
                             <li>
                                 <label>
                                     <input
@@ -401,7 +401,7 @@
                                     checked="checked"
                                     />
                                     <i class="fa fa-minus fa-md legend-as"></i>
-                                    AccessScore Limits
+                                    AccessScore
                                 </label>
                             </li>
                             <li>
@@ -413,7 +413,7 @@
                                     value="bs_limit"
                                     />
                                     <i class="fa fa-minus fa-md legend-bs"></i>
-                                    CycleScore Limits
+                                    CycleScore
                                 </label>
                             </li>
                             <li>
@@ -425,10 +425,193 @@
                                     value="ws_limit"
                                     />
                                     <i class="fa fa-minus fa-md legend-ws"></i>
-                                    PedestrianScore Limits
+                                    PedestrianScore
                                 </label>
                             </li>
-                            <hr>
+                            <b><u>Transit</u></b>    
+                            <li>
+                                <label>
+                                    <input
+                                    type="checkbox"
+                                    id="transit_stops"
+                                    name="layer"
+                                    value="transit_stops"
+                                    />
+                                    <i class="fa fa-circle fa-sm legend-bus-stops"></i>
+                                    Bus Stops
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input
+                                    type="checkbox"
+                                    id="septa"
+                                    name="layer"
+                                    value="septa"
+                                    />
+                                    <i class="fa fa-minus fa-sm legend-septa"></i>
+                                    SEPTA Bus Transit Routes 
+                                </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input
+                                        type="checkbox"
+                                        id="njt"
+                                        name="layer"
+                                        value="njt"
+                                        />
+                                        <i class="fa fa-minus fa-sm legend-njt"></i>
+                                        NJT Bus Transit Routes 
+                                    </label>
+                                </li>
+                            <b><u>Bicycle and Pedestrian</u></b>    
+                            <li>
+                                <label>
+                                    <input
+                                    type="checkbox"
+                                    id="sidewalks"
+                                    name="layer"
+                                    value="sidewalks"
+                                    />
+                                    <i class="fa fa-minus fa-sm legend-sidewalk"></i>
+                                    Sidewalks
+                                </label>
+                                </li>
+                            <li>
+                                <label>
+                                    <input
+                                    type="checkbox"
+                                    id="crosswalks"
+                                    name="layer"
+                                    value="crosswalks"
+                                    />
+                                    <i class="fa fa-minus fa-lg legend-sidewalk"></i>
+                                    Crosswalks
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input
+                                    type="checkbox"
+                                    id="circuit_trails"
+                                    name="layer"
+                                    value="circuit_trails"
+                                    />
+                                    <i class="fa fa-minus fa-sm legend-circuit"></i>
+                                    The Circuit Trails
+                                </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input
+                                        type="checkbox"
+                                        id="bikelane"
+                                        name="layer"
+                                        value="bikelane"
+                                        />
+                                        <i class="fa fa-minus fa-sm legend-bikelane"></i>
+                                        On-Street Bike Network
+                                    </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input
+                                            type="checkbox"
+                                            id="lts"
+                                            name="layer"
+                                            value="lts"
+                                            />
+                                            <i class="fa fa-minus fa-sm legend-lts"></i>
+                                            Level of Bicycle Traffic Stress 3+4
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input
+                                            type="checkbox"
+                                            id="high"
+                                            name="layer"
+                                            value="high"
+                                            />
+                                            <i class="fa fa-minus fa-sm legend-high"></i>
+                                            High Injury Network (City of Phila.)
+                                        </label>
+                                    </li>
+                            <b><u>Equity</u></b> 
+                            <li>
+                                <label>
+                                    <input
+                                    type="checkbox"
+                                    id="IPD"
+                                    name="layer"
+                                    value="IPD"
+                                    />
+                                    <!-- <i class="fa fa-minus fa-md legend-IPD"></i> -->
+                                    Indicators of Potential Disadvantage (refer to info for legend)
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input
+                                    type="checkbox"
+                                    id="es"
+                                    name="layer"
+                                    value="es"
+                                    />
+                                    <i class="fa fa-circle fa-sm legend-es"></i>
+                                    Essential Services
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input
+                                    type="checkbox"
+                                    id="crime"
+                                    name="layer"
+                                    value="crime"
+                                    />
+                                    <i class="fa fa-circle fa-sm legend-crime"></i>
+                                    City of Philadelphia Gun Violence Locations <i>(2016-2021)</i>
+                                </label>
+                            </li>
+                            <b><u>Land Use</u></b>    
+                            <li>
+                                <label>
+                                    <input
+                                    type="checkbox"
+                                    id="retail"
+                                    name="layer"
+                                    value="retail"
+                                    />
+                                    <i class="fa fa-minus fa-md legend-retail"></i>
+                                    Suburban Downtown Retail Districts (DVRPC)
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input
+                                    type="checkbox"
+                                    id="retail2"
+                                    name="layer"
+                                    value="retail2"
+                                    />
+                                    <i class="fa fa-minus fa-md legend-retail"></i>
+                                    Walkable Commercial Corridors (City of Phila.)
+                                </label>
+                            </li> 
+                            <li>
+                                <label>
+                                    <input
+                                    type="checkbox"
+                                    id="high"
+                                    name="layer"
+                                    value="parks"
+                                    />
+                                    <i class="fa fa-minus fa-sm legend-parks"></i>
+                                    Parks and Open Space (DVRPC)
+                                </label>
+                            </li>
                             <li>
                                 <label>
                                   <input
@@ -452,185 +635,7 @@
                                   Aerial Imagery
                                 </label>
                               </li>
-                            <li>
-                            <label>
-                                <input
-                                type="checkbox"
-                                id="transit_stops"
-                                name="layer"
-                                value="transit_stops"
-                                />
-                                <i class="fa fa-circle fa-sm legend-bus-stops"></i>
-                                Bus Stops
-                            </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    id="septa"
-                                    name="layer"
-                                    value="septa"
-                                    />
-                                    <i class="fa fa-minus fa-sm legend-septa"></i>
-                                    SEPTA Bus Transit Routes 
-                                </label>
-                                </li>
-                            <li>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    id="njt"
-                                    name="layer"
-                                    value="njt"
-                                    />
-                                    <i class="fa fa-minus fa-sm legend-njt"></i>
-                                    NJT Bus Transit Routes 
-                                </label>
-                            </li>
-                            <li>
-                            <label>
-                                <input
-                                type="checkbox"
-                                id="circuit_trails"
-                                name="layer"
-                                value="circuit_trails"
-                                />
-                                <i class="fa fa-minus fa-sm legend-circuit"></i>
-                                The Circuit Trails
-                            </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    id="bikelane"
-                                    name="layer"
-                                    value="bikelane"
-                                    />
-                                    <i class="fa fa-minus fa-sm legend-bikelane"></i>
-                                    On-Street Bike Network
-                                </label>
-                                </li>
-                            <li>
-                            <label>
-                                <input
-                                type="checkbox"
-                                id="sidewalks"
-                                name="layer"
-                                value="sidewalks"
-                                />
-                                <i class="fa fa-minus fa-sm legend-sidewalk"></i>
-                                Sidewalks
-                            </label>
-                            </li>
-                            <li>
-                            <label>
-                                <input
-                                type="checkbox"
-                                id="crosswalks"
-                                name="layer"
-                                value="crosswalks"
-                                />
-                                <i class="fa fa-minus fa-lg legend-sidewalk"></i>
-                                Crosswalks
-                            </label>
-                            </li>
-                            <li>
-                            <label>
-                                <input
-                                type="checkbox"
-                                id="lts"
-                                name="layer"
-                                value="lts"
-                                />
-                                <i class="fa fa-minus fa-sm legend-lts"></i>
-                                Level of Bicycle Traffic Stress 3+4
-                            </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    id="IPD"
-                                    name="layer"
-                                    value="IPD"
-                                    />
-                                    <!-- <i class="fa fa-minus fa-md legend-IPD"></i> -->
-                                    Indicators of Potential Disadvantage (refer to info for legend)
-                                </label>
-                                </li>
-                           <li>
-                            <label>
-                                <input
-                                type="checkbox"
-                                id="crime"
-                                name="layer"
-                                value="crime"
-                                />
-                                <i class="fa fa-circle fa-sm legend-crime"></i>
-                                City of Philadelphia Shooting Victims <i>(2016-2021)</i>
-                            </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    id="es"
-                                    name="layer"
-                                    value="es"
-                                    />
-                                    <i class="fa fa-circle fa-sm legend-es"></i>
-                                    Essential Services
-                                </label>
-                                </li>
-                            <li>
-                            <label>
-                                <input
-                                type="checkbox"
-                                id="retail"
-                                name="layer"
-                                value="retail"
-                                />
-                                <i class="fa fa-minus fa-md legend-retail"></i>
-                                Suburban Downtown Retail Districts (DVRPC)
-                            </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    id="retail2"
-                                    name="layer"
-                                    value="retail2"
-                                    />
-                                    <i class="fa fa-minus fa-md legend-retail"></i>
-                                    Walkable Commercial Corridors (City of Phila.)
-                                </label>
-                                </li>
-                                <li>
-                                    <label>
-                                        <input
-                                        type="checkbox"
-                                        id="high"
-                                        name="layer"
-                                        value="high"
-                                        />
-                                        <i class="fa fa-minus fa-sm legend-high"></i>
-                                        High Injury Network (City of Phila.)
-                                    </label>
-                                    <li>
-                                        <label>
-                                            <input
-                                            type="checkbox"
-                                            id="high"
-                                            name="layer"
-                                            value="parks"
-                                            />
-                                            <i class="fa fa-minus fa-sm legend-parks"></i>
-                                            Parks and Open Space (DVRPC)
-                                        </label>
-                                    </li>
+                           
                                 </li>
                             </ul>
                         </div>
@@ -721,7 +726,7 @@
                     <h3>Station Area Land Use and Density</h3>
                     </div>
                     <div class="modal-body">
-                        <p><b>Civic and Cultural Attractors</b> - This station characteristic aggregates the number of civic and cultural resources within 2 mile of the station. Civic and cultural resources aggregated include: libraries, US Post Offices, municipal buildings (excluding maintenance facilities), schools, colleges, museums, art galleries, botanical gardens, zoos.
+                        <p><b>Civic and Cultural Attractors</b> - This station characteristic aggregates the number of civic and cultural resources within 2 mile of the station. Civic and cultural resources aggregated include: libraries, US Post Offices, municipal buildings (excluding maintenance facilities), museums, art galleries, botanical gardens, and zoos.
                             <ul class="a">Scoring (number of resources) 
                                 <li>High (5) = 27 - 93</li>
                                 <li>Medium-High (4) = 19 - 26</li>
@@ -745,7 +750,7 @@
                         </p>
                         <hr>
                         <br>
-                        <p><B>Essential Services</B> - Places of employment, grocery stores, schools, medical care facilities, recreation/open space, senior centers, and centers for the developmentally disabled.
+                        <p><B>Essential Services</B> - Essential services are food stores, schools/colleges/universities, health facilities, and activity centers for seniors and the developmentally or physically disabled.
                             <ul class="a">Scoring: Total number of essential services within 2 mile of the station (quantiles).
                                 <li>High (5) = 264 - 480</li>
                                 <li>Medium-High (4) = 105 - 263</li>
@@ -754,11 +759,11 @@
                                 <li>Low (1) = 6 - 35</li>
                             </ul>
                             To learn more about essential services throughout the DVRPC region visit our <a href="https://dvrpcgis.maps.arcgis.com/apps/MapSeries/index.html?appid=06eab792a06044f89b5b7fadeef660ba" target="_new">Equity Through Access Maptoolkit</a>. 
-                            <p style="color:grey"><i>Sources: DVRPC (Circuit Trails, 2020; Parks/Open Space, 2016), HRSA (2020), NCES (2017-2018), NETS (2015).</i></p>
+                            <p style="color:grey"><i>Sources: DVRPC, HRSA (2020), NCES (2017-2018), NETS (2015).</i></p>
                         </p>
                         <hr>
                         <br>
-                        <p><B>Parks and Open Space</B> - Transit stations have been evaluated for their proximity to outdoor destinations in the Delaware Valley that may attract cyclists and walkers. These destinations include federal, state, and county parks (greater than 10 acres), arboretums, and cemeteries. Scores measure a station's proximity to any of these types of recreational bicycle and pedestrian destinations.
+                        <p><B>Parks and Open Space</B> - Transit stations have been evaluated for their proximity to outdoor destinations in the Greater Philadelphia Region that may attract cyclists and walkers. These destinations include federal, state, and county parks (greater than 10 acres), arboretums, and cemeteries. Scores measure a station's proximity to any of these types of recreational bicycle and pedestrian destinations.
                             <ul class="a">Scoring:
                                 <li>High (5) = On/adjacent (within ¼ mile)</li>                    
                                 <li>Medium-High (4) = ¼-1/2 mile</li>
@@ -794,8 +799,7 @@
                     <h3>Demographics</h3>
                     </div>
                     <div class="modal-body">
-                        <p><b>Indicators of Potential Disadvantage</b> - The Indicators of Potential Disadvantage (IPD) analysis identifies populations of interest under Title VI and EJ using U.S. Census American Community Survey (ACS) 2015-2019 five-year estimates data and maps these populations in each of the Census tracts in the region via GIS. Each population group is an “indicator” in the analysis and includes the following
-                            (Youth, Older Adults, Female, Racial Minority, Ethnic Minority, Foreign-Born, Limited English Proficiency, Disabled, Low-Income)
+                        <p><b>Indicators of Potential Disadvantage</b> - The Indicators of Potential Disadvantage (IPD) analysis identifies populations of interest under Title VI and EJ using U.S. Census American Community Survey (ACS) 2015-2019 five-year estimates data and maps these populations in each of the Census tracts in the region via GIS. Each population group is an “indicator” in the analysis and includes the following: Youth, Older Adults, Female, Racial Minority, Ethnic Minority, Foreign-Born, Limited English Proficiency, Disabled, and Low-Income.
                             <ul class="a">Scoring based of IPD Overall Score
                                 <li>High (5) = well above average</li>
                                 <li>Medium-High (4) = above average</li>
@@ -843,7 +847,7 @@
                     <h3>Transit Density and Access</h3>
                     </div>
                     <div class="modal-body">
-                        <p><b>Non-Parking Passenger Boards</b> -Transit stations are evaluated for the number of vehicles parked at the station as a percentage of the number of passengers that board trains. This difference between passenger boards and the number of parked cars can be used as an approximation of the number of passengers who access the station via walking, bicycling or getting dropped off by someone else. Stations have been rated based on the percentage of non-parking passengers.
+                        <p><b>Non-Parking Passenger Boards</b> - Transit stations are evaluated for the number of vehicles parked at the station as a percentage of the number of passengers that board trains. This difference between passenger boards and the number of parked cars can be used as an approximation of the number of passengers who access the station via walking, bicycling or getting dropped off by someone else. Stations have been rated based on the percentage of non-parking passengers.
                             <ul class="a">Scoring (percent of non-parking passengers)
                                 <li>High (5) = 94.5% - 100%</li>
                                 <li>Medium-High (4) = 76.83% - 94.49%</li>
@@ -855,7 +859,7 @@
                         </p>
                         <hr>
                         <br>
-                        <p><B>Percentage of Local Drivers</B> - This layer uses DVRPC’s most recent license plate survey data for each station to determine the percentage of vehicles driving to and parking at a station from within a two mile radius. For more information on how license plate survey data is collected, please visit DVRPC’s Park and Ride Passenger Origins Webmap. 
+                        <p><B>Percentage of Local Drivers</B> - This layer uses DVRPC’s most recent license plate survey data for each station to determine the percentage of vehicles driving to and parking at a station from within a two mile radius. For more information on how license plate survey data is collected, please visit:<a href="https://www.dvrpc.org/webmaps/parkride/" target="_new"> DVRPC’s Park and Ride Passenger Origins Webmap </a>. 
                             <ul class="a">Scoring: total vehicles from 2 miles or less / total of count cars from survey year (quantilies)
                                 <li>High (5) = 0.79% - 1%</li>
                                 <li>Medium-High (4) = 0.62% - 0.78%</li>
@@ -867,9 +871,13 @@
                         </p>
                         <hr>
                         <br>
-                        <p>(coming soon....) <B>Transit Vehicle Volume</B> - Transit Vehicle Volume is the total number of buses and trains that serve the area at or around each station per day. The larger the volume of transit vehicles, the more connected a place is, as it's the concentrations of transit vehicles - both rail and bus - that create options for riders to access destinations via public transit. Each station is scored on how many transit vehicles pass within 500 feet of the station in a twenty-four hour time period.
+                        <p><B>Transit Vehicle Volume</B> - Transit Vehicle Volume is the total number of buses and trains that serve the area at or around each station per day. The larger the volume of transit vehicles, the more connected a place is, as it's the concentrations of transit vehicles - both rail and bus - that create options for riders to access destinations via public transit. Each station is scored on how many transit vehicles pass within 500 feet of the station in a twenty-four hour time period.
                             <ul class="a">Scoring: total transit vehicles within 24 hours
-                
+                                <li>High (5) = ?</li>
+                                <li>Medium-High (4) = ?</li>
+                                <li>Medium (3) = ?</li>
+                                <li>Low-Medium (2) = ?</li>
+                                <li>Low (1) = ?</li>
                             </ul>
                             <p style="color:grey"><i>Source: SEPTA, NJTRANSIT, PATCO, Google, DVRPC.</i></p>
                         </p>
@@ -898,7 +906,7 @@
                             </p>
                             <hr>
                             <br>
-                            <p><B>Connectivity Score </B> - A Connectivity Score is a rating of the connectivity of a place's street network that can be used to determine a community’s walkability. Connectivity scores for stations are based on the intersection density within 2-mile of the station.
+                            <p><B>Connectivity Score </B> - The connectivity of a place's street network that can be used to determine a community’s walkability.
                                 <ul class="a">Scoring: intersection density within 2-mile of station
                                     <li>High (5) = 0.87 - 1.49</li>
                                     <li>Medium-High (4) = 0.55 - 0.87</li>
@@ -924,7 +932,7 @@
                             </p>
                             <hr>
                             <br>
-                            <p><B>Low Stress Bicycle Shed</B> - This station characteristic shows the connected roadway segments (also known as LTS islands) that abut the station and fall into Level of Traffic Stress 1 and 2. Segments that are LTS 1 and 2 are considered to be suitable for bicycling for people of all ages and abilities. The score for this category is determined by the sum length in lineal feet of the LTS 1+2 islands are placed into 5 categories and ranked shortest to longest. 
+                            <p><B>Low Stress Bicycle Shed</B> - This station characteristic shows the connected roadway segments (also known as LTS islands) that abut the station and fall into Level of Traffic Stress 1 and 2. Segments that are LTS 1 and 2 are considered to be suitable for bicycling for people of all ages and abilities. The score for this category is determined by the sum length in lineal feet of the LTS 1+2 islands are placed into 5 categories and ranked shortest to longest.
                                 <ul class="a">Scoring: LTS Low-stress (1+2) islands sum of length in miles (quantilies)
                                     <li>High (5)= 206.85 - 336.56</li>                    
                                     <li>Medium-High (4) = 122.41 - 206.84</li>
@@ -959,6 +967,24 @@
                         <h3>Base Layers</h3>
                         </div>
                         <div class="modal-body">
+                            <ul class="a">
+                                <li>Building Footprints - Indicates the shape and location of buildings</li>                    
+                                <li>Aerial Imagery @ Nearmap</li>
+                                <li>Bus Stops</li>
+                                <li>SEPTA and NJTRANSIT Bus Routes</li>
+                                <li>The Circuit Trails - An existing regional network of multi-use trails in Pennsylvania and New Jersey. </li>
+                                <li>On-Street Bike Network - DVRPC’s inventory of on-road bicycle facilities (bike lanes) of various kinds throughout the region.</li>
+                                <li>Sidewalks - The presence of paved pedestrian facilities, based on aerial imagery from 2015 (NJ counties), 2017 (PA counties), and 2018 (Philadelphia).</li>
+                                <li>Crosswalks - Painted pedestrian crossings of various types, based on aerial imagery from 2015 (NJ counties), 2017 (PA counties), and 2018 (Philadelphia).</li>
+                                <li>Level of Bicycle Traffic Stress 3+4 - streets that are higher stress and typically less comfortable for bicycle riders, based on DVRPC LTS analysis. LTS assignment is based on number of traffic lanes, effective speed, and presence and type of bicycle facility. </li>
+                                <li>Indicators of Potential Disadvantage (refer to info for legend) - Developed by DVRPC for equity analyses. The IPD analysis identifies populations of interest under Title VI and EJ using U.S. Census American Community Survey (ACS) 2015-2019 five-year estimates data.</li>
+                                <li>City of Philadelphia Gun Violence (2016-2021) - Gun Violence Victims in Philadelphia from The City of Philadelphia Controller’s Office. </li>
+                                <li>Essential Services - Inventoried by DVRPC’s Equity Through Access project, essential services include food stores, schools/colleges/universities, health facilities, and activity centers for seniors and the developmentally or physically disabled.</li>
+                                <li>Suburban Downtown Retail Districts (DVRPC) - An inventory of suburban downtown retail districts created by DVRPC in 2013 and updated in 2020.</li>
+                                <li>Walkable Commercial Corridors (City of Phila.) - A street type defined and assigned in the 2012 Philadelphia Complete Streets Design Handbook. These streets are active commercial corridors with pedestrian-friendly physical development patterns.</li>
+                                <li>High Injury Network (City of Phila.) - Corridors in the City of Philadelphia with the highest rates of fatalities and serious injuries per mile, based on PennDOT data from 2014 through 2018.</li>
+                                <li>Parks and Open Space (DVRPC)- Includes federal, state, county and municipal parks (greater than 10 acres), arboretums, and cemeteries.</li>
+                            </ul>
                             <p><b>IPD</b>
                                 <img src="./img/ipd-legend.png" alt="ipd" class="legend-IPD" id="ipd-legend"> 
               

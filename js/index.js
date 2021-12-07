@@ -169,7 +169,7 @@ map.on('load', () => {
        'line-join': 'round',
        'line-cap': 'round' }
       },
-      'road-rail'
+      'road-label'
     );
     map.addLayer(
       {
@@ -195,7 +195,7 @@ map.on('load', () => {
        'line-join': 'round',
        'line-cap': 'round' }
       },
-      'road-rail'
+      'road-label'
     );
     map.addLayer(
       {
@@ -222,7 +222,7 @@ map.on('load', () => {
            'line-join': 'round',
            'line-cap': 'round' }
       },
-      'road-rail'
+      'road-label'
     );
     map.addLayer(
     {
@@ -245,7 +245,7 @@ map.on('load', () => {
           "visibility": "none"
       },
     },
-    'road-rail'
+    'road-label'
   );
     map.addLayer({
       'id': 'Buildings',
@@ -286,7 +286,7 @@ map.on('load', () => {
       'paint': {},
       "layout": {"visibility":"none"}
       },
-      'road-street'
+      'road-rail'
       );
       // Create a popup, but don't add it to the map yet.
       let popup = new mapboxgl.Popup({
