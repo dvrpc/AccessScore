@@ -11,9 +11,6 @@ import handleStationB from './charts2.js'
 import handleStationW from './charts3.js'
 
 // add additional imports here (popups, forms, etc)
-// $(document).ready(function(){
-//   // $("#about").modal('show');
-//   });
 // core functionality 
 //toggle base and basemap layers 
 const toggleLayerForms = Array.from(
@@ -24,35 +21,37 @@ const toggleLayerForms = Array.from(
 
 // Search Functionality
 const searchForm = document.getElementById('search')
-var retailSearch = {};
+var stationSearch = {};
 
 fetch('https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/AccessScore/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=geojson')
   .then(response => response.json())
   .then (data => {
     var retail = data;
     retail.features.forEach(function (geojsonrow) {
-      retailSearch[geojsonrow.properties.station] = geojsonrow
+      stationSearch[geojsonrow.properties.station] = geojsonrow
     });
   });
  // .then(data => console.log(data));
-//  console.log(retailSearch);
+//  console.log(stationSearch);
+
 // Base Layer Toggler
-$("#monitoring").on("mouseenter", function () {
-	$("#monitoring_group").show();
+$("#baselayers").on("mouseenter", function () {
+	$("#baselayers_group").show();
   $("#expander-icon").toggleClass("fa-angle-up fa-angle-down");
 });
 
-$("#monitoring").on("mouseleave", function () {
-	$("#monitoring_group").hide();
+$("#baselayers").on("mouseleave", function () {
+	$("#baselayers_group").hide();
   $("#expander-icon").toggleClass("fa-angle-down fa-angle-up");
-	$("#monitoring_group").on("mouseenter", function () {
-		$("#monitoring_group").show();
+	$("#baselayers_group").on("mouseenter", function () {
+		$("#baselayers_group").show();
 	});
 });
 
-$("#monitoring_group").on("mouseleave", function () {
-	$("#monitoring_group").hide();
+$("#baselayers_group").on("mouseleave", function () {
+	$("#baselayers_group").hide();
 });
+
 // Legend Toggler
 const legendBtn = document.getElementById('legend-items')
 // const legendContainer = legendBtn.nextElementSibling
@@ -62,7 +61,8 @@ const toggleLegend = e => {
   content.classList.toggle('legend-content-hide')
   $("#legend-icon").toggleClass("fa-angle-down fa-angle-up");
 }
-// storeFull()
+
+
 // toggle bewteen Category Scoring (CHARTS) and Data Measurements (Values)
 document.querySelectorAll(".infoSelection").forEach(el => {
   el.onclick = event => {
@@ -71,9 +71,9 @@ document.querySelectorAll(".infoSelection").forEach(el => {
     document.getElementById(id).style.display = "block"
   }
 })
-
+// Tour Button
 document.getElementById("tourLink").addEventListener("click", function() {
-  $("#monitoring_group").show();
+  $("#baselayers_group").show();
   introJs().start();
 });  
 
@@ -95,41 +95,8 @@ const storeFull = (props, corrdinates)=>{
 // map
 const map = makeMap()
 
-// const map2 = new mapboxgl.Map({
-//   container: 'map2', // container ID
-//   style: 'mapbox://styles/mapbox/dark-v10', // style URL
-//   center: [ -75.26,40.00,], // starting position [lng, lat]
-//   zoom: 12,
-//   interactive: false// starting zoom
-// });
-
-// map2.on('load', () => {
-
-// map2.addSource(
-//   'as_osm_limits',
-//   { type:'vector',
-//   url:'https://tiles.dvrpc.org/data/access-score.json'});
-//   map2.addLayer(
-//     {
-//     "id": "as_osm_limits",
-//     "type": "line",
-//     "source": "as_osm_limits",
-//     "source-layer": "as_osm_limits",
-//     'paint': {
-//     'line-color': '#3bb8ad',
-//     'line-opacity':.8,
-//     'line-width': 4.5},
-//     "layout": { 
-//      "visibility": "none",
-//      'line-join': 'round',
-//      'line-cap': 'round' }
-//     },
-//     'road-rail'
-//   );
-// });
-
 map.on('load', () => {
-
+// wiring for on-click event on the map 
     togglerAS (map);
     togglerBS (map);
     togglerWS (map);
@@ -144,7 +111,7 @@ map.on('load', () => {
     toggleLayerForms.forEach((form) => toggleLayers(form, map));
  
     // add map events here (click, mousemove, etc)
-    // Add NearMap Imagery, it is added here do to neediung to place layer below road-street layer
+    // Add Catchment line work, station select, buildings, and NearMap Imagery, they are added here due to needing to place layer below road-label layer
     map.addLayer(
       {
       "id": "as_osm_limits",
@@ -171,6 +138,7 @@ map.on('load', () => {
       },
       'road-label'
     );
+
     map.addLayer(
       {
       "id": "bs_limit",
@@ -197,6 +165,7 @@ map.on('load', () => {
       },
       'road-label'
     );
+
     map.addLayer(
       {
         "id": "ws_limit",
@@ -224,6 +193,7 @@ map.on('load', () => {
       },
       'road-label'
     );
+
     map.addLayer(
     {
       "id": "stationSelect",
@@ -247,6 +217,7 @@ map.on('load', () => {
     },
     'road-label'
   );
+
     map.addLayer({
       'id': 'Buildings',
       'source': 'composite',
@@ -278,6 +249,7 @@ map.on('load', () => {
           'fill-extrusion-opacity': 0.6
           }
     });
+
     map.addLayer(
       {
       'id': 'nearmap',
@@ -288,12 +260,12 @@ map.on('load', () => {
       },
       'road-rail'
       );
-      // Create a popup, but don't add it to the map yet.
-      let popup = new mapboxgl.Popup({
-        className: "station-popup",
-        closeButton: false,
-        closeOnClick: false
-        });  
+    // Create a popup, but don't add it to the map yet.
+    let popup = new mapboxgl.Popup({
+      className: "station-popup",
+      closeButton: false,
+      closeOnClick: false
+    });  
 
 // add map events here (click, mousemove, etc)
     var stationID = null;
@@ -305,7 +277,7 @@ map.on('load', () => {
       e.preventDefault()
       const input = e.target.children[0].children[0]
       const searched = input.value
-      const location = retailSearch[searched]
+      const location = stationSearch[searched]
       if(!location) {
         alert('Please select a value from the dropdown list')
         input.value = ''
@@ -315,39 +287,30 @@ map.on('load', () => {
       var props = location.properties;
       var coordinates = location.geometry.coordinates;
       var FID = props.dvrpc_id;
-     // console.log(FID);
+      // console.log(FID);
       stationID =  props.dvrpc_id;
 
-          if (stationID) {
-            map.setFilter('stationSelect', ['==', 'dvrpc_id', stationID]);
-            map.setFilter('as_2mile', ['==', 'dvrpc_id', stationID]);
-            map.setFilter('as_osm_limits', ['==', 'dvrpc_id', stationID]);
-            map.setFilter('bs_limit', ['==', 'dvrpc_id', stationID]);
-            map.setFilter('ws_limit', ['==', 'dvrpc_id', stationID]);
-            map.setLayoutProperty('stationSelect', 'visibility', 'visible');
-            map.setLayoutProperty('as_2mile', 'visibility', 'visible');
-            map.setLayoutProperty('as_osm_limits', 'visibility', 'visible');
-            map.setLayoutProperty('bs_limit', 'visibility', 'visible');
-            map.setLayoutProperty('ws_limit', 'visibility', 'visible');
-          }
-          handleStation(props,coordinates,map)   
-          storeStation(stationID)
-          storeFull(props,coordinates)
-        // }
+      if (stationID) {
+        map.setFilter('stationSelect', ['==', 'dvrpc_id', stationID]);
+        map.setFilter('as_2mile', ['==', 'dvrpc_id', stationID]);
+        map.setFilter('as_osm_limits', ['==', 'dvrpc_id', stationID]);
+        map.setFilter('bs_limit', ['==', 'dvrpc_id', stationID]);
+        map.setFilter('ws_limit', ['==', 'dvrpc_id', stationID]);
+        map.setLayoutProperty('stationSelect', 'visibility', 'visible');
+        map.setLayoutProperty('as_2mile', 'visibility', 'visible');
+        map.setLayoutProperty('as_osm_limits', 'visibility', 'visible');
+        map.setLayoutProperty('bs_limit', 'visibility', 'visible');
+        map.setLayoutProperty('ws_limit', 'visibility', 'visible');
+      }
+      handleStation(props,coordinates,map)   
+      storeStation(stationID)
+      storeFull(props,coordinates)
     } 
   
-// AccessScore Station Click
+// Click - AccessScore
     map.on('click','stations', (e) => {
-      // var sidebarViz = $("#sidebar").css("display");
-      // // $("#clickBait").css("display", "none"); 
-      // if (sidebarViz !== "block") {
-      // //  $("#map").toggleClass("col-sm-6 col-md-6 col-lg-6 col-sm-12 col-md-12 col-lg-12");
-      //   $("#map").css("width", "60%");
-      //   $("#sidebar").css("display", "block");
-      //   $("#legend-box").css("display", "none");
-      //   map.resize();
-      // }
     //  console.log(stationID);
+    // first click will show these items
       $("#analysisWrapper").css("display", "flex");
       $("#scoreWrapper").css("display", "flex");
       $("#chartWrapper").css("display", "block");
@@ -374,7 +337,7 @@ map.on('load', () => {
       storeStation(stationID)
       storeFull(props,coordinates)
     });
-// CycleScore Station Click
+// Click - CycleScore
     map.on('click','stationsB', (e) => {
      // console.log(stationIDb);
       stationIDb = e.features[0].properties.dvrpc_id;
@@ -397,7 +360,7 @@ map.on('load', () => {
       storeStation(stationIDb)
       storeFull(props,coordinates)
     });
-// PedestrianScore Station Click
+// Click PedestrianScore
     map.on('click','stationsW', (e) => {
       stationIDw = e.features[0].properties.dvrpc_id;
       var props = e.features[0].properties;
@@ -419,7 +382,8 @@ map.on('load', () => {
       storeStation(stationIDw)
       storeFull(props,coordinates)
     });
-// // AccessScore Station HOVER
+
+// HOVER AccessScore
     map.on('mousemove', 'stations', (e) => {
         map.getCanvas().style.cursor = 'pointer';
         var coordinates = e.features[0].geometry.coordinates.slice();
@@ -452,7 +416,7 @@ map.on('load', () => {
       popup.setLngLat(coordinates).setHTML(description).addTo(map);
 
     });
-
+// HOVER CycleScore
     map.on('mousemove', 'stationsB', (e) => {
       map.getCanvas().style.cursor = 'pointer';
       var coordinates = e.features[0].geometry.coordinates.slice();
@@ -481,7 +445,7 @@ map.on('load', () => {
     // based on the feature found.
     popup.setLngLat(coordinates).setHTML(description).addTo(map);
     });
-
+// HOVER PedestrianScore
     map.on('mousemove', 'stationsW', (e) => {
       map.getCanvas().style.cursor = 'pointer';
       var coordinates = e.features[0].geometry.coordinates.slice();
@@ -510,8 +474,9 @@ map.on('load', () => {
   // based on the feature found.
   popup.setLngLat(coordinates).setHTML(description).addTo(map);
   });
-  // When the mouse leaves the station layer, update the
-  // feature state of the previously hovered feature
+
+  // When the mouse leaves the station layer, update the eature state of the previously hovered feature
+// Hover Leave - AccessScore  
   map.on('mouseleave', 'stations', function () {
     if (stationID) {
       map.setFeatureState(
@@ -530,7 +495,7 @@ map.on('load', () => {
     map.getCanvas().style.cursor = '';
     popup.remove();
   });
-
+// Hover Leave - CycleScore  
   map.on('mouseleave', 'stationsB', function () {
     if (stationID) {
       map.setFeatureState(
@@ -549,7 +514,7 @@ map.on('load', () => {
     map.getCanvas().style.cursor = '';
     popup.remove();
   });
-
+// Hover Leave - PedestrianScore  
   map.on('mouseleave', 'stationsW', function () {
     if (stationID) {
       map.setFeatureState(
@@ -569,7 +534,7 @@ map.on('load', () => {
     popup.remove();
   });
 
-// add typeahead
+// add typeahead and Populated 
  const populateOptions = function (obj) {
   const datalist = document.getElementById('station-list')
   const frag = document.createDocumentFragment()
@@ -581,7 +546,7 @@ map.on('load', () => {
   })
   datalist.appendChild(frag)
 }
-populateOptions(retailSearch)
+populateOptions(stationSearch)
 
 })
 // modal

@@ -58,7 +58,7 @@ margin: 5px;
 	fill: #63cad7;
 } */
 
-#monitoring_group {
+#baselayers_group {
 	position: absolute;
     left: 10px;
     top: 35px;
@@ -71,7 +71,7 @@ margin: 5px;
     font-size: 14px;
     cursor: pointer;
 }
-#monitoring_group label {
+#baselayers_group label {
 	margin-left: 5px;
     margin-bottom: 0px;
 }
