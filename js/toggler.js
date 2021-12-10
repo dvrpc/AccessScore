@@ -84,7 +84,7 @@ const togglerBS = (map) => {
 const togglerHome = () => {
 document.getElementById("homeLink").addEventListener("click", function() {
   document.getElementById("homeLink").style.display = "none"
-  document.getElementById("mapLink").style.display = "block";
+  document.getElementById("mapLink").style.display = "block"
   document.getElementById("main").style.display = "flex"
   document.getElementById("sidebar").style.display = "none"
   document.getElementById("map").style.display = "none"
@@ -95,7 +95,7 @@ document.getElementById("homeLink").addEventListener("click", function() {
 //toggle Home and Map
 const togglerMap = (map) => {
 document.getElementById("mapLink").addEventListener("click", function() {
-  document.getElementById("mapLink").style.display = "none";
+  document.getElementById("mapLink").style.display = "none"
   document.getElementById("homeLink").style.display = "block"
   document.getElementById("main").style.display = "none"
   document.getElementById("map").style.display = "block"
@@ -107,7 +107,7 @@ document.getElementById("mapLink").addEventListener("click", function() {
 // toggle Home and Map Explore the Map Button
 const togglerEAS = (map) => {
 document.getElementById("EAS").addEventListener("click", function() {
-  document.getElementById("mapLink").style.display = "none";
+  document.getElementById("mapLink").style.display = "none"
   document.getElementById("homeLink").style.display = "block"
   document.getElementById("main").style.display = "none"
   document.getElementById("map").style.display = "block"
