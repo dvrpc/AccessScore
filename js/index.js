@@ -106,7 +106,7 @@ map.on('load', () => {
 
     for(const source in sources) map.addSource(source, sources[source])
     for(const layer in layers) map.addLayer(layers[layer])
-
+ 
     // Wire all checkbox layer toggles to an on-click event
     toggleLayerForms.forEach((form) => toggleLayers(form, map));
  

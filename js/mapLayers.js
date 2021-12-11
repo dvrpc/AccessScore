@@ -447,5 +447,4 @@ const layers = {
       "layout": { "visibility": "none" }
     }
 }
-
 export default layers
