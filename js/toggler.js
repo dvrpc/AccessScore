@@ -2,9 +2,10 @@
 const togglerAS = (map) => {
 document.getElementById("AS").addEventListener("click", function() {
   // handleStation(propsStation,corrdinatesStation,map)
-  $("#bs_limit").prop("checked", false);
-  $('#as_osm_limits').attr('checked', true); // Unchecks it
-  $('#ws_limit').attr('checked', false); // Unchecks it
+  $("input:checkbox[value='as_osm_limits']").prop('checked',false).trigger("click");
+  $("input:checkbox[value='bs_limit']").prop('checked',true).trigger("click");
+  $("input:checkbox[value='ws_limit']").prop('checked',true).trigger("click");
+
   document.documentElement.style.setProperty('--popup-color', '#30958c');
   $('#BS').css({
     'font-weight':'normal'
@@ -24,9 +25,12 @@ document.getElementById("AS").addEventListener("click", function() {
 // Bike Score CheckBox toggle
 const togglerBS = (map) => {
   document.getElementById("BS").addEventListener("click", function() {
-  $("#bs_limit").prop("checked", true);
-  $('#as_osm_limits').attr('checked', false); // Unchecks it
-  $('#ws_limit').attr('checked', false); // Unchecks it
+  // $("#bs_limit").prop("checked", true);
+  // $('#as_osm_limits').attr('checked', false); // Unchecks it
+  // $('#ws_limit').attr('checked', false); // Unchecks it
+  $("input:checkbox[value='bs_limit']").prop('checked',false).trigger("click");
+  $("input:checkbox[value='as_osm_limits']").prop('checked',true).trigger("click");
+  $("input:checkbox[value='ws_limit']").prop('checked',true).trigger("click");
   //storeStation()
   // console.log(active)
   // console.log(propsStation)
@@ -56,9 +60,10 @@ const togglerBS = (map) => {
  const togglerWS = (map) => {
  document.getElementById("WS").addEventListener("click", function() {
   // handleStationW(propsStation,corrdinatesStation,map)
-  $("#bs_limit").prop("checked", false);
-  $('#as_osm_limits').attr('checked', false); // Unchecks it
-  $('#ws_limit').attr('checked', true); // Unchecks it
+  $("input:checkbox[value='ws_limit']").prop('checked',false).trigger("click");
+  $("input:checkbox[value='as_osm_limits']").prop('checked',true).trigger("click");
+  $("input:checkbox[value='bs_limit']").prop('checked',true).trigger("click");
+
    document.documentElement.style.setProperty('--popup-color', '#efa801');
    $('#AS').css({
     'color':'grey',
