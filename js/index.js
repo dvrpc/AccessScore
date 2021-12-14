@@ -267,6 +267,17 @@ map.on('load', () => {
       closeOnClick: false
     });  
 
+    const showSidebar = function (e) {   
+      $("#explore").prop('open', false);
+      $("#analysisWrapper").css("display", "flex");
+      $("#scoreWrapper").css("display", "flex");
+      $("#chartWrapper").css("display", "block");
+      $("#btn-tour").css("display", "block");
+    }
+    map.on('click', (e) => {
+      // console.log(`A click event has occurred at ${e.lngLat}`);
+        showSidebar(e)
+    });
 // add map events here (click, mousemove, etc)
     var stationID = null;
     var stationIDb = null;
@@ -299,22 +310,19 @@ map.on('load', () => {
         map.setLayoutProperty('stationSelect', 'visibility', 'visible');
         map.setLayoutProperty('as_2mile', 'visibility', 'visible');
         map.setLayoutProperty('as_osm_limits', 'visibility', 'visible');
-        map.setLayoutProperty('bs_limit', 'visibility', 'visible');
-        map.setLayoutProperty('ws_limit', 'visibility', 'visible');
+        // map.setLayoutProperty('bs_limit', 'visibility', 'visible');
+        // map.setLayoutProperty('ws_limit', 'visibility', 'visible');
       }
       handleStation(props,coordinates,map)   
       storeStation(stationID)
       storeFull(props,coordinates)
+      showSidebar(e)
     } 
   
 // Click - AccessScore
     map.on('click','stations', (e) => {
     //  console.log(stationID);
     // first click will show these items
-      $("#analysisWrapper").css("display", "flex");
-      $("#scoreWrapper").css("display", "flex");
-      $("#chartWrapper").css("display", "block");
-      $("#btn-tour").css("display", "block");
 
       stationID = e.features[0].properties.dvrpc_id;
       var props = e.features[0].properties;

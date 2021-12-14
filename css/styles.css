@@ -305,11 +305,11 @@ nav {
     width:25%;
 }
 #score-text {
-    text-align: left;
+    text-align: center;
     font-weight: lighter;
     display: inline-block;
-    width: 100%;/*set width to 100%*/
-    margin: 0px 0px 0px 20px;
+    width: 100%; /*set width to 100%*/
+    margin: 0px 5px 0px 0px;
 }
 .score-map {
     width: 98%;
@@ -335,6 +335,19 @@ nav {
     /* background-color: #f7f7f7; */
     background-color: #eaeaea;
 }
+details > summary {
+    padding: 4px;
+    width: 200px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    font-weight: bolder;
+  }
+  
+  details > p {
+    padding: 4px;
+    margin: 0;
+  }
 #sidebar-content {
     padding: var(--wrapper-padding-double) var(--wrapper-padding);
     min-height: calc(90% - 40px);
@@ -357,6 +370,10 @@ nav {
 }
 .sidebar-fieldset label {
     margin-right: 5px;
+}
+.sidebar-text {
+font-weight: lighter;
+margin: 0px 5px 10px 5px;
 }
 /* #stationHeader {
     color:#333;
@@ -934,7 +951,8 @@ color:#Df73FF;
 color:#efa801;
 }
 .legend-sidewalk {
-    color: var(--theme-dark);
+    /* color: var(--theme-dark); */
+    color:#fefcf7;
 }
 .legend-circuit {
 color:#4fe314;

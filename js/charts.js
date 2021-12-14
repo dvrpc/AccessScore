@@ -5,14 +5,14 @@ const handleStation = function (props,coordinates,map) {
 // }
 
     var info =
-    "<h3>" +
+    "<h1 style='margin-bottom: 13px;'>" +
     props.station +
-    "<small>  "+
+    "</h1><small>  "+
     props.line +
-    // "</span><span><img id='operatorLogo' src='./img/" +
-    // props.operator +
-    // ".png'/></span><br>"+
-    " ( "+props.operator +")</small></h3><small>"+
+    "<span><img id='operatorLogo' src='./img/" +
+    props.operator +
+    ".png'/></span><br>"+
+    " ( "+props.operator +")</small><br>"+
     props.county +
     " County, " +
     props.state 

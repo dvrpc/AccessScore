@@ -105,9 +105,13 @@
  <!-- Method Section -->
                     <div id="exploreWrapper">
                         <div id="wrapperIntro">
-                        <h2>Explore</h2>
-                        <p>Clicking on a rail station will zoom in and display scoring analysis catchment areas based on the active scoring analysis method (AccessScore, CycleScore, or PedestrianScore). You will then be able to view that stations AccessScore, CycleScore, and PedestrianScore overall scores (1-10) as well as each individual characteristic scores (0-5) and data values.
-                        </p>  
+                        <!-- <h2>Explore</h2>
+                        <p class="sidebar-text">Clicking on a rail station will zoom in and display scoring analysis catchment areas based on the active scoring analysis method (AccessScore, CycleScore, or PedestrianScore). You will then be able to view that stations AccessScore, CycleScore, and PedestrianScore overall scores (1-10) as well as each individual characteristic scores (0-5) and data values.
+                        </p>   -->
+                        <details id="explore" class="sidebar-details" open>
+                            <summary class="sidebar-summary">Explore</summary>
+                            <small><i>Clicking on a rail station will zoom in and display scoring analysis catchment areas based on the active scoring analysis method (AccessScore, CycleScore, or PedestrianScore). You will then be able to view that stations AccessScore, CycleScore, and PedestrianScore overall scores (1-10) as well as each individual characteristic scores (0-5) and data values.</i></small>
+                        </details>
                         </div>       
                     </div>                     
                     <div id="analysisWrapper">    
@@ -119,7 +123,7 @@
                         </select> -->
                         <div id="wrapperIntro" >
                             <h2>Analysis Methods</h2>
-                            <p><i>Change the various station scoring analysis methods by clicking on the green, purple or orange rectangle. This will toggle the stations scoring value on the map.</i> 
+                            <p class="sidebar-text">Change the various station scoring analysis methods by clicking on the green, purple or orange rectangle. This will toggle the stations scoring value on the map.
                             </p>
                         </div>
 
@@ -160,7 +164,7 @@
                     <div id="scoreWrapper" data-title="Station Scoring" data-intro="View a station’s AccessScore, CycleScore, and PedestrianScore.">
                         <div id="wrapperIntro">
                         <h2>Station Scoring</h2>
-                        <p><i>Compare a station scores for all three scoring analysis methods (AccessScore, CycleScore, and PedestrianScore). The scores are the sum for each stations characteristic normalized to a 1 (low) to 10 (high) scale.</i> 
+                        <p class="sidebar-text">Compare a station scores for all three scoring analysis methods (AccessScore, CycleScore, and PedestrianScore). The scores are the sum for each stations characteristic normalized to a 1 (low) to 10 (high) scale.
                         </p>
                         </div>
                         <div id="stationName" ></div>  
@@ -191,7 +195,7 @@
                 <div id="chartWrapper" >
                     <div id="wrapperIntro">
                     <h2>Scoring Characteristics and Data Values</h2>
-                    <p><i>View a station’s characteristic scores and data values. Click the “i” button to see definitions and sources.</i> 
+                    <p class="sidebar-text">View a station’s characteristic scores and data values. Click the <i class="fa fa-info-circle" aria-hidden="true" data-toggle='tooltip' title='Category Info'></i> to see definitions and sources.
                     </p>
                     </div>
                     <form data-title="Scoring Characteristics and Data Values" data-intro="View a station’s characteristic scores and data values. Click the “i” button to see definitions and sources.">

@@ -186,8 +186,19 @@ const layers = {
         visibility: "none",
       },
       paint: {
-        "line-width": 1.2,
-        "line-color": "rgba(255,255,255,0.5)",
+        // "line-width": 1.2,
+        // "line-color": "rgba(255,255,255,0.5)",
+        "line-color": "rgba(254,252,247,0.7)",
+        'line-width': 
+        {
+          "base": 9,
+          "stops": [
+            [10, 1],
+            [12, 1.5],
+            [13, 2],
+            [15,3.5]
+          ]
+        }
       },
       "source-layer": "ped_lines",
       filter: ["==", "line_type", 1],
@@ -204,8 +215,17 @@ const layers = {
       },
       // minzoom: 13,
       paint: {
-        "line-width": 4,
-        "line-color": "rgba(255,255,255,0.5)",
+        // "line-width": 4,
+        "line-color": "rgba(254,252,247,0.5)",
+        'line-width': 
+        {
+          "base": 9,
+          "stops": [
+            [10, 1],
+            [12, 2],
+            [13, 5]
+          ]
+        }
         // "line-dasharray": [1, 0.5]
       }
     },
