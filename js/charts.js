@@ -3,11 +3,14 @@ const handleStation = function (props,coordinates,map) {
 //  if( document.getElementById("accessScore").style.display = "block") {
 //   alert("display not available");
 // }
+var sName =
+"<h1>" +
+props.station +
+"</h1>" 
+;
 
     var info =
-    "<h1 style='margin-bottom: 13px;'>" +
-    props.station +
-    "</h1><small>  "+
+    "<small>  "+
     props.line +
     "<span><img id='operatorLogo' src='./img/" +
     props.operator +
@@ -16,9 +19,10 @@ const handleStation = function (props,coordinates,map) {
     props.county +
     " County, " +
     props.state 
-    "</small></div>" 
+    "</small>" 
     ;
-    document.getElementById("stationName").innerHTML = info;
+    document.getElementById("stationName").innerHTML = sName;
+    document.getElementById("stationInfo").innerHTML = info;
    // '#a50026',3,'#d73027',4,'#f46d43',5,'#fdae61',6,'#74add1',7,'#4575b4',8,'#313695',11,'#ccc'
    
     if (props.AS_SCORE <= 2.99) {
