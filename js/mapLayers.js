@@ -1,4 +1,102 @@
 var bike_value = ["Bike Lane", "Protected Bike Lane", "Buffered Bike Lane"];
+
+const catchment = {
+  as_osm_limits:
+    {
+    "id": "as_osm_limits",
+    "type": "line",
+    "source": "as_osm_limits",
+    "source-layer": "as_osm_limits",
+    'paint': {
+    'line-color': '#3bb8ad',
+    'line-opacity':.8,
+    'line-width': 
+    {
+      "base": 9,
+      "stops": [
+        [10, 1],
+        [12, 2],
+        [13, 4]
+      ]
+    }
+  },
+    "layout": { 
+     "visibility": "none",
+     'line-join': 'round',
+     'line-cap': 'round' }
+    },
+    bs_limit:
+      {
+      "id": "bs_limit",
+      "type": "line",
+      "source": "bs_limit",
+      "source-layer":"cycle_lowstress_limits",
+      'paint': {
+      'line-color':'#Df73FF',
+      'line-opacity':.8,
+      'line-width': 
+      {
+        "base": 9,
+        "stops": [
+          [10, 1],
+          [12, 2],
+          [13, 3.5]
+        ]
+      }
+    },
+      "layout": { 
+       "visibility": "none",
+       'line-join': 'round',
+       'line-cap': 'round' }
+    },
+    ws_limit:
+      {
+        "id": "ws_limit",
+        "type": "line",
+        "source": "ws_limit",
+        "source-layer":"walk_pednetwork_limits",
+        'paint': {
+          // Orange
+          'line-color': '#efa801',
+          'line-opacity':.8,
+          'line-width': 
+          {
+            "base": 9,
+            "stops": [
+              [10, 1],
+              [12, 2],
+              [13, 3]
+            ]
+          }
+        },
+          "layout": { 
+           "visibility": "none",
+           'line-join': 'round',
+           'line-cap': 'round' }
+    },
+    stationSelect:
+      {
+        "id": "stationSelect",
+        "type": "circle",
+        "source": "accessscore",
+        "paint": {
+          'circle-opacity': 0,
+          'circle-radius': 
+          ['step', ['zoom'],
+          ['case',['boolean', ['feature-state', 'hover'], false],8,6],
+          10,
+          ['case',['boolean', ['feature-state', 'hover'], false],10,8],
+          13,
+          ['case',['boolean', ['feature-state', 'hover'], false],12,9]],
+          'circle-stroke-color': '#ffe100',
+          'circle-stroke-width': 3
+        },
+          "layout": { 
+            "visibility": "none"
+        },
+    }
+};
+
 const layers = {
     countyOutline: {
         "id": "county-outline",
@@ -289,59 +387,6 @@ const layers = {
         },
         "layout": { "visibility": "none" }
       },
-      // as_osm_limits: {
-      //   "id": "as_osm_limits",
-      //   "type": "line",
-      //   "source": "as_osm_limits",
-      //   "source-layer": "as_osm_limits",
-      //   'paint': {
-      //   // 'line-color': '#30958c',
-      //   'line-color': '#3bb8ad',
-      //   'line-opacity':.8,
-      //   'line-width': 4.5},
-      //   "layout": { 
-      //    "visibility": "none",
-      //    'line-join': 'round',
-      //    'line-cap': 'round' }
-      // },
-      // bs_limit: {
-      //   "id": "bs_limit",
-      //   "type": "line",
-      //   "source": "bs_limit",
-      //   "source-layer":"cycle_lowstress_limits",
-      //   'paint': {
-      //   // OG Green
-      //   // 'line-color': '#90d782',
-      //   // Darker Green
-      //   // 'line-color': '#6ecb5b',
-      //   // Light Green
-      //   //  'line-color':'#6ecc1f',
-      //      // Light Purple
-      //   'line-color':'#Df73FF',
-      //   'line-opacity':.8,
-      //   'line-width': 3.5},
-      //   "layout": { 
-      //    "visibility": "none",
-      //    'line-join': 'round',
-      //    'line-cap': 'round' }
-      // },
-      // ws_limit: {
-      //   "id": "ws_limit",
-      //   "type": "line",
-      //   "source": "ws_limit",
-      //   "source-layer":"walk_pednetwork_limits",
-      //   'paint': {
-      //     // Magenta
-      //     // 'line-color': '#ad0073',
-      //     // Orange
-      //     'line-color': '#efa801',
-      //     'line-opacity':.8,
-      //     'line-width': 2.5},
-      //     "layout": { 
-      //      "visibility": "none",
-      //      'line-join': 'round',
-      //      'line-cap': 'round' }
-      //   },
     AccessScore:{
         "id": "stations",
         "type": "circle",
@@ -465,6 +510,48 @@ const layers = {
         ]
       },
       "layout": { "visibility": "none" }
+    },
+    Buildings:{
+      'id': 'Buildings',
+      'source': 'composite',
+      'minzoom':7,
+      'source-layer': 'building',
+      'filter': ['==', 'extrude', 'true'],
+      'type': 'fill-extrusion',
+    //  'minzoom': 14,
+        'paint': {
+          'fill-extrusion-color': '#aaa',
+          'fill-extrusion-height': [
+          'interpolate',
+          ['linear'],
+          ['zoom'],
+          15,
+          0,
+          15.05,
+          ['get', 'height']
+          ],
+          'fill-extrusion-base': [
+          'interpolate',
+          ['linear'],
+          ['zoom'],
+          15,
+          0,
+          15.05,
+          ['get', 'min_height']
+          ],
+          'fill-extrusion-opacity': 0.6
+          }
     }
-}
-export default layers
+};
+
+const nearMap =  {
+  nearMap:{
+    'id': 'nearmap',
+    'type': 'raster',
+    'source': 'nearmap',
+    'paint': {},
+    "layout": {"visibility":"none"}
+    }
+};
+
+export  {catchment, layers, nearMap};
