@@ -3,19 +3,19 @@ const handleStation = function (props,coordinates,map) {
 //  if( document.getElementById("accessScore").style.display = "block") {
 //   alert("display not available");
 // }
-var sName =
-"<h1>" +
-props.station +
-"</h1>" 
-;
+    var sName =
+    "<h1>" +
+    props.station +
+    "</h1>" 
+    ;
 
     var info =
-    "<small>  "+
+    "<small>"+
     props.line +
     "<span><img id='operatorLogo' src='./img/" +
     props.operator +
     ".png'/></span><br>"+
-    " ( "+props.operator +")</small><br>"+
+    // " ( "+props.operator +")</small><br>"+
     props.county +
     " County, " +
     props.state 

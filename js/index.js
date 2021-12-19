@@ -4,7 +4,7 @@ import {catchment, layers, nearMap} from './mapLayers.js'
 // import handleModal from './modal.js'
 import { toggleLayers } from "./forms.js";
 import { togglerHome, togglerMap, togglerEAS, togglerAS, togglerBS, togglerWS } from "./toggler.js";
-
+import { wire_mouse_hover } from "./hover.js";
 // Handles Map Click for stations
 import handleStation from './charts.js'
 import handleStationB from './charts2.js'
@@ -62,7 +62,6 @@ const toggleLegend = e => {
   $("#legend-icon").toggleClass("fa-angle-down fa-angle-up");
 }
 
-
 // toggle bewteen Category Scoring (CHARTS) and Data Measurements (Values)
 document.querySelectorAll(".infoSelection").forEach(el => {
   el.onclick = event => {
@@ -103,6 +102,8 @@ map.on('load', () => {
     togglerHome ();
     togglerMap (map);
     togglerEAS (map);
+
+    wire_mouse_hover(map);
 
     for(const source in sources) map.addSource(source, sources[source])
     for(const layer in catchment) map.addLayer(catchment[layer],"road-label")

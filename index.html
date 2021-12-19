@@ -115,6 +115,24 @@
                         <details id="explore" class="sidebar-details" open>
                             <summary class="sidebar-summary">Explore</summary>
                             <small><i>Clicking on a rail station will zoom in and display scoring analysis catchment areas based on the active scoring analysis method (AccessScore, CycleScore, or PedestrianScore). You will then be able to view that stations AccessScore, CycleScore, and PedestrianScore overall scores (1-10) as well as each individual characteristic scores (0-5) and data values.</i></small>
+                            <div class="info2">
+                                  <div class="infoIcon">
+                                  <img class="infob1"  src="img/info_lc.png" /> 
+                                  Left-click and drag <br> to pan the map
+                                  </div>
+
+                                  <div class="infoIcon">
+                                  <img class="infob2"  src="img/info_mw.png" /> 
+                                  Mouse wheel <br> changes zoom level
+                                  </div>
+
+                                  <div class="infoIcon">
+                                  <img class="infob3"  src="img/info_rc.png" /> 
+                                  Right-click and drag <br> to change 3D view
+                                  </div>
+
+                            
+                              </div> 
                         </details>
                         </div>       
                     </div>                     
@@ -171,9 +189,11 @@
                         <p class="sidebar-text">Compare a station scores for all three scoring analysis methods (AccessScore, CycleScore, and PedestrianScore). The scores are the sum for each stations characteristic normalized to a 1 (low) to 10 (high) scale.
                         </p>
                         </div>
+                        <div id="stationContent">
                         <div id="stationName" ></div> 
                         <div id="stationInfo" ></div>  
-
+                        </div>
+                        
                         <div id="stationScores">
                             <div id="as-score"></div>  
                             <div id="bs-score"></div> 
