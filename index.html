@@ -70,24 +70,25 @@
             <div id="main">
               
                 <div id="aboutWrapper"> 
+                    <div id="aboutText">
                     <p>AccessScore is a webmap displaying an analysis that assesses the infrastructure and demographic characteristics around transit stations that relate to how supportive of bicycling and walking the area is and how much bicycle and pedestrian activity there is or could be. The analysis includes Regional Rail and heavy rail, light rail, trolley, and subway stations throughout the Philadelphia region with service provided by SEPTA, NJ TRANSIT, and PATCO.</p>
                     <br>
                     <p>To create this score, DVRPC staff collected data on station area characteristics that are likely to be factors in whether people walk, bicycle, or drive to transit stations. Together, these individual factors, and a station's total AccessScore, will give transit agencies, trail advocacy groups and municipalities a picture of the station area characteristics that contribute to demand for bicycle and pedestrian facilities. Ultimately, AccessScore may help communities identify and prioritize improvements designed to strengthen pedestrian, cycling, and transit connectivity.</p>
-                    <br>
                     <!-- <p>In addition to AccessScore, staff defined and calculated a PedestrianScore and a CycleScore. All three scores are defined below.</p> -->
-                    <hr>
-                    <h4>For more information:</h4>
-                    <img src="https://www.dvrpc.org/img/homepage/dvrpclogo70px.png" alt="DVRPC logo" class="dvrpc_full_logo"/>
-                    <p style="margin: 5px 0px 0px 45px;display:block"><span>
+                    </div>
+                    <div id="aboutContact">
+                    <!-- <h4>For more information:</h4> -->
+                    <!-- <img src="https://www.dvrpc.org/img/homepage/dvrpclogo70px.png" alt="DVRPC logo" class="dvrpc_full_logo"/> -->
+                    <p><span>
                         Thom Stead<br/>
                         Senior Transportation Planner</br>
                         Office of Transit, Bicycle, and Pedestrian Planning<br/>
                        <a class="one" href="mailto:tstead@dvrpc.org@dvrpc.org">tstead@dvrpc.org </a> | (215) 238-2851 <br/>
                         </span>
                     </p>
-                    <footer class="flex-column">
+                   
                         <p><a href="https://www.dvrpc.org/Products/WEB19518" target="_new" class="hp-link" aria-label="abstract" >Abstract</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#disclaimer" aria-label="disclaimer" rel="modal:open" >Disclaimer</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.dvrpc.org/policies/" target="_new" class="hp-link" aria-label="policies" >Policies</a></p>    
-                    </footer>
+                    </div>
                 </div>
 
                  <div id="aboutscoreWrapper">
@@ -118,20 +119,19 @@
                             <div class="info2">
                                   <div class="infoIcon">
                                   <img class="infob1"  src="img/info_lc.png" /> 
-                                  Left-click and drag <br> to pan the map
+                                  <p class="infoText">Left-click and drag to pan the map</p>
                                   </div>
-
+                                  
                                   <div class="infoIcon">
                                   <img class="infob2"  src="img/info_mw.png" /> 
-                                  Mouse wheel <br> changes zoom level
+                                  <p class="infoText"> Mouse wheel changes zoom level</p>
                                   </div>
-
+                                 
                                   <div class="infoIcon">
                                   <img class="infob3"  src="img/info_rc.png" /> 
-                                  Right-click and drag <br> to change 3D view
+                                  <p class="infoText">Right-click and drag to change 3D view</p>
                                   </div>
-
-                            
+                               
                               </div> 
                         </details>
                         </div>       
@@ -154,7 +154,7 @@
                                 <div id="AS" class="score-cb">
                                     <input type="radio" class="lbox-AS" id="control_01" name="select" value="1" checked>
                                     <label id="label-box" class="AS" for="control_01">
-                                    <h3>AccessScore</h3>
+                                    AccessScore
                                     </label>
                                 </div>   
                                 <div id="score-text"><p>Characteristics <br>within 2 miles <br>of the station.</p></div>
@@ -164,7 +164,7 @@
                                 <div id="BS" class="score-cb">
                                     <input type="radio" class="lbox-BS" id="control_02" name="select" value="2">
                                     <label id="label-box" class="BS" for="control_02">
-                                    <h3>CycleScore</h3>
+                                    CycleScore
                                     </label>
                                 </div>
                                 <div id="score-text"><p>Characteristics within the existing all ages and abilities cycle shed.<br><i>(up to 2 miles)</i></p></div>
@@ -174,7 +174,7 @@
                                 <div id="WS" class="score-cb">
                                     <input type="radio" class="lbox-WS" id="control_03" name="select" value="3">
                                     <label id="label-box" class="WS" for="control_03">
-                                    <h3>PedestrianScore</h3>
+                                    PedestrianScore
                                     </label>
                                 </div>
                                 <div id="score-text"><p>Characteristics within the existing sidewalk network shed.<br><i>(up to 1 mile)</i></p></div>
