@@ -869,6 +869,9 @@ text-align: center;
     font-weight: 700;
     margin-top: -15px;
   }
+  .mapboxgl-popup-content h3 small {
+    color: #fff !important;
+  }
 
   .mapboxgl-popup-content h4 {
     margin: 0;

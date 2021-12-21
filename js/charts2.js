@@ -1,21 +1,26 @@
 const handleStationB = function (props,coordinates,map) {
     //  var props = e.features[0].properties;
 
-    var info =
-    "<h3>" +
+    var sName =
+    "<h1>" +
     props.station +
-    "<small>  "+
+    "</h1>" 
+    ;
+
+    var info =
+    "<small>"+
     props.line +
-    // "</span><span><img id='operatorLogo' src='./img/" +
-    // props.operator +
-    // ".png'/></span><br>"+
-    " ( "+props.operator +")</small></h3><small>"+
+    "<span><img id='operatorLogo' src='./img/" +
+    props.operator +
+    ".png'/></span><br>"+
+    // " ( "+props.operator +")</small><br>"+
     props.county +
     " County, " +
-    props.state
-    "</small></div>" 
+    props.state 
+    "</small>" 
     ;
-    document.getElementById("stationName").innerHTML = info;
+    document.getElementById("stationName").innerHTML = sName;
+    document.getElementById("stationInfo").innerHTML = info;
    // '#a50026',3,'#d73027',4,'#f46d43',5,'#fdae61',6,'#74add1',7,'#4575b4',8,'#313695',11,'#ccc'
    
     if (props.AS_SCORE <= 2.99) {

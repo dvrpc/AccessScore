@@ -283,8 +283,8 @@ map.on('load', () => {
 // HOVER CycleScore
     map.on('mousemove', 'stationsB', (e) => {
       map.getCanvas().style.cursor = 'pointer';
-      var coordinates = e.features[0].geometry.coordinates.slice();
-      var description = '<h3>'+ e.features[0].properties.station +' : '+e.features[0].properties.BS_SCORE+'</h3>';
+      // var coordinates = e.features[0].geometry.coordinates.slice();
+      // var description = '<h3>'+ e.features[0].properties.station +' : '+e.features[0].properties.BS_SCORE+'</h3>';
       if (e.features.length > 0) {
       // When the mouse moves over the station layer, update the
       // feature state for the feature under the mouse
@@ -307,13 +307,14 @@ map.on('load', () => {
     }
     // Populate the popup and set its coordinates
     // based on the feature found.
-    popup.setLngLat(coordinates).setHTML(description).addTo(map);
+    // popup.setLngLat(coordinates).setHTML(description).addTo(map);
+    createPopUpCS(e.features[0]);
     });
 // HOVER PedestrianScore
     map.on('mousemove', 'stationsW', (e) => {
       map.getCanvas().style.cursor = 'pointer';
-      var coordinates = e.features[0].geometry.coordinates.slice();
-      var description = '<h3>'+ e.features[0].properties.station +' : '+e.features[0].properties.WS_SCORE+'</h3>';
+      // var coordinates = e.features[0].geometry.coordinates.slice();
+      // var description = '<h3>'+ e.features[0].properties.station +' : '+e.features[0].properties.WS_SCORE+'</h3>';
       if (e.features.length > 0) {
       // When the mouse moves over the station layer, update the
       // feature state for the feature under the mouse
@@ -336,7 +337,8 @@ map.on('load', () => {
     }
   // Populate the popup and set its coordinates
   // based on the feature found.
-  popup.setLngLat(coordinates).setHTML(description).addTo(map);
+  // popup.setLngLat(coordinates).setHTML(description).addTo(map);
+  createPopUpWS(e.features[0]);
   });
 
   function createPopUp(currentFeature) {
@@ -346,10 +348,34 @@ map.on('load', () => {
     new mapboxgl.Popup({ closeButton: false,closeOnClick: false })
       .setLngLat(currentFeature.geometry.coordinates)
       .setHTML(
-        `<h3>${currentFeature.properties.station}</h3><h4>AccessScore: ${currentFeature.properties.AS_SCORE}</h4>`
+        `<h3>${currentFeature.properties.station}<br><small>${currentFeature.properties.line}</small></h3><h4>AccessScore: ${currentFeature.properties.AS_SCORE}</h4>`
       )
       .addTo(map);
     }
+
+    function createPopUpCS(currentFeature) {
+      const popUps = document.getElementsByClassName('mapboxgl-popup');
+      if (popUps[0]) popUps[0].remove();
+      // var popup = new mapboxgl.Popup({ closeOnClick: false })
+      new mapboxgl.Popup({ closeButton: false,closeOnClick: false })
+        .setLngLat(currentFeature.geometry.coordinates)
+        .setHTML(
+          `<h3>${currentFeature.properties.station}<br><small>${currentFeature.properties.line}</small></h3><h4>CycleScore: ${currentFeature.properties.BS_SCORE}</h4>`
+        )
+        .addTo(map);
+      }
+
+      function createPopUpWS(currentFeature) {
+        const popUps = document.getElementsByClassName('mapboxgl-popup');
+        if (popUps[0]) popUps[0].remove();
+        // var popup = new mapboxgl.Popup({ closeOnClick: false })
+        new mapboxgl.Popup({ closeButton: false,closeOnClick: false })
+          .setLngLat(currentFeature.geometry.coordinates)
+          .setHTML(
+            `<h3>${currentFeature.properties.station}<br><small>${currentFeature.properties.line}</small></h3><h4>PedestrianScore: ${currentFeature.properties.WS_SCORE}</h4>`
+          )
+          .addTo(map);
+        }
 
     function closePopUp() {
       const popUps = document.getElementsByClassName('mapboxgl-popup');
@@ -395,7 +421,8 @@ map.on('load', () => {
     // Reset the cursor style
     // close popup
     map.getCanvas().style.cursor = '';
-    popup.remove();
+    // popup.remove();
+    closePopUp();
   });
 // Hover Leave - PedestrianScore  
   map.on('mouseleave', 'stationsW', function () {
@@ -414,7 +441,8 @@ map.on('load', () => {
     // Reset the cursor style
     // close popup
     map.getCanvas().style.cursor = '';
-    popup.remove();
+    // popup.remove();
+    closePopUp();
   });
 
 // add typeahead and Populated 
