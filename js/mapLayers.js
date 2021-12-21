@@ -189,8 +189,10 @@ const layers = {
         'circle-radius':  {
           "base": 9,
           "stops": [
-            [10, 2],
+            [10, 1],
+            [12, 2],
             [13, 3],
+            [14, 4],
             [15, 4.4],
           ]
         },
@@ -255,26 +257,6 @@ const layers = {
     },
     "layout": { "visibility": "none" }
   },
-    retail: {
-      "id": "retail",
-      "type": "fill",
-      "source": "retail",
-      "paint": {
-        "fill-color": "rgba(156, 157, 240, 0.7)"
-        // hex #9C9DF0
-      },
-      "layout": { "visibility": "none" }
-    },
-    retail2: {
-      "id": "retail2",
-      "type": "line",
-      "source": "retail2",
-      "paint": {
-        "line-width": 3,
-        "line-color": "rgba(156, 157, 240,0.6)",
-      },
-      "layout": { "visibility": "none" }
-    },
     sidewalks: {
       id: "sidewalks",
       type: "line",
@@ -376,7 +358,7 @@ const layers = {
     //  filter: ["==", "bikefacili", 'Bike Lane'],
      filter:['match', ['get', 'bikefacili'], bike_value, true, false],
   //  filter: ['<>', ['get', 'bikefacili'], [""], true, false],
-}, 
+    }, 
     as_2mile: {
         "id": "as_2mile",
         "type": "fill",
@@ -462,55 +444,6 @@ const layers = {
         ]
         }
     },
-    parks: {
-      "id": "parks",
-      "type": "fill",
-      "source": "parks",
-      "paint": {
-        "fill-color": "rgba( 134, 195, 25,  0.5)"
-      },
-      "layout": { "visibility": "none" }
-    },
-    IPD: {
-      id: "IPD",
-      type: "fill",
-      source: "IPD",
-      paint: {
-        "fill-color": [
-          "interpolate",
-          ["linear"],
-          ["get", "ipd_score"],
-          9,
-          "#ffffd9",
-          13,
-          "#edf8b1",
-          15,
-          "#c7e9b4",
-          17,
-          "#7fcdbb",
-          19,
-          "#41b6c4",
-          21,
-          "#1d91c0",
-          24,
-          "#225ea8",
-          27,
-          "#253494",
-          30,
-          "#081d58"
-        ],
-        "fill-opacity": [
-          "interpolate",
-          ["linear"],
-          ["zoom"],
-          0,
-          1,
-          7,
-          0.75
-        ]
-      },
-      "layout": { "visibility": "none" }
-    },
     Buildings:{
       'id': 'Buildings',
       'source': 'composite',
@@ -543,6 +476,77 @@ const layers = {
           }
     }
 };
+const baselayerPolygons = {
+  retail: {
+    "id": "retail",
+    "type": "fill",
+    "source": "retail",
+    "paint": {
+      "fill-color": "rgba(156, 157, 240, 0.7)"
+      // hex #9C9DF0
+    },
+    "layout": { "visibility": "none" }
+  },
+  retail2: {
+    "id": "retail2",
+    "type": "line",
+    "source": "retail2",
+    "paint": {
+      "line-width": 3,
+      "line-color": "rgba(156, 157, 240,0.6)",
+    },
+    "layout": { "visibility": "none" }
+  },
+  IPD: {
+    id: "IPD",
+    type: "fill",
+    source: "IPD",
+    paint: {
+      "fill-color": [
+        "interpolate",
+        ["linear"],
+        ["get", "ipd_score"],
+        9,
+        "#ffffd9",
+        13,
+        "#edf8b1",
+        15,
+        "#c7e9b4",
+        17,
+        "#7fcdbb",
+        19,
+        "#41b6c4",
+        21,
+        "#1d91c0",
+        24,
+        "#225ea8",
+        27,
+        "#253494",
+        30,
+        "#081d58"
+      ],
+      "fill-opacity": [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        0,
+        1,
+        7,
+        0.75
+      ]
+    },
+    "layout": { "visibility": "none" }
+  },
+  parks: {
+    "id": "parks",
+    "type": "fill",
+    "source": "parks",
+    "paint": {
+      "fill-color": "rgba( 134, 195, 25,  0.5)"
+    },
+    "layout": { "visibility": "none" }
+  }
+};
 
 const nearMap =  {
   nearMap:{
@@ -554,4 +558,4 @@ const nearMap =  {
     }
 };
 
-export  {catchment, layers, nearMap};
+export  {catchment, layers, baselayerPolygons, nearMap};

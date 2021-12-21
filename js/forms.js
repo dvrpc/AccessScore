@@ -5,6 +5,7 @@ const processForm = form => {
 
 // return layer to be toggled
 const toggleLayers = (form, map) => {
+  // Add a custom event listener to the map
 
     form.onchange = e => {
      
@@ -23,6 +24,10 @@ const toggleLayers = (form, map) => {
         else if (layer === "sidewalks"){
             map.setLayoutProperty("sidewalks", 'visibility', visibility)
             map.setLayoutProperty("crosswalks", 'visibility', visibility)
+        }
+        else if (layer === "IPD"){
+            map.setLayoutProperty("IPD", 'visibility', visibility)
+            map.fire('closeAllPopups')
         }
         else {
         map.setLayoutProperty(layer, 'visibility', visibility)

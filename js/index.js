@@ -1,6 +1,6 @@
 import makeMap from './map.js'
 import sources from './mapSources.js'
-import {catchment, layers, nearMap} from './mapLayers.js'
+import {catchment, layers, baselayerPolygons, nearMap} from './mapLayers.js'
 // import handleModal from './modal.js'
 import { toggleLayers } from "./forms.js";
 import { togglerHome, togglerMap, togglerEAS, togglerAS, togglerBS, togglerWS } from "./toggler.js";
@@ -108,7 +108,8 @@ map.on('load', () => {
     for(const source in sources) map.addSource(source, sources[source])
     for(const layer in catchment) map.addLayer(catchment[layer],"road-label")
     for(const layer in layers) map.addLayer(layers[layer])
-    for(const layer in nearMap) map.addLayer(nearMap[layer],"road-rail")
+    for(const layer in baselayerPolygons) map.addLayer(baselayerPolygons[layer],"admin-1-boundary-bg")
+    for(const layer in nearMap) map.addLayer(nearMap[layer],"bridge-motorway-trunk-2")
  
     // Wire all checkbox layer toggles to an on-click event
     toggleLayerForms.forEach((form) => toggleLayers(form, map));
@@ -117,11 +118,11 @@ map.on('load', () => {
  
     // Create a popup, but don't add it to the map yet.
     let popup = new mapboxgl.Popup({
-      className: "station-popup",
+      // className: "station-popup",
       closeButton: false,
       closeOnClick: false
     });  
-
+  
     const showSidebar = function (e) {   
       $("#explore").prop('open', false);
       $("#analysisWrapper").css("display", "flex");
@@ -249,9 +250,9 @@ map.on('load', () => {
 // HOVER AccessScore
     map.on('mousemove', 'stations', (e) => {
         map.getCanvas().style.cursor = 'pointer';
-        var coordinates = e.features[0].geometry.coordinates.slice();
-        var description = '<h3>'+ e.features[0].properties.station +' : '+e.features[0].properties.AS_SCORE+'</h3>';
+        // var coordinates = e.features[0].geometry.coordinates.slice();
         // var description = '<h3>'+ e.features[0].properties.station +' : '+e.features[0].properties.AS_SCORE+'</h3>';
+        // // var description = '<h3>'+ e.features[0].properties.station +' : '+e.features[0].properties.AS_SCORE+'</h3>';
        // var Popclass = 'station-popup';
 
         if (e.features.length > 0) {
@@ -276,8 +277,8 @@ map.on('load', () => {
       }
       // Populate the popup and set its coordinates
       // based on the feature found.
-      popup.setLngLat(coordinates).setHTML(description).addTo(map);
-
+      // popup.setLngLat(coordinates).setHTML(description).addTo(map);
+      createPopUp(e.features[0]);
     });
 // HOVER CycleScore
     map.on('mousemove', 'stationsB', (e) => {
@@ -338,6 +339,23 @@ map.on('load', () => {
   popup.setLngLat(coordinates).setHTML(description).addTo(map);
   });
 
+  function createPopUp(currentFeature) {
+    const popUps = document.getElementsByClassName('mapboxgl-popup');
+    if (popUps[0]) popUps[0].remove();
+    // var popup = new mapboxgl.Popup({ closeOnClick: false })
+    new mapboxgl.Popup({ closeButton: false,closeOnClick: false })
+      .setLngLat(currentFeature.geometry.coordinates)
+      .setHTML(
+        `<h3>${currentFeature.properties.station}</h3><h4>AccessScore: ${currentFeature.properties.AS_SCORE}</h4>`
+      )
+      .addTo(map);
+    }
+
+    function closePopUp() {
+      const popUps = document.getElementsByClassName('mapboxgl-popup');
+      if (popUps[0]) popUps[0].remove();
+      }
+
   // When the mouse leaves the station layer, update the eature state of the previously hovered feature
 // Hover Leave - AccessScore  
   map.on('mouseleave', 'stations', function () {
@@ -356,8 +374,10 @@ map.on('load', () => {
     // Reset the cursor style
     // close popup
     map.getCanvas().style.cursor = '';
-    popup.remove();
+    closePopUp();
+    // popup.remove();
   });
+
 // Hover Leave - CycleScore  
   map.on('mouseleave', 'stationsB', function () {
     if (stationID) {

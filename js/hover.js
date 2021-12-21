@@ -33,11 +33,22 @@ const wire_mouse_hover = (map) => {
      *
      * @param {mapboxgl.Map} map - The map object for the page
      */
-    var layers = ["transit_stops"];
+    var layers = ["transit_stops","es","septa","njt","circuit_trails","IPD"];
   
     layers.forEach((lyr) => wire_single_layer(map, lyr));
   
-    // Add popup with name of POI when hovering
+    // // Add popup when hovering
+    // map.on("mouseenter", "prail", function (e) {
+    //   var props = e.features[0].properties;
+    //   var msg = "<h3>" + props.line_name + "</h3>";
+    // popup.setLngLat(e.lngLat).setHTML(msg).addTo(map);
+    // });
+  
+    // // change mouse tip upon leaving feature
+    // map.on("mouseleave", "prail", function (e) {
+    // popup.remove();
+    // });
+
     map.on("mouseenter", "transit_stops", function (e) {
       var coordinates = e.features[0].geometry.coordinates.slice();
       var props = e.features[0].properties;
@@ -49,7 +60,62 @@ const wire_mouse_hover = (map) => {
     map.on("mouseleave", "transit_stops", function (e) {
     popup.remove();
     });
+    
+    map.on("mouseenter", "es", function (e) {
+      var coordinates = e.features[0].geometry.coordinates.slice();
+      var props = e.features[0].properties;
+      var msg = "<h3>" + props.name + "</h3>";
+    popup.setLngLat(coordinates).setHTML(msg).addTo(map);
+    });
   
+    // change mouse tip upon leaving feature
+    map.on("mouseleave", "es", function (e) {
+    popup.remove();
+    });
+
+    map.on("mouseenter", "septa", function (e) {
+      var props = e.features[0].properties;
+      var msg = "<h3>" + props.linename + "</h3>";
+    popup.setLngLat(e.lngLat).setHTML(msg).addTo(map);
+    });
+  
+    // change mouse tip upon leaving feature
+    map.on("mouseleave", "septa", function (e) {
+    popup.remove();
+    });
+
+    map.on("mouseenter", "njt", function (e) {
+      var props = e.features[0].properties;
+      var msg = "<h3>" + props.line + "</h3>";
+    popup.setLngLat(e.lngLat).setHTML(msg).addTo(map);
+    });
+  
+    // change mouse tip upon leaving feature
+    map.on("mouseleave", "njt", function (e) {
+    popup.remove();
+    });
+
+    map.on("mouseenter", "circuit_trails", function (e) {
+      var props = e.features[0].properties;
+      var msg = "<h3>" + props.name + "</h3>";
+    popup.setLngLat(e.lngLat).setHTML(msg).addTo(map);
+    });
+  
+    // change mouse tip upon leaving feature
+    map.on("mouseleave", "circuit_trails", function (e) {
+    popup.remove();
+    });
+
+    map.on("mouseenter", "IPD", function (e) {
+      var props = e.features[0].properties;
+      var msg = "<h3>" + props.ipd_class + "("+props.ipd_score +")</h3>";
+    popup.setLngLat(e.lngLat).setHTML(msg).addTo(map);
+    });
+  
+    //change mouse tip upon leaving feature
+    map.on("mouseleave", "IPD", function (e) {
+    popup.remove();
+    });
   };
   
   export {wire_mouse_hover};
