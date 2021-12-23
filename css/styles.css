@@ -1137,8 +1137,11 @@ color:#696969;
 .legend-crime{
     color:#c70c4d;
 }
-.legend-es{
+.legend-es {
     color:#c8ffaf;
+}
+.legend-civic {
+    color:#66FFFF;
 }
 .legend-high{
     color:#fa78b9;

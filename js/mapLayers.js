@@ -16,7 +16,7 @@ const catchment = {
       "stops": [
         [10, 1],
         [12, 2],
-        [13, 4]
+        [13, 3.5]
       ]
     }
   },
@@ -40,7 +40,7 @@ const catchment = {
         "stops": [
           [10, 1],
           [12, 2],
-          [13, 3.5]
+          [13, 3.1]
         ]
       }
     },
@@ -183,15 +183,39 @@ const layers = {
         "visibility":"none",
          },
       'paint': {
-        'circle-stroke-color': '#61ff19',
-        'circle-stroke-width': .2,
+        'circle-stroke-color': '#3C4C34',
+        'circle-stroke-width': .5,
         'circle-color':'#c8ffaf',
         'circle-radius':  {
           "base": 9,
           "stops": [
-            [10, 1],
-            [12, 2],
-            [13, 3],
+            [10, 2],
+            [12, 2.5],
+            [13, 3.5],
+            [14, 4],
+            [15, 4.4],
+          ]
+        },
+      }
+    },
+    civic: {
+      'id': 'civic',
+      'type': 'circle',
+      'source': 'civic',
+      // minzoom: 11,
+      "layout": {
+        "visibility":"none",
+         },
+      'paint': {
+        'circle-stroke-color': '#000',
+        'circle-stroke-width': .5,
+        'circle-color':'#66FFFF',
+        'circle-radius':  {
+          "base": 9,
+          "stops": [
+            [10, 2],
+            [12, 2.5],
+            [13, 3.5],
             [14, 4],
             [15, 4.4],
           ]
@@ -328,7 +352,7 @@ const layers = {
         // make layer visible by default
         visibility: "none",
       },
-      minzoom: 11,
+      // minzoom: 11,
       paint: {
         "line-width": 1.5,
         "line-color": "rgba(249, 248, 113,0.7)",
@@ -529,10 +553,8 @@ const baselayerPolygons = {
         "interpolate",
         ["linear"],
         ["zoom"],
-        0,
-        1,
-        7,
-        0.75
+        7,1,
+        18,0.75
       ]
     },
     "layout": { "visibility": "none" }
