@@ -40,7 +40,7 @@ const sources = {
     },
     'as_2mile': {
         type:'geojson',
-        data:'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/AccessScore/FeatureServer/7/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
+        data:'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/AccessScore/FeatureServer/8/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
         generateId: true //
     },
     'as_osm_limits': {
