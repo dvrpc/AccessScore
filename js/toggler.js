@@ -1,7 +1,6 @@
 // Access Score CheckBox toggle
 const togglerAS = (map) => {
 document.getElementById("AS").addEventListener("click", function() {
-  // handleStation(propsStation,corrdinatesStation,map)
   $("input:checkbox[value='as_osm_limits']").prop('checked',false).trigger("click");
   $("input:checkbox[value='bs_limit']").prop('checked',true).trigger("click");
   $("input:checkbox[value='ws_limit']").prop('checked',true).trigger("click");

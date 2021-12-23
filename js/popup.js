@@ -114,7 +114,7 @@ map.on('mousemove', 'stations', (e) => {
       new mapboxgl.Popup({ closeButton: false,closeOnClick: false })
         .setLngLat(currentFeature.geometry.coordinates)
         .setHTML(
-          `<h3>${currentFeature.properties.station}<br><small>${currentFeature.properties.line}</small></h3><h4>CycleScore: ${currentFeature.properties.BS_SCORE}</h4>`
+          `<h3>${currentFeature.properties.station}<br><small>${currentFeature.properties.line}</small></h3><h4>CycleScore: ${currentFeature.properties.CS_SCORE}</h4>`
         )
         .addTo(map);
       }

@@ -415,7 +415,7 @@ const layers = {
         'circle-stroke-width': 1,
         'circle-color': [
             'step',
-            ['get', 'BS_SCORE'],
+            ['get', 'CS_SCORE'],
             '#a50026',3,'#d73027',4,'#f46d43',5,'#fdae61',6,'#74add1',7,'#4575b4',8,'#313695',11,'#ccc'
         ]
         }

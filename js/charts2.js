@@ -43,23 +43,23 @@ const handleStationB = function (props,coordinates,map) {
     // "<div id='accessScore' class='scoreSelection' value='accessScore'>Access Score</div>"
     document.getElementById("as-score").innerHTML = accessScore;
 
-    if (props.BS_SCORE <= 2.99) {
+    if (props.CS_SCORE <= 2.99) {
         var color = 'background:#a50026';
-      } else if (props.BS_SCORE <= 3.99){
+      } else if (props.CS_SCORE <= 3.99){
         var color = 'background:#d73027';
-    } else if (props.BS_SCORE <= 4.99){
+    } else if (props.CS_SCORE <= 4.99){
         var color = 'background:#f46d43';
-    } else if (props.BS_SCORE <= 5.99){
+    } else if (props.CS_SCORE <= 5.99){
         var color = 'background:#fdae61';
-    } else if (props.BS_SCORE <= 6.99){
+    } else if (props.CS_SCORE <= 6.99){
         var color = 'background:#74add1';
-    } else if (props.BS_SCORE <= 7.99){
+    } else if (props.CS_SCORE <= 7.99){
         var color = 'background:#4575b4';
     } else {
         var color = 'background:#313695';
       }
 
-    var bikeScore = "<div class='odemeter' style="+ color +">"+ props.BS_SCORE+ "</div><div class='odemter-text'>CycleScore</div>"
+    var bikeScore = "<div class='odemeter' style="+ color +">"+ props.CS_SCORE+ "</div><div class='odemter-text'>CycleScore</div>"
     // "<div class='scoreSelection' value='bikeScore'>Cycle Score</div>"
     document.getElementById("bs-score").innerHTML = bikeScore;
 
@@ -232,7 +232,7 @@ const handleStationB = function (props,coordinates,map) {
     function updatebarChartBS(Values) {
      var options = {
          chart: {
-             renderTo: 'chartBS1',
+             renderTo: 'chartAS1',
              type:'bar',
              plotBackgroundColor: null,
              plotBorderWidth: 0,//null,
@@ -301,7 +301,7 @@ const handleStationB = function (props,coordinates,map) {
  function updatebarChartBS2(Values) {
     var options = {
         chart: {
-            renderTo: 'chartBS2',
+            renderTo: 'chartAS2',
             type:'bar',
             plotBackgroundColor: null,
             plotBorderWidth: 0,//null,

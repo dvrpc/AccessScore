@@ -5,11 +5,9 @@ import {catchment, layers, baselayerPolygons, nearMap} from './mapLayers.js'
 import { toggleLayers } from "./forms.js";
 import { togglerHome, togglerMap, togglerEAS, togglerAS, togglerBS, togglerWS } from "./toggler.js";
 import { wire_layer_hover } from "./popup.js";
-// import { wire_mouse_hover } from "./hover.js";
 // Handles Map Click for stations
 import handleStation from './charts.js'
-import handleStationB from './charts2.js'
-import handleStationW from './charts3.js'
+
 
 // add additional imports here (popups, forms, etc)
 // core functionality 
@@ -223,7 +221,8 @@ map.on('load', () => {
         // map.setLayoutProperty('bs_limit', 'visibility', 'visible');
         // map.setLayoutProperty('ws_limit', 'visibility', 'visible');
       }
-      handleStationB(props,coordinates,map)   
+      // handleStationB(props,coordinates,map)   
+      handleStation(props,coordinates,map)  
       storeStation(stationIDb)
       storeFull(props,coordinates)
     });
@@ -245,7 +244,7 @@ map.on('load', () => {
         // map.setLayoutProperty('bs_limit', 'visibility', 'visible');
         // map.setLayoutProperty('ws_limit', 'visibility', 'visible');
       }
-      handleStationW(props,coordinates,map)  
+      handleStation(props,coordinates,map)  
       storeStation(stationIDw)
       storeFull(props,coordinates)
     });

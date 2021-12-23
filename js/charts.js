@@ -45,23 +45,23 @@ const handleStation = function (props,coordinates,map) {
     // "<div id='accessScore' class='scoreSelection' value='accessScore'>Access Score</div>"
     document.getElementById("as-score").innerHTML = accessScore;
 
-    if (props.BS_SCORE <= 2.9) {
+    if (props.CS_SCORE <= 2.9) {
         var color = 'background:#a50026';
-      } else if (props.BS_SCORE <= 3.99){
+      } else if (props.CS_SCORE <= 3.99){
         var color = 'background:#d73027';
-    } else if (props.BS_SCORE <= 4.9){
+    } else if (props.CS_SCORE <= 4.9){
         var color = 'background:#f46d43';
-    } else if (props.BS_SCORE <= 5.9){
+    } else if (props.CS_SCORE <= 5.9){
         var color = 'background:#fdae61';
-    } else if (props.BS_SCORE <= 6.9){
+    } else if (props.CS_SCORE <= 6.9){
         var color = 'background:#74add1';
-    } else if (props.BS_SCORE <= 7.9){
+    } else if (props.CS_SCORE <= 7.9){
         var color = 'background:#4575b4';
     } else {
         var color = 'background:#313695';
       }
 
-    var bikeScore = "<div class='odemeter' style="+ color +">"+ props.BS_SCORE+ "</div><div class='odemter-text'>CycleScore</div>"
+    var bikeScore = "<div class='odemeter' style="+ color +">"+ props.CS_SCORE+ "</div><div class='odemter-text'>CycleScore</div>"
     // "<div class='scoreSelection' value='bikeScore'>Cycle Score</div>"
     document.getElementById("bs-score").innerHTML = bikeScore;
 
@@ -95,13 +95,13 @@ const handleStation = function (props,coordinates,map) {
     }
 
     let POS_a = lookup[props.pos_sc_a];
-    let POS_b = lookup[props.pos_sc_b];
+    let POS_c = lookup[props.pos_sc_c];
     let POS_w = lookup[props.pos_sc_w];
     let WRC_a = lookup[props.wrc_sc_a];
-    let WRC_b = lookup[props.wrc_sc_b];
+    let WRC_c = lookup[props.wrc_sc_c];
     let WRC_w = lookup[props.wrc_sc_w];
     let CIR_a = lookup[props.cir_sc_a];
-    let CIR_b = lookup[props.cir_sc_b];
+    let CIR_c = lookup[props.cir_sc_c];
     let CIR_w = lookup[props.cir_sc_w];
 
     var content1b = "<div><table class='dataTable'>" 
@@ -114,35 +114,35 @@ const handleStation = function (props,coordinates,map) {
         +"<tr class='dataTable-row'>"
         + "<td class='data-info'>Civic and Cultural Attractors</td>"
         + "<td class='data-value'>"+ props.civ_sm_a +"</td>"
-        + "<td class='data-value'>"+ props.civ_sm_b +"</td>"
+        + "<td class='data-value'>"+ props.civ_sm_c +"</td>"
         +"<td class='data-value'>"+ props.civ_sm_w +"</td>"
         +"</tr>"
         +"<tr class='dataTable-row'>"
         + "<td class='data-info'>Employees</td>"
         +"<td class='data-value'>"+numeral(props.emp_sm_a).format("(0,0)") +"</td>"
-        +"<td class='data-value'>"+numeral(props.emp_sm_b).format("(0,0)") +"</td>"
+        +"<td class='data-value'>"+numeral(props.emp_sm_c).format("(0,0)") +"</td>"
         +"<td class='data-value'>"+numeral(props.emp_sm_w).format("(0,0)") +"</td>"
         +"</tr>"
         +"<tr class='dataTable-row'>"
         +"<td class='data-info'>Essential Services (ETA)</td>"
         +"<td class='data-value'>"+props.ess_sm_a +"</td>"
-        +"<td class='data-value'>"+props.ess_sm_b +"</td>"
+        +"<td class='data-value'>"+props.ess_sm_c +"</td>"
         +"<td class='data-value'>"+props.ess_sm_w +"</td>"
         +"</tr>"
         +"<tr class='dataTable-row'>"
         +"<td class='data-info'>Parks and Open Space</td>"
         +"<td class='data-value'>"+POS_a+"</td>"
-        +"<td class='data-value'>"+POS_b+"</td>"
+        +"<td class='data-value'>"+POS_c+"</td>"
         +"<td class='data-value'>"+POS_w+"</td>"
         +"</tr>"
         +"<tr class='dataTable-row'>"
         +"<td class='data-info2'>Walkable Retail and Centers</td>"
         +"<td class='data-value2'>"+WRC_a+"</td>"
-        +"<td class='data-value2'>"+WRC_b+"</td>"
+        +"<td class='data-value2'>"+WRC_c+"</td>"
         +"<td class='data-value2'>"+WRC_w+"</td>"
         +"</tr>"
         +"</table></div>";
-    document.getElementById("dataMeasurements1b").innerHTML = content1b; 
+    document.getElementById("dataMeasurements1").innerHTML = content1b; 
 
     let lookupIPD = {
         0: "n/a",
@@ -164,19 +164,19 @@ const handleStation = function (props,coordinates,map) {
     +"<tr class='dataTable-row'>"
     + "<td class='data-info'>Indicators of Potential Disadvantage</td>"
     + "<td class='data-value'>"+ props.ipd_sc_a +"</td>"
-    + "<td class='data-value'>"+ props.ipd_sc_b +"</td>"
+    + "<td class='data-value'>"+ props.ipd_sc_c +"</td>"
     +"<td class='data-value'>"+ props.ipd_sc_w+"</td>"
     +"</tr>"
     +"<tr class='dataTable-row'>"
     +"<td class='data-info'>Population Density</td>"
     +"<td class='data-value'>"+numeral(props.pop_sm_a).format("(0,0)") +"</td>"
-    +"<td class='data-value'>"+numeral(props.pop_sm_b).format("(0,0)") +"</td>"
+    +"<td class='data-value'>"+numeral(props.pop_sm_c).format("(0,0)") +"</td>"
     +"<td class='data-value'>"+numeral(props.pop_sm_w).format("(0,0)") +"</td>"
     +"</tr>"
     +"<tr class='dataTable-row'>"
     +"<td class='data-info2'>Zero Vehicle Households</td>"
     +"<td class='data-value'>"+numeral(props.zvh_sm_a).format("(0,0)") +"</td>"
-    +"<td class='data-value'>"+numeral(props.zvh_sm_b).format("(0,0)") +"</td>"
+    +"<td class='data-value'>"+numeral(props.zvh_sm_c).format("(0,0)") +"</td>"
     +"<td class='data-value'>"+numeral(props.zvh_sm_w).format("(0,0)") +"</td>"
     +"</tr>"
     +"</table></div>";
@@ -198,7 +198,7 @@ const handleStation = function (props,coordinates,map) {
     +"<tr class='dataTable-row'>"
     +"<td class='data-info'>Percentage of Local Drivers</td>"
     +"<td class='data-value'>"+numeral(props.lps_va_a).format("0.0%") +"</td>"
-    +"<td class='data-value'>"+numeral(props.lps_va_b).format("0.0%") +"</td>"
+    +"<td class='data-value'>"+numeral(props.lps_va_c).format("0.0%") +"</td>"
     +"<td class='data-value'>"+numeral(props.lps_va_w).format("0.0%") +"</td>"
     +"</tr>"
     +"<tr class='dataTable-row'>"
@@ -220,7 +220,7 @@ const handleStation = function (props,coordinates,map) {
     +"<tr class='dataTable-row'>"
     + "<td class='data-info'>Circuit Trail Proximity</td>"
     + "<td class='data-value'>"+ CIR_a +"</td>"
-    + "<td class='data-value'>"+ CIR_b +"</td>"
+    + "<td class='data-value'>"+ CIR_c +"</td>"
     +"<td class='data-value'>"+ CIR_w +"</td>"
     +"</tr>"
     +"<tr class='dataTable-row'>"
@@ -238,13 +238,13 @@ const handleStation = function (props,coordinates,map) {
     +"<tr class='dataTable-row'>"
     +"<td class='data-info'>Low Stress Bike Shed </td>"
     +"<td class='data-value'>"+ numeral(props.lts_va_a).format("(0.00)")+"</td>"
-    +"<td class='data-value'>"+ numeral(props.lts_va_b).format("(0.00)")+"</td>"
+    +"<td class='data-value'>"+ numeral(props.lts_va_c).format("(0.00)")+"</td>"
     +"<td class='data-value'>"+ numeral(props.lts_va_w).format("(0.00)")+"</td>"
     +"</tr>"
     +"<tr class='dataTable-row'>"
     +"<td class='data-info2'>Walk Shed (linear miles)</td>"
     +"<td class='data-value2'>"+  numeral(props.ped_va_a).format("(0.00)") +"</td>"
-    +"<td class='data-value2'>"+  numeral(props.ped_va_b).format("(0.00)") +"</td>"
+    +"<td class='data-value2'>"+  numeral(props.ped_va_c).format("(0.00)") +"</td>"
     +"<td class='data-value2'>"+  numeral(props.ped_va_w).format("(0.00)") +"</td>"
     +"</tr>"
     +"</table></div>";
@@ -264,25 +264,25 @@ const handleStation = function (props,coordinates,map) {
 
     // Chart 1 values
     var score1 = [props.civ_sc_a,props.emp_sc_a,props.ess_sc_a, props.pos_sc_a,props.wrc_sc_a];
-    var score1BS = [props.civ_sc_b,props.emp_sc_b,props.ess_sc_b, props.pos_sc_b,props.wrc_sc_b];
+    var score1CS = [props.civ_sc_c,props.emp_sc_c,props.ess_sc_c, props.pos_sc_c,props.wrc_sc_c];
     var score1WS = [props.civ_sc_w,props.emp_sc_w,props.ess_sc_w, props.pos_sc_w,props.wrc_sc_w];
     
     var score2 = [props.ipd_sc_a,props.pop_sc_a,props.zvh_sc_a];
-    var score2BS = [props.ipd_sc_b,props.pop_sc_b,props.zvh_sc_b];
+    var score2CS = [props.ipd_sc_c,props.pop_sc_c,props.zvh_sc_c];
     var score2WS = [props.ipd_sc_w,props.pop_sc_w,props.zvh_sc_w];
   
-    var score3 = [props.npb_sc,props.lps_sc_a,props.tvv_sc];
-    var score3BS = [props.npb_sc,props.lps_sc_b,props.tvv_sc];
-    var score3WS = [props.npb_sc,props.lps_sc_w,props.tvv_sc];
+    var score3 = [props.npb_sc_a,props.lps_sc_a,props.tvv_sc_a];
+    var score3CS = [props.npb_sc_c,props.lps_sc_c,props.tvv_sc_c];
+    var score3WS = [props.npb_sc_w,props.lps_sc_w,props.tvv_sc_w];
 
     var score4 = [props.cir_sc_a,props.int_sc_a,props.ksi_sc_a, props.lts_sc_a,props.ped_sc_a];
-    var score4BS = [props.cir_sc_b,props.int_sc_b,props.ksi_sc_b, props.lts_sc_b,props.ped_sc_b];
+    var score4CS = [props.cir_sc_c,props.int_sc_c,props.ksi_sc_c, props.lts_sc_c,props.ped_sc_c];
     var score4WS = [props.cir_sc_w,props.int_sc_w,props.ksi_sc_w, props.lts_sc_w,props.ped_sc_w];
 
-    updatebarChart(score1,score1BS,score1WS);
-    updatebarChart2(score2,score2BS,score2WS);
-    updatebarChart3(score3,score3BS,score3WS);
-    updatebarChart4(score4,score4BS,score4WS);
+    updatebarChart(score1,score1CS,score1WS);
+    updatebarChart2(score2,score2CS,score2WS);
+    updatebarChart3(score3,score3CS,score3WS);
+    updatebarChart4(score4,score4CS,score4WS);
 
     function updatebarChart(Values,Values2,Values3) {
      var options = {
