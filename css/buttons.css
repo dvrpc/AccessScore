@@ -94,7 +94,7 @@ margin: 5px;
 #legend-group {
 	position: absolute;
     left: 0px;
-    bottom: 55px;
+    bottom: 60px;
     height: auto;
     width: 100px;
     padding: 5px;
@@ -105,6 +105,20 @@ margin: 5px;
     cursor: pointer;
     background: rgba(255,255,255, 0.85);
     display:block;
+}
+#legend-Item{
+    /* text-align: center; */
+    height:15px;
+}
+#legend-Item p{
+    margin-left: 25px;
+    line-height: 15px;
+}
+.circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50px;
+    margin: 5px;
 }
 /* old css for OG legend Box */
 /* #legend-box-Item {
