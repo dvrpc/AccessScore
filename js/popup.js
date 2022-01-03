@@ -206,7 +206,7 @@ map.on('mousemove', 'stations', (e) => {
     new mapboxgl.Popup({ closeButton: false,closeOnClick: false })
       .setLngLat(currentFeature.geometry.coordinates)
       .setHTML(
-        `<h4>${currentFeature.properties.stop_name}</h4><p class="BUS" >&nbsp;&nbsp;Transit Stop</p>`
+        `<h4 class="BUS">${currentFeature.properties.stop_name}</h4><p>&nbsp;&nbsp;Transit Stop</p>`
       )
       .addTo(map);
     }
@@ -228,7 +228,7 @@ map.on('mousemove', 'stations', (e) => {
     new mapboxgl.Popup({ closeButton: false,closeOnClick: false })
       .setLngLat(currentFeature.geometry.coordinates)
       .setHTML(
-        `<h4>${currentFeature.properties.name}</h4><p class="ES" >&nbsp;&nbsp;Essential Services</p>`
+        `<h4 class="ES">${currentFeature.properties.name}</h4><p>&nbsp;&nbsp;Essential Services</p>`
       )
       .addTo(map);
     }
@@ -243,6 +243,28 @@ map.on('mousemove', 'stations', (e) => {
     closePopUp();
   });
 
+  function createPopUpCiv(currentFeature) { 
+    const popUps = document.getElementsByClassName('mapboxgl-popup');
+    if (popUps[0]) popUps[0].remove();
+    // var popup = new mapboxgl.Popup({ closeOnClick: false })
+    new mapboxgl.Popup({ closeButton: false,closeOnClick: false })
+      .setLngLat(currentFeature.geometry.coordinates)
+      .setHTML(
+        `<h4 class="CIV">${currentFeature.properties.TRADENAME}</h4><p>&nbsp;&nbsp;Civic and Cultural<br>&nbsp;&nbsp;Resources</p>`
+      )
+      .addTo(map);
+    }
+
+  map.on("mousemove", "civic", function (e) {
+    map.getCanvas().style.cursor = 'pointer';
+    createPopUpCiv(e.features[0]);
+  });
+
+  // change mouse tip upon leaving feature
+  map.on("mouseleave", "civic", function (e) {
+    closePopUp();
+  });
+
   function createPopUpSEPTA(currentFeature,coords) { 
     const popUps = document.getElementsByClassName('mapboxgl-popup');
     if (popUps[0]) popUps[0].remove();
@@ -252,7 +274,7 @@ map.on('mousemove', 'stations', (e) => {
       .setLngLat(coords)
       .setHTML(
     //   console.log("lng:" + e.coords.longitude + ", lat:" + e.coords.latitude);
-        `<h4>${currentFeature.properties.linename}</h4><p class="BUS" >&nbsp;&nbsp;SEPTA Bus Route</p>`
+        `<h4 class="BUS">${currentFeature.properties.linename}</h4><p>&nbsp;&nbsp;SEPTA Bus Route</p>`
       )
       .addTo(map);
     }
@@ -274,9 +296,67 @@ map.on('mousemove', 'stations', (e) => {
     closePopUp();
   });
 
+  function createPopUpCircuit(currentFeature,coords) { 
+    const popUps = document.getElementsByClassName('mapboxgl-popup');
+    if (popUps[0]) popUps[0].remove();
+    // var popup = new mapboxgl.Popup({ closeOnClick: false })
+    new mapboxgl.Popup({ closeButton: false,closeOnClick: false })
+    //   .setLngLat(latitude,longitude)
+      .setLngLat(coords)
+      .setHTML(
+    //   console.log("lng:" + e.coords.longitude + ", lat:" + e.coords.latitude);
+        `<h4 class="CIRCUIT">${currentFeature.properties.name}</h4><p>&nbsp;&nbsp;The Circuit Trails</p>`
+      )
+      .addTo(map);
+    }
 
+  map.on("mousemove", "circuit_trails", function (e) {
+    map.getCanvas().style.cursor = 'pointer';
+    // console.log(e.features[0]);
+    // let latitude = e.lngLat.lat;
+    // let longitude = e.lngLat.lng;
+    let coords = e.lngLat;
+    // console.log(latitude);
+    // console.log(coords);
+    // console.log("lng:" + longitude + ", lat:" + latitude);
+    createPopUpCircuit(e.features[0],coords);
+  });
 
+  // change mouse tip upon leaving feature
+  map.on("mouseleave", "circuit_trails", function (e) {
+    closePopUp();
+  });
 
+  function createPopUpIPD(currentFeature,coords) { 
+    const popUps = document.getElementsByClassName('mapboxgl-popup');
+    if (popUps[0]) popUps[0].remove();
+    // var popup = new mapboxgl.Popup({ closeOnClick: false })
+    new mapboxgl.Popup({ closeButton: false,closeOnClick: false })
+    //   .setLngLat(latitude,longitude)
+      .setLngLat(coords)
+      .setHTML(
+    //   console.log("lng:" + e.coords.longitude + ", lat:" + e.coords.latitude);
+        `<h4 class="IPD">${currentFeature.properties.ipd_class}<br>IPD Score: ${currentFeature.properties.ipd_score}</h4><p>&nbsp;&nbsp;Indicators of Potential<br>&nbsp;&nbsp;Disadvantage</p>`
+      )
+      .addTo(map);
+    }
+
+  map.on("mousemove", "IPD", function (e) {
+    map.getCanvas().style.cursor = 'pointer';
+    // console.log(e.features[0]);
+    // let latitude = e.lngLat.lat;
+    // let longitude = e.lngLat.lng;
+    let coords = e.lngLat;
+    // console.log(latitude);
+    // console.log(coords);
+    // console.log("lng:" + longitude + ", lat:" + latitude);
+    createPopUpIPD(e.features[0],coords);
+  });
+
+  // change mouse tip upon leaving feature
+  map.on("mouseleave", "IPD", function (e) {
+    closePopUp();
+  });
 
 
 }
