@@ -92,7 +92,7 @@ document.getElementById("homeLink").addEventListener("click", function() {
   document.getElementById("main").style.display = "flex"
   document.getElementById("sidebar").style.display = "none"
   document.getElementById("map").style.display = "none"
-  document.getElementById("stationSearchForm").style.display = "none"
+  document.getElementById("stationSearchForm").style.display = "block"
 })
 };  
 
@@ -104,7 +104,7 @@ document.getElementById("mapLink").addEventListener("click", function() {
   document.getElementById("main").style.display = "none"
   document.getElementById("map").style.display = "block"
   document.getElementById("sidebar").style.display = "block"
-  document.getElementById("stationSearchForm").style.display = "block"
+  document.getElementById("stationSearchForm").style.display = "none"
   map.resize()
 })
 }; 
@@ -116,9 +116,9 @@ document.getElementById("EAS").addEventListener("click", function() {
   document.getElementById("main").style.display = "none"
   document.getElementById("map").style.display = "block"
   document.getElementById("sidebar").style.display = "block"
-  document.getElementById("stationSearchForm").style.display = "block"
+  document.getElementById("stationSearchForm").style.display = "none"
   map.resize()
 })
 }; 
 
- export { togglerHome, togglerMap, togglerEAS, togglerAS, togglerBS, togglerWS }
+ export { togglerHome, togglerMap, togglerEAS, togglerAS, togglerBS, togglerWS}

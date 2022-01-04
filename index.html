@@ -51,7 +51,7 @@
                     <!-- <li class="landingLink"><a  href="http://www.dvrpc.org/TOD/" target="_new">TOD in the Region</a></li> -->
                 </ul>
             </div>
-             <div class="input-group search-container" id="stationSearchForm">
+             <!-- <div class="input-group search-container" id="stationSearchForm">
                 <form id="search">
                     <label>
                         Search by station:
@@ -62,7 +62,7 @@
 
                     <button type="submit" class="btn">search</button>
                 </form>
-            </div>
+            </div> -->
         </nav>
 
         <main id="main-content-wrapper" class="flex-row flex-between">
@@ -93,12 +93,26 @@
 
                  <div id="aboutscoreWrapper">
                 <div id="score-map">
-                    <img src="./img/score-map.jpg" alt="project logo" class="score-map" > 
+
+                  <div id="searchOrExplore">
+                    <div class="input-group search-container" id="stationSearchForm">
+                        <form id="search">
+                            <label>
+                                <input list="station-list" id="searchbox" name="searchbox" placeholder="Search by station"/>
+                                <datalist id="station-list"></datalist>
+                            </label>
+                            <button id="searchForm" type="submit" class="btn">search</button>
+                        </form>
+                    </div>
+                    <div class="searchOrExploreOR">Or</div>
                     <div id="EAS" class="score">
                         <label id="label-box-large" class="EAS">
                           <h3>Explore the Map</h3>
                         </label>
                     </div>  
+                    </div>
+
+                    <img src="./img/score-map.jpg" alt="project logo" class="score-map" > 
                 </div>
              </div> 
 

@@ -143,6 +143,13 @@ map.on('load', () => {
 // Search by Station
     searchForm.onsubmit = function (e) {
       e.preventDefault()
+        document.getElementById("mapLink").style.display = "none"
+        document.getElementById("homeLink").style.display = "block"
+        document.getElementById("main").style.display = "none"
+        document.getElementById("map").style.display = "block"
+        document.getElementById("sidebar").style.display = "block"
+        document.getElementById("stationSearchForm").style.display = "none"
+        map.resize()
       const input = e.target.children[0].children[0]
       const searched = input.value
       const location = stationSearch[searched]

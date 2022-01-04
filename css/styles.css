@@ -258,10 +258,6 @@ nav {
 #homeLink {
     display: none; 
 }
-#stationSearchForm{
-   display: none; 
-}
-
 /* END Main Webmap Area */
 /* Start Home Page */
 #aboutWrapper {
@@ -299,7 +295,7 @@ nav {
     /* padding:15px; */
     border-radius: 4px;
     border-color: #dadada;
-    background-color: #fff; 
+    /* background-color: #fff;  */
     overflow: hidden;
     flex: 60%; 
     box-shadow: 1px 2px 3px rgba(0,0,0,.6);
@@ -323,6 +319,46 @@ nav {
     width: 100%; /*set width to 100%*/
     margin: 0px 5px 0px 0px;
 }
+#searchOrExplore {
+    display: flex;
+    align-items: first baseline;
+}
+#stationSearchForm {
+    display: block; 
+    width: 40%;
+ }
+ #stationSearchForm button:hover{
+     background: #FFF01F !important;
+}
+#label-box-large {
+    /* height: 100%; */
+    background: white;
+    border: 1px solid #979797;
+    border-radius: 20px;
+    padding: 1rem;
+    /* margin: 10px auto 10px auto; */
+    margin: 10px 0px 0px 0px;
+    text-align: center;
+    box-shadow: 0px 3px 10px -2px rgba(48, 149, 140, 0.5);
+    position: relative;
+    display: block;
+    /* width:140px; */
+  }
+  .searchOrExploreOR {
+width:10%;
+  }
+  #EAS {
+      width:40%;
+  }
+  #EAS :hover{
+    background: #FFF01F !important;
+  }
+  .EAS {
+    background: var(--theme-access-map) !important;
+    border: 2px solid #236e68 !important;
+    color: var(--theme-access-dark);
+  }
+
 .score-map {
     width: 98%;
     border-radius: 4px;
@@ -333,7 +369,6 @@ nav {
     max-width: 100%;
     height: auto;
     width: auto\9; /* ie8 */
- 
 }
 /* End Home Page */
 
@@ -555,19 +590,6 @@ text-align: center;
     display: flex;
     justify-content: space-between;
 }
-#label-box-large {
-    height: 100%;
-    background: white;
-    border: 1px solid #979797;
-    border-radius: 20px;
-    padding: 1rem;
-    margin: 10px auto 10px auto;
-    text-align: center;
-    box-shadow: 0px 3px 10px -2px rgba(48, 149, 140, 0.5);
-    position: relative;
-    display: block;
-    width:140px;
-  }
   #label-box {
     height: 100%;
     background: white;
@@ -602,14 +624,6 @@ text-align: center;
     /* width:140px; */
     width:35vh;
     max-width: 140px;
-  }
-  .EAS{
-    background: var(--theme-access-map) !important;
-    border: 2px solid #236e68 !important;
-    color: var(--theme-access-dark);
-  }
-  #EAS :hover{
-    background: #FFF01F !important;
   }
   .AS{
     background: #3bb8ad !important;
