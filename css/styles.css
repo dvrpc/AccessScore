@@ -143,15 +143,6 @@ nav {
 #accessscore-logo{
     height:40px;
 }
-#search label {
-    color: white;
-}
-#searchbox {
-    padding: 6px 12px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    color: initial;
-}
 .btn {
     display: inline-block;
     margin-bottom: 0;
@@ -290,12 +281,12 @@ nav {
 #aboutContact a {
     color: #f7f7f7;
 }
-#aboutscoreWrapper {
+#scoreMapWrapper {
     margin: 15px 10px 15px 10px;
     /* padding:15px; */
     border-radius: 4px;
     border-color: #dadada;
-    /* background-color: #fff;  */
+    background-color: #fff;
     overflow: hidden;
     flex: 60%; 
     box-shadow: 1px 2px 3px rgba(0,0,0,.6);
@@ -326,34 +317,46 @@ nav {
 #stationSearchForm {
     display: block; 
     width: 40%;
+    margin: 10px auto 10px auto;
  }
  #stationSearchForm button:hover{
      background: #FFF01F !important;
 }
-#label-box-large {
+#search label {
+    color: white;
+}
+#searchbox {
+    padding: 8px 14px;
+    border: 1px solid #0078ae;
+    border-radius: 4px;
+    color: initial;
+}
+#searchForm {
+    padding: 8px 14px !important;
+}
+.searchOrExploreOR {
+    width:10%;
+  }
+  #exploreTheMap {
+      width:40%;
+      margin: 10px 0px 0px 0px; 
+  }
+  #exploreTheMap :hover{
+    background: #FFF01F !important;
+  }
+  #label-box-large {
     /* height: 100%; */
     background: white;
     border: 1px solid #979797;
-    border-radius: 20px;
-    padding: 1rem;
+    border-radius: 4px;
+    padding: 8px 14px;
     /* margin: 10px auto 10px auto; */
-    margin: 10px 0px 0px 0px;
+    /* margin: 10px 0px 0px 0px; */
     text-align: center;
     box-shadow: 0px 3px 10px -2px rgba(48, 149, 140, 0.5);
     position: relative;
     display: block;
-    /* width:140px; */
-  }
-  .searchOrExploreOR {
-width:10%;
-  }
-  #EAS {
-      width:40%;
-  }
-  #EAS :hover{
-    background: #FFF01F !important;
-  }
-  .EAS {
+    width:200px; 
     background: var(--theme-access-map) !important;
     border: 2px solid #236e68 !important;
     color: var(--theme-access-dark);

@@ -3,7 +3,7 @@ import sources from './mapSources.js'
 import {catchment, layers, baselayerPolygons, nearMap} from './mapLayers.js'
 // import handleModal from './modal.js'
 import { toggleLayers } from "./forms.js";
-import { togglerHome, togglerMap, togglerEAS, togglerAS, togglerBS, togglerWS } from "./toggler.js";
+import { togglerHome, togglerEAS, togglerAS, togglerBS, togglerWS } from "./toggler.js";
 import { wire_layer_hover } from "./popup.js";
 // Handles Map Click for stations
 import handleStation from './charts.js'
@@ -99,7 +99,6 @@ map.on('load', () => {
     togglerBS (map);
     togglerWS (map);
     togglerHome ();
-    togglerMap (map);
     togglerEAS (map);
 
 
@@ -143,7 +142,7 @@ map.on('load', () => {
 // Search by Station
     searchForm.onsubmit = function (e) {
       e.preventDefault()
-        document.getElementById("mapLink").style.display = "none"
+        // document.getElementById("mapLink").style.display = "none"
         document.getElementById("homeLink").style.display = "block"
         document.getElementById("main").style.display = "none"
         document.getElementById("map").style.display = "block"
