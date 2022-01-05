@@ -319,13 +319,16 @@ nav {
   align-items: first baseline;
   border-radius: 4px;
   border-color: #dadada;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.45);
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
 }
 #stationSearchForm {
   display: block;
   width: 43%;
   margin: 10px auto 10px auto;
+}
+#stationSearchFormMap {
+  display: none;
 }
 #stationSearchForm button:hover {
   background: #fff01f !important;
@@ -334,7 +337,7 @@ nav {
   color: white;
 }
 #searchbox {
-  padding: 8px 14px;
+  padding: 12px 20px;
   border: 1px solid #0078ae;
   border-radius: 4px;
   color: initial;
@@ -601,6 +604,7 @@ details > p {
 }
 #legendWrapper {
   /* margin: 5px 0px 5px 10px; */
+  min-height: 60px;
   border-radius: 4px;
   /* border-color: #dadada; */
   background-color: #fff;

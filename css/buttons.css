@@ -1,124 +1,124 @@
 select {
-color: rgb(235, 235, 235);
-background-color: rgba(50, 50, 50, 0.9);
-background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' data-reactroot=''><path d='M2 5l6 6 6-6' fill='none' stroke='rgb(235, 235, 235)' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'></path></svg>");
-appearance: none;
-padding: 0.2rem 0.3rem;
-border-color: rgb(255, 255, 255);
-background-repeat: no-repeat;
-background-position: right 0.75rem center;
-border-radius: 2px;
-background-size: 1rem 0.75rem;
-font-family: inherit;
-height: 1.9rem;
-word-wrap: normal;
-margin: 5px;
+  color: rgb(235, 235, 235);
+  background-color: rgba(50, 50, 50, 0.9);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' data-reactroot=''><path d='M2 5l6 6 6-6' fill='none' stroke='rgb(235, 235, 235)' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'></path></svg>");
+  appearance: none;
+  padding: 0.2rem 0.3rem;
+  border-color: rgb(255, 255, 255);
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  border-radius: 2px;
+  background-size: 1rem 0.75rem;
+  font-family: inherit;
+  height: 1.9rem;
+  word-wrap: normal;
+  margin: 5px;
 }
-#btn-toggle-layers{
-	position: absolute;
-    left: 10px;
-    top: 15px;
-	z-index: 3 !important;
-    height: 60px;
-	width: 60px;
-	cursor: pointer;
-} 
+#btn-toggle-layers {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  z-index: 3 !important;
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
+}
 .toggle-btn {
-    margin: 5px 10px 0px 10px;
-    color: #fff;
-    background-color: black;
-    box-shadow: 0px 0px 7px 0px #ffffffa1;
+  margin: 5px 10px 0px 10px;
+  color: #fff;
+  background-color: black;
+  box-shadow: 0px 0px 7px 0px #ffffffa1;
 }
-#btn-tour{
-	position: absolute;
-    right: 85px;
-    top: 15px;
-	z-index: 2 !important;
-    height: 60px;
-	width: 60px;
-	cursor: pointer;
-    display: none;
-} 
-#btn-legend{
-	position: absolute;
-    left: 10px;
-    bottom: -10px;
-	z-index: 2 !important;
-    height: 60px;
-	width: 60px;
-	cursor: pointer;
-} 
+#btn-tour {
+  position: absolute;
+  right: 85px;
+  top: 15px;
+  z-index: 2 !important;
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
+  display: none;
+}
+#btn-legend {
+  position: absolute;
+  left: 10px;
+  bottom: -10px;
+  z-index: 2 !important;
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
+}
 .legend-btn {
-    /* margin: 5px 10px 0px 10px; */
-    color: #fff;
-    background-color: black;
-    box-shadow: 0px 0px 7px 0px #ffffffa1;
+  /* margin: 5px 10px 0px 10px; */
+  color: #fff;
+  background-color: black;
+  box-shadow: 0px 0px 7px 0px #ffffffa1;
 }
 /* #monitoring:hover path{
 	fill: #63cad7;
 } */
 
 #baselayers_group {
-	position: absolute;
-    left: 10px;
-    top: 35px;
-    height: auto;
-    width: 350px;
-    padding: 5px;
-    background-color: black;
-    color: white;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
+  position: absolute;
+  left: 10px;
+  top: 35px;
+  height: auto;
+  width: 350px;
+  padding: 5px;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
 }
 #baselayers_group label {
-	margin-left: 5px;
-    margin-bottom: 0px;
+  margin-left: 5px;
+  margin-bottom: 0px;
 }
 .toggle-fieldset {
-    background: transparent;
-    border-radius: var(--border-radius);
-    /* border-color: #dadada;
+  background: transparent;
+  border-radius: var(--border-radius);
+  /* border-color: #dadada;
     border: 2px solid #dadada; */
-    margin: 5px 5px 5px 5px;
+  margin: 5px 5px 5px 5px;
 }
 .toggle-fieldset label {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 .toggle-fieldset ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 .toggle-form {
-    margin: var(--wrapper-padding) auto;
+  margin: var(--wrapper-padding) auto;
 }
 #legend-group {
-	position: absolute;
-    left: 0px;
-    bottom: 60px;
-    height: auto;
-    width: 100px;
-    padding: 5px;
-    /* background-color: black; */
-    color: black;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
-    background: rgba(255,255,255, 0.85);
-    display:block;
+  position: absolute;
+  left: 0px;
+  bottom: 60px;
+  height: auto;
+  width: 100px;
+  padding: 5px;
+  /* background-color: black; */
+  color: black;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.85);
+  display: block;
 }
-#legend-Item{
-    /* text-align: center; */
-    height:15px;
+#legend-Item {
+  text-align: center;
+  height: 15px;
 }
-#legend-Item p{
-    margin-left: 25px;
-    line-height: 15px;
+#legend-Item p {
+  margin-left: 25px;
+  line-height: 15px;
 }
 .circle {
-    width: 15px;
-    height: 15px;
-    border-radius: 50px;
-    margin: 5px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50px;
+  margin: 5px;
 }
 /* old css for OG legend Box */
 /* #legend-box-Item {
@@ -135,6 +135,5 @@ margin: 5px;
     display:block;
 } */
 .legend-content-hide {
-    visibility: hidden;
+  visibility: hidden;
 }
-
