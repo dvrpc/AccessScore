@@ -586,6 +586,16 @@ const baselayerPolygons = {
     },
     layout: { visibility: "none" },
   },
+  IPDno: {
+    id: "IPDno",
+    type: "fill",
+    source: "IPDno",
+    paint: {
+      "fill-color": "rgba( 110,110,110,  0.5)",
+      "fill-opacity": ["interpolate", ["linear"], ["zoom"], 7, 1, 18, 0.75],
+    },
+    layout: { visibility: "none" },
+  },
   parks: {
     id: "parks",
     type: "fill",

@@ -42,10 +42,15 @@
       rel="stylesheet"
       href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css"
     />
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css"
+    /> -->
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
     />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.2.2/introjs.min.css"
@@ -743,7 +748,6 @@
                           name="layer"
                           value="IPD"
                         />
-                        <!-- <i class="fa fa-minus fa-md legend-IPD"></i> -->
                         Indicators of Potential Disadvantage (refer to info for
                         legend)
                       </label>
@@ -798,18 +802,6 @@
                         Walkable Retail and Centers
                       </label>
                     </li>
-                    <!-- <li>
-                                <label>
-                                    <input
-                                    type="checkbox"
-                                    id="retail2"
-                                    name="layer"
-                                    value="retail2"
-                                    />
-                                    <i class="fa fa-minus fa-md legend-retail"></i>
-                                    Walkable Commercial Corridors (City of Phila.)
-                                </label>
-                            </li>  -->
                     <li>
                       <label>
                         <input
@@ -846,15 +838,28 @@
           <div id="legend-items" class="btn legend-btn">
             Legend <i class="fa fa-angle-up" id="legend-icon"></i>
           </div>
-          <div id="legend-group">
+          <div id="legend-group-1">
             <span>station scoring</span>
-            <div id="legend-Item" class="circle as-2"><p>1-2</p></div>
-            <div id="legend-Item" class="circle as-3"><p>3</p></div>
-            <div id="legend-Item" class="circle as-4"><p>4</p></div>
-            <div id="legend-Item" class="circle as-5"><p>5</p></div>
-            <div id="legend-Item" class="circle as-6"><p>6</p></div>
-            <div id="legend-Item" class="circle as-7"><p>7</p></div>
-            <div id="legend-Item" class="circle as-8"><p>8-10</p></div>
+            <div id="legend-Item-Map" class="circle as-2"><p>1-2</p></div>
+            <div id="legend-Item-Map" class="circle as-3"><p>3</p></div>
+            <div id="legend-Item-Map" class="circle as-4"><p>4</p></div>
+            <div id="legend-Item-Map" class="circle as-5"><p>5</p></div>
+            <div id="legend-Item-Map" class="circle as-6"><p>6</p></div>
+            <div id="legend-Item-Map" class="circle as-7"><p>7</p></div>
+            <div id="legend-Item-Map" class="circle as-8"><p>8-10</p></div>
+          </div>
+          <div id="legend-group-2">
+            <span>IPD Classifications</span>
+            <div id="legend-Item-Map-IPD" class="ipd-5">
+              <p>Well Above Average</p>
+            </div>
+            <div id="legend-Item-Map-IPD" class="ipd-4"><p>Above Average</p></div>
+            <div id="legend-Item-Map-IPD" class="ipd-3"><p>Average</p></div>
+            <div id="legend-Item-Map-IPD" class="ipd-2"><p>Below Average</p></div>
+            <div id="legend-Item-Map-IPD" class="ipd-1">
+              <p>Well Bell Average</p>
+            </div>
+            <div id="legend-Item-Map" class="ipd-no"><p>No Data</p></div>
           </div>
         </div>
 

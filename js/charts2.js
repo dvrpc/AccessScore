@@ -127,7 +127,7 @@ const handleStationB = function (props, coordinates, map) {
     "<br><div class='data-row'><span class='data-info'>Employees (Nets 2015) within 1-mile of the station  </span><span class='data-value'> " +
     numeral(props.emp_sm_b).format("(0,0)") +
     " employees</span></div>" +
-    "<br><div class='data-row'><span class='data-info'>Essential Services (ETA) </span><span class='data-value'> " +
+    "<br><div class='data-row'><span class='data-info'>Essential Services</span><span class='data-value'> " +
     props.ess_sm_b +
     " services</span></div>" +
     "<br><div class='data-row'><span class='data-info'>Parks and Open Space </span><span class='data-value'> " +
@@ -318,7 +318,7 @@ const handleStationB = function (props, coordinates, map) {
         categories: [
           "Civic and Cultural Attractors",
           "Employees",
-          "Essential Services (ETA)",
+          "Essential Services",
           "Parks and Open Space",
           "Walkable Retail and Centers",
         ],

@@ -1189,9 +1189,6 @@ input[class="lbox-WS"]:checked + #label-box::after {
 .legend-bikelane {
   color: #ffa17a;
 }
-.legend-IPD {
-  color: #081d58;
-}
 .legend-crime {
   color: #c70c4d;
 }

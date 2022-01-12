@@ -91,7 +91,7 @@ select {
 .toggle-form {
   margin: var(--wrapper-padding) auto;
 }
-#legend-group {
+#legend-group-1 {
   position: absolute;
   left: 0px;
   bottom: 60px;
@@ -106,19 +106,89 @@ select {
   background: rgba(255, 255, 255, 0.85);
   display: block;
 }
+#legend-group-2 {
+  position: absolute;
+  left: 0px;
+  bottom: 60px;
+  height: auto;
+  width: 180px;
+  padding: 5px;
+  /* background-color: black; */
+  color: black;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.85);
+  display: none;
+}
 #legend-Item {
   text-align: center;
-  height: 15px;
+  /* height: 15px; */
 }
-#legend-Item p {
+#legend-Item-Map p {
   margin-left: 25px;
   line-height: 15px;
+}
+#legend-Item-Map {
+  height: 15px;
+}
+#legend-Item-Map p {
+  margin-left: 25px;
+  line-height: 15px;
+  width: 80px;
+}
+#legend-Item-Map-IPD p {
+  margin-left: 25px;
+  line-height: 15px;
+  width: 130px;
 }
 .circle {
   width: 15px;
   height: 15px;
   border-radius: 50px;
   margin: 5px;
+}
+.ipd-1{
+  width: 15px;
+  height: 15px;
+  border-radius: 0px;
+  margin: 5px;
+  background: #ffffd9;
+}
+.ipd-2{
+  width: 15px;
+  height: 15px;
+  border-radius: 0px;
+  margin: 5px;
+  background: #c7e9b4;
+}
+.ipd-3{
+  width: 15px;
+  height: 15px;
+  border-radius: 0px;
+  margin: 5px;
+  background: #7fcdbb;
+}
+.ipd-4{
+  width: 15px;
+  height: 15px;
+  border-radius:0px;
+  margin: 5px;
+  background: #225ea8;
+}
+.ipd-5{
+  width: 15px;
+  height: 15px;
+  border-radius: 0px;
+  margin: 5px;
+  background: #081d58;
+}
+.ipd-no{
+  width: 15px;
+  height: 15px;
+  border-radius: 0px;
+  margin: 5px;
+  background: #6E6E6E;
 }
 /* old css for OG legend Box */
 /* #legend-box-Item {

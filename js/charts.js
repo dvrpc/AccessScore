@@ -146,7 +146,7 @@ const handleStation = function (props, coordinates, map) {
     "</td>" +
     "</tr>" +
     "<tr class='dataTable-row'>" +
-    "<td class='data-info'>Essential Services (ETA)</td>" +
+    "<td class='data-info'>Essential Services</td>" +
     "<td class='data-value'>" +
     props.ess_sm_a +
     "</td>" +
@@ -192,7 +192,9 @@ const handleStation = function (props, coordinates, map) {
     4: "above average",
     5: "well above average",
   };
-  let IPD_a = lookupIPD[props.ipd_sc_a];
+  let IPD_AS = lookupIPD[props.ipd_sc_a];
+  let IPD_CS = lookupIPD[props.ipd_sc_c];
+  let IPD_WS = lookupIPD[props.ipd_sc_w];
 
   var content2 =
     "<div><table class='dataTable'>" +
@@ -200,18 +202,18 @@ const handleStation = function (props, coordinates, map) {
     "<th scope='col'></th>" +
     "<th scope='col'>AccessScore</th>" +
     "<th scope='col'>CycleScore</th>" +
-    "<th scope='col'>PedestrainScore</th>" +
+    "<th scope='col'>PedestrianScore</th>" +
     "</tr>" +
     "<tr class='dataTable-row'>" +
     "<td class='data-info'>Indicators of Potential Disadvantage</td>" +
     "<td class='data-value'>" +
-    props.ipd_sc_a +
+    IPD_AS +
     "</td>" +
     "<td class='data-value'>" +
-    props.ipd_sc_c +
+    IPD_CS +
     "</td>" +
     "<td class='data-value'>" +
-    props.ipd_sc_w +
+    IPD_WS +
     "</td>" +
     "</tr>" +
     "<tr class='dataTable-row'>" +
@@ -241,36 +243,75 @@ const handleStation = function (props, coordinates, map) {
     "</table></div>";
   document.getElementById("dataMeasurements2").innerHTML = content2;
 
+  if (props.ScoreSet === 1) {
+    var nonParkingBoards_AS = numeral(props.npbper_va_).format("(0.00)") + "%";
+  } else {
+    var nonParkingBoards_AS = "N/A";
+  }
+
+  if (props.ScoreSet === 1) {
+    var nonParkingBoards_CS = numeral(props.npbper_va1).format("(0.00)") + "%";
+  } else {
+    var nonParkingBoards_CS = "N/A";
+  }
+
+  if (props.ScoreSet === 1) {
+    var nonParkingBoards_PS = numeral(props.npbper_v_1).format("(0.00)") + "%";
+  } else {
+    var nonParkingBoards_PS = "N/A";
+  }
+
+  if (props.ScoreSet === 1) {
+    var LPS_AS = numeral(props.lps_va_a).format("0.0%");
+  } else {
+    var LPS_AS = "N/A";
+  }
+
+  if (props.ScoreSet === 1) {
+    var LPS_CS = numeral(props.lps_va_c).format("0.0%");
+  } else {
+    var LPS_CS = "N/A";
+  }
+
+  if (props.ScoreSet === 1) {
+    var LPS_PS = numeral(props.lps_va_w).format("0.0%");
+  } else {
+    var LPS_PS = "N/A";
+  }
+
   var content3 =
     "<div><table class='dataTable'>" +
     "<tr>" +
     "<th scope='col'></th>" +
     "<th scope='col'>AccessScore</th>" +
     "<th scope='col'>CycleScore</th>" +
-    "<th scope='col'>PedestrainScore</th>" +
+    "<th scope='col'>PedestrianScore</th>" +
     "</tr>" +
     "<tr class='dataTable-row'>" +
     "<td class='data-info'>Non-Parking Boards</td>" +
     "<td class='data-value'>" +
-    numeral(props.npbper_va_).format("0.0%") +
+    nonParkingBoards_AS +
     "</td>" +
     "<td class='data-value'>" +
-    numeral(props.npbper_va1).format("0.0%") +
+    nonParkingBoards_CS +
     "</td>" +
     "<td class='data-value'>" +
-    numeral(props.npbper_v_1).format("0.0%") +
+    nonParkingBoards_PS +
     "</td>" +
     "</tr>" +
     "<tr class='dataTable-row'>" +
     "<td class='data-info'>Percentage of Local Drivers</td>" +
     "<td class='data-value'>" +
-    numeral(props.lps_va_a).format("0.0%") +
+    LPS_AS +
+    // numeral(props.lps_va_a).format("0.0%") +
     "</td>" +
     "<td class='data-value'>" +
-    numeral(props.lps_va_c).format("0.0%") +
+    LPS_CS +
+    // numeral(props.lps_va_c).format("0.0%") +
     "</td>" +
     "<td class='data-value'>" +
-    numeral(props.lps_va_w).format("0.0%") +
+    LPS_PS +
+    // numeral(props.lps_va_w).format("0.0%") +
     "</td>" +
     "</tr>" +
     "<tr class='dataTable-row'>" +
@@ -294,7 +335,7 @@ const handleStation = function (props, coordinates, map) {
     "<th scope='col'></th>" +
     "<th scope='col'>AccessScore</th>" +
     "<th scope='col'>CycleScore</th>" +
-    "<th scope='col'>PedestrainScore</th>" +
+    "<th scope='col'>PedestrianScore</th>" +
     "</tr>" +
     "<tr class='dataTable-row'>" +
     "<td class='data-info'>Circuit Trail Proximity</td>" +
@@ -324,16 +365,16 @@ const handleStation = function (props, coordinates, map) {
     "<td class='data-info'>Crashes (KSI from 2015-2019) </td>" +
     "<td class='data-value'>" +
     props.ksi_sm_a +
-    " total ksi</td>" +
+    " total KSI</td>" +
     "<td class='data-value'>" +
     props.ksi_bike_t +
-    " bike ksi</td>" +
+    " bike KSI</td>" +
     "<td class='data-value'>" +
     props.ksi_ped_to +
-    " ped ksi</td>" +
+    " ped KSI</td>" +
     "</tr>" +
     "<tr class='dataTable-row'>" +
-    "<td class='data-info'>Low Stress Bike Shed </td>" +
+    "<td class='data-info'>Low Stress Bike Shed (linear miles)</td>" +
     "<td class='data-value'>" +
     numeral(props.lts_va_a).format("(0.00)") +
     "</td>" +
@@ -458,7 +499,7 @@ const handleStation = function (props, coordinates, map) {
         categories: [
           "Civic and Cultural Attractors",
           "Employees",
-          "Essential Services (ETA)",
+          "Essential Services",
           "Parks and Open Space",
           "Walkable Retail and Centers",
         ],
