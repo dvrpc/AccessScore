@@ -602,8 +602,16 @@
             <form class="sidebar-form-toggle">
               <fieldset class="toggle-fieldset">
                 <div id="mylist">
+                  Base Layers Information <a href="#baseLayers-Modal" rel="modal:open" style="color: #fff"
+                  ><i
+                    class="fa fa-info-circle"
+                    aria-hidden="true"
+                    data-toggle="tooltip"
+                    title="Base Layer Info"
+                  ></i
+                ></a>
                   <ul>
-                    <b><u>Scoring Catchment</u></b>
+                    <b><u>Scoring Catchment</u></b> 
                     <li>
                       <label>
                         <input
@@ -748,8 +756,8 @@
                           name="layer"
                           value="IPD"
                         />
-                        Indicators of Potential Disadvantage (refer to info for
-                        legend)
+                        Indicators of Potential Disadvantage (refer to
+                        Legend)
                       </label>
                     </li>
                     <li>
@@ -811,7 +819,7 @@
                           value="parks"
                         />
                         <i class="fa fa-minus fa-sm legend-parks"></i>
-                        Parks and Open Space (DVRPC)
+                        Parks and Open Space
                       </label>
                     </li>
                     <!-- <li>
@@ -849,6 +857,14 @@
             <div id="legend-Item-Map" class="circle as-8"><p>8-10</p></div>
           </div>
           <div id="legend-group-2">
+            <span>station scoring</span>
+            <div id="legend-Item-Map" class="circle as-2"><p>1-2</p></div>
+            <div id="legend-Item-Map" class="circle as-3"><p>3</p></div>
+            <div id="legend-Item-Map" class="circle as-4"><p>4</p></div>
+            <div id="legend-Item-Map" class="circle as-5"><p>5</p></div>
+            <div id="legend-Item-Map" class="circle as-6"><p>6</p></div>
+            <div id="legend-Item-Map" class="circle as-7"><p>7</p></div>
+            <div id="legend-Item-Map" class="circle as-8"><p>8-10</p></div>
             <span>IPD Classifications</span>
             <div id="legend-Item-Map-IPD" class="ipd-5">
               <p>Well Above Average</p>
@@ -987,46 +1003,74 @@
           </div>
           <div class="modal-body">
             <p>
-              <b>Civic and Cultural Attractors</b> - This station characteristic
-              aggregates the number of civic and cultural resources within 2
-              mile of the station. Civic and cultural resources aggregated
-              include: libraries, US Post Offices, municipal buildings
-              (excluding maintenance facilities), museums, art galleries,
-              botanical gardens, and zoos.
+              <b>Civic and Cultural Attractors</b> - Total number of civic and cultural resources within 500 feet of scoring analysis catchment area. Civic and cultural resources include: libraries, US Post Offices, municipal buildings (excluding maintenance facilities), museums, art galleries, botanical gardens, and zoos.
             </p>
-            <ul class="a">
-              Scoring (number of resources)
-              <li>High (5) = 27 - 93</li>
-              <li>Medium-High (4) = 19 - 26</li>
-              <li>Medium (3) = 12 - 18</li>
-              <li>Low-Medium (2) = 7 - 11</li>
-              <li>Low (1) = 1 - 6</li>
-            </ul>
+            Scoring (total number of resources)
+            <div class="legendRange">  
+              <ul class="legendRange-wrap"> 
+               <ul class="legendRange-inner">
+                <b>AccessScore</b>
+                <li>High (5) = 21 - 92</li>
+                <li>Medium-High (4) = 14 - 20</li>
+                <li>Medium (3) = 11 - 13</li>
+                <li>Low-Medium (2) = 6 - 10</li>
+                <li>Low (1) = 1 - 5</li>
+               </ul>
+               <ul class="legendRange-inner">
+                 <b>CycleScore</b>
+                <li>High (5) = 15 - 83</li>
+                <li>Medium-High (4) = 8 - 14</li>
+                <li>Medium (3) = 5 - 7</li>
+                <li>Low-Medium (2) = 3 - 4</li>
+                <li>Low (1) = 1 - 2</li>
+               </ul> 
+               <ul class="legendRange-inner">
+                <b>PedestrianScore</b>
+                <li>High (5) = 9 - 51</li>
+                <li>Medium-High (4) = 6 - 7</li>
+                <li>Medium (3) = 4 - 5</li>
+                <li>Low-Medium (2) = 3 </li>
+                <li>Low (1) = 1 - 2 </li>
+               </ul> 
+              </ul> 
+            </div>  
             <p style="color: grey">
-              <i
-                >Sources: NETS database (2015), National Center for Education
-                Statistics (NCES), DVRPC.</i
-              >
+              <i>Sources: NETS database (2015), National Center for Education Statistics (NCES), DVRPC.</i>
             </p>
             <hr />
             <br />
             <p>
-              <b>Employees</b> - This station characteristic measures the number
-              of known employees, as identified in National Establishment
-              Time-Series (NETS) data, within 2-mile of the station. Employees
-              located near transit may be more likely to use transit; with
-              incentives like proximity, lack of parking, and quality sidewalk
-              and trail connections, that likelihood could increase as the
-              density of employees increases near the station.
+              <b>Employees</b> - Total number of known employees, as identified in National Establishment Time-Series (NETS) data, within 500 feet of scoring analysis catchment area. Employees located near transit may be more likely to use transit; with incentives like proximity, lack of parking, and quality sidewalk and trail connections, that likelihood could increase as the density of employees increases near the station.
             </p>
-            <ul class="a">
-              Scoring: Total employees within 2-mile of the station (quantiles).
-              <li>High (5) = 53,363 - 366,592</li>
-              <li>Medium-High (4) = 34,064 - 53,362</li>
-              <li>Medium (3) = 28,328 - 34,063</li>
-              <li>Low-Medium (2) = 22,945 - 28,327</li>
-              <li>Low (1) = 3,368 - 22,944</li>
-            </ul>
+              Scoring: Total employees.
+              <div class="legendRange">  
+                <ul class="legendRange-wrap"> 
+                 <ul class="legendRange-inner">
+                  <b>AccessScore</b>
+                  <li>High (5) = 40,550 - 355,862</li>
+                  <li>Medium-High (4) = 26,816 - 40,549</li>
+                  <li>Medium (3) = 21,799 - 26,815</li>
+                  <li>Low-Medium (2) = 16,451 - 21,798</li>
+                  <li>Low (1) = 1 - 16,450</li>
+                 </ul>
+                 <ul class="legendRange-inner">
+                   <b>CycleScore</b>
+                  <li>High (5) = 27,322 - 339,308</li>
+                  <li>Medium-High (4) = 11,698 - 27,321</li>
+                  <li>Medium (3) = 7,653 - 11,697</li>
+                  <li>Low-Medium (2) = 2,236 - 7,652</li>
+                  <li>Low (1) = 1 - 2,235</li>
+                 </ul> 
+                 <ul class="legendRange-inner">
+                  <b>PedestrianScore</b>
+                  <li>High (5) = 14,262- 235,651</li>
+                  <li>Medium-High (4) = 8,120 - 14,261</li>
+                  <li>Medium (3) = 4,917 - 8,119</li>
+                  <li>Low-Medium (2) = 2,422 - 4,916</li>
+                  <li>Low (1) = 1 - 2,421 </li>
+                 </ul> 
+                </ul> 
+              </div>  
             <p style="color: grey">
               <i>Sources: NETS database (2015), DVRPC.</i>
             </p>
@@ -1038,15 +1082,35 @@
               centers for seniors and the developmentally or physically
               disabled.
             </p>
-            <ul class="a">
-              Scoring: Total number of essential services within 2 mile of the
-              station (quantiles).
-              <li>High (5) = 264 - 480</li>
-              <li>Medium-High (4) = 105 - 263</li>
-              <li>Medium (3) = 60 - 104</li>
-              <li>Low-Medium (2) = 36 - 59</li>
-              <li>Low (1) = 6 - 35</li>
-            </ul>
+              Scoring: Total number of essential services.
+              <div class="legendRange">  
+                <ul class="legendRange-wrap"> 
+                 <ul class="legendRange-inner">
+                  <b>AccessScore</b>
+                  <li>High (5) = 200 - 441</li>
+                  <li>Medium-High (4) = 73 - 199</li>
+                  <li>Medium (3) = 48 - 72</li>
+                  <li>Low-Medium (2) = 27 - 47</li>
+                  <li>Low (1) = 1 - 26</li>
+                 </ul>
+                 <ul class="legendRange-inner">
+                   <b>CycleScore</b>
+                  <li>High (5) = 163 - 396</li>
+                  <li>Medium-High (4) = 38 - 162</li>
+                  <li>Medium (3) = 20 - 37</li>
+                  <li>Low-Medium (2) = 7 - 19</li>
+                  <li>Low (1) = 1 - 6</li>
+                 </ul> 
+                 <ul class="legendRange-inner">
+                  <b>PedestrianScore</b>
+                  <li>High (5) = 62 - 197</li>
+                  <li>Medium-High (4) = 25 - 61</li>
+                  <li>Medium (3) = 14 - 24</li>
+                  <li>Low-Medium (2) = 8 - 13 </li>
+                  <li>Low (1) = 1 - 7 </li>
+                 </ul> 
+                </ul> 
+              </div> 
             To learn more about essential services throughout the DVRPC region
             visit our
             <a
@@ -1068,8 +1132,8 @@
               station's proximity to any of these types of recreational bicycle
               and pedestrian destinations.
             </p>
+            Scoring:
             <ul class="a">
-              Scoring:
               <li>High (5) = On/adjacent (within ¼ mile)</li>
               <li>Medium-High (4) = ¼-1/2 mile</li>
               <li>Medium (3) = 1/2 mile - 1 mile</li>
@@ -1096,8 +1160,8 @@
               development. Taken together, these corridors and places make up
               some of the region's most notable destinations.
             </p>
+            Scoring:
             <ul class="a">
-              Scoring:
               <li>High (5) = On/adjacent (within ¼ mile)</li>
               <li>Medium-High (4) = ¼-1/2 mile</li>
               <li>Medium (3) = 1/2 mile - 1 mile</li>
@@ -1138,8 +1202,8 @@
               Minority, Ethnic Minority, Foreign-Born, Limited English
               Proficiency, Disabled, and Low-Income.
             </p>
+            Scoring based of IPD Overall Score
             <ul class="a">
-              Scoring based of IPD Overall Score
               <li>High (5) = well above average</li>
               <li>Medium-High (4) = above average</li>
               <li>Medium (3) = average</li>
@@ -1159,37 +1223,75 @@
             <p>
               <b>Population Density</b> - Transit stations are rated on the
               concentration of residents - potential transit customers and
-              origins for transit - within 1-mile of the station. Greater
+              origins for transit - within 500 feet of scoring analysis catchment area. Greater
               population densities within station areas increase the potential
               for a transit customer base.
             </p>
-            <ul class="a">
-              Scoring: total persons within 2-miles of the station
-              <li>High (5) = 248,250 - 329,445</li>
-              <li>Medium-High (4) = 155,876 - 248,249</li>
-              <li>Medium (3) = 92,875 - 155,875</li>
-              <li>Low-Medium (2) = 67,778 - 92,874</li>
-              <li>Low (1) = 29,802 - 67,777</li>
-            </ul>
+            Scoring: total persons within 500 feet of scoring analysis catchment area.
+            <div class="legendRange">  
+              <ul class="legendRange-wrap"> 
+               <ul class="legendRange-inner">
+                <b>AccessScore</b>
+                <li>High (5) = 210,145 - 303,049</li>
+                <li>Medium-High (4) = 121,940 - 210,144</li>
+                <li>Medium (3) = 77,205 - 121,939</li>
+                <li>Low-Medium (2) = 51,817 - 77,204</li>
+                <li>Low (1) = 1 - 51,816</li>
+               </ul>
+               <ul class="legendRange-inner">
+                 <b>CycleScore</b>
+                <li>High (5) = 160,571 - 276,064</li>
+                <li>Medium-High (4) = 63,604 - 160,570</li>
+                <li>Medium (3) = 39,800 - 63,603</li>
+                <li>Low-Medium (2) = 21,609 - 39,799</li>
+                <li>Low (1) = 1 - 21,608</li>
+               </ul> 
+               <ul class="legendRange-inner">
+                <b>PedestrianScore</b>
+                <li>High (5) = 79,472 - 162,423</li>
+                <li>Medium-High (4) = 47,315 - 79,471</li>
+                <li>Medium (3) = 29,588 - 47,314</li>
+                <li>Low-Medium (2) = 19,100 - 29,587 </li>
+                <li>Low (1) = 1 - 19,099</li>
+               </ul> 
+              </ul> 
+            </div> 
             <p style="color: grey"><i>Source: U.S. Census Bureau (2019).</i></p>
             <hr />
             <br />
             <p>
-              <b>Zero Vehicle Households</b> - Zero Vehicle Households are
-              families or individuals that do not own or have access to a
-              vehicle and use transit, walking, non-motorized modes, or
-              ridesharing to make trips. Zero Vehicle Households uses
-              tract-level ASC 2019.
+              <b>Zero Vehicle Households</b> - Families or individuals that do not own or have access to a
+              vehicle and use transit, walking, non-motorized modes, or ridesharing to make trips. Zero Vehicle Households uses tract-level ASC 2019.
             </p>
-            <ul class="a">
-              Scoring: total number of zero vehicle households within 2-miles of
-              the station
-              <li>High (5) = 6,824 - 11,700</li>
-              <li>Medium-High (4) = 4,286 - 6,823</li>
-              <li>Medium (3) = 2,274 - 4,285</li>
-              <li>Low-Medium (2) = 1,502 - 2,273</li>
-              <li>Low (1) = 602 - 1,501</li>
-            </ul>
+              Scoring: total number of zero vehicle households within 500 feet of scoring analysis catchment area.
+              <div class="legendRange">  
+                <ul class="legendRange-wrap"> 
+                 <ul class="legendRange-inner">
+                  <b>AccessScore</b>
+                  <li>High (5) = 210,145 - 303,049</li>
+                  <li>Medium-High (4) = 121,940 - 210,144</li>
+                  <li>Medium (3) = 77,205 - 121,939</li>
+                  <li>Low-Medium (2) = 51,817 - 77,204</li>
+                  <li>Low (1) = 1 - 51,816</li>
+                 </ul>
+                 <ul class="legendRange-inner">
+                   <b>CycleScore</b>
+                  <li>High (5) = 160,571 - 276,064</li>
+                  <li>Medium-High (4) = 63,604 - 160,570</li>
+                  <li>Medium (3) = 39,800 - 63,603</li>
+                  <li>Low-Medium (2) = 21,609 - 39,799</li>
+                  <li>Low (1) = 1 - 21,608</li>
+                 </ul> 
+                 <ul class="legendRange-inner">
+                  <b>PedestrianScore</b>
+                  <li>High (5) = 79,472 - 162,423</li>
+                  <li>Medium-High (4) = 47,315 - 79,471</li>
+                  <li>Medium (3) = 29,588 - 47,314</li>
+                  <li>Low-Medium (2) = 19,100 - 29,587 </li>
+                  <li>Low (1) = 1 - 19,099</li>
+                 </ul> 
+                </ul> 
+              </div> 
             <p style="color: grey"><i>Source: U.S. Census Bureau (2019)</i></p>
           </div>
           <!-- /.modal-body -->
@@ -1402,7 +1504,7 @@
     <!-- /.modal fade-->
 
     <!-- Legend Modal -->
-    <div class="modal" id="tLayers-Modal">
+    <div class="modal" id="baseLayers-Modal">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -1412,47 +1514,52 @@
             <ul class="a">
               <li>
                 Building Footprints - Indicates the shape and location of
-                buildings
+                buildings.
+                <p style="color: grey"><i>Sources:  OpenStreetMap Contributors, Mapbox.</i></p>
               </li>
               <li>Aerial Imagery @ Nearmap</li>
-              <li>Bus Stops</li>
-              <li>SEPTA and NJTRANSIT Bus Routes</li>
-              <li>
-                The Circuit Trails - An existing regional network of multi-use
-                trails in Pennsylvania and New Jersey.
+              <li>Bus Stops - SEPTA and NJT Transit Stop locations.
+              <p style="color: grey"><i>Source: SEPTA and NJTRANSIT.</i></p>
+              </li>
+              <li>SEPTA and NJTRANSIT Bus Routes - SEPTA and NJT Transit Routes.
+              <p style="color: grey"><i>Source: SEPTA and NJTRANSIT.</i></p>
               </li>
               <li>
-                On-Street Bike Network - DVRPC's inventory of on-road bicycle
-                facilities (bike lanes) of various kinds throughout the region.
-              </li>
-              <li>
+                Pedestrian Network includes both sidewalks and crosswalks.<br>
                 Sidewalks - The presence of paved pedestrian facilities, based
                 on aerial imagery from 2015 (NJ counties), 2017 (PA counties),
                 and 2018 (Philadelphia).
-              </li>
-              <li>
+                <br><br>
                 Crosswalks - Painted pedestrian crossings of various types,
                 based on aerial imagery from 2015 (NJ counties), 2017 (PA
                 counties), and 2018 (Philadelphia).
               </li>
               <li>
-                Level of Bicycle Traffic Stress 3+4 - streets that are higher
-                stress and typically less comfortable for bicycle riders, based
-                on DVRPC LTS analysis. LTS assignment is based on number of
-                traffic lanes, effective speed, and presence and type of bicycle
-                facility.
+                The Circuit Trails - Existing regional network of multi-use trails in Pennsylvania and New Jersey.
+                <p style="color: grey"><i>Source: DVRPC.</i></p>
               </li>
               <li>
-                Indicators of Potential Disadvantage (refer to info for legend)
-                - Developed by DVRPC for equity analyses. The IPD analysis
+                On-Street Bike Network - On-road bicycle facilities (bike lanes) of various kinds throughout the region.
+                <p style="color: grey"><i>Source: City of Philadelphia.</i></p>
+              </li>
+              <li>
+                Level of Bicycle Traffic Stress 3+4 - streets that are higher
+                stress and typically less comfortable for bicycle riders, based
+                on <a href="https://www.dvrpc.org/webmaps/bike-lts/" target="_new">DVRPC LTS analysis</a>. LTS assignment is based on number of traffic lanes, effective speed, and presence and type of bicycle facility.
+                <p style="color: grey"><i>Source: DVRPC.</i></p>
+              </li>
+              <li>
+                High Injury Network (City of Phila.) - Corridors in the City of
+                Philadelphia with the highest rates of fatalities and serious
+                injuries per mile, based on PennDOT data from 2014 through 2018.
+                <p style="color: grey"><i>Source: City of Philadelphia.</i></p>
+              </li>
+              <li>
+                Indicators of Potential Disadvantage - Developed by DVRPC for equity analyses. The IPD analysis
                 identifies populations of interest under Title VI and EJ using
                 U.S. Census American Community Survey (ACS) 2015-2019 five-year
                 estimates data.
-              </li>
-              <li>
-                City of Philadelphia Gun Violence (2016-2021) - Gun Violence
-                Victims in Philadelphia from The City of Philadelphia
-                Controller's Office.
+                <p style="color: grey"><i>Source: DVRPC.</i></p>
               </li>
               <li>
                 Essential Services - Inventoried by DVRPC's Equity Through
@@ -1462,41 +1569,36 @@
                 disabled.
               </li>
               <li>
-                Suburban Downtown Retail Districts (DVRPC) - An inventory of
-                suburban downtown retail districts created by DVRPC in 2013 and
-                updated in 2020.
+                Civic and Cultural Resources - An inventory of libraries, US Post Offices, municipal buildings (excluding maintenance facilities), museums, art galleries, botanical gardens, zoos.
+                <p style="color: grey"><i>Source: DVRPC.</i></p>
               </li>
               <li>
-                Walkable Commercial Corridors (City of Phila.) - A street type
+                City of Philadelphia Gun Violence (2016-2021) - Gun Violence
+                Victims in Philadelphia from The City of Philadelphia
+                Controller's Office.
+                <p style="color: grey"><i>Source: City of Philadelphia.</i></p>
+              </li>
+             
+              <li>
+                Suburban Downtown Retail Districts - An inventory of
+                suburban downtown retail districts created by DVRPC in 2013 and
+                updated in 2020.
+                <p style="color: grey"><i>Source: DVRPC.</i></p>
+              </li>
+              <li>
+                Walkable Commercial Corridors - A street type
                 defined and assigned in the 2012 Philadelphia Complete Streets
                 Design Handbook. These streets are active commercial corridors
                 with pedestrian-friendly physical development patterns.
+                <p style="color: grey"><i>Source: City of Philadelphia.</i></p>
               </li>
               <li>
-                High Injury Network (City of Phila.) - Corridors in the City of
-                Philadelphia with the highest rates of fatalities and serious
-                injuries per mile, based on PennDOT data from 2014 through 2018.
-              </li>
-              <li>
-                Parks and Open Space (DVRPC)- Includes federal, state, county
+                Parks and Open Space - Includes federal, state, county
                 and municipal parks (greater than 10 acres), arboretums, and
                 cemeteries.
+                <p style="color: grey"><i>Source: DVRPC.</i></p>
               </li>
             </ul>
-            <p>
-              <b>IPD</b>
-              <img
-                src="./img/ipd-legend.png"
-                alt="ipd"
-                class="legend-IPD"
-                id="ipd-legend"
-              />
-            </p>
-            <hr />
-            <br />
-            <p><b>LTS 3 + 4</b> - Hello yes.</p>
-            <p style="color: grey"><i>Source: DVRPC.</i></p>
-            <hr />
           </div>
           <!-- /.modal-body -->
         </div>

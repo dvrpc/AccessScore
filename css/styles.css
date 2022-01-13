@@ -1292,10 +1292,30 @@ input[type="checkbox"]:checked:after {
 #CAT1-Modal,
 #CAT2-Modal,
 #CAT3-Modal,
-#CAT4-Modal {
+#CAT4-Modal,
+#baseLayers-Modal {
   max-width: 800px !important;
   z-index: 1000 !important ;
 }
 .blocker {
   z-index: 10 !important;
 }
+.legendRange {
+  display: flex;
+}
+.legendRange-wrap {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  /* flex-wrap: wrap; */
+}
+.legendRange-inner {
+  display: inline-block;
+  border-style: solid;
+  border-width: 0;
+  border-color: transparent;
+}
+
+

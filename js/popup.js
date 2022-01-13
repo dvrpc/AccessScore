@@ -250,7 +250,7 @@ const wire_layer_hover = (map) => {
     new mapboxgl.Popup({ closeButton: false, closeOnClick: false })
       .setLngLat(currentFeature.geometry.coordinates)
       .setHTML(
-        `<h4 class="CIV">${currentFeature.properties.TRADENAME}</h4><p>&nbsp;&nbsp;Civic and Cultural<br>&nbsp;&nbsp;Resources</p>`
+        `<h4 class="CIV">${currentFeature.properties.Name}</h4><p>&nbsp;&nbsp;Civic and Cultural<br>&nbsp;&nbsp;Resources</p>`
       )
       .addTo(map);
   }

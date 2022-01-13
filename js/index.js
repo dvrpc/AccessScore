@@ -64,7 +64,9 @@ const legendBtn = document.getElementById("legend-items");
 // const legendContainer = legendBtn.nextElementSibling
 legendBtn.onclick = (e) => toggleLegend(e);
 const toggleLegend = (e) => {
-  const content = e.target.nextElementSibling;
+ //  const content = e.target.nextElementSibling;
+  const content = (document.getElementById("legend-group-1") || document.getElementById("legend-group-2"));
+ // const content = document.getElementById("legend-group-2");
   content.classList.toggle("legend-content-hide");
   $("#legend-icon").toggleClass("fa-angle-down fa-angle-up");
 };
