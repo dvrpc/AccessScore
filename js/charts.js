@@ -230,13 +230,13 @@ const handleStation = function (props, coordinates, map) {
     "</tr>" +
     "<tr class='dataTable-row'>" +
     "<td class='data-info2'>Zero Vehicle Households</td>" +
-    "<td class='data-value'>" +
+    "<td class='data-value2'>" +
     numeral(props.zvh_sm_a).format("(0,0)") +
     "</td>" +
-    "<td class='data-value'>" +
+    "<td class='data-value2'>" +
     numeral(props.zvh_sm_c).format("(0,0)") +
     "</td>" +
-    "<td class='data-value'>" +
+    "<td class='data-value2'>" +
     numeral(props.zvh_sm_w).format("(0,0)") +
     "</td>" +
     "</tr>" +
@@ -316,13 +316,13 @@ const handleStation = function (props, coordinates, map) {
     "</tr>" +
     "<tr class='dataTable-row'>" +
     "<td class='data-info2'>Transit Vehicle Volume</td>" +
-    "<td class='data-value'>" +
+    "<td class='data-value2'>" +
     numeral(props.tvv_va_a).format("(0,0)") +
     "</td>" +
-    "<td class='data-value'>" +
+    "<td class='data-value2'>" +
     numeral(props.tvv_va_c).format("(0,0)") +
     "</td>" +
-    "<td class='data-value'>" +
+    "<td class='data-value2'>" +
     numeral(props.tvv_va_w).format("(0,0)") +
     "</td>" +
     "</tr>" +
