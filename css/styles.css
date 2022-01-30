@@ -334,12 +334,13 @@ nav {
   display: none;
 }
 #stationSearchForm button:hover {
-  background: #fff01f !important;
+  background: #dcdcdc !important;
 }
 #search label {
   color: white;
 }
-#searchbox {
+#searchboxHome,
+#searchboxMap {
   padding: 12px 20px;
   border: 1px solid #0078ae;
   border-radius: 4px;
@@ -364,7 +365,7 @@ nav {
   width: 43%;
 }
 #exploreTheMap :hover {
-  background: #fff01f !important;
+  background: #dcdcdc !important;
 }
 #label-box-large {
   border-radius: 4px;
