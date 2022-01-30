@@ -112,6 +112,9 @@ hr {
   text-align: center;
   margin-bottom: 1rem;
 }
+.modal-body p {
+  margin: 0px 0px 10px 0px;
+}
 /* END Modal */
 
 /* Navbar */
@@ -1316,6 +1319,5 @@ input[type="checkbox"]:checked:after {
   border-style: solid;
   border-width: 0;
   border-color: transparent;
+  list-style-type: disc;
 }
-
-

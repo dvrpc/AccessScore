@@ -229,7 +229,7 @@ const handleStation = function (props, coordinates, map) {
     "</td>" +
     "</tr>" +
     "<tr class='dataTable-row'>" +
-    "<td class='data-info2'>Zero Vehicle Households</td>" +
+    "<td class='data-info2'>Zero-vehicle Households</td>" +
     "<td class='data-value2'>" +
     numeral(props.zvh_sm_a).format("(0,0)") +
     "</td>" +
@@ -590,7 +590,7 @@ const handleStation = function (props, coordinates, map) {
         categories: [
           "Indicators of Potential Disadvantage",
           "Population Density",
-          "Zero Vehicle Households",
+          "Zero-vehicle Households",
         ],
         tickColor: "transparent",
         lineColor: "transparent",

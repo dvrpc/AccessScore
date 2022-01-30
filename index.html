@@ -65,7 +65,7 @@
   <body>
     <nav class="flex-row flex-between">
       <div class="flex-row">
-        <a href="/" class="nav-links"
+        <a href="https://www.dvrpc.org" target="_new" class="nav-links"
           ><img
             src="./img/DVRPC-logo.png"
             alt="DVRPC logo"
@@ -223,7 +223,7 @@
           <div id="exploreWrapper">
             <div id="wrapperIntro">
               <details id="explore" class="sidebar-details" open>
-                <summary class="sidebar-summary">Explore</summary>
+                <summary class="sidebar-summary">How To</summary>
                 <small
                   ><i
                     >Clicking on a rail station will zoom in and display scoring
@@ -347,7 +347,14 @@
                 Compare a station's scores for all three scoring analysis methods
                 (AccessScore, CycleScore, and PedestrianScore). The scores are
                 the sum for each station's characteristic normalized to a 1 (low)
-                to 10 (high) scale.
+                to 10 (high) scale.  <a href="#scoreDefinitions" rel="modal:open"
+                ><i
+                  class="fa fa-info-circle"
+                  aria-hidden="true"
+                  data-toggle="tooltip"
+                  title="Score Definitions"
+                ></i
+              ></a>Scoring Definitions
               </p>
             </div>
             <div id="stationContent">
@@ -449,7 +456,9 @@
             </form>
             <div class="score" id="accessScore">
               <div class="info" id="chartsGroup">
-                <div id="charts">
+                <div id="charts"      
+                data-title="Scoring Bar Chart"
+                data-intro="View scores for each characteristic and the different scoring methods. Click on the scoring method name to show/hide bar for that method.">
                   <h3 class="chart-subheader" id="chartAS">
                     Station Area Land Use and Density
                     <a href="#CAT1-Modal" rel="modal:open" style="color: #fff"
@@ -570,7 +579,14 @@
         </div>
         <footer class="flex-column">
           <p>
-            AccessScore&nbsp;&nbsp;|&nbsp;&nbsp;<a
+            <a
+                href="https://www.dvrpc.org/Products/WEB19518"
+                target="_new"
+                class="hp-link"
+                aria-label="abstract"
+                style="color: white"
+                >Abstract</a
+              >&nbsp;&nbsp;|&nbsp;&nbsp;<a
               href="#disclaimer"
               aria-label="disclaimer"
               rel="modal:open"
@@ -848,23 +864,23 @@
           </div>
           <div id="legend-group-1">
             <span>station scoring</span>
-            <div id="legend-Item-Map" class="circle as-2"><p>1-2</p></div>
+            <div id="legend-Item-Map" class="circle as-2"><p>1-2 (low)</p></div>
             <div id="legend-Item-Map" class="circle as-3"><p>3</p></div>
             <div id="legend-Item-Map" class="circle as-4"><p>4</p></div>
             <div id="legend-Item-Map" class="circle as-5"><p>5</p></div>
             <div id="legend-Item-Map" class="circle as-6"><p>6</p></div>
             <div id="legend-Item-Map" class="circle as-7"><p>7</p></div>
-            <div id="legend-Item-Map" class="circle as-8"><p>8-10</p></div>
+            <div id="legend-Item-Map" class="circle as-8"><p>8-10 (high)</p></div>
           </div>
           <div id="legend-group-2">
             <span>station scoring</span>
-            <div id="legend-Item-Map" class="circle as-2"><p>1-2</p></div>
+            <div id="legend-Item-Map" class="circle as-2"><p>1-2(low)</p></div>
             <div id="legend-Item-Map" class="circle as-3"><p>3</p></div>
             <div id="legend-Item-Map" class="circle as-4"><p>4</p></div>
             <div id="legend-Item-Map" class="circle as-5"><p>5</p></div>
             <div id="legend-Item-Map" class="circle as-6"><p>6</p></div>
             <div id="legend-Item-Map" class="circle as-7"><p>7</p></div>
-            <div id="legend-Item-Map" class="circle as-8"><p>8-10</p></div>
+            <div id="legend-Item-Map" class="circle as-8"><p>8-10 (high)</p></div>
             <span>IPD Classifications</span>
             <div id="legend-Item-Map-IPD" class="ipd-5">
               <p>Well Above Average</p>
@@ -1005,7 +1021,7 @@
             <p>
               <b>Civic and Cultural Attractors</b> - Civic and cultural attractors include: libraries, US Post Offices, municipal buildings (excluding maintenance facilities), museums, art galleries, botanical gardens, and zoos.
             </p>
-            Scoring: Total number of civic and cultural attractors within 500 feet of scoring analysis catchment area. 
+            <p>Scoring: Total number of civic and cultural attractors within 500 feet of scoring analysis catchment area. 
             <div class="legendRange">  
               <ul class="legendRange-wrap"> 
                <ul class="legendRange-inner">
@@ -1034,14 +1050,15 @@
                </ul> 
               </ul> 
             </div>  
+            </p>
             <p style="color: grey">
               <i>Sources: NETS database (2015), National Center for Education Statistics (NCES), DVRPC.</i>
             </p>
-            <hr />
-            <br />
+            <hr/>
             <p>
               <b>Employees</b> - Total number of known employees, as identified in National Establishment Time-Series (NETS) data. Employees located near transit may be more likely to use transit; with incentives like proximity, lack of parking, and quality sidewalk and trail connections, that likelihood could increase as the density of employees increases near the station.
             </p>
+            <p>
               Scoring: Total number of employees within 500 feet of scoring analysis catchment area. 
               <div class="legendRange">  
                 <ul class="legendRange-wrap"> 
@@ -1071,17 +1088,18 @@
                  </ul> 
                 </ul> 
               </div>  
+            </p>
             <p style="color: grey">
               <i>Sources: NETS database (2015), DVRPC.</i>
             </p>
-            <hr />
-            <br />
+            <hr/>
             <p>
               <b>Essential Services</b> - Essential services are food stores,
               schools/colleges/universities, health facilities, and activity
               centers for seniors and the developmentally or physically
               disabled.
             </p>
+            <p>
               Scoring: Total number of essential servcies within 500 feet of scoring analysis catchment area. 
               <div class="legendRange">  
                 <ul class="legendRange-wrap"> 
@@ -1118,11 +1136,11 @@
               target="_new"
               >Equity Through Access Maptoolkit</a
             >.
+          </p>
             <p style="color: grey">
               <i>Sources: DVRPC, HRSA (2020), NCES (2017-2018), NETS (2015).</i>
             </p>
-            <hr />
-            <br />
+            <hr/>
             <p>
               <b>Parks and Open Space</b> - Transit stations have been evaluated
               for their proximity to outdoor destinations in the Greater
@@ -1132,6 +1150,7 @@
               station's proximity to any of these types of recreational bicycle
               and pedestrian destinations.
             </p>
+            <p>
             Scoring:
             <ul class="a">
               <li>High (5) = On/adjacent (within ¼ mile)</li>
@@ -1140,14 +1159,14 @@
               <li>Low-Medium (2)= 1 - 2 miles</li>
               <li>Low (1) = > 2 miles</li>
             </ul>
+          </p>
             <p style="color: grey">
               <i
                 >Sources: DVRPC, with feedback from the Bicycle Coalition of
                 Greater Philadelphia.</i
               >
             </p>
-            <hr />
-            <br />
+            <hr/>
             <p>
               <b>Walkable Retail Corridors and Centers</b> - This measure
               evaluates a transit station's proximity to a concentration of
@@ -1160,6 +1179,7 @@
               development. Taken together, these corridors and places make up
               some of the region's most notable destinations.
             </p>
+            <p>
             Scoring:
             <ul class="a">
               <li>High (5) = On/adjacent (within ¼ mile)</li>
@@ -1168,6 +1188,7 @@
               <li>Low-Medium (2)= 1 - 2 miles</li>
               <li>Low (1) = > 2 miles</li>
             </ul>
+          </p>
             <p style="color: grey">
               <i
                 >Sources: Philadelphia Department of Planning and Development,
@@ -1202,6 +1223,7 @@
               Minority, Ethnic Minority, Foreign-Born, Limited English
               Proficiency, Disabled, and Low-Income.
             </p>
+            <p>
             Scoring: IPD Overall Score.
             <ul class="a">
               <li>High (5) = well above average</li>
@@ -1215,11 +1237,11 @@
               target="_new"
               >Equity Analysis for the Greater Philadelphia Region</a
             >.
+          </p>
             <p style="color: grey">
               <i>Sources: U.S. Census Bureau (2019), DVRPC.</i>
             </p>
             <hr />
-            <br />
             <p>
               <b>Population Density</b> - Transit stations are rated on the
               concentration of residents - potential transit customers and
@@ -1227,6 +1249,7 @@
               population densities within station areas increase the potential
               for a transit customer base.
             </p>
+            <p>
             Scoring: Total persons within 500 feet of scoring analysis catchment area.
             <div class="legendRange">  
               <ul class="legendRange-wrap"> 
@@ -1256,14 +1279,15 @@
                </ul> 
               </ul> 
             </div> 
+          </p>
             <p style="color: grey"><i>Source: U.S. Census Bureau (2019).</i></p>
             <hr />
-            <br />
             <p>
-              <b>Zero Vehicle Households</b> - Families or individuals that do not own or have access to a
-              vehicle and use transit, walking, non-motorized modes, or ridesharing to make trips. Zero Vehicle Households uses tract-level ASC 2019.
+              <b>Zero-vehicle Households</b> - Families or individuals that do not own or have access to a
+              vehicle and use transit, walking, non-motorized modes, or ridesharing to make trips. Zero-vehicle Households uses tract-level ASC 2019.
             </p>
-              Scoring: Total number of zero vehicle households within 500 feet of scoring analysis catchment area.
+            <p>
+              Scoring: Total number of zero-vehicle households within 500 feet of scoring analysis catchment area.
               <div class="legendRange">  
                 <ul class="legendRange-wrap"> 
                  <ul class="legendRange-inner">
@@ -1292,6 +1316,7 @@
                  </ul> 
                 </ul> 
               </div> 
+            </p>
             <p style="color: grey"><i>Source: U.S. Census Bureau (2019).</i></p>
           </div>
           <!-- /.modal-body -->
@@ -1320,6 +1345,7 @@
               by someone else. Stations have been rated based on the percentage
               of non-parking passengers.
             </p>
+            <p>
             Scoring: Percent of non-parking passengers.
             <ul class="a">
               <li>High (5) = 40.14% - 100%</li>
@@ -1328,11 +1354,11 @@
               <li>Low-Medium (2) = 1.01% - 12.44%</li>
               <li>Low (1) = 1%</li>
             </ul>
+          </p>
             <p style="color: grey">
               <i>Sources: SEPTA, NJTRANSIT, PATCO, DVRPC.</i>
             </p>
             <hr />
-            <br />
             <p>
               <b>Percentage of Local Drivers</b> - This layer uses DVRPC's most
               recent license plate survey data for each station to determine the
@@ -1345,6 +1371,7 @@
                 DVRPC's Park and Ride Passenger Origins Webmap </a
               >.
             </p>
+            <p>
             Scoring: Total vehicles from 2 miles or less / total of count cars
             from survey year.
             <div class="legendRange">  
@@ -1375,9 +1402,9 @@
                </ul> 
               </ul> 
             </div> 
+           </p>
             <p style="color: grey"><i>Source: DVRPC (2020).</i></p>
             <hr />
-            <br />
             <p>
               <b>Transit Vehicle Volume</b> - Total number of buses and trains that serve the area at or around
               each station per day. The larger the volume of transit vehicles,
@@ -1387,6 +1414,7 @@
               scored on how many transit vehicles pass within 500 feet of the
               station in a twenty-four hour time period.
             </p>
+            <p>
             Scoring: Total transit vehicles within 24 hours.
             <ul class="a">
               <li>High (5) = 1,478 - 9,849</li>
@@ -1395,6 +1423,7 @@
               <li>Low-Medium (2) = 115 - 196</li>
               <li>Low (1) = 1 - 114</li>
             </ul>
+          </p>
             <p style="color: grey">
               <i>Sources: SEPTA, NJTRANSIT, PATCO, Google, DVRPC.</i>
             </p>
@@ -1426,21 +1455,23 @@
               sections, those sections that have been built and are open to the
               public, were included in this measure.
             </p>
-            <ul class="a">
+            <p>
               Scoring:
+            <ul class="a"> 
               <li>High (5) = On/adjacent (within ¼ mile)</li>
               <li>Medium-High (4) = ¼-1/2 mile</li>
               <li>Medium (3) = 1/2 mile - 1 mile</li>
               <li>Low-Medium (2)= 1 - 2 miles</li>
               <li>Low (1) = > 2 miles</li>
             </ul>
+          </p>
             <p style="color: grey"><i>Source: DVRPC.</i></p>
             <hr />
-            <br />
             <p>
               <b>Connectivity Score </b> - The connectivity of a place's street
               network that can be used to determine a community's walkability.
             </p>
+            <p>
               Scoring: Intersection density within 500 feet of scoring analysis catchment area.
               <div class="legendRange">  
                 <ul class="legendRange-wrap"> 
@@ -1470,12 +1501,13 @@
                  </ul> 
                 </ul> 
               </div> 
+            </p>
             <p style="color: grey"><i>Source: DVRPC.</i></p>
             <hr />
-            <br />
             <p>
               <b>Crashes</b> - The sum of KSI crashes within each catchment area. KSI crashes are vehicular crashes that resulted in death of severe injury, and specifically for a pedestrian or bicyclist are indicated.
             </p>
+            <p>
               Scoring: 2015-2019 KSI Crashes within 500 feet of scoring analysis catchment area.
               <div class="legendRange">  
                 <ul class="legendRange-wrap"> 
@@ -1510,9 +1542,9 @@
               target="_new"
               >DVRPC Crash Data Viewer</a
             >.
+          </p>
             <p style="color: grey"><i>Sources: PennDOT, NJDOT.</i></p>
             <hr />
-            <br />
             <p>
               <b>Low Stress Bicycle Shed</b> - This station characteristic shows
               the connected roadway segments (also known as LTS islands) that
@@ -1523,6 +1555,7 @@
               1+2 islands are placed into 5 categories and ranked shortest to
               longest.
             </p>
+            <p>
               Scoring: LTS Low-stress (1+2) islands sum of length in miles.
               <div class="legendRange">  
                 <ul class="legendRange-wrap"> 
@@ -1552,13 +1585,14 @@
                  </ul> 
                 </ul> 
               </div> 
+            </p>
             <p style="color: grey"><i>Source: DVRPC.</i></p>
             <hr />
-            <br />
             <p>
               <b>Sidewalk Network Shed</b> - This station characteristic shows
               sidewalk networks that abut stations. 
             </p>
+            <p>
           Scoring: Sum of sidewalk length in linear feet.
           <div class="legendRange">  
             <ul class="legendRange-wrap"> 
@@ -1588,6 +1622,7 @@
              </ul> 
             </ul> 
           </div> 
+        </p>
             <p style="color: grey"><i>Source: DVRPC.</i></p>
           </div>
           <!-- /.modal-body -->
@@ -1619,16 +1654,24 @@
               <li>SEPTA and NJTRANSIT Bus Routes - SEPTA and NJT Transit Routes.
               <p style="color: grey"><i>Source: SEPTA and NJTRANSIT.</i></p>
               </li>
-              <li>
+
+              <p>
                 Pedestrian Network includes both sidewalks and crosswalks.<br>
-                Sidewalks - The presence of paved pedestrian facilities, based
+                <ul>
+                <li>Sidewalks - The presence of paved pedestrian facilities, based
                 on aerial imagery from 2015 (NJ counties), 2017 (PA counties),
-                and 2018 (Philadelphia).
-                <br><br>
+                and 2018 (Philadelphia). 
+                <p style="color: grey"><i>Source: DVRPC.</i></p>
+               </li>
+                <li>
                 Crosswalks - Painted pedestrian crossings of various types,
                 based on aerial imagery from 2015 (NJ counties), 2017 (PA
                 counties), and 2018 (Philadelphia).
+                <p style="color: grey"><i>Source: DVRPC.</i></p>
               </li>
+              </ul>
+              </p>
+
               <li>
                 The Circuit Trails - Existing regional network of multi-use trails in Pennsylvania and New Jersey.
                 <p style="color: grey"><i>Source: DVRPC.</i></p>
@@ -1702,6 +1745,30 @@
       <!-- /.modal-dialog -->
     </div>
     <!-- /.modal fade-->
+
+
+ <!-- Legend Modal -->
+ <div class="modal" id="scoreDefinitions">
+  <div class="modal-dialog" style="width: 710px">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Scoring Definitions</h3>
+      </div>
+      <div class="modal-body">
+        <p>
+          <b>AccessScore:</b> Measures the demand for, and supply of, facilities for both walkers and people biking within two miles of the station. All categories are scored by what is present within that two mile catchment area.<br><br>
+          <b>PedestrianScore:</b>Uses the existing sidewalk network to create a boundary for scoring walkability near stations. It defines the catchment area as the distance that can be walked continuously on existing sidewalks up to one mile. All categories are scored by what is present within that catchment area. <br><br>
+          <b>CycleScore:</b>Uses DVRPC’s Bicycle Level of Traffic Stress (LTS) analysis to create a boundary for scoring bicycle demand and access to stations. It defines the catchment areas as the distance that can be cycled continuously on LTS 1 (comfortable for most every cyclist) and 2 (comfortable for most adult riders) road segments that abut the station, up to two miles. All categories are scored by what is present within that catchment area. 
+        </p>
+      </div>
+      <!-- /.modal-body -->
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal fade-->
+
     <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script> -->
     <script
       type="text/javascript"
