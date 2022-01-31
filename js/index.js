@@ -28,17 +28,6 @@ const searchForm = document.getElementById("search");
 const searchFormMap = document.getElementById("search2");
 var stationSearch = {};
 
-const sortObject = (data) => {
-  const sorted = Object.keys(data).sort().reduce(
-    (obj, key) => { 
-      obj[key] = data[key]; 
-      return obj;
-    }, 
-    {}
-  ); 
-  return sorted;
-}
-
 fetch(
   "https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/AccessScore/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=geojson"
 )
@@ -48,8 +37,6 @@ fetch(
     retail.features.forEach(function (geojsonrow) {
       stationSearch[geojsonrow.properties.station] = geojsonrow;
     });
-
-    stationSearch = sortObject(stationSearch);
   });
 // .then(data => console.log(data));
 //  console.log(stationSearch);
@@ -324,6 +311,7 @@ map.on("load", () => {
     const frag = document.createDocumentFragment();
 
     Object.keys(obj)
+      .sort()
       .forEach(function (el) {
         const option = document.createElement("option");
         option.value = el;
