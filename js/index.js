@@ -324,7 +324,6 @@ map.on("load", () => {
     const frag = document.createDocumentFragment();
 
     Object.keys(obj)
-      .sort((a, b) => a > b)
       .forEach(function (el) {
         const option = document.createElement("option");
         option.value = el;
