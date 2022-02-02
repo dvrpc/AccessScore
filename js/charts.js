@@ -288,7 +288,7 @@ const handleStation = function (props, coordinates, map) {
     "<th scope='col'>PedestrianScore</th>" +
     "</tr>" +
     "<tr class='dataTable-row'>" +
-    "<td class='data-info'>Non-Parking Boards</td>" +
+    "<td class='data-info'>Nonparking Boards</td>" +
     "<td class='data-value'>" +
     nonParkingBoards_AS +
     "</td>" +
@@ -678,7 +678,7 @@ const handleStation = function (props, coordinates, map) {
       },
       xAxis: {
         categories: [
-          "Non-Parking Boards",
+          "Nonparking Boards",
           "Percentage of Local Drivers",
           "Transit Vehicle Volume",
         ],
