@@ -29,16 +29,6 @@ select {
   background-color: black;
   box-shadow: 0px 0px 7px 0px #ffffffa1;
 }
-#btn-tour {
-  position: absolute;
-  right: 85px;
-  top: 15px;
-  z-index: 2 !important;
-  height: 60px;
-  width: 60px;
-  cursor: pointer;
-  display: none;
-}
 #btn-legend {
   position: absolute;
   left: 10px;
@@ -148,47 +138,47 @@ select {
   border-radius: 50px;
   margin: 5px;
 }
-.ipd-1{
+.ipd-1 {
   width: 15px;
   height: 15px;
   border-radius: 0px;
   margin: 5px;
   background: #ffffd9;
 }
-.ipd-2{
+.ipd-2 {
   width: 15px;
   height: 15px;
   border-radius: 0px;
   margin: 5px;
   background: #c7e9b4;
 }
-.ipd-3{
+.ipd-3 {
   width: 15px;
   height: 15px;
   border-radius: 0px;
   margin: 5px;
   background: #7fcdbb;
 }
-.ipd-4{
+.ipd-4 {
   width: 15px;
   height: 15px;
-  border-radius:0px;
+  border-radius: 0px;
   margin: 5px;
   background: #225ea8;
 }
-.ipd-5{
+.ipd-5 {
   width: 15px;
   height: 15px;
   border-radius: 0px;
   margin: 5px;
   background: #081d58;
 }
-.ipd-no{
+.ipd-no {
   width: 15px;
   height: 15px;
   border-radius: 0px;
   margin: 5px;
-  background: #6E6E6E;
+  background: #6e6e6e;
 }
 /* old css for OG legend Box */
 /* #legend-box-Item {

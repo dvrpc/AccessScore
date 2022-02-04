@@ -134,11 +134,11 @@ map.on("load", () => {
   });
 
   const showSidebar = function (e) {
-    $("#explore").prop("open", false);
+    // $("#explore").prop("open", false);
     $("#analysisWrapper").css("display", "flex");
     $("#scoreWrapper").css("display", "flex");
     $("#chartWrapper").css("display", "block");
-    $("#btn-tour").css("display", "block");
+    $("#btn-tour-bar").css("display", "block");
   };
   map.on("click", (e) => {
     // console.log(`A click event has occurred at ${e.lngLat}`);
