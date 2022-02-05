@@ -127,8 +127,7 @@
               AccessScore is a web map displaying an analysis that assesses the
               infrastructure and demographic characteristics around transit
               stations that relate to how supportive of bicycling and walking
-              the area is and how much bicycle and pedestrian activity there is
-              or could be. The analysis includes Regional Rail and heavy rail,
+              the area is and how much bicycle and pedestrian activity could be occuring there. The analysis includes Regional Rail and heavy rail,
               light rail, trolley, and subway stations throughout the
               Philadelphia region with service provided by SEPTA, NJ TRANSIT,
               and PATCO.
@@ -279,7 +278,7 @@
                     value="1"
                     checked
                   />
-                  <label id="label-box" class="AS" for="control_01">
+                  <label id="label-box-AS" class="AS" for="control_01">
                     AccessScore
                   </label>
                 </div>
@@ -299,7 +298,7 @@
                     name="select"
                     value="2"
                   />
-                  <label id="label-box" class="BS" for="control_02">
+                  <label id="label-box-BS" class="BS" for="control_02">
                     CycleScore
                   </label>
                 </div>
@@ -320,7 +319,7 @@
                     name="select"
                     value="3"
                   />
-                  <label id="label-box" class="WS" for="control_03">
+                  <label id="label-box-WS" class="WS" for="control_03">
                     PedestrianScore
                   </label>
                 </div>
@@ -937,7 +936,7 @@
             </p>
             <br />
             <p>
-              In addition to <b>AccessScore</b>, which measures the demand for
+              In addition to <b>AccessScore</b>, which measures the potential demand for
               and supply of facilities for both walkers and people biking, the
               project team developed a score focused on pedestrians and one
               focused solely on bicycle-friendliness.
@@ -1768,9 +1767,15 @@
       </div>
       <div class="modal-body">
         <p>
-          <b>AccessScore:</b> Measures the demand for, and supply of, facilities for both walkers and people biking within two miles of the station. All categories are scored by what is present within that two mile catchment area.<br><br>
+          <b>AccessScore:</b> Measures the potential demand for, and supply of, facilities for both walkers and people biking within two miles of the station. All categories are scored by what is present within that two mile catchment area.
+          <br>
+          Uses the existing roadway network to create a boundary for scoring infrastructure and demographic characteristics for all users within two miles of a station. All categories are scored by what is present within that catchment area.
+          <br><br>
           <b>PedestrianScore:</b>Uses the existing sidewalk network to create a boundary for scoring walkability near stations. It defines the catchment area as the distance that can be walked continuously on existing sidewalks up to one mile. All categories are scored by what is present within that catchment area. <br><br>
-          <b>CycleScore:</b>Uses DVRPC’s Bicycle Level of Traffic Stress (LTS) analysis to create a boundary for scoring bicycle demand and access to stations. It defines the catchment areas as the distance that can be cycled continuously on LTS 1 (comfortable for most every cyclist) and 2 (comfortable for most adult riders) road segments that abut the station, up to two miles. All categories are scored by what is present within that catchment area. 
+          <b>CycleScore:</b>Uses DVRPC’s Bicycle Level of Traffic Stress (LTS) analysis to create a boundary for scoring bicycle demand and access to stations. It defines the catchment areas as the distance that can be cycled continuously on LTS 1 (comfortable for most every cyclist) and 2 (comfortable for most adult riders) road segments that abut the station, up to two miles. All categories are scored by what is present within that catchment area. <br><br>
+          For more information, please contact Thom Stead <a class="one" href="mailto:tstead@dvrpc.org@dvrpc.org"
+          >tstead@dvrpc.org
+        </a>
         </p>
       </div>
       <!-- /.modal-body -->
