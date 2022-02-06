@@ -169,8 +169,14 @@ nav {
 }
 .tour-btn {
   margin: 5px 10px 0px 10px;
+  /* color: var(--theme-access-dark);
+  background-color: #dcdcdc; */
+  background: var(--theme-access-map) !important;
+  border: 2px solid #236e68 !important;
   color: var(--theme-access-dark);
-  background-color: #dcdcdc;
+}
+.tour-btn:hover {
+  background: #dcdcdc !important;
 }
 #btn-tour {
   position: absolute;
