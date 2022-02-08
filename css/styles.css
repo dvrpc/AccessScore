@@ -342,8 +342,9 @@ nav {
 }
 #stationSearchForm {
   display: block;
-  width: 43%;
-  margin: 10px auto 10px auto;
+  /* width: 40%; */
+  width: 340px;
+  margin: 10px 0px 10px 45px;
 }
 #stationSearchFormMap {
   display: none;
@@ -366,7 +367,7 @@ nav {
   padding: 8px 14px;
   text-align: center;
   box-shadow: 0px 3px 10px -2px rgba(48, 149, 140, 0.5);
-  width: 150px;
+  width: 100px;
   background: var(--theme-access-map) !important;
   border: 2px solid #236e68 !important;
   color: var(--theme-access-dark);
@@ -374,13 +375,11 @@ nav {
   font-weight: bold;
 }
 .searchOrExploreOR {
-  width: 4%;
+  /* width: 4%; */
+  width: 20px;
 }
 #search {
   margin: 0px 0px 0px -20px;
-}
-#exploreTheMap {
-  width: 43%;
 }
 #exploreTheMap :hover {
   background: #dcdcdc !important;
@@ -388,7 +387,7 @@ nav {
 #label-box-large {
   border-radius: 4px;
   padding: 8px 14px;
-  margin: 10px auto 10px auto;
+  margin: 10px auto 10px 25px;
   text-align: center;
   box-shadow: 0px 3px 10px -2px rgba(48, 149, 140, 0.5);
   position: relative;
@@ -463,6 +462,7 @@ details > p {
 }
 #exploreWrapper {
   margin: 5px 0px 15px 10px;
+  padding: 0px 10px 10px 0px;
   border-radius: 4px;
   border-color: #dadada;
   background: #fff;
@@ -477,6 +477,7 @@ details > p {
   display: flex;
   background-color: var(--theme-dark2);
   margin-left: -10px;
+  border-radius: 4px;
 }
 .infoIcon {
   display: inherit;
@@ -495,6 +496,7 @@ details > p {
 }
 #analysisWrapper {
   margin: 5px 0px 15px 10px;
+  padding: 0px 10px 10px 0px;
   border-radius: 4px;
   border-color: #dadada;
   background-color: #fff;
@@ -507,6 +509,7 @@ details > p {
 }
 #scoreWrapper {
   margin: 5px 0px 15px 10px;
+  padding: 0px 10px 10px 0px;
   border-radius: 4px;
   border-color: #dadada;
   background-color: #fff;
@@ -578,7 +581,7 @@ details > p {
   border-radius: 3px;
 }
 #wrapperIntro {
-  margin: 5px 0px 0px 10px;
+  margin: 15px 0px 0px 20px;
 }
 #stationScores {
   margin: 5px 5% 5px 5%;
@@ -753,9 +756,6 @@ details > p {
   overflow: hidden;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
   display: none;
-  /* justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: wrap; */
 }
 .highcharts-root {
   font-family: "Roboto", sans-serif !important;
