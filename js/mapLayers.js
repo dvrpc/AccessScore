@@ -1,5 +1,5 @@
 var bike_value = ["Bike Lane", "Protected Bike Lane", "Buffered Bike Lane"];
-
+var park_type = ["Municipal","State","County","Federal"];
 const catchment = {
   as_osm_limits: {
     id: "as_osm_limits",
@@ -604,6 +604,8 @@ const baselayerPolygons = {
       "fill-color": "rgba( 134, 195, 25,  0.5)",
     },
     layout: { visibility: "none" },
+    "source-layer": "open_space",
+    filter: ["match", ["get", "os_type"], park_type , true, false],
   },
 };
 

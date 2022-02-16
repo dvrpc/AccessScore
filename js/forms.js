@@ -10,7 +10,7 @@ const toggleLayers = (form, map) => {
     const visibility = e.target.checked ? "visible" : "none";
     const legendShow = e.target.checked ? "block" : "none";
     const legendHide = e.target.checked ? "none" : "block";
-    console.log(layer);
+    // console.log(layer);
     if (layer === "retail") {
       // alert("Hello! I am an alert box!!");
       map.setLayoutProperty("retail", "visibility", visibility);

@@ -95,8 +95,11 @@ const sources = {
     generateId: true, //
   },
   parks: {
-    type: "geojson",
-    data: "https://arcgis.dvrpc.org/portal/rest/services/Planning/DVRPC_ProtectedOpenSpace/FeatureServer/0/query?where=os_type+%3D+%27Municipal%27+or+os_type+%3D+%27State%27+or+os_type+%3D+%27County%27+or+os_type+%3D+%27Federal%27&outFields=*&outSR=4326&returnGeometry=true&f=geojson",
+    type: "vector",
+    url: "https://tiles.dvrpc.org/data/open-space.json",
+  //   type: "geojson",
+  //   data: "https://arcgis.dvrpc.org/portal/rest/services/Planning/DVRPC_ProtectedOpenSpace/FeatureServer/0/query?where=os_type+%3D+%27Municipal%27+or+os_type+%3D+%27State%27+or+os_type+%3D+%27County%27+or+os_type+%3D+%27Federal%27&outFields=*&outSR=4326&returnGeometry=true&f=geojson",
+  // 
   },
   retail: {
     type: "geojson",
