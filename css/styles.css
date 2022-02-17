@@ -35,6 +35,7 @@ hr {
   --theme-access-lite: #59aaa3;
   --theme-access-lite2: #eaf4f3;
   --theme-access-dark: #267770;
+  --theme-access-dark2: #164743;
   --theme-access-map: #50faec;
 
   --theme-accessO: #90d782;
@@ -173,7 +174,7 @@ nav {
   background-color: #dcdcdc; */
   background: var(--theme-access-map) !important;
   border: 2px solid #236e68 !important;
-  color: var(--theme-access-dark);
+  color: var(--theme-access-dark2);
 }
 .tour-btn:hover {
   background: #dcdcdc !important;
@@ -370,7 +371,7 @@ nav {
   width: 100px;
   background: var(--theme-access-map) !important;
   border: 2px solid #236e68 !important;
-  color: var(--theme-access-dark);
+  color: var(--theme-access-dark2);
   font-size: 1.17em;
   font-weight: bold;
 }
@@ -395,7 +396,7 @@ nav {
   width: 200px;
   background: var(--theme-access-map) !important;
   border: 2px solid #236e68 !important;
-  color: var(--theme-access-dark);
+  color: var(--theme-access-dark2);
 }
 .score-map {
   width: 98%;
