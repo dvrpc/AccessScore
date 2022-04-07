@@ -25,10 +25,8 @@ parkdistance as (
         dvrpc_id,
         st_distance(ra.shape, rpo.shape) as parkdis
     from
-        rs_osm_buffer_new ra,
+        rs_accessscorestations_new ra,
         rs_dvrpc_parks_and_openspace_2016 rpo
---    where 
---    	st_dwithin(ra.shape, rpo.shape, 5000)
 ),
 parkselect as (
     select
@@ -61,10 +59,8 @@ retaildistance as (
         dvrpc_id,
         st_distance(ra.shape, st_transform(rrd.shape, 26918)) as retaildis
     from
-        rs_osm_buffer_new ra,
+        rs_accessscorestations_new ra,
         rs_retail rrd
---    where 
---    	st_dwithin(ra.shape, st_transform(rrd.shape,26918), 5000)
 ),
 retailselect as (
     select
@@ -333,10 +329,10 @@ circuitdistance as (
         dvrpc_id,
         st_distance(ra.shape, rc.shape) as circuitdis
     from
-        rs_osm_buffer_new ra,
+        rs_accessscorestations_new ra,
         rs_circuittrail rc
---    where 
---    	st_dwithin(ra.shape, rc.shape, 5000) and rc.circuit in ('Existing','In Progress')
+    where 
+        rc.circuit in ('Existing','In Progress')
 ),
 circuitselect as (
     select
@@ -440,34 +436,34 @@ pedscore as (
 --join all tables, rename fields
 select
     ra.dvrpc_id, --station id
-    civic_cnt as CIV_SM_A, --total number of civic resources within 1/2 mile : NEEDS QUANTILE
+    civic_cnt as CIV_SM_A, --total number of civic resources within catchment area : NEEDS QUANTILE
     civic_score as CIV_SC_A, --civic resources quantile score
     park_score as POS_SC_A, --parks/open space < 1/4 mile (5), 1/4 to 1/2 mile (4), 1/2 to 1 mile (3), 1-2 miles (2), > 2miles (1) 
     retail_score as WRC_SC_A, --walkable retail < 1/4 mile (5), 1/4 to 1/2 mile (4), 1/2 to 1 mile (3), 1-2 miles (2), > 2miles (1) 
-    eta_cnt as ESS_SM_A, --total number of eta services within 1/2 mile : NEEDS QUANTILE
+    eta_cnt as ESS_SM_A, --total number of eta services within catchment area : NEEDS QUANTILE
     eta_score as ESS_SC_A, --eta quantile score
-    emp_sum as EMP_SM_A, --total employees (Nets 2015) within 1-mile of the station : NEEDS QUANTILE
+    emp_sum as EMP_SM_A, --total employees (Nets 2015) within catchment area : NEEDS QUANTILE
     employee_score as EMP_SC_A, --employee count quantile score
     ipd_score as IPD_SC_A, --IPD within 1 mile (max value) --n/a (0), well below average (1), below average (2), average (3), abover average (4), well above average (5) 
-    zerocar_sum as ZVH_SM_A, --Zero Vehicle Households (tract-level ASC 2019)  within 1-mile of the station : NEEDS QUANTILE
+    zerocar_sum as ZVH_SM_A, --Zero Vehicle Households (tract-level ASC 2019)  within catchment area : NEEDS QUANTILE
     zerocar_score as ZVH_SC_A, --Zero car quantile score
-    pop_sum as POP_SM_A, --Total Population (tract-level ASC 2019) within 1-mile of the station : NEEDS QUANTILE
+    pop_sum as POP_SM_A, --Total Population (tract-level ASC 2019) within catchment area : NEEDS QUANTILE
     pop_score as POP_SC_A, --Total population quantile score
-    surv_count, --Count of most recent license plates within 2 miles of station
+    surv_count, --Count of most recent license plates within catchment area
     tot_surv_count, --Total count of most recent license plate survey for station
     surv_calc as LPS_VA_A, --2 mile license count/Total Count 
     surv_score as LPS_SC_A, --Survey calculation quantile score
-    crash_tot, --Total 5 year crashes within 2 miles of station
-    ksi_tot as KSI_SM_A, --Total 5 year KSI crashes within 2 miles of station
+    crash_tot, --Total 5 year crashes within catchment area
+    ksi_tot as KSI_SM_A, --Total 5 year KSI crashes within catchment area
     ksi_score as KSI_SC_A, --Total 5 year KSI quantile score
-    ksi_bike_tot, --Total 5 year KSI bike crashes within 2 miles of station
-    ksi_ped_tot, --Total 5 year KSI pedestrian crashes within 2 miles of station
+    ksi_bike_tot, --Total 5 year KSI bike crashes within catchment area
+    ksi_ped_tot, --Total 5 year KSI pedestrian crashes within catchment area
     circuit_score as CIR_SC_A, --On/Adjacent within 1/4 mile (5) , <=1/2 (4), 1/2 to 1 mile (3), 1-2 miles (2), > 2miles (1) 
     inter_den as INT_VA_A, --total number of legs from intesection layer that is within 1 mile of station divided by area(acres)
     inter_score as INT_SC_A, --intersection density quantile score
-    lts_miles as LTS_VA_A, --miles of lts island in 2 mile buffer by station_id
+    lts_miles as LTS_VA_A, --miles of lts island in catchment area by station_id
     lts_score as LTS_SC_A, --lts quantile score
-    ped_miles as PED_VA_A, --miles of ped network in 2 mile buffer by station_id
+    ped_miles as PED_VA_A, --miles of ped network in catchment area by station_id
     ped_score as PED_SC_A --ped network quantile score
 from
     rs_osm_buffer ra
