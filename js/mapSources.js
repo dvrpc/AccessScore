@@ -81,7 +81,7 @@ const sources = {
   },
   circuit_trails: {
     type: "geojson",
-    data: "https://arcgis.dvrpc.org/portal/rest/services/Transportation/CircuitTrails/FeatureServer/0/query?where=circuit+%3D+%27Existing%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson",
+    data: "https://arcgis.dvrpc.org/portal/rest/services/Transportation/CircuitTrails/FeatureServer/0/query?where=circuit+%3D+%27Existing%27+or+circuit+%3D+%27In Progress%27&outFields=*&returnGeometry=true&geometryPrecision=8&outSR=4326&f=geojson",
     generateId: true, //
   },
   septa: {
