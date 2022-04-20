@@ -282,7 +282,7 @@ ksicrash as (
         rs_crash_data_2mi rcdm
     where
         st_intersects(ra.shape, st_transform(rcdm.shape, 26918)) 
-        and rcdm.max_severi in (1,2)
+        and rcdm.max_severi in (0,1)
     group by
         dvrpc_id
 ),
@@ -303,7 +303,7 @@ ksibikecrash as (
         rs_crash_data_2mi rcdm
     where
         st_intersects(ra.shape, st_transform(rcdm.shape, 26918))
-        and rcdm.max_severi in (1,2)
+        and rcdm.max_severi in (0,1)
         and rcdm.bicyclists > 0
     group by
         dvrpc_id
@@ -318,7 +318,7 @@ ksipedcrash as (
         rs_crash_data_2mi rcdm
     where
         st_intersects(ra.shape, st_transform(rcdm.shape, 26918))
-        and rcdm.max_severi in (1,2)
+        and rcdm.max_severi in (0,1)
         and rcdm.pedestrian > 0
     group by
         dvrpc_id
