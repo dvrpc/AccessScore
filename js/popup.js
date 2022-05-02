@@ -1,4 +1,6 @@
 // HOVER AccessScore
+
+
 const wire_layer_hover = (map) => {
   var stationID = null;
 
@@ -343,13 +345,7 @@ const wire_layer_hover = (map) => {
 
   map.on("mousemove", "IPD", function (e) {
     map.getCanvas().style.cursor = "pointer";
-    // console.log(e.features[0]);
-    // let latitude = e.lngLat.lat;
-    // let longitude = e.lngLat.lng;
     let coords = e.lngLat;
-    // console.log(latitude);
-    // console.log(coords);
-    // console.log("lng:" + longitude + ", lat:" + latitude);
     createPopUpIPD(e.features[0], coords);
   });
 
@@ -374,13 +370,7 @@ const wire_layer_hover = (map) => {
 
   map.on("mousemove", "IPDno", function (e) {
     map.getCanvas().style.cursor = "pointer";
-    // console.log(e.features[0]);
-    // let latitude = e.lngLat.lat;
-    // let longitude = e.lngLat.lng;
     let coords = e.lngLat;
-    // console.log(latitude);
-    // console.log(coords);
-    // console.log("lng:" + longitude + ", lat:" + latitude);
     createPopUpIPDno(e.features[0], coords);
   });
 
@@ -388,6 +378,52 @@ const wire_layer_hover = (map) => {
   map.on("mouseleave", "IPDno", function (e) {
     closePopUp();
   });
+
+  function createPopUpLandUse(layer, coords, props) {
+    let lookupLandUse15 = {
+      '01000':"Residential",
+      '03000': "Industrial",
+      '04000':"Chester",
+      '05000': "Delaware",
+      '06000': "Montgomery",
+      '07000': "Philadelphia",
+      '08000': "Burlington",
+      '09000': "Camden",
+      '10000': "Gloucester",
+      '11000': "Gloucester",
+      '12000': "Gloucester",
+      '13000': "Gloucester",
+      '14000': "Mercer"
+    };
+    
+   let landuse15_cat = lookupLandUse15[props];
+
+    const popUps = document.getElementsByClassName("mapboxgl-popup");
+    if (popUps[0]) popUps[0].remove();
+    // var popup = new mapboxgl.Popup({ closeOnClick: false })
+    new mapboxgl.Popup({ closeButton: false, closeOnClick: false })
+      //   .setLngLat(latitude,longitude)
+      .setLngLat(coords)
+      .setHTML("<h1>" + landuse15_cat + "</h1>")
+      .addTo(map);
+  }
+
+  map.on("mousemove", "landuse15", function (e) {
+    map.getCanvas().style.cursor = "pointer";
+ 
+    let coords = e.lngLat;
+    let layer = e.features[0];
+    let props = e.features[0].properties.lu15sub;
+    // console.log(e.features[0].properties.lu15sub);
+    createPopUpLandUse(layer, coords, props);
+  });
+
+  // change mouse tip upon leaving feature
+  map.on("mouseleave", "landuse15", function (e) {
+    closePopUp();
+  });
+
+
 };
 
 export { wire_layer_hover };

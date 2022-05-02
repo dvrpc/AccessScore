@@ -959,8 +959,13 @@ details > p {
   background: #434343 !important;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
-  /* border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px; */
+}
+
+.mapboxgl-popup-content .LandUse {
+  color: #fff;
+  background: #434343 !important;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
 }
 /* .BUS .mapboxgl-popup-content {
     background: #e0c063 !important;
