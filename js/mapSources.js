@@ -96,10 +96,26 @@ const sources = {
   },
   parks: {
     type: "vector",
-    url: "https://tiles.dvrpc.org/data/open-space.json",
-  //   type: "geojson",
-  //   data: "https://arcgis.dvrpc.org/portal/rest/services/Planning/DVRPC_ProtectedOpenSpace/FeatureServer/0/query?where=os_type+%3D+%27Municipal%27+or+os_type+%3D+%27State%27+or+os_type+%3D+%27County%27+or+os_type+%3D+%27Federal%27&outFields=*&outSR=4326&returnGeometry=true&f=geojson",
-  // 
+    url: "https://tiles.dvrpc.org/data/open-space.json"
+  },
+  landuse15: {
+    type: "vector",
+    url: "https://tiles.dvrpc.org/data/dvrpc-landuse-2015.json"
+  },
+  population: {
+    type: "geojson",
+    // returnIdsOnly
+    data: "https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/AccessScore/FeatureServer/11/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=geojson",
+  },
+  emp: {
+    type: "geojson",
+    // returnIdsOnly
+    data: "https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/AccessScore/FeatureServer/11/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=geojson",
+  },
+  car: {
+    type: "geojson",
+    // returnIdsOnly
+    data: "https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/AccessScore/FeatureServer/11/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=geojson",
   },
   retail: {
     type: "geojson",

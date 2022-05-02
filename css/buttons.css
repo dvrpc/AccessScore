@@ -52,7 +52,7 @@ select {
   position: absolute;
   left: 10px;
   top: 35px;
-  height: auto;
+  height: calc(80vh - 1px);
   width: 390px;
   padding: 5px;
   background-color: black;
@@ -60,6 +60,7 @@ select {
   border-radius: 5px;
   font-size: 14px;
   cursor: pointer;
+  overflow-y: auto;
 }
 #baselayers_group label {
   margin-left: 5px;

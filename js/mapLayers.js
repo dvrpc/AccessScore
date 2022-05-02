@@ -1,5 +1,33 @@
 var bike_value = ["Bike Lane", "Protected Bike Lane", "Buffered Bike Lane"];
 var park_type = ["Municipal","State","County","Federal"];
+
+let popColor = ['interpolate',['linear'],
+['get', 'u_tpopest'],
+40, '#DFEFFB',
+2659, '#A6CFE1',
+3565,'#4D9DC0',
+4415, '#0078AE',
+5585, '#004E76'
+]; 
+
+let empColor = ['interpolate',['linear'],
+['get', 'EMP15'],
+49, '#dadaeb',
+671, '#bcbddc',
+1043, '#9e9ac8',
+1673, '#756bb1',
+2829, '#54278f'
+]; 
+
+let carColor = ['interpolate',['linear'],
+['get', 'ZeroCarHH'],
+9, '#ffffd4',
+66, '#fed98e',
+87, '#fe9929',
+109, '#d95f0e',
+137, '#993404'
+]; 
+
 const catchment = {
   as_osm_limits: {
     id: "as_osm_limits",
@@ -606,6 +634,111 @@ const baselayerPolygons = {
     layout: { visibility: "none" },
     "source-layer": "open_space",
     filter: ["match", ["get", "os_type"], park_type , true, false],
+  },
+  population: {
+    id: "population",
+    type: "fill",
+    source: "population",
+    paint: {
+      "fill-color": popColor,
+      "fill-opacity": [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        9,
+        0.8,
+        11,
+        0.6
+      ]
+    },
+    layout: { visibility: "none" }
+  },
+  emp: {
+    id: "emp",
+    type: "fill",
+    source: "emp",
+    paint: {
+      "fill-color": empColor,
+      "fill-opacity": [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        9,
+        0.8,
+        11,
+        0.6
+      ]
+    },
+    layout: { visibility: "none" }
+  },
+  car: {
+    id: "car",
+    type: "fill",
+    source: "car",
+    paint: {
+      "fill-color": carColor,
+      "fill-opacity": [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        9,
+        0.8,
+        11,
+        0.6
+      ]
+    },
+    layout: { visibility: "none" }
+  },
+  landuse15: {
+    id: "landuse15",
+    type: "fill",
+    source: "landuse15",
+    "source-layer": "lu2015",
+    paint: {
+      "fill-color": [
+        "step",
+        ["to-number", ["get", "lu15sub"]],
+        "rgb(255, 255, 0)",
+        3000,
+        "rgb(194,158,215)",
+        4000,
+        "rgb(104,104,104)",
+        5000,
+        "rgb(255,190,190)",
+        6000,
+        "rgb(255,0,0)",
+        7000,
+        "rgb(190,232,255)",
+        8000,
+        "rgb(0,132,168)",
+        9000,
+        "rgb(230,230,0)",
+        10000,
+        "rgb(215,215,158)",
+        11000,
+        "rgb(168,0,0)",
+        12000,
+        "rgb(76,230,0)",
+        13000,
+        "rgb(0,197,255)",
+        14000,
+        "rgb(165,245,122)"
+      ],
+      "fill-opacity": [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        0,
+        1,
+        7,
+        0.9,
+        9,
+        0.6,
+        11,
+        0.35
+      ]
+    },
+    layout: { visibility: "none" },
   },
 };
 
