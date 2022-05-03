@@ -380,23 +380,36 @@ const wire_layer_hover = (map) => {
   });
 
   function createPopUpLandUse(layer, coords, props) {
-    let lookupLandUse15 = {
-      '01000':"Residential",
-      '03000': "Industrial",
-      '04000':"Chester",
-      '05000': "Delaware",
-      '06000': "Montgomery",
-      '07000': "Philadelphia",
-      '08000': "Burlington",
-      '09000': "Camden",
-      '10000': "Gloucester",
-      '11000': "Gloucester",
-      '12000': "Gloucester",
-      '13000': "Gloucester",
-      '14000': "Mercer"
-    };
+    let landuse15_cat;
+    if (props.substring(0, 3) === '010'){
+      landuse15_cat = "Residential"
+    } else if (props.substring(0, 3) === '030'){
+      landuse15_cat = "Industrial"
+    } else if (props.substring(0, 3) === '040'){
+      landuse15_cat = "Transportation"
+    } else if (props.substring(0, 3) === '050'){
+      landuse15_cat = "Utility"
+    } else if (props.substring(0, 3) === '060'){
+      landuse15_cat = "Commerical"
+    } else if (props.substring(0, 3) === '070'){
+      landuse15_cat = "Institutional"
+    } else if (props.substring(0, 3) === '080'){
+      landuse15_cat = "Military"
+    } else if (props.substring(0, 3) === '090'){
+      landuse15_cat = "Recreation"
+    } else if (props.substring(0, 3) === '100'){
+      landuse15_cat = "Agriculture"
+    } else if (props.substring(0, 3) === '110'){
+      landuse15_cat = "Mining"
+    } else if (props.substring(0, 3) === '120'){
+      landuse15_cat = "Wooded"
+    } else if (props.substring(0, 3) === '130'){
+      landuse15_cat = "Water"
+    } else if (props.substring(0, 3) === '140'){
+      landuse15_cat = "Undeveloped"
+    } else {landuse15_cat = "Unknown"}; 
     
-   let landuse15_cat = lookupLandUse15[props];
+   
 
     const popUps = document.getElementsByClassName("mapboxgl-popup");
     if (popUps[0]) popUps[0].remove();
@@ -404,7 +417,7 @@ const wire_layer_hover = (map) => {
     new mapboxgl.Popup({ closeButton: false, closeOnClick: false })
       //   .setLngLat(latitude,longitude)
       .setLngLat(coords)
-      .setHTML("<h1>" + landuse15_cat + "</h1>")
+      .setHTML("<h4 class='LandUse'>" + landuse15_cat + "</h4><p>&nbsp;&nbsp;DVRPC Land Use</p>")
       .addTo(map);
   }
 
@@ -420,6 +433,72 @@ const wire_layer_hover = (map) => {
 
   // change mouse tip upon leaving feature
   map.on("mouseleave", "landuse15", function (e) {
+    closePopUp();
+  });
+
+  function createPopUpCar(layer, coords, props) {
+    const popUps = document.getElementsByClassName("mapboxgl-popup");
+    if (popUps[0]) popUps[0].remove();
+    new mapboxgl.Popup({ closeButton: false, closeOnClick: false })
+      .setLngLat(coords)
+      .setHTML("<h4 class='Car'>Total Households<br> (per tract):<br>" + props.ZeroCarHH  + "</h4><p>&nbsp;&nbsp;Zero-vehcile Households</p>")
+      .addTo(map);
+  }
+
+  map.on("mousemove", "car", function (e) {
+    map.getCanvas().style.cursor = "pointer";
+    let coords = e.lngLat;
+    let layer = e.features[0];
+    let props = e.features[0].properties;
+    createPopUpCar(layer, coords, props);
+  });
+
+  // change mouse tip upon leaving feature
+  map.on("mouseleave", "car", function (e) {
+    closePopUp();
+  });
+
+  function createPopUpEmp(layer, coords, props) {
+    const popUps = document.getElementsByClassName("mapboxgl-popup");
+    if (popUps[0]) popUps[0].remove();
+    new mapboxgl.Popup({ closeButton: false, closeOnClick: false })
+      .setLngLat(coords)
+      .setHTML("<h4 class='Emp'>Total Employess<br> (per tract):<br>" + props.EMP15 + "</h4><p>&nbsp;&nbsp;Employees</p>")
+      .addTo(map);
+  }
+
+  map.on("mousemove", "emp", function (e) {
+    map.getCanvas().style.cursor = "pointer";
+    let coords = e.lngLat;
+    let layer = e.features[0];
+    let props = e.features[0].properties;
+    createPopUpEmp(layer, coords, props);
+  });
+
+  // change mouse tip upon leaving feature
+  map.on("mouseleave", "emp", function (e) {
+    closePopUp();
+  });
+
+  function createPopUpPop(layer, coords, props) {
+    const popUps = document.getElementsByClassName("mapboxgl-popup");
+    if (popUps[0]) popUps[0].remove();
+    new mapboxgl.Popup({ closeButton: false, closeOnClick: false })
+      .setLngLat(coords)
+      .setHTML("<h4 class='Pop'>Total Population<br> (per tract):<br>" + props.u_tpopest + "</h4><p>&nbsp;&nbsp;Population</p>")
+      .addTo(map);
+  }
+
+  map.on("mousemove", "population", function (e) {
+    map.getCanvas().style.cursor = "pointer";
+    let coords = e.lngLat;
+    let layer = e.features[0];
+    let props = e.features[0].properties;
+    createPopUpPop(layer, coords, props);
+  });
+
+  // change mouse tip upon leaving feature
+  map.on("mouseleave", "population", function (e) {
     closePopUp();
   });
 

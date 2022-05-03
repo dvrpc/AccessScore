@@ -41,6 +41,7 @@ const wire_mouse_hover = (map) => {
     "circuit_trails",
     "IPD",
     "IPDno",
+    "landuse15",
   ];
 
   layers.forEach((lyr) => wire_single_layer(map, lyr));
@@ -133,6 +134,16 @@ const wire_mouse_hover = (map) => {
 
   //change mouse tip upon leaving feature
   map.on("mouseleave", "IPDno", function (e) {
+    popup.remove();
+  });
+  map.on("mouseenter", "landuse15", function (e) {
+    // var props = e.features[0].properties;
+    var msg = "<h3>No Data</h3>";
+    popup.setLngLat(e.lngLat).setHTML(msg).addTo(map);
+  });
+
+  //change mouse tip upon leaving feature
+  map.on("mouseleave", "landuse15", function (e) {
     popup.remove();
   });
 };

@@ -963,10 +963,32 @@ details > p {
 
 .mapboxgl-popup-content .LandUse {
   color: #fff;
-  background: #434343 !important;
+  background: #1261A0 !important;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
 }
+
+.mapboxgl-popup-content .Car {
+  color: #fff;
+  background: #D18700 !important;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.mapboxgl-popup-content .Emp {
+  color: #fff;
+  background: #6C0BA9 !important;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.mapboxgl-popup-content .Pop {
+  color: #fff;
+  background: #0C2D48 !important;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
 /* .BUS .mapboxgl-popup-content {
     background: #e0c063 !important;
   }

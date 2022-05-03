@@ -712,7 +712,7 @@ const baselayerPolygons = {
         8000,
         "rgb(0,132,168)",
         9000,
-        "rgb(230,230,0)",
+        "rgb(165,230,0)",
         10000,
         "rgb(215,215,158)",
         11000,
@@ -722,7 +722,7 @@ const baselayerPolygons = {
         13000,
         "rgb(0,197,255)",
         14000,
-        "rgb(165,245,122)"
+        "rgb(206, 209, 176)"
       ],
       "fill-opacity": [
         "interpolate",
@@ -733,9 +733,9 @@ const baselayerPolygons = {
         7,
         0.9,
         9,
-        0.6,
+        0.7,
         11,
-        0.35
+        0.45
       ]
     },
     layout: { visibility: "none" },
