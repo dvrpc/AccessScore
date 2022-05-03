@@ -989,20 +989,6 @@ details > p {
   border-top-left-radius: 3px;
 }
 
-/* .BUS .mapboxgl-popup-content {
-    background: #e0c063 !important;
-  }
-  .BUS .mapboxgl-popup-anchor-top > .BUS .mapboxgl-popup-content {
-    background: #e0c063 !important;
-  }
-  .BUS .mapboxgl-popup-anchor-top > .BUS .mapboxgl-popup-tip {
-    border-bottom-color: #e0c063 !important;
-  }
-  .BUS .mapboxgl-popup-anchor-bottom > .BUS .mapboxgl-popup-tip {
-    border-top-color: #e0c063 !important;
-  }
-   */
-
 /* station popup */
 .mapboxgl-popup .station-popup .mapboxgl-popup-anchor-bottom {
   min-height: 60px;
@@ -1012,7 +998,6 @@ details > p {
   height: 15px;
   border-color: #fff;
 }
-
 .station-popup .mapboxgl-popup-tip {
   border-top-color: var(--theme-access2);
 }
