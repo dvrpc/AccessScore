@@ -3,6 +3,7 @@ import sources from "./mapSources.js";
 import { catchment, layers, baselayerPolygons, nearMap } from "./mapLayers.js";
 // import handleModal from './modal.js'
 import { toggleLayers } from "./forms.js";
+import handleLegend from './legend.js'
 import {
   togglerHome,
   togglerEAS,
@@ -20,9 +21,8 @@ import handleStation from "./charts.js";
 const toggleLayerForms = Array.from(
   document.querySelectorAll(".sidebar-form-toggle")
 );
-
+const legendContainer = document.getElementById('legend-container')
 // get additional elements here (forms, etc)
-
 // Search Functionality
 const searchForm = document.getElementById("search");
 const searchFormMap = document.getElementById("search2");

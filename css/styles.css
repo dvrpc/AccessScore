@@ -1344,3 +1344,169 @@ input[type="checkbox"]:checked:after {
   border-color: transparent;
   list-style-type: disc;
 }
+
+/* Legend Boxes */
+.legend-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+  background-color: #fff;
+  color: var(--theme-black);
+  z-index: 1;
+  padding: var(--padding);
+}
+.legend-title {
+  color: var(--theme-dvrpc-accent);
+  font-size: 1.125em;
+  font-weight: 500;
+  text-align: center;
+  border-bottom: 1px solid var(--theme-black);
+}
+.legend-item {
+  margin: 10px 0;
+  width: max-content;
+}
+.legend-item:last-child {
+  margin-bottom: 0;
+}
+.legend-icon-line {
+  display: block;
+  width: 2.5px;
+  height: 15px;
+  margin-right: 12.5px;
+  transform: rotate(90deg);
+  /* account for transform */
+  margin-left: 7.5px;
+}
+.legend-icon-circle {
+  display: block;
+  width: 15px;
+  height: 15px;
+  margin-right: 9px;
+  border-radius: 50%;
+}
+.legend-text {
+  font-size: 1em;
+}
+.legend {
+  width: 375px;
+}
+.legend label,
+.legend span {
+  display: block;
+  float: left;
+  height: 15px;
+  width: 14%;
+  text-align: right;
+  font-size: 11px;
+  color: #808080;
+}
+.legend-note{
+  font-size: 11px;
+}
+
+#legend-box-Item {
+  text-align: center;
+  margin-bottom: 5px;
+}
+#legend-Item {
+  text-align: center;
+}
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 0px;
+}
+.circle span {
+  margin-left: 25px;
+  display: block;
+  width: 70px;
+  text-align: left;
+}
+#legend-box1,
+#legend-box2 {
+  z-index: 1001;
+  padding: 8px;
+}
+/*Colors */
+.gb-1 {
+  background: #f0f9e8;
+}
+.gb-2 {
+  background: #ccebc5;
+}
+.gb-3 {
+  background: #a8ddb5;
+}
+.gb-4 {
+  background: #7bccc4;
+}
+.gb-5 {
+  background:#4eb3d3;
+}
+.gb-6 {
+  background: #2b8cbe;
+}
+.gb-7 {
+  background: #08589e;
+}
+.yor-1 {
+  background: #ffffb2;
+}
+.yor-2 {
+  background: #fed976;
+}
+.yor-3 {
+  background: #feb24c;
+}
+.yor-4 {
+  background: #fd8d3c;
+}
+.yor-5 {
+  background: #fc4e2a;
+}
+.yor-6 {
+  background: #e31a1c;
+}
+.yor-7 {
+  background: #b10026;
+}
+.brg-1 {
+  background: #8c510a;
+}
+.brg-2 {
+  background:#d8b365;
+}
+.brg-3 {
+  background: #f6e8c3;
+}
+.brg-4 {
+  background: #f5f5f5;
+}
+.brg-5 {
+  background: #c7eae5;
+}
+.brg-6 {
+  background: #5ab4ac;
+}
+.brg-7 {
+  background: #01665e;
+}
+.bl-1 {
+  background: #f1eef6;
+}
+.bl-2 {
+  background: #bdc9e1;
+}
+.bl-3 {
+  background: #74a9cf;
+}
+.bl-4 {
+  background: #2b8cbe;
+}
+.bl-5 {
+  background: #045a8d;
+}
+/* End Score Colors */

@@ -441,7 +441,7 @@ const wire_layer_hover = (map) => {
     if (popUps[0]) popUps[0].remove();
     new mapboxgl.Popup({ closeButton: false, closeOnClick: false })
       .setLngLat(coords)
-      .setHTML("<h4 class='Car'>Total Households<br> (per tract):<br>" + props.ZeroCarHH  + "</h4><p>&nbsp;&nbsp;Zero-vehcile Households</p>")
+      .setHTML("<h4 class='Car'>Total Households<br> (per tract):<br>" + props.ZeroCarHH  + "</h4><p>&nbsp;&nbsp;Zero-vehicle Households</p>")
       .addTo(map);
   }
 
