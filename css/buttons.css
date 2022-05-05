@@ -139,48 +139,6 @@ select {
   border-radius: 50px;
   margin: 5px;
 }
-.ipd-1 {
-  width: 15px;
-  height: 15px;
-  border-radius: 0px;
-  margin: 5px;
-  background: #ffffd9;
-}
-.ipd-2 {
-  width: 15px;
-  height: 15px;
-  border-radius: 0px;
-  margin: 5px;
-  background: #c7e9b4;
-}
-.ipd-3 {
-  width: 15px;
-  height: 15px;
-  border-radius: 0px;
-  margin: 5px;
-  background: #7fcdbb;
-}
-.ipd-4 {
-  width: 15px;
-  height: 15px;
-  border-radius: 0px;
-  margin: 5px;
-  background: #225ea8;
-}
-.ipd-5 {
-  width: 15px;
-  height: 15px;
-  border-radius: 0px;
-  margin: 5px;
-  background: #081d58;
-}
-.ipd-no {
-  width: 15px;
-  height: 15px;
-  border-radius: 0px;
-  margin: 5px;
-  background: #6e6e6e;
-}
 /* old css for OG legend Box */
 /* #legend-box-Item {
     text-align: center;

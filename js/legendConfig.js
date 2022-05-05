@@ -10,10 +10,10 @@
 
 */
 const legendConfig = {
-  "charging": {
+  "transit_stops": {
     legendType:"circle",
     iconType: "circle",
-    label: "Charging Locations",
+    label: "bus",
     color: "#c8ffaf",
   },
   "dvrpc-current": {

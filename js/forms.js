@@ -4,12 +4,15 @@ const processForm = (form) => {};
 // return layer to be toggled
 const toggleLayers = (form, map) => {
   // Add a custom event listener to the map
+  // let active = [];
 
   form.onchange = (e) => {
     const layer = e.target.value;
     const visibility = e.target.checked ? "visible" : "none";
     const legendShow = e.target.checked ? "block" : "none";
     const legendHide = e.target.checked ? "none" : "block";
+
+    // if (checked) active.push(layer);
     // console.log(layer);
     if (layer === "retail") {
       // alert("Hello! I am an alert box!!");
@@ -31,13 +34,18 @@ const toggleLayers = (form, map) => {
       map.setLayoutProperty(layer, "visibility", visibility);
     }
   };
+  // return active;
 };
 
-// return filter to be applied
-const filterLayers = (values) => {
-  // process data
-  // create filter
-  // return filter
-};
+// const handleForms = (type, toggles, map) => {
+//   switch (type) {
+//     case "#mylist":
+//       return toggleLayers(toggles, map);
+//      default:
+//        return toggleLayers(toggles, map);
+//   }
+// };
 
-export { toggleLayers, filterLayers };
+
+// export default handleForms;
+export default toggleLayers;

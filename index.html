@@ -596,7 +596,7 @@
             data-title="Toggle Base Layers"
             data-intro="Turn layers on and off to change whether they are viewable on the map."
           >
-            <form class="sidebar-form-toggle">
+            <form id="toggle-form" class="sidebar-form-toggle">
               <fieldset class="toggle-fieldset">
                 <div id="mylist">
                   Base Layers Information <a href="#baseLayers-Modal" rel="modal:open" style="color: #fff"
@@ -905,16 +905,16 @@
             <div id="legend-Item-Map" class="circle as-7"><p>7</p></div>
             <div id="legend-Item-Map" class="circle as-8"><p>8-10 (high)</p></div>
             <span>IPD Classifications</span>
-            <div id="legend-Item-Map-IPD" class="ipd-5">
+            <div id="legend-Item-Map-IPD" class="square ipd-5">
               <p>Well Above Average</p>
             </div>
-            <div id="legend-Item-Map-IPD" class="ipd-4"><p>Above Average</p></div>
-            <div id="legend-Item-Map-IPD" class="ipd-3"><p>Average</p></div>
-            <div id="legend-Item-Map-IPD" class="ipd-2"><p>Below Average</p></div>
-            <div id="legend-Item-Map-IPD" class="ipd-1">
+            <div id="legend-Item-Map-IPD" class="square ipd-4"><p>Above Average</p></div>
+            <div id="legend-Item-Map-IPD" class="square ipd-3"><p>Average</p></div>
+            <div id="legend-Item-Map-IPD" class="square ipd-2"><p>Below Average</p></div>
+            <div id="legend-Item-Map-IPD" class="square ipd-1">
               <p>Well Bell Average</p>
             </div>
-            <div id="legend-Item-Map" class="ipd-no"><p>No Data</p></div>
+            <div id="legend-Item-Map" class="square ipd-no"><p>No Data</p></div>
           </div>
         </div>
         <div class="legend-container">
@@ -1729,6 +1729,14 @@
                 U.S. Census American Community Survey (ACS) 2015-2019 five-year
                 estimates data.
                 <p style="color: grey"><i>Source: DVRPC.</i></p>
+                <div id="legend-box2">
+                  <span>IPD Classifications</span><br>
+                  <div id="baselayer-legend-item" class="rectangle ipd-5 "><br><span>Well Above Average</span></div>
+                  <div id="baselayer-legend-item" class="rectangle ipd-4 "><br><span>Above Average</span></div>
+                  <div id="baselayer-legend-item" class="rectangle ipd-3 "><br><span>Average</span></div>
+                  <div id="baselayer-legend-item" class="rectangle ipd-2"><br><span>Below Average</span></div>
+                  <div id="baselayer-legend-item" class="rectangle ipd-1 "><br><span>Well Below Average</span></div>
+                </div>
               </li>
               <li>
                 Essential Services - Inventoried by DVRPC's Equity Through
@@ -1770,11 +1778,40 @@
                 <p style="color: grey"><i>Source: DVRPC.</i></p>
               </li>
               <li>
-                DVRPC Land Use (2015) - 
+                DVRPC Land Use (2015) - The classification of land according to what activities take place on it or how it is being used; for example, agricultural, industrial, residential, rural, or commercial.
                 <p style="color: grey"><i>Source: DVRPC.</i></p>
+                <div id="legend-box3">
+                  <span>Land Use Classifications</span><br>
+                  <div id="baselayer-legend-item" class="rectangle lu-9 "><br><span>Agriculture</span></div>
+                  <div id="baselayer-legend-item" class="rectangle lu-5 "><br><span>Commercial</span></div>
+                  <div id="baselayer-legend-item" class="rectangle lu-2 "><br><span>Industrial</span></div>
+                  <div id="baselayer-legend-item" class="rectangle lu-6"><br><span>Institutional</span></div>
+                  <div id="baselayer-legend-item" class="rectangle lu-1 "><br><span>Residential</span></div>
+                </div>
+                <div id="legend-box3">
+                  <div id="baselayer-legend-item" class="rectangle lu-7 "><br><span>Military</span></div>
+                  <div id="baselayer-legend-item" class="rectangle lu-10 "><br><span>Mining</span></div>
+                  <div id="baselayer-legend-item" class="rectangle lu-8 "><br><span>Recreation</span></div>
+                  <div id="baselayer-legend-item" class="rectangle lu-3"><br><span>Transportation</span></div>
+                  <div id="baselayer-legend-item" class="rectangle lu-13 "><br><span>Undeveloped</span></div>
+                </div> 
+                <div id="legend-box2">
+                  <div id="baselayer-legend-item" class="rectangle lu-4 "><br><span>Utility</span></div>
+                  <div id="baselayer-legend-item" class="rectangle lu-11 "><br><span>Wooded</span></div>
+                  <div id="baselayer-legend-item" class="rectangle lu-12 "><br><span>Water</span></div>
+                  </div>
               </li>
               <li>
-                <p style="color: grey"><i>Source: U.S. Census Bureau, 2015-2019 ACS 5-Year Estimates.</i></p>
+                Employees - Total number of known employees per census tract.
+                <p style="color: grey"><i>Source: NETS (2015), U.S. Census Bureau, DVRPC.</i></p>
+                <div id="legend-box2">
+                  <span>Employees per Census Tract</span><br>
+                  <div id="baselayer-legend-item" class="rectangle emp-1 "><br><span>49 - 670</span></div>
+                  <div id="baselayer-legend-item" class="rectangle emp-2 "><br><span>671 - 1,042</span></div>
+                  <div id="baselayer-legend-item" class="rectangle emp-3 "><br><span>1,043 - 1,672</span></div>
+                  <div id="baselayer-legend-item" class="rectangle emp-4 "><br><span>1,673 - 2,828</span></div>
+                  <div id="baselayer-legend-item" class="rectangle emp-5 "><br><span>2,829 - 62,155</span></div>
+                </div>
               </li>
             </ul>
           </div>

@@ -699,30 +699,43 @@ const baselayerPolygons = {
         "step",
         ["to-number", ["get", "lu15sub"]],
         "rgb(255, 255, 0)",
+        // Residential
         3000,
         "rgb(194,158,215)",
+        // Industrial
         4000,
         "rgb(104,104,104)",
+        // Transportation
         5000,
         "rgb(255,190,190)",
+        // Utlity
         6000,
         "rgb(255,0,0)",
+        // Commercial
         7000,
         "rgb(190,232,255)",
+        //Institutional
         8000,
         "rgb(0,132,168)",
+        // Military
         9000,
         "rgb(165,230,0)",
+        //Recreation
         10000,
         "rgb(215,215,158)",
+        // Agriculture
         11000,
         "rgb(168,0,0)",
+        //Mining
         12000,
         "rgb(76,230,0)",
+        //Wooded
         13000,
         "rgb(0,197,255)",
+        //Water
         14000,
         "rgb(206, 209, 176)"
+        // Undeveloped
       ],
       "fill-opacity": [
         "interpolate",

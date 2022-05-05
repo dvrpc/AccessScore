@@ -1407,10 +1407,6 @@ input[type="checkbox"]:checked:after {
   font-size: 11px;
 }
 
-#legend-box-Item {
-  text-align: center;
-  margin-bottom: 5px;
-}
 #legend-Item {
   text-align: center;
 }
@@ -1428,85 +1424,104 @@ input[type="checkbox"]:checked:after {
 #legend-box1,
 #legend-box2 {
   z-index: 1001;
-  padding: 8px;
+  margin-bottom: 40px;
+}
+#legend-box3{
+  z-index: 1001;
+  margin-bottom: 20px;
+}
+#baselayer-legend-item {
+  text-align: center;
+  margin-bottom: 5px;
+  display: inline-block;
+  vertical-align: top;
+}
+.square {
+  width: 15px;
+  height: 15px;
+  border-radius: 0px;
+  margin: 5px;
+}
+.rectangle {
+  width: 130px;
+  height: 20px;
+  border-radius: 0px;
+}
+.rectangle span {
+  /* width: 170px;
+  float:right; */
 }
 /*Colors */
-.gb-1 {
-  background: #f0f9e8;
+.ipd-1 {
+  background: #ffffd9;
 }
-.gb-2 {
-  background: #ccebc5;
+.ipd-2 {
+  background: #c7e9b4;
 }
-.gb-3 {
-  background: #a8ddb5;
+.ipd-3 {
+  background: #7fcdbb;
 }
-.gb-4 {
-  background: #7bccc4;
+.ipd-4 {
+  background: #225ea8;
 }
-.gb-5 {
-  background:#4eb3d3;
+.ipd-5 {
+  background: #081d58;
 }
-.gb-6 {
-  background: #2b8cbe;
+.ipd-no {
+  background: #6e6e6e;
 }
-.gb-7 {
-  background: #08589e;
+.lu-1 {
+  background: rgba(255,255,0,1);
 }
-.yor-1 {
-  background: #ffffb2;
+.lu-2{
+  background: rgba(194,158,215,1);
 }
-.yor-2 {
-  background: #fed976;
+.lu-3 {
+  background: rgba(104,104,104,1);
 }
-.yor-3 {
-  background: #feb24c;
+.lu-4{
+  background: rgba(255,190,190,1);
 }
-.yor-4 {
-  background: #fd8d3c;
+.lu-5 {
+  background: rgba(255,0,0,1);
 }
-.yor-5 {
-  background: #fc4e2a;
+.lu-6{
+  background: rgba(190,232,255,1);
 }
-.yor-6 {
-  background: #e31a1c;
+.lu-7 {
+  background: rgba(0,132,168,1);
 }
-.yor-7 {
-  background: #b10026;
+.lu-8{
+  background: rgba(165,230,0,1);
 }
-.brg-1 {
-  background: #8c510a;
+.lu-9 {
+  background: rgba(215,215,158,1);
 }
-.brg-2 {
-  background:#d8b365;
+.lu-10{
+  background: rgba(168,0,0,1);
 }
-.brg-3 {
-  background: #f6e8c3;
+.lu-11 {
+  background: rgba(76,230,0,1);
 }
-.brg-4 {
-  background: #f5f5f5;
+.lu-12{
+  background: rgba(0,197,255,1);
 }
-.brg-5 {
-  background: #c7eae5;
+.lu-13{
+  background: rgba(206, 209, 176,1);
 }
-.brg-6 {
-  background: #5ab4ac;
+.emp-1{
+  background: #dadaeb;
 }
-.brg-7 {
-  background: #01665e;
+.emp-2{
+  background:  #bcbddc;
 }
-.bl-1 {
-  background: #f1eef6;
+.emp-3{
+  background:#9e9ac8;
 }
-.bl-2 {
-  background: #bdc9e1;
+.emp-4{
+  background: #756bb1;
 }
-.bl-3 {
-  background: #74a9cf;
-}
-.bl-4 {
-  background: #2b8cbe;
-}
-.bl-5 {
-  background: #045a8d;
+.emp-5{
+  background: #54278f;
 }
 /* End Score Colors */

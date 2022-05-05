@@ -2,7 +2,7 @@ import makeMap from "./map.js";
 import sources from "./mapSources.js";
 import { catchment, layers, baselayerPolygons, nearMap } from "./mapLayers.js";
 // import handleModal from './modal.js'
-import { toggleLayers } from "./forms.js";
+import toggleLayers from "./forms.js";
 import handleLegend from './legend.js'
 import {
   togglerHome,
@@ -21,7 +21,10 @@ import handleStation from "./charts.js";
 const toggleLayerForms = Array.from(
   document.querySelectorAll(".sidebar-form-toggle")
 );
-const legendContainer = document.getElementById('legend-container')
+// const legendContainer = document.getElementById('legend-container')
+// const toggleForm = document.getElementById('toggle-form')
+// const inputs = toggleForm.querySelectorAll('input')
+// const selects = toggleForm.querySelectorAll('#mylist')
 // get additional elements here (forms, etc)
 // Search Functionality
 const searchForm = document.getElementById("search");
@@ -122,7 +125,20 @@ map.on("load", () => {
     map.addLayer(nearMap[layer], "bridge-motorway-trunk-2");
 
   // Wire all checkbox layer toggles to an on-click event
+
+  // let activeSelects = handleForms('mylist', selects, map)
+  // let allActiveToggles = [... activeSelects]
+  // handleLegend(activeSelects, legendContainer)
+
   toggleLayerForms.forEach((form) => toggleLayers(form, map));
+
+//   toggleForm.onchange = () => {
+//     // activeInputs = handleForms('input', inputs, map)
+//     activeSelects = handleForms('mylist', selects, map)
+//     // allActiveToggles = [... activeSelects]
+
+//     handleLegend(activeSelects, legendContainer)
+// }
 
   // add map events here (click, mousemove, etc)
 
