@@ -441,7 +441,7 @@ const wire_layer_hover = (map) => {
     if (popUps[0]) popUps[0].remove();
     new mapboxgl.Popup({ closeButton: false, closeOnClick: false })
       .setLngLat(coords)
-      .setHTML("<h4 class='Car'>Total Households<br> (per tract):<br>" + props.ZeroCarHH  + "</h4><p>&nbsp;&nbsp;Zero-vehicle Households</p>")
+      .setHTML("<h4 class='Car'>Total Households<br> (per tract):<br>" + numeral(props.ZeroCarHH).format("(0,0)")  + "</h4><p>&nbsp;&nbsp;Zero-vehicle Households</p>")
       .addTo(map);
   }
 
@@ -463,7 +463,7 @@ const wire_layer_hover = (map) => {
     if (popUps[0]) popUps[0].remove();
     new mapboxgl.Popup({ closeButton: false, closeOnClick: false })
       .setLngLat(coords)
-      .setHTML("<h4 class='Emp'>Total Employess<br> (per tract):<br>" + props.EMP15 + "</h4><p>&nbsp;&nbsp;Employees</p>")
+      .setHTML("<h4 class='Emp'>Total Employess<br> (per tract):<br>" + numeral(props.EMP15).format("(0,0)") + "</h4><p>&nbsp;&nbsp;Employees</p>")
       .addTo(map);
   }
 
@@ -485,7 +485,7 @@ const wire_layer_hover = (map) => {
     if (popUps[0]) popUps[0].remove();
     new mapboxgl.Popup({ closeButton: false, closeOnClick: false })
       .setLngLat(coords)
-      .setHTML("<h4 class='Pop'>Total Population<br> (per tract):<br>" + props.u_tpopest + "</h4><p>&nbsp;&nbsp;Population</p>")
+      .setHTML("<h4 class='Pop'>Total Population<br> (per tract):<br>" + numeral(props.u_tpopest).format("(0,0)") + "</h4><p>&nbsp;&nbsp;Population</p>")
       .addTo(map);
   }
 
