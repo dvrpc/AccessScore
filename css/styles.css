@@ -1424,11 +1424,13 @@ input[type="checkbox"]:checked:after {
 #legend-box1,
 #legend-box2 {
   z-index: 1001;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  font-size: 13px;
 }
 #legend-box3{
   z-index: 1001;
   margin-bottom: 20px;
+  font-size: 13px;
 }
 #baselayer-legend-item {
   text-align: center;

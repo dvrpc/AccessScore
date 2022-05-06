@@ -599,14 +599,12 @@
             <form id="toggle-form" class="sidebar-form-toggle">
               <fieldset class="toggle-fieldset">
                 <div id="mylist">
-                  Base Layers Information <a href="#baseLayers-Modal" rel="modal:open" style="color: #fff"
-                  ><i
+                  Base Layers Information <a href="#baseLayers-Modal" rel="modal:open" style="color: #fff"><i
                     class="fa fa-info-circle"
                     aria-hidden="true"
                     data-toggle="tooltip"
                     title="Base Layer Info"
-                  ></i
-                ></a>
+                  ></i></a>
                   <ul>
                     <b><u>Scoring Catchment</u></b> 
                     <li>
@@ -793,7 +791,12 @@
                         <i>(2016-2021)</i>
                       </label>
                     </li>
-                    <b><u>Land Use and Demographics</u></b>
+                    <b><u>Land Use and Demographics</u></b><br> (view legends) <a href="#baseLayers-Modal" rel="modal:open" style="color: #fff"><i
+                      class="fa fa-info-circle"
+                      aria-hidden="true"
+                      data-toggle="tooltip"
+                      title="Base Layer Info"
+                    ></i></a>
                     <li>
                       <label>
                         <input
@@ -1669,62 +1672,62 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h3>Base Layers</h3>
+            <h3>Base Layers Information and Legends</h3>
           </div>
           <div class="modal-body">
             <ul class="a">
               <li>
-                Building Footprints - Indicates the shape and location of
+                <b>Building Footprints</b>  - Indicates the shape and location of
                 buildings.
-                <p style="color: grey"><i>Sources:  OpenStreetMap Contributors, Mapbox.</i></p>
+                <p style="color: grey;font-size:13px"><i>Sources:  OpenStreetMap Contributors, Mapbox.</i></p>
               </li>
-              <li>Aerial Imagery @ Nearmap</li>
-              <li>Bus Stops - SEPTA and NJT Transit Stop locations.
-              <p style="color: grey"><i>Source: SEPTA and NJTRANSIT.</i></p>
+              <li><b>Aerial Imagery</b>  @ Nearmap</li>
+              <li><b>Bus Stops</b>  - SEPTA and NJT Transit Stop locations.
+              <p style="color: grey;font-size:13px"><i>Source: SEPTA and NJTRANSIT.</i></p>
               </li>
-              <li>SEPTA and NJTRANSIT Bus Routes - SEPTA and NJT Transit Routes.
-              <p style="color: grey"><i>Source: SEPTA and NJTRANSIT.</i></p>
+              <li><b>SEPTA and NJTRANSIT Bus Routes</b>  - SEPTA and NJT Transit Routes.
+              <p style="color: grey;font-size:13px"><i>Source: SEPTA and NJTRANSIT.</i></p>
               </li>
 
               <p>
-                Pedestrian Network includes both sidewalks and crosswalks.<br>
+                <b>Pedestrian Network includes both sidewalks and crosswalks.</b> <br>
                 <ul>
-                <li>Sidewalks - The presence of paved pedestrian facilities, based
+                <li><b>Sidewalks</b>  - The presence of paved pedestrian facilities, based
                 on aerial imagery from 2015 (NJ counties), 2017 (PA counties),
                 and 2018 (Philadelphia). 
-                <p style="color: grey"><i>Source: DVRPC.</i></p>
+                <p style="color: grey;font-size:13px"><i>Source: DVRPC.</i></p>
                </li>
                 <li>
-                Crosswalks - Painted pedestrian crossings of various types,
+                  <b>Crosswalks</b>  - Painted pedestrian crossings of various types,
                 based on aerial imagery from 2015 (NJ counties), 2017 (PA
                 counties), and 2018 (Philadelphia).
-                <p style="color: grey"><i>Source: DVRPC.</i></p>
+                <p style="color: grey;font-size:13px"><i>Source: DVRPC.</i></p>
               </li>
               </ul>
               </p>
 
               <li>
-                The Circuit Trails - Existing and in progress regional network of multi-use trails in Pennsylvania and New Jersey.
-                <p style="color: grey"><i>Source: DVRPC.</i></p>
+                <b>The Circuit Trails</b>  - Existing and in progress regional network of multi-use trails in Pennsylvania and New Jersey.
+                <p style="color: grey;font-size:13px"><i>Source: DVRPC.</i></p>
               </li>
               <li>
-                On-Street Bike Network - On-road bicycle facilities (bike lanes) of various kinds throughout the region.
-                <p style="color: grey"><i>Source: City of Philadelphia.</i></p>
+                <b>On-Street Bike Network</b>  - On-road bicycle facilities (bike lanes) of various kinds throughout the region.
+                <p style="color: grey;font-size:13px"><i>Source: City of Philadelphia.</i></p>
               </li>
               <li>
-                Level of Bicycle Traffic Stress 3+4 - streets that are higher
+                <b>Level of Bicycle Traffic Stress 3+4</b>  - streets that are higher
                 stress and typically less comfortable for bicycle riders, based
                 on <a href="https://www.dvrpc.org/webmaps/bike-lts/" target="_new">DVRPC LTS analysis</a>. LTS assignment is based on number of traffic lanes, effective speed, and presence and type of bicycle facility.
-                <p style="color: grey"><i>Source: DVRPC.</i></p>
+                <p style="color: grey;font-size:13px"><i>Source: DVRPC.</i></p>
               </li>
               <li>
-                High Injury Network (City of Phila.) - Corridors in the City of
+                <b>High Injury Network (City of Phila.)</b>  - Corridors in the City of
                 Philadelphia with the highest rates of fatalities and serious
                 injuries per mile, based on PennDOT data from 2014 through 2018.
-                <p style="color: grey"><i>Source: City of Philadelphia.</i></p>
+                <p sstyle="color: grey;font-size:13px"><i>Source: City of Philadelphia.</i></p>
               </li>
               <li>
-                Indicators of Potential Disadvantage - Developed by DVRPC for equity analyses. The IPD analysis
+                <b>Indicators of Potential Disadvantage</b>  - Developed by DVRPC for equity analyses. The IPD analysis
                 identifies populations of interest under Title VI and EJ using
                 U.S. Census American Community Survey (ACS) 2015-2019 five-year
                 estimates data.
@@ -1737,49 +1740,49 @@
                   <div id="baselayer-legend-item" class="rectangle ipd-2"><br><span>Below Average</span></div>
                   <div id="baselayer-legend-item" class="rectangle ipd-1 "><br><span>Well Below Average</span></div>
                 </div>
-                <p style="color: grey"><i>Source: DVRPC.</i></p>
+                <p style="color: grey;font-size:13px"><i>Source: DVRPC.</i></p>
               </li>
               <li>
-                Essential Services - Inventoried by DVRPC's Equity Through
+                <b>Essential Services</b>  - Inventoried by DVRPC's Equity Through
                 Access project, essential services include food stores,
                 schools/colleges/universities, health facilities, and activity
                 centers for seniors and the developmentally or physically
                 disabled.
-                <p style="color: grey"><i>Sources: DVRPC, HRSA (2020), NCES (2017-2018), NETS (2015).</i></p>
+                <p sstyle="color: grey;font-size:13px"><i>Sources: DVRPC, HRSA (2020), NCES (2017-2018), NETS (2015).</i></p>
               </li>
 
               <li>
-                Civic and Cultural Resources - An inventory of libraries, US Post Offices, municipal buildings (excluding maintenance facilities), museums, art galleries, botanical gardens, zoos.
-                <p style="color: grey"><i>Sources: NETS (2015), DVRPC.</i></p>
+                <b>Civic and Cultural Resources</b>  - An inventory of libraries, US Post Offices, municipal buildings (excluding maintenance facilities), museums, art galleries, botanical gardens, zoos.
+                <p style="color: grey;font-size:13px"><i>Sources: NETS (2015), DVRPC.</i></p>
               </li>
               <li>
-                City of Philadelphia Gun Violence (2016-2021) - Gun Violence
+                <b>City of Philadelphia Gun Violence (2016-2021)</b>  - Gun Violence
                 Victims in Philadelphia from The City of Philadelphia
                 Controller's Office.
-                <p style="color: grey"><i>Source: City of Philadelphia.</i></p>
+                <p style="color: grey;font-size:13px"><i>Source: City of Philadelphia.</i></p>
               </li>
              
               <li>
-                Suburban Downtown Retail Districts - An inventory of
+                <b>Suburban Downtown Retail Districts</b>  - An inventory of
                 suburban downtown retail districts created by DVRPC in 2013 and
                 updated in 2020.
-                <p style="color: grey"><i>Source: DVRPC.</i></p>
+                <p style="color: grey;font-size:13px"><i>Source: DVRPC.</i></p>
               </li>
               <li>
-                Walkable Commercial Corridors - A street type
+                <b>Walkable Commercial Corridors</b>  - A street type
                 defined and assigned in the 2012 Philadelphia Complete Streets
                 Design Handbook. These streets are active commercial corridors
                 with pedestrian-friendly physical development patterns.
-                <p style="color: grey"><i>Source: City of Philadelphia.</i></p>
+                <p style="color: grey;font-size:13px"><i>Source: City of Philadelphia.</i></p>
               </li>
               <li>
-                Parks and Open Space - Includes federal, state, county
+                <b>Parks and Open Space</b>  - Includes federal, state, county
                 and municipal parks (greater than 10 acres), arboretums, and
                 cemeteries.
-                <p style="color: grey"><i>Source: DVRPC.</i></p>
+                <p style="color: grey;font-size:13px"><i>Source: DVRPC.</i></p>
               </li>
               <li>
-                DVRPC Land Use (2015) - The classification of land according to what activities take place on it or how it is being used; for example, agricultural, industrial, residential, rural, or commercial.
+                <b>DVRPC Land Use (2015)</b> - The classification of land according to what activities take place on it or how it is being used; for example, agricultural, industrial, residential, rural, or commercial.
             
                 <div id="legend-box3">
                   <span>Land Use Classifications</span><br>
@@ -1801,10 +1804,10 @@
                   <div id="baselayer-legend-item" class="rectangle lu-11 "><br><span>Wooded</span></div>
                   <div id="baselayer-legend-item" class="rectangle lu-12 "><br><span>Water</span></div>
                   </div>
-                  <p style="color: grey"><i>Source: DVRPC.</i></p>
+                  <p style="color: grey;font-size:13px"><i>Source: DVRPC.</i></p>
               </li>
               <li>
-                Employees - Total number of known employees per census tract.
+                <b>Employees</b> - Total number of known employees per census tract.
             
                 <div id="legend-box2">
                   <span>Employees per Census Tract</span><br>
@@ -1814,10 +1817,10 @@
                   <div id="baselayer-legend-item" class="rectangle emp-4 "><br><span>1,673 - 2,828</span></div>
                   <div id="baselayer-legend-item" class="rectangle emp-5 "><br><span>2,829 - 62,155</span></div>
                 </div>
-                <p style="color: grey"><i>Sources: NETS (2015), U.S. Census Bureau, DVRPC.</i></p>
+                <p style="color: grey;font-size:13px"><i>Sources: NETS (2015), U.S. Census Bureau, DVRPC.</i></p>
               </li>
               <li>
-                Population - Total number of known persons per census tract.
+                <b>Population</b> - Total number of known persons per census tract.
                <div id="legend-box2">
                   <span>Persons per Census Tract</span><br>
                   <div id="baselayer-legend-item" class="rectangle pop-1 "><br><span>40 - 2,659</span></div>
@@ -1826,11 +1829,11 @@
                   <div id="baselayer-legend-item" class="rectangle pop-4 "><br><span>4,416 - 5,585</span></div>
                   <div id="baselayer-legend-item" class="rectangle pop-5 "><br><span>5,586 - 12,549</span></div>
                 </div>
-                <p style="color: grey"><i>Source: U.S. Census Bureau, 2015-2019 ACS 5-Year Estimates.</i></p>
+                <p style="color: grey;font-size:13px"><i>Source: U.S. Census Bureau, 2015-2019 ACS 5-Year Estimates.</i></p>
              
               </li>
               <li>
-                Zero-vehicle Households - Total number of households per census tract that do not own or have access to a vehicle.
+                <b>Zero-vehicle Households</b> - Total number of households per census tract that do not own or have access to a vehicle.
                 <div id="legend-box2">
                   <span>Households per Census Tract</span><br>
                   <div id="baselayer-legend-item" class="rectangle car-1 "><br><span>9 - 65</span></div>
@@ -1839,7 +1842,7 @@
                   <div id="baselayer-legend-item" class="rectangle car-4 "><br><span>109 - 136</span></div>
                   <div id="baselayer-legend-item" class="rectangle car-5 "><br><span>137 - 406</span></div>
                 </div>
-                <p style="color: grey"><i>Source: U.S. Census Bureau, 2015-2019 ACS 5-Year Estimates.</i></p>
+                <p style="color: grey;font-size:13px"><i>Source: U.S. Census Bureau, 2015-2019 ACS 5-Year Estimates.</i></p>
             
               </li>
             </ul>
