@@ -1524,4 +1524,35 @@ input[type="checkbox"]:checked:after {
 .emp-5{
   background: #54278f;
 }
+.pop-1{
+  background: #DFEFFB;
+}
+.pop-2{
+  background:   #A6CFE1;
+}
+.pop-3{
+  background:#4D9DC0;
+}
+.pop-4{
+  background:  #0078AE;
+}
+.pop-5{
+  background: #004E76;
+}
+.car-1{
+  background:#ffffd4;
+}
+.car-2{
+  background:#fed98e;
+}
+.car-3{
+  background:#fe9929;
+}
+.car-4{
+  background:#d95f0e;
+}
+.car-5{
+  background: #993404;
+}
+
 /* End Score Colors */
